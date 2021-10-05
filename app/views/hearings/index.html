@@ -1,0 +1,182 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Prototypes</span>
+        <h1 class="govuk-heading-xl">Hearings management</h1>
+
+        <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+            <div class="govuk-accordion__section ">
+                <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                    <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                      Iteration 3
+                    </span>
+                    </h2>
+                    <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-1">
+                        October 2021
+                    </div>
+                </div>
+                <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                    <a href="pages/iteration3/index" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+                        Start prototype
+                        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+                            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+                        </svg></a>
+<!--                    <p class='govuk-body'><span class="govuk-!-font-weight-bold">Date:</span> October 2021</p>-->
+                    <p class='govuk-body govuk-!-font-weight-bold'>Changelog:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>
+                            Language and content for ET and IAC
+                        </li>
+                        <li>
+                            Hearings tab changes to include ListAssist/listing states
+                        </li>
+                        <li>
+                            Changes to journey order
+                        </li>
+                        <li>
+                            Channel changes to include 'hybrid hearing' question
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="govuk-accordion__section ">
+                <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                    <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                      Iteration 2
+                    </span>
+                    </h2>
+                    <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-1">
+                        Summer 2021
+                    </div>
+                </div>
+                <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+                    <p><span class="govuk-!-font-weight-bold"> Starting states </span>
+                        <br>Links open in a new tab.</p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/first">No hearings / Request first hearing</a></p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/firstalt">No hearings / Request first hearing - Starting from check answers</a></p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/third">2 hearings / Request a 3rd hearing</a></p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/after10mins">10 mins after submission</a></p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/aftermonth">After a month after submission</a></p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/aftersubmission">After submission</a></p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/all">Show all states</a></p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/pages/confirmation?confimationerror=true&">Error on submission</a></p>
+
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+
+
+                    <p><span class="govuk-!-font-weight-bold"> Links to each page  </span>
+                        <br>Some pages have a dropdown in the footer to toggle states</p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/pages/casedetailsdivorce">Hearings tab</a></p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/pages/startrequest">General case and hearing details</a></p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/pages/partiyrequirements">Party requirements</a></p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/pages/channel">Hearing channel</a></p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/pages/venuedefault">Venue</a></p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/pages/region">Change venue - region</a>&nbsp;&nbsp; (optional path)</p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/pages/venue?regionselection=Wales&">Change venue - Venues</a>&nbsp;&nbsp; (optional path)</p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/pages/panel">New or exisiting panel</a>&nbsp;&nbsp;  (Conditional on this not being a first hearing)</p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/pages/paneldifferent">New panel</a></p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/pages/timing">Length and dates</a></p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/pages/language">Welsh</a>&nbsp;&nbsp; (Probably should be conditional on Welsh region)</p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/pages/checkyouranswers">Check your answers</a>&nbsp;&nbsp; (Probably should be conditional on Welsh region)</p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/pages/confirmchangesubmission">Confirm resubmission</a>&nbsp;&nbsp; (Conditional on editing a submitted request)</p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/pages/confirmation">Confirmation</a>&nbsp;&nbsp; </p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/pages/confirmcancel">Confirm 'Cancel' of a requested hearing</a>&nbsp;&nbsp; </p>
+
+
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+
+
+                    <p><span class="govuk-!-font-weight-bold">Judges view</span>
+                        <br>Links open in a new tab.</p>
+
+                    <p><a target="_blank" href="https://xui-prototype.herokuapp.com/hearings/judgesview">Hearings tab</a></p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!--
+
+        <p>Solicitor<br>
+            <a href="solicitor/caselist">Case list</a><br>
+        </p>
+
+        <br>
+
+        <p>Email - To solicitor who is being replaced<br>
+            <a href="">They are now off record</a><br>
+        </p>
+
+        <p>Email - To solicitor who took themselves off record<br>
+            <a href="">They are now off record</a><br>
+        </p>
+
+        <br>
+        <br>
+
+        <p><span class="govuk-!-font-weight-bold">Blocked by details froms services</span><br>
+            Email - After caseworker approval<br>
+            <a href="">Rejected</a><br>
+            <a href="">Approved</a><br>
+        </p>
+
+        <p><span class="govuk-!-font-weight-bold">Blocked by business</span><br>
+            Email - Citizen - After solicitor stop representing <br>
+             <a href="">Already registered with IDAM</a><br>
+             <a href="">Not registered with IDAM</a><br>
+             <a href="">When case goes to paper</a>
+        </p>
+
+        -->
+
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}
