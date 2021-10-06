@@ -1,0 +1,602 @@
+{% extends "../../layout-xui.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Request a hearing for Jane Smith and Asda Plc</span>
+        <h1 class="govuk-heading-l">
+            Select duration and date of hearing
+        </h1>
+
+        <form class="form" action="hearing-checkyouranswers" method="post">
+
+        {% if data.calendarclash == 'true' %}
+            <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+                <h2 class="govuk-error-summary__title" id="error-summary-title">
+                    There is a problem
+                </h2>
+                <div class="govuk-error-summary__body">
+                    <ul class="govuk-list govuk-error-summary__list">
+                        <li>
+                            <a href="#datesnotavailable">One or more parties are unavailable on the date selected. </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+
+            <div class="govuk-radios govuk-!-padding-bottom-1" id="othertime">
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            <h1 class="govuk-fieldset__heading">
+                                Length of hearing
+
+                            </h1>
+                        </legend>
+                        <div class="govuk-date-input" id="passport-issued">
+                            <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                                        Hours
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="durationhours" name="durationhours" type="text" pattern="[0-9]*" inputmode="numeric" ></div>
+                            </div>
+                            <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                                        Minutes
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="durationmins" name="durationmins" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </div>
+            </div>
+
+
+                            <!--
+                            <div class="govuk-form-group govuk-!-margin-top-5">
+                                <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+                                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                        <h3 class="govuk-fieldset__heading">
+                                            Select a time (optional)
+                                        </h3>
+                                    </legend>
+                                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+
+                                        <div class="govuk-radios__item">
+                                            <input class="govuk-radios__input" id="ampm-2" name="ampm" type="radio" value="Morning only (9am to 11.59am)"   >
+                                            <label class="govuk-label govuk-radios__label" for="ampm-2">
+                                                Morning only (9am to 11.59am)
+                                            </label>
+                                        </div>
+
+                                        <div class="govuk-radios__item">
+                                            <input class="govuk-radios__input" id="ampm-3" name="ampm" type="radio" value="Afternoon only (12pm to 5pm)"   >
+                                            <label class="govuk-label govuk-radios__label" for="ampm-3">
+                                                Afternoon only (12pm to 5pm)
+                                            </label>
+                                        </div>
+
+                                        <div class="govuk-radios__item">
+                                            <input class="govuk-radios__input" id="ampm-1" name="ampm" type="radio" value="Morning or afternoon (9am to 5pm)" checked>
+                                            <label class="govuk-label govuk-radios__label" for="ampm-1">
+                                                Morning or afternoon (9am to 5pm)
+                                            </label>
+                                        </div>
+
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                            -->
+
+
+<!--                            <div class="govuk-form-group govuk-!-margin-top-5">-->
+<!--                                <fieldset class="govuk-fieldset" aria-describedby="contact-hint">-->
+<!--                                    <legend class="govuk-fieldset__legend govuk-fieldset__legend&#45;&#45;s">-->
+<!--                                        <h3 class="govuk-fieldset__heading">-->
+<!--                                            Select length of hearing (optional)-->
+<!--                                        </h3>-->
+<!--                                    </legend>-->
+<!--                                    <div class="govuk-radios govuk-radios&#45;&#45;conditional" data-module="govuk-radios">-->
+
+                                        <!--
+                                        <div class="govuk-radios__item">
+                                            <input class="govuk-radios__input" id="duration1" name="durationradios" type="radio" value="15 minutes" onclick="hideothertime()">
+                                            <label class="govuk-label govuk-radios__label" for="duration1"  onclick="hideothertime()">
+                                                15 minutes
+                                            </label>
+                                        </div>
+                                        -->
+
+<!--                                        <div class="govuk-radios__item">-->
+<!--                                            <input class="govuk-radios__input" id="duration2" name="durationradios" type="radio" value="45 minutes"  onclick="hideothertime()"  {% if data.durationradios == '45 minutes' %}  Checked {% endif %} >-->
+<!--                                            <label class="govuk-label govuk-radios__label" for="duration2" onclick="hideothertime()">-->
+<!--                                                45 minutes-->
+<!--                                            </label>-->
+<!--                                        </div>-->
+
+                                        <!--
+                                        <div class="govuk-radios__item">
+                                            <input class="govuk-radios__input" id="duration3" name="durationradios" type="radio" value="1 hour"   onclick="hideothertime()" >
+                                            <label class="govuk-label govuk-radios__label" for="duration3" onclick="hideothertime()">
+                                                1 hour
+                                            </label>
+                                        </div>
+
+                                        <div class="govuk-radios__item">
+                                            <input class="govuk-radios__input" id="duration4" name="durationradios" type="radio" value="1 hour and 30 minutes"   onclick="hideothertime()" >
+                                            <label class="govuk-label govuk-radios__label" for="duration4" onclick="hideothertime()">
+                                                1 hour and 30 minutes
+                                            </label>
+                                        </div>
+                                        -->
+
+<!--                                        <div class="govuk-radios__item">-->
+<!--                                            <input class="govuk-radios__input" id="duration5" name="durationradios" type="radio" value="other"  onclick="showothertime()"  {% if data.durationradios == 'other' %}  Checked {% endif %}  >-->
+<!--                                            <label class="govuk-label govuk-radios__label" for="duration5" onclick="showothertime()"  >-->
+<!--                                                Another length-->
+<!--                                            </label>-->
+<!--                                        </div>-->
+
+
+
+
+
+<!--                                            <div class="govuk-form-group" style="width: 600px;">-->
+
+<!--                                                <div class="govuk-form-group govuk-!-margin-top-5">-->
+<!--                                                    <fieldset class="govuk-fieldset" aria-describedby="contact-hint">-->
+<!--                                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend&#45;&#45;s">-->
+<!--                                                            <h3 class="govuk-fieldset__heading">-->
+<!--                                                                Give a reason why a different length of hearing is required-->
+<!--                                                            </h3>-->
+<!--                                                        </legend>-->
+<!--                                                        <div class="govuk-radios govuk-radios&#45;&#45;conditional" data-module="govuk-radios">-->
+
+<!--                                                            <div class="govuk-radios__item">-->
+<!--                                                                <input class="govuk-radios__input" id="durationreason1" name="durationreason" type="radio" value="Reason 1" onclick="hidereason();">-->
+<!--                                                                <label class="govuk-label govuk-radios__label" for="durationreason1"  onclick="hidereason();">-->
+<!--                                                                    Reason 1-->
+<!--                                                                </label>-->
+<!--                                                            </div>-->
+
+<!--                                                            <div class="govuk-radios__item">-->
+<!--                                                                <input class="govuk-radios__input" id="durationreason2" name="durationreason" type="radio" value="Reason 2"  onclick="hidereason();"  >-->
+<!--                                                                <label class="govuk-label govuk-radios__label" for="durationreason2" onclick="hidereason();">-->
+<!--                                                                    Reason 2-->
+<!--                                                                </label>-->
+<!--                                                            </div>-->
+
+
+<!--                                                            <div class="govuk-radios__item">-->
+<!--                                                                <input class="govuk-radios__input" id="durationreason3" name="durationreason" type="radio" value="Another reason"  onclick="showreason();"  >-->
+<!--                                                                <label class="govuk-label govuk-radios__label" for="durationreason3" onclick="showreason();"  >-->
+<!--                                                                    Another reason-->
+<!--                                                                </label>-->
+<!--                                                            </div>-->
+
+
+<!--                                                            <div class="govuk-radios__conditional govuk-!-padding-bottom-1 govuk-!-padding-top-3" style="display:none;" id="reasonsection">-->
+
+
+<!--                                                                <label class="govuk-label govuk-label-m govuk-!-font-weight-bold" for="durationreasontext">-->
+<!--                                                                    Enter a reason-->
+<!--                                                                </label>-->
+<!--                                                                <textarea class="govuk-textarea" id="durationreasontext" name="durationreasontext" rows="2" aria-describedby="more-detail-hint"></textarea>-->
+
+
+<!--                                                            </div>-->
+
+<!--                                                        </div>-->
+
+<!--                                                    </fieldset>-->
+<!--                                                </div>-->
+
+
+
+<!--                                            </div>-->
+
+
+
+<!--                                        </div>-->
+
+<!--                                    </div>-->
+
+<!--                                </fieldset>-->
+<!--                            </div>-->
+
+                            <!-- AM or PM -->
+<!--                            <div class="govuk-form-group govuk-!-margin-top-5">-->
+<!--                                <fieldset class="govuk-fieldset">-->
+<!--                                    <legend class="govuk-fieldset__legend govuk-fieldset__legend&#45;&#45;s">-->
+<!--                                        <h3 class="govuk-fieldset__heading">-->
+<!--                                            Does the hearing need to take place at a specific time? (placeholder)      &nbsp;  &nbsp; &nbsp; &nbsp;-->
+<!--                                        </h3>-->
+<!--                                    </legend>-->
+<!--                                    <div class="govuk-hint">Choose a time of day (placeholder). </div>-->
+
+<!--                                    <div class="govuk-radios govuk-radios&#45;&#45;inline">-->
+<!--                                        <div class="govuk-radios__item">-->
+<!--                                            <input class="govuk-radios__input" id="hearingTimeAM" name="hearingTime" type="radio" value="AM" {{ checked("hearingTime", "AM") }}>-->
+<!--                                            <label class="govuk-label govuk-radios__label" for="hearingTimeAM">-->
+<!--                                                AM-->
+<!--                                            </label>-->
+<!--                                        </div>-->
+<!--                                        <div class="govuk-radios__item">-->
+<!--                                            <input class="govuk-radios__input" id="hearingTimePM" name="hearingTime" type="radio" value="PM" {{ checked("hearingTime", "PM") }}>-->
+<!--                                            <label class="govuk-label govuk-radios__label" for="hearingTimePM">-->
+<!--                                                PM-->
+<!--                                            </label>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+<!--                                </fieldset>-->
+<!--                            </div>-->
+
+                            <!--  SLA  NOT NEEDED FOR SSCS-->
+                            <!--
+                                <div class="govuk-inset-text">
+                                    5 days since SLA start date
+                                </div>
+                            -->
+
+                            {% if data.calendarclash == 'true' %}
+                                <div class="govuk-form-group govuk-form-group--error govuk-!-padding-top-3 govuk-!-padding-bottom-1" id="datesnotavailable">
+                                    <p>Dates when one or more parties are unavailable:</p>
+
+                                    <p>
+                                        2 November 2021<br>
+                                        3 November 2021<br>
+                                        4 November 2021<br>
+                                        5 November 2021<br>
+                                        6 November 2021<br>
+                                        7 November 2021<br>
+                                        8 November 2021<br>
+                                        9 November 2021<br>
+                                        10 November 2021<br>
+                                        11 November 2021<br>
+                                        12 November 2021<br>
+                                        5 December 2021<br>
+                                        6 December 2021<br>
+                                        7 December 2021<br>
+                                    </p>
+                                </div>
+                            {% endif %}
+
+
+
+                            <div class="govuk-form-group govuk-!-margin-top-3">
+                                <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+                                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                        <h3 class="govuk-fieldset__heading">
+                                            Does the hearing need to take place on a specific date?
+                                        </h3>
+                                    </legend>
+
+                                    <div class="govuk-hint">Availability of all the parties will be taken into account when scheduling this hearing.</div>
+
+
+
+                                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+                                        <div class="govuk-radios__item">
+                                            <input class="govuk-radios__input" id="dates1" name="dateradios" type="radio" value="No" onclick="hiderangedate(); hidefixeddate();"  {% if data.dateradios == 'No' %}  Checked {% endif %}>
+                                            <label class="govuk-label govuk-radios__label" for="dates1"  onclick="hiderangedate(); hidefixeddate();">
+                                                No
+                                            </label>
+                                        </div>
+
+                                        <div class="govuk-radios__item">
+                                            <input class="govuk-radios__input" id="dates2" name="dateradios" type="radio" value="Yes"  onclick="hiderangedate(); showfixeddate();"   {% if data.dateradios == 'Yes' %}  Checked {% endif %}>
+                                            <label class="govuk-label govuk-radios__label" for="dates2" onclick="hiderangedate(); showfixeddate();">
+                                                Yes
+                                            </label>
+                                        </div>
+
+                                        <div class="govuk-radios__conditional govuk-!-padding-bottom-1 govuk-!-padding-top-3"  id="fixeddatesection"    style="display:none;  {% if data.dateradios == 'Yes' %}  display:block;   {% endif %}">
+                                            <div class="govuk-form-group">
+                                                <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+                                                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                                        <h1 class="govuk-fieldset__heading">
+                                                            The first date of the hearing must be
+                                                        </h1>
+                                                    </legend>
+                                                    <div class="govuk-date-input" id="passport-issued">
+                                                        <div class="govuk-date-input__item">
+                                                            <div class="govuk-form-group">
+                                                                <label class="govuk-label govuk-date-input__label" for="firstdateday">
+                                                                    Day
+                                                                </label>
+                                                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="firstdateday" name="firstdateday" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data.firstdateday }}"></div>
+                                                        </div>
+                                                        <div class="govuk-date-input__item">
+                                                            <div class="govuk-form-group">
+                                                                <label class="govuk-label govuk-date-input__label" for="firstdatemonth">
+                                                                    Month
+                                                                </label>
+                                                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="firstdatemonth" name="firstdatemonth" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data.firstdatemonth }}"></div>
+                                                        </div>
+                                                        <div class="govuk-date-input__item">
+                                                            <div class="govuk-form-group">
+                                                                <label class="govuk-label govuk-date-input__label" for="firstdateyear">
+                                                                    Year
+                                                                </label>
+                                                                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="firstdateyear" name="firstdateyear" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data.firstdateyear }}"></div>
+                                                        </div>
+                                                    </div>
+
+                                                </fieldset>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="govuk-radios__item">
+                                            <input class="govuk-radios__input" id="dates3" name="dateradios" type="radio" value="Choose a date range"  onclick="showrangedate(); hidefixeddate();"   {% if data.dateradios == 'Choose a date range' %}  Checked {% endif %}>
+                                            <label class="govuk-label govuk-radios__label" for="dates3" onclick="showrangedate();  hidefixeddate();"  >
+                                                Choose a date range
+                                            </label>
+                                        </div>
+
+
+                                        <div class="govuk-radios__conditional govuk-!-padding-bottom-1 govuk-!-padding-top-3" id="rangedatesection"  style="display:none;  {% if data.dateradios == 'Choose a date range' %}  display:block;   {% endif %}">
+
+
+
+                                            <div id="waste-hint" class="govuk-hint">
+                                                You can enter either or both dates.
+                                            </div>
+
+                                            <div class="govuk-form-group">
+                                                <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+                                                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                                        <h1 class="govuk-fieldset__heading">
+                                                            Earliest hearing date
+                                                        </h1>
+                                                    </legend>
+                                                    <div class="govuk-date-input" id="passport-issued">
+                                                        <div class="govuk-date-input__item">
+                                                            <div class="govuk-form-group">
+                                                                <label class="govuk-label govuk-date-input__label" for="earliestdateday">
+                                                                    Day
+                                                                </label>
+                                                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="earliestdateday" name="earliestdateday" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data.earliestdateday }}"></div>
+                                                        </div>
+                                                        <div class="govuk-date-input__item">
+                                                            <div class="govuk-form-group">
+                                                                <label class="govuk-label govuk-date-input__label" for="earliestdatemonth">
+                                                                    Month
+                                                                </label>
+                                                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="earliestdatemonth" name="earliestdatemonth" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data.earliestdatemonth }}"></div>
+                                                        </div>
+                                                        <div class="govuk-date-input__item">
+                                                            <div class="govuk-form-group">
+                                                                <label class="govuk-label govuk-date-input__label" for="earliestdateyear">
+                                                                    Year
+                                                                </label>
+                                                                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="earliestdateyear" name="earliestdateyear" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data.earliestdateyear }}"></div>
+                                                        </div>
+                                                    </div>
+
+                                                </fieldset>
+                                            </div>
+
+
+
+                                            <div class="govuk-form-group">
+                                                <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+                                                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                                        <h1 class="govuk-fieldset__heading">
+                                                            Latest hearing date
+                                                        </h1>
+                                                    </legend>
+                                                    <div class="govuk-date-input" id="passport-issued">
+                                                        <div class="govuk-date-input__item">
+                                                            <div class="govuk-form-group">
+                                                                <label class="govuk-label govuk-date-input__label" for="latestdateday">
+                                                                    Day
+                                                                </label>
+                                                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="latestdateday" name="latestdateday" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data.latestdateday }}"></div>
+                                                        </div>
+                                                        <div class="govuk-date-input__item">
+                                                            <div class="govuk-form-group">
+                                                                <label class="govuk-label govuk-date-input__label" for="latestdatemonth">
+                                                                    Month
+                                                                </label>
+                                                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="latestdatemonth" name="latestdatemonth" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data.latestdatemonth }}"></div>
+                                                        </div>
+                                                        <div class="govuk-date-input__item">
+                                                            <div class="govuk-form-group">
+                                                                <label class="govuk-label govuk-date-input__label" for="latestdateyear">
+                                                                    Year
+                                                                </label>
+                                                                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="latestdateyear" name="latestdateyear" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data.latestdateyear }}"></div>
+                                                        </div>
+                                                    </div>
+
+                                                </fieldset>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </fieldset>
+                            </div>
+
+                            <details class="govuk-details" data-module="govuk-details">
+                                <summary class="govuk-details__summary">
+                                    <span class="govuk-details__summary-text">
+                                      See dates the parties will not be available
+                                    </span>
+                                </summary>
+                                <div class="govuk-details__text">
+                                    2 November 2021<br>
+                                    3 November 2021<br>
+                                    4 November 2021<br>
+                                    5 November 2021<br>
+                                    6 November 2021<br>
+                                    7 November 2021<br>
+                                    8 November 2021<br>
+                                    9 November 2021<br>
+                                    10 November 2021<br>
+                                    11 November 2021<br>
+                                    12 November 2021<br>
+                                    5 December 2021<br>
+                                    6 December 2021<br>
+                                    7 December 2021<br>
+                                </div>
+                            </details>
+
+
+
+                            <div class="govuk-form-group govuk-!-margin-top-5">
+                                <fieldset class="govuk-fieldset">
+                                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                        <h3 class="govuk-fieldset__heading">
+                                            Is this a priority hearing?       &nbsp;  &nbsp; &nbsp; &nbsp;
+                                        </h3>
+                                    </legend>
+
+                                    <div class="govuk-radios govuk-radios--inline">
+                                        <div class="govuk-radios__item">
+                                            <input class="govuk-radios__input" id="priorityHearing" name="priorityHearing" type="radio" value="Yes" {{ checked("priorityHearing", "Yes") }}>
+                                            <label class="govuk-label govuk-radios__label" for="priorityHearing">
+                                                Yes
+                                            </label>
+                                        </div>
+                                        <div class="govuk-radios__item">
+                                            <input class="govuk-radios__input" id="priorityHearing2" name="priorityHearing" type="radio" value="No" {{ checked("priorityHearing", "No") }}>
+                                            <label class="govuk-label govuk-radios__label" for="priorityHearing2">
+                                                No
+                                            </label>
+                                        </div>
+                                    </div>
+
+<!--                                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">-->
+<!--                                        <div class="govuk-checkboxes__item">-->
+<!--                                            <input class="govuk-checkboxes__input" id="priority" name="priorityHearing" type="checkbox" {{ checked("priorityHearing", true) }}>-->
+<!--                                            <label class="govuk-label govuk-checkboxes__label" for="priority">-->
+<!--                                                Priority-->
+<!--                                            </label>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+                                </fieldset>
+                            </div>
+
+
+
+
+
+                            <div class="govuk-form-group  govuk-!-margin-top-5" >
+                                <button class="govuk-button" data-module="govuk-button">
+                                    Continue
+                                </button>
+                            </div>
+
+
+                        </form>
+
+
+            </div>
+        </div>
+    </main>
+
+
+
+<!--<div style="width:400px;">-->
+<!--    <form method="post"  action="#" class="for4" style=" float: left; margin-top: 140px;">-->
+<!--        <p style="margin-bottom:0px;">Error for dates clash with parties</p>-->
+<!--        <select style="height:25px;" onchange="window.location.href='?'+this.value">-->
+
+<!--            <option value="calendarclash=true&"-->
+<!--                    {% if data.calendarclash == 'true'%}selected{% endif %}-->
+<!--            >ON</option>-->
+
+<!--            <option value="calendarclash=false&"-->
+<!--                    {% if data.calendarclash != 'true'  %}selected{% endif %}-->
+<!--            >OFF</option>-->
+
+<!--        </select>-->
+<!--    </form>-->
+
+
+<!--</div>-->
+
+
+<script>
+
+    function showothertime()
+    {
+        document.getElementById("othertime").style.display = "block";
+    }
+
+    function hideothertime()
+    {
+        document.getElementById("othertime").style.display = "none";
+    }
+
+
+
+    function showrangedate()
+    {
+        document.getElementById("rangedatesection").style.display = "block";
+    }
+
+    function hiderangedate()
+    {
+        document.getElementById("rangedatesection").style.display = "none";
+    }
+
+
+    function showfixeddate()
+    {
+        document.getElementById("fixeddatesection").style.display = "block";
+    }
+
+    function hidefixeddate()
+    {
+        document.getElementById("fixeddatesection").style.display = "none";
+    }
+
+
+
+
+    function showreason()
+    {
+        document.getElementById("reasonsection").style.display = "block";
+    }
+
+    function hidereason()
+    {
+        document.getElementById("reasonsection").style.display = "none";
+    }
+
+
+
+
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+
+
+
+{% endblock %}

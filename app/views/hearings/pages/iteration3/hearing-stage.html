@@ -1,0 +1,118 @@
+{% extends "../../layout-xui.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+{% block beforeContent %}
+    <a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <form class="form" action="hearing-attendance" method="post">
+
+            <span class="govuk-caption-l">Request a hearing for Jane Smith and Asda Plc</span>
+            <h1 class="govuk-heading-l">
+                What stage is this hearing at?
+            </h1>
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+<!--                    <legend class="govuk-fieldset__legend govuk-fieldset__legend&#45;&#45;m">-->
+<!--                        <h1 class="govuk-fieldset__heading">-->
+<!--                            What stage is this hearing at?-->
+<!--                        </h1>-->
+<!--                    </legend>-->
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="stage1" name="hearingstage" type="radio" value="Pre-hearing review" {% if data.hearingstage == 'Pre-hearing review' %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="stage1">
+                                Pre-hearing review
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="stage2" name="hearingstage" type="radio" value="Full hearing" {% if data.hearingstage == 'Full hearing' %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="stage2">
+                                Full hearing
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="stage3" name="hearingstage" type="radio" value="Remedy hearing" {% if data.hearingstage == 'Remedy hearing' %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="stage3">
+                                Remedy hearing
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="stage4" name="hearingstage" type="radio" value="Cost hearing" {% if data.hearingstage == 'Cost hearing' %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="stage4">
+                                Cost hearing
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="stage5" name="hearingstage" type="radio" value="Judicial remediation hearing" {% if data.hearingstage == 'Judicial remediation hearing' %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="stage5">
+                                Judicial remediation hearing
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="stage6" name="hearingstage" type="radio" value="Case management preliminary hearing - open" {% if data.hearingstage == 'Case management preliminary hearing - open' %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="stage6">
+                                Case management preliminary hearing - open
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="stage7" name="hearingstage" type="radio" value="Case management preliminary hearing - closed" {% if data.hearingstage == 'Case management preliminary hearing - closed' %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="stage7">
+                                Case management preliminary hearing - closed
+                            </label>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </div>
+
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+            </form>
+
+        </div>
+    </div>
+
+
+
+
+
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+    // document.addEventListener('DOMContentLoaded', function(event) {
+    //
+    // })
+</script>
+
+
+<!--<div style="width:400px;">-->
+<!--    <form method="post"  action="#" class="for4" style=" float: left; margin-top: 140px;">-->
+<!--        <p style="margin-bottom:0px;">Case flags</p>-->
+<!--        <select style="height:25px;" onchange="window.location.href='?'+this.value">-->
+
+<!--            <option value="caseflagshidden=false&"-->
+<!--                    {% if data.caseflagshidden != 'true'  %}selected{% endif %}-->
+<!--            >ON</option>-->
+
+<!--            <option value="caseflagshidden=true&"-->
+<!--                    {% if data.caseflagshidden == 'true'  %}selected{% endif %}-->
+<!--            >OFF</option>-->
+
+<!--        </select>-->
+<!--    </form>-->
+<!--</div>-->
+
+{% endblock %}
+

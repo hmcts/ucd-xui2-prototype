@@ -1,0 +1,92 @@
+{% extends "../../layout-xui.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Request a hearing for Jane Smith and Asda Plc</span>
+        <h1 class="govuk-heading-l">
+            Where will the hearing take place?
+        </h1>
+
+        <form class="form" action="hearing-venue-location" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="region1" name="regionselection" type="radio" value="London">
+                            <label class="govuk-label govuk-radios__label" for="region1">
+                                London
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="region2" name="regionselection" type="radio" value="Midlands">
+                            <label class="govuk-label govuk-radios__label" for="region2">
+                                Midlands
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="region3" name="regionselection" type="radio" value="North East">
+                            <label class="govuk-label govuk-radios__label" for="region3">
+                                North East
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="region4" name="regionselection" type="radio" value="North West">
+                            <label class="govuk-label govuk-radios__label" for="region4">
+                                North West
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="region5" name="regionselection" type="radio" value="Scotland">
+                            <label class="govuk-label govuk-radios__label" for="region5">
+                                Scotland
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="region6" name="regionselection" type="radio" value="South East">
+                            <label class="govuk-label govuk-radios__label" for="region6">
+                                South East
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="region7" name="regionselection" type="radio" value="South West">
+                            <label class="govuk-label govuk-radios__label" for="region7">
+                                South West
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="region8" name="regionselection" type="radio" value="Wales">
+                            <label class="govuk-label govuk-radios__label" for="region8">
+                                Wales
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+    </div>
+</div>
+
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,902 @@
+{% extends "../../layout-xui.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-l">
+            Check your answers before sending your request
+        </h1>
+
+        <form class="form" action="hearing-confirmation" method="post">
+
+<!--                {% if  data.drafthearing == 'false'   %}-->
+<!--&lt;!&ndash;                    <h2 class="govuk-heading-l">Hearing details</h2>&ndash;&gt;-->
+<!--                    <h2 class="govuk-heading-l">Request a hearing</h2>-->
+<!--                    <p class="govuk-body">You can review and change the hearing details before submitting your request</p>-->
+<!--                {% else %}-->
+<!--                    <h2 class="govuk-heading-l">Check your answers before sending your request</h2>-->
+<!--                {% endif %}-->
+
+
+
+                                        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                                            <div class="govuk-summary-list__row">
+                                                <dt class="govuk-summary-list__key">
+                                                    Case name
+                                                </dt>
+                                                <dd class="govuk-summary-list__value">
+                                                    Jane Smith and Asda Plc
+                                                </dd>
+                                                <dd class="govuk-summary-list__actions">
+                                                </dd>
+                                            </div>
+                                            <div class="govuk-summary-list__row">
+                                                <dt class="govuk-summary-list__key">
+                                                    Hearing type
+                                                </dt>
+                                                <dd class="govuk-summary-list__value">
+                                                    03 PIP
+                                                </dd>
+                                                <dd class="govuk-summary-list__actions">
+                                                </dd>
+                                            </div>
+
+<!--                                            <div class="govuk-summary-list__row">-->
+<!--                                                <dt class="govuk-summary-list__key">-->
+<!--                                                    Case flags-->
+<!--                                                </dt>-->
+<!--                                                <dd class="govuk-summary-list__value">-->
+<!--                                                    Vulnerable party-->
+<!--                                                </dd>-->
+<!--                                                <dd class="govuk-summary-list__actions">-->
+<!--                                                </dd>-->
+<!--                                            </div>-->
+
+                                        </dl>
+
+                                        <h2 class="govuk-heading-m">Hearing details</h2>
+
+
+                                        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                                            <div class="govuk-summary-list__row">
+                                                <dt class="govuk-summary-list__key">
+                                                    What stage is this hearing at?
+                                                </dt>
+                                                <dd class="govuk-summary-list__value">
+                                                    {{ data.hearingstage }}
+                                                </dd>
+                                                <dd class="govuk-summary-list__actions">
+                                                    {% if data.changesallowed != 'false' %}
+                                                    <a class="govuk-link" href="/hearings/pages/iteration3/hearing-stage?backtocheckanswers=true&">
+                                                        Change
+                                                    </a>
+                                                    {% endif %}
+                                                </dd>
+                                            </div>
+                                            <div class="govuk-summary-list__row">
+                                                <dt class="govuk-summary-list__key">
+                                                    How will each party attend the hearing?
+                                                </dt>
+                                                <dd class="govuk-summary-list__value">
+                                                    Jane Smith - {{ data.party1Channel }} <br />
+                                                    Asda Plc - {{ data.party3Channel }} <br />
+                                                    Claimant representative - {{ data.party3Channel }} <br />
+                                                    Respondent representative - {{ data.party4Channel }} <br />
+                                                </dd>
+                                                <dd class="govuk-summary-list__actions">
+                                                    {% if data.changesallowed != 'false' %}
+                                                    <a class="govuk-link" href="/hearings/pages/iteration3/hearing-attendance?backtocheckanswers=true&">
+                                                        Change
+                                                    </a>
+                                                    {% endif %}
+                                                </dd>
+                                            </div>
+                                            <div class="govuk-summary-list__row">
+                                                <dt class="govuk-summary-list__key">
+                                                    What are the hearing requirements for each party?
+                                                </dt>
+                                                <dd class="govuk-summary-list__value">
+                                                    Jane Smith -
+                                                    <ul>
+                                                        <li>Secure dock</li>
+                                                    </ul>
+                                                    Asda Plc -
+                                                    <ul>
+                                                        <li>No requirements</li>
+                                                    </ul>
+                                                </dd>
+                                                <dd class="govuk-summary-list__actions">
+                                                    {% if data.changesallowed != 'false' %}
+                                                    <a class="govuk-link" href="/hearings/pages/iteration3/hearing-requirements?backtocheckanswers=true&">
+                                                        Change
+                                                    </a>
+                                                    {% endif %}
+                                                </dd>
+                                            </div>
+
+                                            <div class="govuk-summary-list__row">
+                                                <dt class="govuk-summary-list__key">
+                                                    Additional facilities required
+                                                </dt>
+                                                <dd class="govuk-summary-list__value">
+                                                    {{  data['facilities'] }} <br /><br />
+                                                    {{  data['otherFacilities'] | striptags(true) | escape | nl2br  }}
+                                                </dd>
+                                                <dd class="govuk-summary-list__actions">
+                                                    {% if data.changesallowed != 'false' %}
+                                                    <a class="govuk-link" href="/hearings/pages/iteration3/hearing-requirements?backtocheckanswers=true&">
+                                                        Change
+                                                    </a>
+                                                    {% endif %}
+                                                </dd>
+                                            </div>
+
+                                            <div class="govuk-summary-list__row">
+                                                <dt class="govuk-summary-list__key">
+                                                    What are the hearing venue details?
+                                                </dt>
+                                                <dd class="govuk-summary-list__value">
+                                                    {{  data['regionselection']  }}<br /><br />
+                                                    {{ data['venue'] | striptags(true) | escape | nl2br  }}
+
+
+                                                </dd>
+                                                <dd class="govuk-summary-list__actions">
+                                                    {% if data.changesallowed != 'false' %}
+                                                    <a class="govuk-link" href="/hearings/pages/iteration3/hearing-venue?backtocheckanswers=true&">
+                                                        Change
+                                                    </a>
+                                                    {% endif %}
+                                                </dd>
+                                            </div>
+<!--                                            <div class="govuk-summary-list__row">-->
+<!--                                                <dt class="govuk-summary-list__key">-->
+<!--                                                    Selected venues within region-->
+<!--                                                </dt>-->
+<!--                                                <dd class="govuk-summary-list__value" style="white-space: pre-wrap;">{{  data['venue']  }}</dd>-->
+<!--                                                <dd class="govuk-summary-list__actions">-->
+<!--                                                    {% if data.changesallowed != 'false' %}-->
+<!--                                                    <a class="govuk-link" href="/hearings/pages/region?backtocheckanswers=true&">-->
+<!--                                                        Change-->
+<!--                                                    </a>-->
+<!--                                                    {% endif %}-->
+<!--                                                </dd>-->
+<!--                                            </div>-->
+
+
+
+
+
+                                            <!-- IN PERSON ONLY -->
+<!--                                            {% if data.channelradios == 'In person' %}-->
+<!--                                                    <div class="govuk-summary-list__row">-->
+<!--                                                        <dt class="govuk-summary-list__key">-->
+<!--                                                            Select any parties who want to call/video into the hearing-->
+<!--                                                        </dt>-->
+<!--                                                        <dd class="govuk-summary-list__value">-->
+
+<!--                                                        </dd>-->
+<!--                                                        <dd class="govuk-summary-list__actions">-->
+<!--                                                            {% if data.changesallowed != 'false' %}-->
+<!--                                                                <a class="govuk-link" href="/hearings/pages/region?backtocheckanswers=true&">-->
+<!--                                                                    Change-->
+<!--                                                                </a>-->
+<!--                                                            {% endif %}-->
+<!--                                                        </dd>-->
+<!--                                                    </div>-->
+<!--                                            {% endif %}-->
+
+
+<!--                                                <div class="govuk-summary-list__row">-->
+<!--                                                    <dt class="govuk-summary-list__key">-->
+<!--                                                        Select parties who want to be absent for the hearing-->
+<!--                                                    </dt>-->
+<!--                                                    <dd class="govuk-summary-list__value">-->
+
+<!--                                                    </dd>-->
+<!--                                                    <dd class="govuk-summary-list__actions">-->
+<!--                                                        {% if data.changesallowed != 'false' %}-->
+<!--                                                        <a class="govuk-link" href="/hearings/pages/region?backtocheckanswers=true&">-->
+<!--                                                            Change-->
+<!--                                                        </a>-->
+<!--                                                        {% endif %}-->
+<!--                                                    </dd>-->
+<!--                                                </div>-->
+
+
+                                            {% if (data.channel1radios == 'In person') or (data.channel2radios == 'In person') %}
+                                                <div class="govuk-summary-list__row">
+                                                        <dt class="govuk-summary-list__key">
+                                                            Where will the hearing take place?
+                                                        </dt>
+                                                        <dd class="govuk-summary-list__value">
+                                                            {{  data['regionselection']  }}
+                                                        </dd>
+                                                        <dd class="govuk-summary-list__actions">
+                                                            {% if data.changesallowed != 'false' %}
+                                                            <a class="govuk-link" href="/hearings/pages/region?backtocheckanswers=true&">
+                                                                Change
+                                                            </a>
+                                                            {% endif %}
+                                                        </dd>
+                                                    </div>
+                                                    <div class="govuk-summary-list__row">
+                                                        <dt class="govuk-summary-list__key">
+                                                            Selected venues within region
+                                                        </dt>
+                                                        <dd class="govuk-summary-list__value" style="white-space: pre-wrap;">{{  data['thenevue']  }}</dd>
+                                                        <dd class="govuk-summary-list__actions">
+                                                            {% if data.changesallowed != 'false' %}
+                                                            <a class="govuk-link" href="/hearings/pages/region?backtocheckanswers=true&">
+                                                                Change
+                                                            </a>
+                                                            {% endif %}
+                                                        </dd>
+                                                    </div>
+                                            {% endif %}
+
+                                        </dl>
+
+
+                                        <h2 class="govuk-heading-m">Who will be on the hearing panel?</h2>
+
+                                        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                                            {% if data.viewingconfirmedhearing == 'true' %}
+
+                                                    <div class="govuk-summary-list__row">
+                                                        <dt class="govuk-summary-list__key">
+                                                            Judge
+                                                        </dt>
+                                                        <dd class="govuk-summary-list__value">
+                                                            Her Honour Judge Anderson
+                                                        </dd>
+                                                        <dd class="govuk-summary-list__actions">
+                                                        </dd>
+                                                    </div>
+
+                                                    <div class="govuk-summary-list__row">
+                                                        <dt class="govuk-summary-list__key">
+                                                            Tribunal Medical Member
+                                                        </dt>
+                                                        <dd class="govuk-summary-list__value">
+                                                            Tony King
+                                                        </dd>
+                                                        <dd class="govuk-summary-list__actions">
+                                                        </dd>
+                                                    </div>
+
+                                                    <div class="govuk-summary-list__row">
+                                                        <dt class="govuk-summary-list__key">
+                                                            Disability Qualified Member
+                                                        </dt>
+                                                        <dd class="govuk-summary-list__value">
+                                                            Ramesh Desiato
+                                                        </dd>
+                                                        <dd class="govuk-summary-list__actions">
+                                                        </dd>
+                                                    </div>
+
+                                            {% else %}
+
+
+
+                                                {% if data.firsthearingscenario != 'true' %}
+                                                    <div class="govuk-summary-list__row">
+                                                        <dt class="govuk-summary-list__key">
+                                                            Will the most recent panel be used again?
+                                                        </dt>
+                                                        <dd class="govuk-summary-list__value">
+                                                            {{  data.panelsame }}
+                                                        </dd>
+                                                        <dd class="govuk-summary-list__actions">
+                                                            {% if data.changesallowed != 'false' %}
+                                                                <a class="govuk-link" href="/hearings/pages/panel?backtocheckanswers=true&">
+                                                                    Change
+                                                                </a>
+                                                            {% endif %}
+                                                        </dd>
+                                                    </div>
+                                                {% endif %}
+
+
+                                                {% if data.panelsame == 'No - select a new panel'  or  data.firsthearingscenario =='true' %}
+
+                                                    <div class="govuk-summary-list__row">
+                                                        <dt class="govuk-summary-list__key">
+                                                            Do you want a specific judge?
+                                                        </dt>
+                                                        <dd class="govuk-summary-list__value">
+                                                            {{  data.specificjudge }}
+                                                        </dd>
+                                                        <dd class="govuk-summary-list__actions">
+                                                            {% if data.changesallowed != 'false' %}
+                                                                <a class="govuk-link" href="/hearings/pages/paneldifferent?backtocheckanswers=true&">
+                                                                    Change
+                                                                </a>
+                                                            {% endif %}
+                                                        </dd>
+                                                    </div>
+
+                                                    {% if data.specificjudge == 'Yes' %}
+                                                            <div class="govuk-summary-list__row">
+                                                                <dt class="govuk-summary-list__key">
+                                                                    Name of the judge
+                                                                </dt>
+                                                                <dd class="govuk-summary-list__value">
+                                                                    John Snow (john.snow@justice.gov.uk)
+<!--                                                                    {{  data.name-of-judge }}-->
+                                                                </dd>
+                                                                <dd class="govuk-summary-list__actions">
+                                                                    {% if data.changesallowed != 'false' %}
+                                                                    <a class="govuk-link" href="/hearings/pages/paneldifferent?backtocheckanswers=true&">
+                                                                        Change
+                                                                    </a>
+                                                                    {% endif %}
+                                                                </dd>
+                                                            </div>
+
+
+                                                    {% elif data.specificjudge == 'No' %}
+                                                            <div class="govuk-summary-list__row">
+                                                                <dt class="govuk-summary-list__key">
+                                                                    Select a judge type
+                                                                </dt>
+                                                                <dd class="govuk-summary-list__value">
+                                                                    {{  data.judgecontract }}
+                                                                </dd>
+                                                                <dd class="govuk-summary-list__actions">
+                                                                    {% if data.changesallowed != 'false' %}
+                                                                    <a class="govuk-link" href="/hearings/pages/paneldifferent?backtocheckanswers=true&">
+                                                                        Change
+                                                                    </a>
+                                                                    {% endif %}
+                                                                </dd>
+                                                            </div>
+
+                                                            <div class="govuk-summary-list__row">
+                                                                <dt class="govuk-summary-list__key">
+                                                                    Select a ticketed panel
+                                                                </dt>
+                                                                <dd class="govuk-summary-list__value">
+                                                                     {{  data.judgeticketedlevel  }}
+                                                                </dd>
+                                                                <dd class="govuk-summary-list__actions">
+                                                                    {% if data.changesallowed != 'false' %}
+                                                                        <a class="govuk-link" href="/hearings/pages/paneldifferent?backtocheckanswers=true&">
+                                                                            Change
+                                                                        </a>
+                                                                    {% endif %}
+                                                                </dd>
+                                                            </div>
+
+                                                            <div class="govuk-summary-list__row">
+                                                                <dt class="govuk-summary-list__key">
+                                                                    Exclude a judge who wasn't on a previous panel
+                                                                </dt>
+                                                                <dd class="govuk-summary-list__value">
+                                                                    {{  data.exludejudgefield }}
+                                                                </dd>
+                                                                <dd class="govuk-summary-list__actions">
+                                                                    {% if data.changesallowed != 'false' %}
+                                                                    <a class="govuk-link" href="/hearings/pages/paneldifferent?backtocheckanswers=true&">
+                                                                        Change
+                                                                    </a>
+                                                                    {% endif %}
+                                                                </dd>
+                                                            </div>
+
+                                                    {% endif %}
+
+
+
+                                                    <div class="govuk-summary-list__row">
+                                                        <dt class="govuk-summary-list__key">
+                                                            Include specific panel members
+                                                        </dt>
+                                                        <dd class="govuk-summary-list__value">
+                                                            {{  data.addpersonsname }}
+                                                        </dd>
+                                                        <dd class="govuk-summary-list__actions">
+                                                            {% if data.changesallowed != 'false' %}
+                                                                <a class="govuk-link" href="/hearings/pages/paneldifferent?backtocheckanswers=true&">
+                                                                    Change
+                                                                </a>
+                                                            {% endif %}
+                                                        </dd>
+                                                    </div>
+                                                    <div class="govuk-summary-list__row">
+                                                        <dt class="govuk-summary-list__key">
+                                                            Exclude specific panel members
+                                                        </dt>
+                                                        <dd class="govuk-summary-list__value">
+                                                            {{  data.excludepersonsname }}
+                                                        </dd>
+                                                        <dd class="govuk-summary-list__actions">
+                                                            {% if data.changesallowed != 'false' %}
+                                                                <a class="govuk-link" href="/hearings/pages/paneldifferent?backtocheckanswers=true&">
+                                                                    Change
+                                                                </a>
+                                                            {% endif %}
+                                                        </dd>
+                                                    </div>
+                                                    <div class="govuk-summary-list__row">
+                                                        <dt class="govuk-summary-list__key">
+                                                            Select any other panel roles required
+                                                        </dt>
+                                                        <dd class="govuk-summary-list__value" style="white-space: pre-wrap;">{{  data.panelmemeberlist }}</dd>
+                                                        <dd class="govuk-summary-list__actions">
+                                                            {% if data.changesallowed != 'false' %}
+                                                                <a class="govuk-link" href="/hearings/pages/paneldifferent?backtocheckanswers=true&">
+                                                                    Change
+                                                                </a>
+                                                            {% endif %}
+                                                        </dd>
+                                                    </div>
+                                                {% endif  %}
+
+
+                                            {% endif %}
+
+                                        </dl>
+
+
+
+
+
+                                            <h2 class="govuk-heading-m">Duration and date of hearing</h2>
+
+                                            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                                                <!-- PROBABLY NOT NEEDED -->
+                                                <!--
+                                                <div class="govuk-summary-list__row">
+                                                    <dt class="govuk-summary-list__key">
+                                                        Select a time
+                                                    </dt>
+                                                    <dd class="govuk-summary-list__value">
+                                                        Morning or afternoon (9am to 5pm)
+                                                    </dd>
+                                                    <dd class="govuk-summary-list__actions">
+                                                        {% if data.changesallowed != 'false' %}
+                                                            <a class="govuk-link" href="#">
+                                                                Change
+                                                            </a>
+                                                        {% endif %}
+                                                    </dd>
+                                                </div>
+                                                -->
+
+                                                <div class="govuk-summary-list__row">
+                                                    <dt class="govuk-summary-list__key">
+                                                        Select length of hearing
+                                                    </dt>
+                                                    <dd class="govuk-summary-list__value">
+                                                        {{  data.durationhours }} hours and {{  data.durationmins }} minutes
+                                                    </dd>
+                                                    <dd class="govuk-summary-list__actions">
+                                                        {% if data.changesallowed != 'false' %}
+                                                            <a class="govuk-link" href="/hearings/pages/timing?backtocheckanswers=true&">
+                                                                Change
+                                                            </a>
+                                                        {% endif %}
+                                                    </dd>
+                                                </div>
+
+<!--                                                <div class="govuk-summary-list__row">-->
+<!--                                                    <dt class="govuk-summary-list__key">-->
+<!--                                                        Does the hearing need to take place at a specific time?-->
+<!--                                                    <dd class="govuk-summary-list__value">-->
+<!--                                                        {{  data.hearingTime }}-->
+<!--                                                    </dd>-->
+<!--                                                    <dd class="govuk-summary-list__actions">-->
+<!--                                                        {% if data.changesallowed != 'false' %}-->
+<!--                                                        <a class="govuk-link" href="/hearings/pages/timing?backtocheckanswers=true&">-->
+<!--                                                            Change-->
+<!--                                                        </a>-->
+<!--                                                        {% endif %}-->
+<!--                                                    </dd>-->
+<!--                                                </div>-->
+
+<!--                                                {% if data['durationradios'] != '45 minutes' %}-->
+<!--                                                    <div class="govuk-summary-list__row">-->
+<!--                                                        <dt class="govuk-summary-list__key">-->
+<!--                                                            Give a reason why a different length of hearing is required-->
+<!--                                                        <dd class="govuk-summary-list__value">-->
+<!--                                                        {{  data.durationreasontext }}-->
+<!--                                                        </dd>-->
+<!--                                                        <dd class="govuk-summary-list__actions">-->
+<!--                                                            {% if data.changesallowed != 'false' %}-->
+<!--                                                            <a class="govuk-link" href="/hearings/pages/timing?backtocheckanswers=true&">-->
+<!--                                                                Change-->
+<!--                                                            </a>-->
+<!--                                                            {% endif %}-->
+<!--                                                        </dd>-->
+<!--                                                    </div>-->
+<!--                                                {% endif %}-->
+
+
+                                                <!-- NOT NEEDED FOPR SSCS  -->
+                                                <!--
+                                                <div class="govuk-summary-list__row">
+                                                    <dt class="govuk-summary-list__key">
+                                                        Days since SLA
+                                                    <dd class="govuk-summary-list__value">
+                                                        5 days
+                                                    </dd>
+                                                    <dd class="govuk-summary-list__actions">
+
+                                                    </dd>
+                                                </div>
+                                                -->
+
+
+                                                <div class="govuk-summary-list__row">
+                                                    <dt class="govuk-summary-list__key">
+                                                        Does the hearing need to take place on a specific date?
+                                                    <dd class="govuk-summary-list__value">
+                                                        {{  data.dateradios }}
+                                                    </dd>
+                                                    <dd class="govuk-summary-list__actions">
+                                                        {% if data.changesallowed != 'false' %}
+                                                            <a class="govuk-link" href="/hearings/pages/timing?backtocheckanswers=true&">
+                                                                Change
+                                                            </a>
+                                                        {% endif %}
+                                                    </dd>
+                                                </div>
+
+                                                {% if data['dateradios'] == 'Yes' %}
+                                                    <div class="govuk-summary-list__row">
+                                                        <dt class="govuk-summary-list__key">
+                                                            The first date of the hearing must be
+
+                                                        <dd class="govuk-summary-list__value">
+                                                            {{   data.firstdateoutputtext    }}
+                                                        </dd>
+                                                        <dd class="govuk-summary-list__actions">
+                                                            {% if data.changesallowed != 'false' %}
+                                                                <a class="govuk-link" href="/hearings/pages/timing?backtocheckanswers=true&">
+                                                                    Change
+                                                                </a>
+                                                            {% endif %}
+                                                        </dd>
+                                                    </div>
+                                                {% endif %}
+
+
+                                                {% if data['dateradios'] == 'Choose a date range' %}
+                                                    <div class="govuk-summary-list__row">
+                                                        <dt class="govuk-summary-list__key">
+                                                            Earliest hearing date
+                                                        <dd class="govuk-summary-list__value">
+                                                            {{   data.earliestdateoutputtext    }}
+                                                        </dd>
+                                                        <dd class="govuk-summary-list__actions">
+                                                            {% if data.changesallowed != 'false' %}
+                                                                <a class="govuk-link" href="/hearings/pages/timing?backtocheckanswers=true&">
+                                                                    Change
+                                                                </a>
+                                                            {% endif %}
+                                                        </dd>
+                                                    </div>
+                                                    <div class="govuk-summary-list__row">
+                                                        <dt class="govuk-summary-list__key">
+                                                            Latest hearing date
+                                                        <dd class="govuk-summary-list__value">
+                                                            {{   data.latestdateoutputtext    }}
+                                                        </dd>
+                                                        <dd class="govuk-summary-list__actions">
+                                                            {% if data.changesallowed != 'false' %}
+                                                                <a class="govuk-link" href="/hearings/pages/timing?backtocheckanswers=true&">
+                                                                    Change
+                                                                </a>
+                                                            {% endif %}
+                                                        </dd>
+                                                    </div>
+                                                {% endif %}
+
+                                                <div class="govuk-summary-list__row">
+                                                    <dt class="govuk-summary-list__key">
+                                                        Is this a priority hearing?
+                                                    <dd class="govuk-summary-list__value">
+                                                        {{ data.priorityHearing }}
+                                                    </dd>
+                                                    <dd class="govuk-summary-list__actions">
+                                                        {% if data.changesallowed != 'false' %}
+                                                            <a class="govuk-link" href="/hearings/pages/timing?backtocheckanswers=true&">
+                                                                Change
+                                                            </a>
+                                                        {% endif %}
+                                                    </dd>
+                                                </div>
+
+                                            </dl>
+
+                                            {% if data.regionselection == "Wales" %}
+                                            <h2 class="govuk-heading-m">Other requirements</h2>
+
+                                            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                                                <div class="govuk-summary-list__row">
+                                                    <dt class="govuk-summary-list__key">
+                                                        Does this hearing need to be in Welsh?
+                                                    </dt>
+                                                    <dd class="govuk-summary-list__value">
+                                                        {{  data.welshHearing  }}
+                                                    </dd>
+                                                    <dd class="govuk-summary-list__actions">
+                                                        {% if data.changesallowed != 'false' %}
+                                                            <a class="govuk-link" href="/hearings/pages/language">
+                                                                Change
+                                                            </a>
+                                                        {% endif %}
+                                                    </dd>
+                                                </div>
+
+                                            </dl>
+                                            {% endif %}
+
+
+
+                                    {% if data.afterhearinghappend == 'true' %}
+
+                                            <h2 class="govuk-heading-m">Outcome of the hearing</h2>
+
+                                            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                                                <div class="govuk-summary-list__row">
+                                                    <dt class="govuk-summary-list__key">
+                                                        Placeholder
+                                                    </dt>
+                                                    <dd class="govuk-summary-list__value">
+                                                        Placeholkder
+                                                    </dd>
+                                                    <dd class="govuk-summary-list__actions">
+                                                        {% if data.changesallowed != 'false' %}
+                                                        <a class="govuk-link" href="/hearings/pages/language">
+                                                            Change
+                                                        </a>
+                                                        {% endif %}
+                                                    </dd>
+                                                </div>
+
+                                            </dl>
+
+                                    {% endif %}
+
+
+
+
+
+                        {% if data.changesallowed != 'false' %}
+                            <form
+                                name="aspnetForm"
+                                method="post"
+                                id="aspnetForm"
+                                autocomplete="off"
+                                >
+
+                                {% if  data.drafthearing == 'false'   %}
+                                    <div class="govuk-form-group  govuk-!-margin-top-5" >
+                                        <button class="govuk-button" data-module="govuk-button">
+                                            Submit updated request
+                                        </button>
+                                    </div>
+
+                                {% else %}
+                                    <div class="govuk-form-group  govuk-!-margin-top-5" >
+                                        <button class="govuk-button" data-module="govuk-button">
+                                            Submit request
+                                        </button>
+                                    </div>
+                                {% endif %}
+
+
+
+                            </form>
+                        {% endif %}
+
+
+
+
+
+            </div>
+        </div>
+    </main>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+
+
+
+
+<!--<div style="width:300px;">-->
+
+<!--    <form method="post"  action="#" class="for4" style=" float: left; margin-top: 140px; width:300px;">-->
+<!--        <p style="margin-bottom:0px;">Draft heading</p>-->
+<!--        <select style="height:25px;" onchange="window.location.href='?'+this.value">-->
+
+<!--            <option value="drafthearing=true&"-->
+<!--                    {% if  data.drafthearing == 'true'   %}selected{% endif %}-->
+<!--            >View during draft</option>-->
+
+<!--            <option value="drafthearing=false&"-->
+<!--                    {% if  data.drafthearing != 'true'   %}selected{% endif %}-->
+<!--            >View after creation</option>-->
+<!--        </select>-->
+<!--    </form>-->
+
+
+<!--    <form method="post"  action="#" class="for4" style=" float: left; margin-top: 20px; width:300px;">-->
+<!--        <p style="margin-bottom:0px;">View only</p>-->
+<!--        <select style="height:25px;" onchange="window.location.href='?'+this.value">-->
+
+<!--            <option value="changesallowed=false&"-->
+<!--                    {% if  data.changesallowed != 'true'   %}selected{% endif %}-->
+<!--            >ON</option>-->
+
+<!--            <option value="changesallowed=true&"-->
+<!--                    {% if  data.changesallowed == 'true'   %}selected{% endif %}-->
+<!--            >OFF - editable</option>-->
+
+<!--        </select>-->
+<!--    </form>-->
+
+
+<!--    <form method="post"  action="#" class="for4" style=" float: left; margin-top: 20px; width:300px;">-->
+<!--        <p style="margin-bottom:0px;">Channel</p>-->
+<!--        <select style="height:25px;" onchange="window.location.href='?'+this.value">-->
+
+<!--            <option value="channelradios=In person" {% if (data.channel1radios == 'In person') or (data.channel2radios == 'In person') %} selected {% endif %} >One or more parties in person</option>-->
+
+<!--            <option value="channelradios=Neither attending&" {% if (data.channel1radios != 'In person') and (data.channel2radios != 'In person') %} selected {% endif %}>Neither party attending</option>-->
+
+<!--        </select>-->
+<!--    </form>-->
+
+
+
+<!--    <form method="post"  action="#" class="for4" style=" float: left; margin-top: 20px;">-->
+<!--        <p style="margin-bottom:0px;">Same panel question (SSCS only)</p>-->
+<!--        <select style="height:25px;" onchange="window.location.href='?'+this.value">-->
+
+<!--            <option value="firsthearingscenario=true&"-->
+<!--                    {% if data.firsthearingscenario == 'true' %}selected{% endif %}-->
+<!--            >First hearing (question doesn't show)</option>-->
+
+<!--            <option value="firsthearingscenario=false&"-->
+<!--                    {% if data.firsthearingscenario != 'true' %}selected{% endif %}-->
+<!--            >2nd or later hearing</option>-->
+
+<!--        </select>-->
+<!--    </form>-->
+
+
+
+<!--    <form method="post"  action="#" class="for4" style=" float: left; margin-top: 20px; margin-bottom:0px;">-->
+<!--        <p style="margin-bottom:0px;">Same or different panel</p>-->
+<!--        <select style="height:25px;" onchange="window.location.href='?'+this.value">-->
+
+<!--            <option value="panelsame=Yes - use the same panel as most recent hearing&firsthearingscenario=false&"-->
+<!--                    {% if data.panelsame != 'No - select a new panel' %}  selected  {% endif %}-->
+<!--            >Same panel</option>-->
+
+<!--            <option value="panelsame=No - select a new panel&"-->
+<!--                    {% if data.panelsame == 'No - select a new panel' and data.firsthearingscenario != 'true' %}  selected  {% endif %}-->
+<!--            >Different panel</option>-->
+
+<!--        </select>-->
+<!--    </form>-->
+
+
+<!--    <form method="post"  action="#" class="for4" style=" float: left; margin-top: 20px; margin-bottom:0px;">-->
+<!--        <p style="margin-bottom:0px;">Specific judge</p>-->
+<!--        <select style="height:25px;" onchange="window.location.href='?'+this.value">-->
+
+<!--            <option value="specificjudge=Yes&"-->
+<!--                    {% if data.specificjudge == 'Yes' %}  selected  {% endif %}-->
+<!--            >A specific judge</option>-->
+
+<!--            <option value="specificjudge=No&"-->
+<!--                    {% if data.specificjudge != 'Yes' %}  selected  {% endif %}-->
+<!--            >Not specific judge</option>-->
+
+<!--        </select>-->
+<!--    </form>-->
+
+
+
+<!--    <form method="post"  action="#" class="for4" style=" float: left; margin-top: 20px; margin-bottom:0px;">-->
+<!--        <p style="margin-bottom:0px;">Default hearing length</p>-->
+<!--        <select style="height:25px;" onchange="window.location.href='?'+this.value">-->
+
+<!--            <option value="durationradios=45 minutes&theduration=45 minutes&"-->
+<!--                    {% if data['durationradios'] == '45 minutes' %} selected  {% endif %}-->
+<!--            >Default length</option>-->
+
+<!--            <option value="durationradios=other&theduration=1 hour 45 minutes"-->
+<!--                    {% if data['durationradios'] != '45 minutes' %}  selected  {% endif %}-->
+<!--            >Different length</option>-->
+
+<!--        </select>-->
+<!--    </form>-->
+
+
+
+
+<!--    <form method="post"  action="#" class="for4" style=" float: left; margin-top: 20px; margin-bottom:0px;">-->
+<!--        <p style="margin-bottom:0px;">Specific date for hearing</p>-->
+<!--        <select style="height:25px;" onchange="window.location.href='?'+this.value">-->
+
+<!--            <option value="dateradios=No&"-->
+<!--                    {% if data['dateradios'] == 'No' %} selected  {% endif %}-->
+<!--            >No</option>-->
+
+<!--            <option value="dateradios=Yes&"-->
+<!--                    {% if data['dateradios'] == 'Yes' %} selected  {% endif %}-->
+<!--            >Yes</option>-->
+
+<!--            <option value="dateradios=Choose a date range&"-->
+<!--                    {% if data['dateradios'] == 'Choose a date range' %} selected  {% endif %}-->
+<!--            >Date Range</option>-->
+
+<!--        </select>-->
+<!--    </form>-->
+
+
+<!--    <form method="post"  action="#" class="for4" style=" float: left; margin-top: 20px; margin-bottom:0px;">-->
+<!--        <p style="margin-bottom:0px;">Confirmed hearing <br>(Final data and additional data)</p>-->
+<!--        <select style="height:25px;" onchange="window.location.href='?'+this.value">-->
+
+<!--            <option value="viewingconfirmedhearing=false&dateradios=Yes&firstdateoutputtext=1 December 2021&"-->
+<!--                    {% if data['viewingconfirmedhearing'] != 'true' %} selected  {% endif %}-->
+<!--            >Pending</option>-->
+
+<!--            <option value="viewingconfirmedhearing=true&"-->
+<!--                    {% if data['viewingconfirmedhearing'] == 'true' %} selected  {% endif %}-->
+<!--            >Confirmed</option>-->
+
+<!--        </select>-->
+<!--    </form>-->
+
+
+<!--    <form method="post"  action="#" class="for4" style=" float: left; margin-top: 20px; margin-bottom:100px;">-->
+<!--        <p style="margin-bottom:0px;">After hearing has happened</p>-->
+<!--        <select style="height:25px;" onchange="window.location.href='?'+this.value">-->
+
+<!--            <option value="viewingconfirmedhearing=true&dateradios=Yes&firstdateoutputtext=1 December 2021&afterhearinghappend=false&"-->
+<!--                    {% if data['afterhearinghappend'] != 'true' %} selected  {% endif %}-->
+<!--            >Before</option>-->
+
+<!--            <option value="viewingconfirmedhearing=true&afterhearinghappend=true&"-->
+<!--                    {% if data['afterhearinghappend'] == 'true' %} selected  {% endif %}-->
+<!--            >After</option>-->
+
+<!--        </select>-->
+<!--    </form>-->
+
+
+
+
+
+
+
+<!--</div>-->
+
+
+
+
+
+{% endblock %}

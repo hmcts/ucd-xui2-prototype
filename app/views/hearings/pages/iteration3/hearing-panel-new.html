@@ -1,0 +1,237 @@
+{% extends "../../layout-xui.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Request a hearing for Jane Smith and Asda Plc</span>
+        <h1 class="govuk-heading-l">
+            What are the panel requirements?
+        </h1>
+
+        <form class="form" action="hearing-duration" method="post">
+
+            <div class="" id="conditionaljudge">
+                <div class="govuk-form-group govuk-!-margin-bottom-0">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="addpersonsname">
+                        Include specific panel members (optional)
+                    </label>
+                    <input class="govuk-input govuk-!-width-one-third" name="addpersonsname" type="text" spellcheck="false">
+<!--                    <div  style="display:none; "  id="addpersonsname" >-->
+<!--                        <input class="govuk-input govuk-!-width-one-third" name="addpersonsname" type="text" spellcheck="false">-->
+<!--                        <p class="govuk-!-padding-2 govuk-!-margin-bottom-0;"><a href="#">Clear</a></p>-->
+<!--                    </div>-->
+                </div>
+                <p class="govuk-button govuk-button--secondary govuk-!-margin-top-3 " data-module="govuk-button" id="addperson" onclick="addperson();">
+                    Add another person
+                </p>
+<!--                <p class="govuk-button govuk-button&#45;&#45;secondary govuk-!-margin-top-0 " data-module="govuk-button" id="addanotherperson" style="display:none;">-->
+<!--                    Add another person-->
+<!--                </p>-->
+            </div>
+
+
+
+            <div class="" id="conditionaljudge">
+                <div class="govuk-form-group govuk-!-margin-bottom-0">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="excludepersonsname">
+                        Exclude specific panel members (optional)
+                    </label>
+                    <input class="govuk-input govuk-!-width-one-third" name="excludepersonsname" type="text" spellcheck="false" >
+<!--                    <div  style="display:none; "  id="excludepersonsname" >-->
+<!--                        <input class="govuk-input govuk-!-width-one-third" name="excludepersonsname" type="text" spellcheck="false" >-->
+<!--                        <p class="govuk-!-padding-2 govuk-!-margin-bottom-0;"><a href="#">Clear</a></p>-->
+<!--                    </div>-->
+                </div>
+                <p class="govuk-button govuk-button--secondary govuk-!-margin-top-3 " data-module="govuk-button" id="excludeperson" onclick="excludeperson();">
+                    Exclude another person
+                </p>
+<!--                <p class="govuk-button govuk-button&#45;&#45;secondary govuk-!-margin-top-0 " data-module="govuk-button" id="excludeanotherperson" style="display:none;">-->
+<!--                    Exclude another person-->
+<!--                </p>-->
+            </div>
+
+
+
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h1 class="govuk-fieldset__heading">
+                            Select any other panel roles required   (optional) &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+                        </h1>
+                    </legend>
+                    <div id="other-pabnel-roles-hint" class="govuk-hint">
+                        Select all that apply.
+                    </div>
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="panelmember2" name="panelmember2" type="checkbox" checked>
+                            <label class="govuk-label govuk-checkboxes__label" for="panelmember2">
+                                Business (CBI)
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="panelmember1" name="panelmember1" type="checkbox" checked>
+                            <label class="govuk-label govuk-checkboxes__label" for="panelmember1">
+                                Union (TUC)
+                            </label>
+                        </div>
+<!--                        <div class="govuk-checkboxes__item">-->
+<!--                            <input class="govuk-checkboxes__input" id="panelmember2" name="panelmember2" type="checkbox" checked>-->
+<!--                            <label class="govuk-label govuk-checkboxes__label" for="panelmember2">-->
+<!--                                Tribunal Medical Member-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                        <div class="govuk-checkboxes__item">-->
+<!--                            <input class="govuk-checkboxes__input" id="panelmember1" name="panelmember1" type="checkbox"  >-->
+<!--                            <label class="govuk-label govuk-checkboxes__label" for="panelmember1">-->
+<!--                                Regional Medical Member-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                        <div class="govuk-checkboxes__item">-->
+<!--                            <input class="govuk-checkboxes__input" id="panelmember3" name="panelmember3" type="checkbox" >-->
+<!--                            <label class="govuk-label govuk-checkboxes__label" for="panelmember3">-->
+<!--                                Tribunal Specialist Medical Member-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                        <div class="govuk-checkboxes__item">-->
+<!--                            <input class="govuk-checkboxes__input" id="panelmember4" name="panelmember4" type="checkbox" checked>-->
+<!--                            <label class="govuk-label govuk-checkboxes__label" for="panelmember4">-->
+<!--                                Disability Qualified Member-->
+<!--                            </label>-->
+<!--                        </div>-->
+                    </div>
+                </fieldset>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <!--                <div class="govuk-form-group">-->
+<!--                    <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-3">Panel members on previous hearings</p>-->
+
+<!--                    <table class="govuk-table" style="width:500px;">-->
+<!--                        <thead class="govuk-table__head">-->
+<!--                        </thead>-->
+<!--                        <tbody class="govuk-table__body">-->
+<!--                            <tr class="govuk-table__row">-->
+<!--                                <th scope="row" class="govuk-table__header" style="font-weight: 400;">Most recent hearing<br>20 July 2021</th>-->
+<!--                                <td class="govuk-table__cell">Judge Jane Smith<br>Dr David Naran<br>Penny Williams</td>-->
+<!--                            </tr>-->
+<!--                            <tr class="govuk-table__row">-->
+<!--                                <th scope="row" class="govuk-table__header" style="font-weight: 400;">14 April 2021</th>-->
+<!--                                <td class="govuk-table__cell">Judge Ash Chan<br>Dr Laura Jones</td>-->
+<!--                            </tr>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+<!--                </div>-->
+
+<!--                    <div class="govuk-form-group govuk-!-margin-top-5">-->
+<!--                        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">-->
+<!--                            <legend class="govuk-fieldset__legend govuk-fieldset__legend&#45;&#45;s">-->
+<!--                                <h3 class="govuk-fieldset__heading">-->
+<!--                                    Use the most recent panel again?-->
+<!--                                </h3>-->
+<!--                            </legend>-->
+<!--                            <div class="govuk-radios govuk-radios&#45;&#45;conditional" data-module="govuk-radios">-->
+
+<!--                                <div class="govuk-radios__item">-->
+<!--                                    <input class="govuk-radios__input" id="panel-1" name="panelsame" type="radio" value="Yes - use the same panel as most recent hearing" {% if data.panelsame == 'Yes - use the same panel as most recent hearing' %} Checked {% endif %}>-->
+<!--                                    <label class="govuk-label govuk-radios__label" for="panel-1"  onclick="showJudges();">-->
+<!--                                        Yes - use the same panel as most recent hearing-->
+<!--                                    </label>-->
+<!--                                </div>-->
+
+<!--                                <div class="govuk-radios__item">-->
+<!--                                    <input class="govuk-radios__input" id="panel-2" name="panelsame" type="radio" value="No - select a new panel"  {% if data.panelsame == 'No - select a new panel' %}  Checked {% endif %} >-->
+<!--                                    <label class="govuk-label govuk-radios__label" for="panel-2" onclick="hideJudges(); ">-->
+<!--                                        No - select a new panel-->
+<!--                                    </label>-->
+<!--                                </div>-->
+
+<!--                            </div>-->
+
+<!--                        </fieldset>-->
+<!--                    </div>-->
+
+
+
+<!--                            <div class="govuk-form-group  govuk-!-margin-top-5" >-->
+<!--                                <button class="govuk-button" data-module="govuk-button">-->
+<!--                                    Continue-->
+<!--                                </button>-->
+<!--                            </div>-->
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<script>
+
+    function showJudges()
+    {
+        var x = document.getElementById("conditionaljudge");
+        if (x.style.display === "none")
+        {
+            x.style.display = "block";
+        }
+
+        var y = document.getElementById("conditionaljudgelevels");
+        if (y.style.display === "block")
+        {
+            y.style.display = "none";
+        }
+    }
+
+    function hideJudges()
+    {
+        var x = document.getElementById("conditionaljudge");
+        if (x.style.display === "block")
+        {
+            x.style.display = "none";
+        }
+
+        var y = document.getElementById("conditionaljudgelevels");
+        if (y.style.display === "none")
+        {
+            y.style.display = "block";
+        }
+    }
+
+
+
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+
+
+
+
+
+{% endblock %}

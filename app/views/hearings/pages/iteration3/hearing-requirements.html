@@ -1,0 +1,333 @@
+{% extends "../../layout-xui.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <form class="form" action="hearing-venue" method="post">
+
+        <div class="govuk-grid-column-full">
+
+            <span class="govuk-caption-l">Request a hearing for Jane Smith and Asda Plc</span>
+            <h1 class="govuk-heading-l">
+                What are the hearing requirements for each party?
+            </h1>
+
+            <!-- Case flags table -->
+            <div class="govuk-form-group  govuk-!-padding-top-4">
+                <h3 class="govuk-heading-m" style="margin-bottom: 10px;">Party level flags</h3>
+
+                <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header" width="300">Jane Smith</th>
+                        <th scope="col" class="govuk-table__header" width="550">Description</th>
+                        <th scope="col" class="govuk-table__header" width="100">Status</th>
+                        <th scope="col" class="govuk-table__header" width="50"> </th>
+                    </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Potentially violent</td>
+                        <td class="govuk-table__cell">Agressive manner</td>
+                        <td class="govuk-table__cell">
+                            <strong class="govuk-tag">Active</strong>
+                        </td>
+                        <td td class="govuk-table__cell">
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Reasonable adjustment</td>
+                        <td class="govuk-table__cell">Secure dock </td>
+                        <td class="govuk-table__cell">
+                            <strong class="govuk-tag">Active</strong>
+                        </td>
+                        <td td class="govuk-table__cell">
+                    </tr>
+                    </tbody>
+                </table>
+
+                <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header" width="300">Asda Plc</th>
+                        <th scope="col" class="govuk-table__header" width="550">Description</th>
+                        <th scope="col" class="govuk-table__header" width="100">Status</th>
+                        <th scope="col" class="govuk-table__header" width="50"> </th>
+                    </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">-</td>
+                        <td class="govuk-table__cell">-</td>
+                        <td class="govuk-table__cell">
+<!--                            <strong class="govuk-tag govuk-tag&#45;&#45;red">Denied</strong>-->
+                        </td>
+                        <td td class="govuk-table__cell">
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+
+            <!-- Additional facilities checklist -->
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h1 class="govuk-fieldset__heading">
+                            Select any additional facilities required
+                        </h1>
+                        <div id="facilities-hint" class="govuk-hint">
+                            Case flags shown above do not need adding on the facilities list.
+                        </div>
+                    </legend>
+                    <div class="govuk-form-group" id="facilitiesList">
+                        <fieldset class="govuk-fieldset">
+                            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="facilities1" name="facilities" type="checkbox" value="Secure Dock">
+                                    <label class="govuk-label govuk-checkboxes__label" for="facilities1" >
+                                        Secure Dock
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="facilities2" name="facilities" type="checkbox" value="Witness Screen">
+                                    <label class="govuk-label govuk-checkboxes__label" for="facilities2"  >
+                                        Witness Screen
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="facilities3" name="facilities" type="checkbox" value="Video Facility">
+                                    <label class="govuk-label govuk-checkboxes__label" for="facilities3"  >
+                                        Video Facility
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="facilities4" name="facilities" type="checkbox" value="Witness Room">
+                                    <label class="govuk-label govuk-checkboxes__label" for="facilities4" >
+                                        Witness Room
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="facilities5" name="facilities" type="checkbox" value="Video Conferencing">
+                                    <label class="govuk-label govuk-checkboxes__label" for="facilities5" >
+                                        Video Conferencing
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="facilities6" name="facilities" type="checkbox" value="Security Search">
+                                    <label class="govuk-label govuk-checkboxes__label" for="facilities6" >
+                                        Security Search
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="facilities7" name="facilities" type="checkbox" value="Interview rooms">
+                                    <label class="govuk-label govuk-checkboxes__label" for="facilities7" >
+                                        Interview rooms
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="facilities8" name="facilities" type="checkbox" value="Prison Video Link">
+                                    <label class="govuk-label govuk-checkboxes__label" for="facilities8" >
+                                        Prison Video Link
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="govuk-form-group" id="extraFacilities">
+                <h3 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label--s" for="otherFacilities">Provide details of any other facilities or reasonable adjustments</label>
+                </h3>
+                <textarea class="govuk-textarea" id="otherFacilities" name="otherFacilities" rows="5"></textarea>
+            </div>
+
+            <textarea id="facilitiesSessionArray" name="facilitiesSessionArray" value="" style="display: none;"></textarea>
+
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </div>
+    </form>
+</div>
+
+
+
+
+<script>
+
+    // function toggleresonableadjustments1()
+    // {
+    //     if(document.getElementById("ra1").style.display == "none")
+    //     {
+    //         document.getElementById("ra1").style.display = "block";
+    //         document.getElementById("resonableadjustments1").checked = true;
+    //     }
+    //     else
+    //     {
+    //         document.getElementById("ra1").style.display = "none";
+    //         document.getElementById("resonableadjustments1").checked = false;
+    //     }
+    // }
+    //
+    //
+    // function toggleresonableadjustments2()
+    // {
+    //     if(document.getElementById("ra2").style.display == "none")
+    //     {
+    //         document.getElementById("ra2").style.display = "block";
+    //         document.getElementById("resonableadjustments2").checked = true;
+    //     }
+    //     else
+    //     {
+    //         document.getElementById("ra2").style.display = "none";
+    //         document.getElementById("resonableadjustments2").checked = false;
+    //     }
+    //
+    // }
+    //
+    //
+    //
+    // function toggleresonableadjustments3()
+    // {
+    //     if(document.getElementById("ra3").style.display == "none")
+    //     {
+    //         document.getElementById("ra3").style.display = "block";
+    //         document.getElementById("resonableadjustments3").checked = true;
+    //     }
+    //     else
+    //     {
+    //         document.getElementById("ra3").style.display = "none";
+    //         document.getElementById("resonableadjustments3").checked = false;
+    //     }
+    //
+    // }
+    //
+    //
+    // function toggleraother1()
+    // {
+    //     console.log('here')
+    //     if(document.getElementById("conditionalra1box").style.display == "none")
+    //     {
+    //         document.getElementById("ra5radio").checked = true;
+    //         document.getElementById("conditionalra1box").style.display = "block";
+    //     }
+    //     else
+    //     {
+    //         document.getElementById("ra5radio").checked = false;
+    //         document.getElementById("conditionalra1box").style.display = "none";
+    //     }
+    // }
+    //
+    //
+    // function toggleraother2()
+    // {
+    //     if(document.getElementById("conditionalra2box").style.display == "none")
+    //     {
+    //         document.getElementById("ra25radio").checked = true;
+    //         document.getElementById("conditionalra2box").style.display = "block";
+    //     }
+    //     else
+    //     {
+    //         document.getElementById("ra25radio").checked = false;
+    //         document.getElementById("conditionalra2box").style.display = "none";
+    //     }
+    // }
+    //
+    //
+    // //toggle facilities list
+    // document.getElementById('additionalFacilitiesYes').addEventListener('click', function (event) {
+    //     var facilList = document.getElementById('facilitiesList')
+    //   console.log('fsfs')
+    //     if (facilList.style.display == "none"){
+    //       facilList.style.display = "block"
+    //       document.getElementById('extraFacilities').style.display = "block"
+    //     }
+    // })
+    // document.getElementById('additionalFacilitiesNo').addEventListener('click', function (event) {
+    //     var facilList = document.getElementById('facilitiesList')
+    //   console.log('fsfs')
+    //     if (facilList.style.display == "block"){
+    //       facilList.style.display = "none"
+    //       document.getElementById('extraFacilities').style.display = "none"
+    //     }
+    // })
+    //
+    //
+    // //onload check to see if the 'anything else' is checked to show text input
+    // document.addEventListener('DOMContentLoaded', function(event) {
+    // // If 'yes' is selected for additional facilities show the list of checkboxes
+    //     if(document.getElementById("additionalFacilitiesYes").checked) {
+    //         document.getElementById("additionalFacilitiesYes").checked = true;
+    //         document.getElementById("facilitiesList").style.display = "block";
+    //         document.getElementById("extraFacilities").style.display = "block";
+    //     }
+    // })
+    //
+    // // get list of facilities that have been checked whenever a checkbox is changed
+    // var listDiv = document.getElementById('facilitiesList')
+    // var facilityCheckboxesAll = listDiv.querySelectorAll('input[type=checkbox]')
+    // var globalFacilities
+    //
+    // for (var i = 0; i < facilityCheckboxesAll.length; i++) {
+    //     facilityCheckboxesAll[i].addEventListener('change', function (event) {
+    //         var x = getCheckedFacilities()
+    //         globalFacilities = x
+    //         // for (var i = 0; i < globalFacilities.length; i++){
+    //         //     document.getElementById('facilitiesSessionArray').innerHTML += globalFacilities[i] + '<br />'
+    //         // }
+    //         document.getElementById('facilitiesSessionArray').value = globalFacilities
+    //
+    //         //console.log(globalFacilities)
+    //     })
+    // }
+    //
+    //
+    //
+    //       function getCheckedFacilities() {
+    //         var checkedFacilitiesArray = []
+    //
+    //         var facilityCheckboxesSelected = listDiv.querySelectorAll('input[type=checkbox]:checked')
+    //         for (var i = 0; i <= facilityCheckboxesSelected.length-1; i++) {
+    //           checkedFacilitiesArray.push(facilityCheckboxesSelected[i].value)
+    //         }
+    //         return(checkedFacilitiesArray)
+    //       }
+    //
+    //       function togglefacilities()
+    //       {
+    //         if(document.getElementById("conditionalra2box").style.display == "none")
+    //         {
+    //           document.getElementById("facilities5").checked = true;
+    //           document.getElementById("conditionalra2box").style.display = "block";
+    //         }
+    //         else
+    //         {
+    //           document.getElementById("facilities5").checked = false;
+    //           document.getElementById("conditionalra2box").style.display = "none";
+    //         }
+    //       }
+
+
+
+          function goBack() {
+            window.history.back();
+          }
+        </script>
+
+
+
+
+
+        {% endblock %}

@@ -1,0 +1,82 @@
+{% extends "../../layout-xui.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+{% block beforeContent %}
+    <a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <form class="form" action="hearing-tab-cancelled-request" method="post">
+
+            <h1 class="govuk-heading-l">
+                Are you sure you want to cancel this hearing request?
+            </h1>
+
+            <p class="govuk-body">
+                The hearing request will not be processed and the details deleted.
+                <br /><br />
+                Jane Smith and Asda Plc
+                <br /><br />
+                Hearing requested date: 4 October 2021
+
+            </p>
+
+            <div class="govuk-form-group">
+                <h3 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label--s" for="otherFacilities">Provide a reason for cancelling this request</label>
+                </h3>
+                <textarea class="govuk-textarea" id="reason-for-cancel" name="reason-for-cancel" rows="5"></textarea>
+            </div>
+
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+            </form>
+
+            <p class="govuk-body">
+                <a href="index" class="govuk-link">Do not cancel hearing</a>
+            </p>
+
+        </div>
+    </div>
+
+
+
+
+
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+    // document.addEventListener('DOMContentLoaded', function(event) {
+    //
+    // })
+</script>
+
+
+<!--<div style="width:400px;">-->
+<!--    <form method="post"  action="#" class="for4" style=" float: left; margin-top: 140px;">-->
+<!--        <p style="margin-bottom:0px;">Case flags</p>-->
+<!--        <select style="height:25px;" onchange="window.location.href='?'+this.value">-->
+
+<!--            <option value="caseflagshidden=false&"-->
+<!--                    {% if data.caseflagshidden != 'true'  %}selected{% endif %}-->
+<!--            >ON</option>-->
+
+<!--            <option value="caseflagshidden=true&"-->
+<!--                    {% if data.caseflagshidden == 'true'  %}selected{% endif %}-->
+<!--            >OFF</option>-->
+
+<!--        </select>-->
+<!--    </form>-->
+<!--</div>-->
+
+{% endblock %}
+

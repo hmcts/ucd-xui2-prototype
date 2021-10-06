@@ -1,0 +1,251 @@
+{% extends "../../layoutstaff.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+
+{% block content %}
+
+
+<main class="" id="main-content" role="main">
+    <div class="govuk-grid-row"  style="max-width:1860px; margin: 0 auto;">
+        <h2 class="govuk-tabs__panel" id="event" style=" padding: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;"></h2>
+
+        <a href="#" class="govuk-back-link govuk-!-margin-bottom-6" onclick="goBack();">Back</a>
+
+        <h2 class="govuk-heading-l">Directions hearing</h2>
+        <strong class="govuk-tag govuk-tag--red" style="margin-bottom:40px;background-color:#f6d7d2; color:#942514">Cancelled</strong>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Case name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Jane Smith v DWP
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Hearing type
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    03 PIP
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+            </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Hearing requirements for each party</h2>
+
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    What are the hearing requirements for each party?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Jane Smith
+                    <ul>
+                        <li>Hearing loop</li>
+                        <li>Digital assistance</li>
+                        <li>Language interpreter</li>
+                    </ul>
+                    DWP
+                    <ul>
+                        <li>No hearing requirements</li>
+                    </ul>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+
+                </dd>
+            </div>
+        </dl>
+
+
+        <h2 class="govuk-heading-m">Hearing details</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    What stage is this hearing at?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Final
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    How will the parties attend the hearing?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Jane Smith - In person <br /><br />
+                    DWP - By video <br /><br />
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+
+
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Where will the hearing take place?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Bristol
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+
+
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Selected venues within region
+                </dt>
+                <dd class="govuk-summary-list__value" style="white-space: pre-wrap;">BRISTOL MAGISTRATES COURT</dd>
+                <dd class="govuk-summary-list__actions">
+
+
+
+                </dd>
+            </div>
+
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Will any additional facilities be required?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Digital assistance<br />
+                    Spanish interpreter
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+            </div>
+        </dl>
+
+
+        <h2 class="govuk-heading-m">Who will be on the hearing panel?</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Name of the judge
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Judge Jane Smith (judge-jane-smith@xyz.com)
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+            </div>
+
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Tribunal Medical Member
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Tony King
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Disability Qualified Member
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Ramesh Desiato
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+            </div>
+
+        </dl>
+
+        <h2 class="govuk-heading-m">When will the hearing take place?</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Select length of hearing
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    45 minutes
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Earliest hearing date
+                <dd class="govuk-summary-list__value">
+                    5 October 2021
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Latest hearing date
+                <dd class="govuk-summary-list__value">
+                    15 October 2021
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+            </div>
+
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Is this a priority hearing?
+                <dd class="govuk-summary-list__value">
+                    Yes
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+            </div>
+
+        </dl>
+
+    </div>
+    </div>
+</main>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+
+
+
+
+
+
+{% endblock %}
