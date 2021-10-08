@@ -1,0 +1,168 @@
+{% extends "../../layout-xui-judges-view.html" %}
+
+{% block pageTitle %}
+Hearings management
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+
+            <div style="display: flex; justify-content: space-between; ">
+
+                <h1 class="govuk-heading-xl">
+                    <span class="govuk-caption-l">9468-3316-6763-1127</span>
+                    Jane Smith and Asda Plc
+                </h1>
+
+                <div style="display: flex; align-items:right; padding-top: 10px;">
+                    <p class="govuk-!-margin-top-2">Next step &nbsp;</p>
+
+                    <select class="govuk-select" id="sort" name="sort">
+                        <option value="published" selected="">Select action</option>
+                        <option value="published">Submit amended application</option>
+                        <option value="published">Link respondent</option>
+                        <option value="published">Add Note</option>
+                        <option value="published">Upload document</option>
+                        <option value="updated">Stop representing a client</option>
+                        <option value="updated">Create a flag</option>
+                        <option value="updated">Print</option>
+                    </select>
+
+                    <div>
+                        <a href="#">
+                            <button class="govuk-button govuk-!-margin-left-1" data-module="govuk-button">Go</button>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="govuk-tabs" data-module="govuk-tabs">
+            <h2 class="govuk-tabs__title">
+                Contents
+            </h2>
+            <ul class="govuk-tabs__list">
+                <li class="govuk-tabs__list-item">
+                    <a class="govuk-tabs__tab" href="#">
+                        Case details
+                    </a>
+                </li>
+                <li class="govuk-tabs__list-item">
+                    <a class="govuk-tabs__tab" href="#">
+                        Claimant
+                    </a>
+                </li>
+                <li class="govuk-tabs__list-item">
+                    <a class="govuk-tabs__tab" href="#">
+                        Claimant representative
+                    </a>
+                </li>
+                <li class="govuk-tabs__list-item">
+                    <a class="govuk-tabs__tab" href="#">
+                        Respondent
+                    </a>
+                </li>
+                <li class="govuk-tabs__list-item">
+                    <a class="govuk-tabs__tab" href="#">
+                        Respondent representative
+                    </a>
+                </li>
+                <li class="govuk-tabs__list-item">
+                    <a class="govuk-tabs__tab" href="#">
+                        History
+                    </a>
+                </li>
+                <li class="govuk-tabs__list-item">
+                    <a class="govuk-tabs__tab" href="#">
+                        Case flags
+                    </a>
+                </li>
+                <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                    <a class="govuk-tabs__tab" href="#">
+                        Hearings
+                    </a>
+                </li>
+            </ul>
+            <!-- END OF TABS -->
+
+            <div class="govuk-tabs__panel" id="event">
+
+<!--                <form class="form" action="start-journey" method="post">-->
+<!--                    <button role="button" draggable="false" class="govuk-button govuk-button&#45;&#45;start" data-module="govuk-button">-->
+<!--                        Request a hearing-->
+<!--                        <svg style="padding-left:5px;vertical-align: middle;" class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">-->
+<!--                            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />-->
+<!--                        </svg>-->
+<!--                    </button>-->
+<!--                </form>-->
+
+                <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header govuk-body-lead">Upcoming</th>
+                        <th scope="col" class="govuk-table__header">Hearing date</th>
+                        <th scope="col" class="govuk-table__header">Status</th>
+                        <th scope="col" class="govuk-table__header">Options</th>
+                    </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                    <!--                        <tr class="govuk-table__row">-->
+                    <!--                            <td scope="row" colspan="4" class="govuk-table__header"><h2 class="govuk-heading-m govuk-!-margin-bottom-2">Upcoming</h2></td>-->
+                    <!--                        </tr>-->
+                    <tr class="govuk-table__row">
+                        <td scope="row" class="govuk-table__header" style="width:34%;">Case management preliminary hearing - open</td>
+                        <td scope="row" class="govuk-table__cell" style="width:20%;"></td>
+                        <td scope="row" class="govuk-table__cell" style="width:20%;"><strong class="govuk-tag govuk-tag--grey">Waiting to be listed</strong></td>
+                        <td scope="row" class="govuk-table__cell" style="width:26%;"><a href="#">View details</a></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td scope="row" class="govuk-table__header">Full hearing</td>
+                        <td scope="row" class="govuk-table__cell">12 October 2021</td>
+                        <td scope="row" class="govuk-table__cell"><strong class="govuk-tag govuk-tag--turquoise">Listed</strong></td>
+                        <td scope="row" class="govuk-table__cell"><a href="hearing-details-listed"><a href="#">View details</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header govuk-body-lead">Past and cancelled</th>
+                        <th scope="col" class="govuk-table__header">Hearing date</th>
+                        <th scope="col" class="govuk-table__header">Status</th>
+                        <th scope="col" class="govuk-table__header">Options</th>
+                    </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                    <!--                        <tr class="govuk-table__row">-->
+                    <!--                            <td scope="row" colspan="4" class="govuk-table__header"><h2 class="govuk-heading-m govuk-!-margin-bottom-2 govuk-!-margin-top-7">Past and cancelled</h2></td>-->
+                    <!--                        </tr>-->
+                    <tr class="govuk-table__row">
+                        <td scope="row" class="govuk-table__header" style="width:34%;">Pre-hearing review</td>
+                        <td scope="row" class="govuk-table__cell" style="width:20%;">5 September 2021</td>
+                        <td scope="row" class="govuk-table__cell" style="width:20%;"><strong class="govuk-tag govuk-tag--purple">Completed</strong></td>
+                        <td scope="row" class="govuk-table__cell" style="width:26%;"><a href="#">View details</a></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td scope="row" class="govuk-table__header">Case management preliminary hearing - open</td>
+                        <td scope="row" class="govuk-table__cell">22 October 2021</td>
+                        <td scope="row" class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Cancelled</strong></td>
+                        <td scope="row" class="govuk-table__cell"><a href="#">View details</a></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td scope="row" class="govuk-table__header">Remedy hearing</td>
+                        <td scope="row" class="govuk-table__cell">14 September 2021</td>
+                        <td scope="row" class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Cancelled</strong></td>
+                        <td scope="row" class="govuk-table__cell"><a href="#">View details</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        </div>
+    </div>
+
+{% endblock %}
