@@ -15,27 +15,27 @@ Case details
 
             <span class="govuk-caption-l">Request a hearing for Abdullah Uddin</span>
             <h1 class="govuk-heading-l">
-                Do you require a panel for this hearing?
+                Does this hearing need to be in Welsh?
             </h1>
-<!--            <div id="hybrid-hint" class="govuk-hint">-->
-<!--                Hint text about hybrid-->
-<!--            </div>-->
+            <div id="welsh-hint" class="govuk-hint">
+                This means the entire hearing will be carried out in Welsh.
+            </div>
 
-            <form class="form" action="hearing-panel-answer" method="post">
+            <form class="form" action="hearing-checkyouranswers" method="post">
 
                 <div class="govuk-form-group">
                     <fieldset class="govuk-fieldset">
 
                         <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="panelYes" name="hearingPanel" type="radio" value="yes">
-                                <label class="govuk-label govuk-radios__label" for="panelYes">
+                                <input class="govuk-radios__input" id="welshYes" name="welshHearing" type="radio" value="yes">
+                                <label class="govuk-label govuk-radios__label" for="welshYes">
                                     Yes
                                 </label>
                             </div>
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="panelNo" name="hearingPanel" type="radio" value="no">
-                                <label class="govuk-label govuk-radios__label" for="panelNo">
+                                <input class="govuk-radios__input" id="welshNo" name="welshHearing" type="radio" value="no">
+                                <label class="govuk-label govuk-radios__label" for="welshNo">
                                     No
                                 </label>
                             </div>

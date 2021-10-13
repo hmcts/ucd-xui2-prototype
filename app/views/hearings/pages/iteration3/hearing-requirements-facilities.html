@@ -11,22 +11,17 @@ Case details
 {% block content %}
 
 <div class="govuk-grid-row">
-    <form class="form" action="hearing-requirements-facilities" method="post">
+    <form class="form" action="hearing-stage" method="post">
 
         <div class="govuk-grid-column-full">
 
             <span class="govuk-caption-l">Request a hearing for Abdullah Uddin</span>
             <h1 class="govuk-heading-l">
-                Hearing requirements
+                Do you require any additional facilities?
             </h1>
 
-            <p class="govuk-body">
-                <strong>Hearing type</strong><br />
-                Protection appeal
-            </p>
-
             <!-- Case flags table -->
-            <div class="govuk-form-group  govuk-!-padding-top-4">
+            <div class="govuk-form-group">
 <!--                <h3 class="govuk-heading-m" style="margin-bottom: 10px;">Party level flags</h3>-->
 
                 <table class="govuk-table">
@@ -41,8 +36,8 @@ Case details
                     </thead>
                     <tbody class="govuk-table__body">
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">Language Interpreter</td>
-                        <td class="govuk-table__cell">Spanish interpreter required</td>
+                        <td class="govuk-table__cell">Potentially violent person</td>
+                        <td class="govuk-table__cell">Description here</td>
                         <td class="govuk-table__cell">
                             <strong class="govuk-tag">Active</strong>
                         </td>
@@ -50,32 +45,127 @@ Case details
                         <td td class="govuk-table__cell" style="padding-bottom: 9px!important;padding-top: 8px!important;margin-bottom: 0px;"><span class="govuk-body govuk-!-font-size-27" style="margin-bottom: 0px!important;">+</span></td>
                     </tr>
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">Sign language interpreter</td>
-                        <td class="govuk-table__cell">Sign language interpreter required</td>
+                        <td class="govuk-table__cell">Unnaceptable customer behaviour</td>
+                        <td class="govuk-table__cell">Description here</td>
                         <td class="govuk-table__cell">
                             <strong class="govuk-tag">Active</strong>
                         </td>
                         <td td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--orange">MEDIUM</strong></td>
                         <td td class="govuk-table__cell" style="padding-bottom: 9px!important;padding-top: 8px!important;margin-bottom: 0px;"><span class="govuk-body govuk-!-font-size-27" style="margin-bottom: 0px!important;">+</span></td>
                     </tr>
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">Reasonable adjustment</td>
-                        <td class="govuk-table__cell">Hearing loop required</td>
-                        <td class="govuk-table__cell">
-                            <strong class="govuk-tag">Active</strong>
-                        </td>
-                        <td td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--orange">MEDIUM</strong></td>
-                        <td td class="govuk-table__cell" style="padding-bottom: 9px!important;padding-top: 8px!important;margin-bottom: 0px;"><span class="govuk-body govuk-!-font-size-27" style="margin-bottom: 0px!important;">+</span></td>
-                    </tr>
+<!--                    <tr class="govuk-table__row">-->
+<!--                        <td class="govuk-table__cell">Case flag</td>-->
+<!--                        <td class="govuk-table__cell">Description here</td>-->
+<!--                        <td class="govuk-table__cell">-->
+<!--                            <strong class="govuk-tag">Active</strong>-->
+<!--                        </td>-->
+<!--                        <td td class="govuk-table__cell"><strong class="govuk-tag govuk-tag&#45;&#45;orange">MEDIUM</strong></td>-->
+<!--                        <td td class="govuk-table__cell" style="padding-bottom: 9px!important;padding-top: 8px!important;margin-bottom: 0px;"><span class="govuk-body govuk-!-font-size-27" style="margin-bottom: 0px!important;">+</span></td>-->
+<!--                    </tr>-->
                     </tbody>
                 </table>
 
-                <p class="govuk-body">Review <a href="">case flags and reasonable adjustments</a> if you need to make any changes.</p>
 
             </div>
+
         </div>
 
         <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+
+            <!-- Additional facilities checklist -->
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h1 class="govuk-fieldset__heading">
+                            Select any additional facilities required
+                        </h1>
+                        <div id="facilities-hint" class="govuk-hint">
+                            Add facilities based on flags above
+                        </div>
+                    </legend>
+                    <div class="govuk-form-group" id="facilitiesList">
+                        <fieldset class="govuk-fieldset">
+                            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+<!--                                <div class="govuk-checkboxes__item">-->
+<!--                                    <input class="govuk-checkboxes__input" id="facilities1" name="facilities" type="checkbox" value="Hearing loop">-->
+<!--                                    <label class="govuk-label govuk-checkboxes__label" for="facilities1" >-->
+<!--                                        Hearing loop-->
+<!--                                    </label>-->
+<!--                                </div>-->
+<!--                                <div class="govuk-checkboxes__item">-->
+<!--                                    <input class="govuk-checkboxes__input" id="facilities2" name="facilities" type="checkbox" value="Hearing room with step free access">-->
+<!--                                    <label class="govuk-label govuk-checkboxes__label" for="facilities2" >-->
+<!--                                        Hearing room with step free access-->
+<!--                                    </label>-->
+<!--                                </div>-->
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="facilities3" name="facilities" type="checkbox" value="Immigration detention centre">
+                                    <label class="govuk-label govuk-checkboxes__label" for="facilities3" >
+                                        Immigration detention centre
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="facilities4" name="facilities" type="checkbox" value="In camera court">
+                                    <label class="govuk-label govuk-checkboxes__label" for="facilities4" >
+                                        In camera court
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="facilities5" name="facilities" type="checkbox" value="Same sex courtroom">
+                                    <label class="govuk-label govuk-checkboxes__label" for="facilities5" >
+                                        Same sex courtroom
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="facilities6" name="facilities" type="checkbox" value="Secure Dock">
+                                    <label class="govuk-label govuk-checkboxes__label" for="facilities6" >
+                                        Secure Dock
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="facilities7" name="facilities" type="checkbox" value="Witness Screen">
+                                    <label class="govuk-label govuk-checkboxes__label" for="facilities7"  >
+                                        Witness Screen
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="facilities8" name="facilities" type="checkbox" value="Witness Room">
+                                    <label class="govuk-label govuk-checkboxes__label" for="facilities8" >
+                                        Witness Room
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="facilities9" name="facilities" type="checkbox" value="Video Conferencing">
+                                    <label class="govuk-label govuk-checkboxes__label" for="facilities9" >
+                                        Video Conferencing
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="facilities10" name="facilities" type="checkbox" value="Video Facility">
+                                    <label class="govuk-label govuk-checkboxes__label" for="facilities10"  >
+                                        Video Facility
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="facilities11" name="facilities" type="checkbox" value="Prison Video Link">
+                                    <label class="govuk-label govuk-checkboxes__label" for="facilities11" >
+                                        Prison Video Link
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="govuk-form-group" id="extraFacilities">
+                <h3 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label--s" for="otherFacilities">Provide details of any other facilities or reasonable adjustments</label>
+                </h3>
+                <textarea class="govuk-textarea" id="otherFacilities" name="otherFacilities" rows="5"></textarea>
+            </div>
+
+            <textarea id="facilitiesSessionArray" name="facilitiesSessionArray" value="" style="display: none;"></textarea>
 
             <button class="govuk-button" data-module="govuk-button">Continue</button>
 
