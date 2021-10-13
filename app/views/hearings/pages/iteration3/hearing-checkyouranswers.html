@@ -167,7 +167,7 @@ Case details
                 </div>
 
                 <!-- SPECIFIC JUDGE -->
-                {% if data.specificjudge == 'yes' %}
+                {% if data.specificjudge == 'Yes' %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         Name of the judge
@@ -246,64 +246,64 @@ Case details
                     </dd>
                 </div>
 
+<!--                {% if data.hearingPanel == 'yes' %}-->
+<!--                    &lt;!&ndash; SAME JUDGE + PANEL (Only if this is not the first hearing) &ndash;&gt;-->
+<!--                    {% if data.panelsame == 'Yes - use the same panel as most recent hearing' %}-->
+
+<!--                        <div class="govuk-summary-list__row">-->
+<!--                            <dt class="govuk-summary-list__key">-->
+<!--                                Use the most recent panel again?-->
+<!--                            </dt>-->
+<!--                            <dd class="govuk-summary-list__value">-->
+<!--                                Yes-->
+<!--                            </dd>-->
+<!--                            <dd class="govuk-summary-list__actions">-->
+<!--                                {% if data.changesallowed != 'false' %}-->
+<!--                                <a class="govuk-link" href="hearing-panel-existing?backtocheckanswers=true&">-->
+<!--                                    Change-->
+<!--                                </a>-->
+<!--                                {% endif %}-->
+<!--                            </dd>-->
+<!--                        </div>-->
+
+<!--                        &lt;!&ndash; PREVIOUS PANEL &ndash;&gt;-->
+<!--                        <div class="govuk-summary-list__row">-->
+<!--                            <dt class="govuk-summary-list__key">-->
+<!--                                Judge-->
+<!--                            </dt>-->
+<!--                            <dd class="govuk-summary-list__value">-->
+<!--                                Her Honour Judge Anderson-->
+<!--                            </dd>-->
+<!--                            <dd class="govuk-summary-list__actions">-->
+<!--                            </dd>-->
+<!--                        </div>-->
+
+<!--                        <div class="govuk-summary-list__row">-->
+<!--                            <dt class="govuk-summary-list__key">-->
+<!--                                Tribunal Medical Member-->
+<!--                            </dt>-->
+<!--                            <dd class="govuk-summary-list__value">-->
+<!--                                Tony King-->
+<!--                            </dd>-->
+<!--                            <dd class="govuk-summary-list__actions">-->
+<!--                            </dd>-->
+<!--                        </div>-->
+
+<!--                        <div class="govuk-summary-list__row">-->
+<!--                            <dt class="govuk-summary-list__key">-->
+<!--                                Disability Qualified Member-->
+<!--                            </dt>-->
+<!--                            <dd class="govuk-summary-list__value">-->
+<!--                                Ramesh Desiato-->
+<!--                            </dd>-->
+<!--                            <dd class="govuk-summary-list__actions">-->
+<!--                            </dd>-->
+<!--                        </div>-->
+<!--                    {% endif %}-->
+<!--                {% endif %}-->
+
                 {% if data.hearingPanel == 'yes' %}
-                    <!-- SAME JUDGE + PANEL (Only if this is not the first hearing) -->
-                    {% if data.panelsame == 'Yes - use the same panel as most recent hearing' %}
 
-                        <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">
-                                Use the most recent panel again?
-                            </dt>
-                            <dd class="govuk-summary-list__value">
-                                Yes
-                            </dd>
-                            <dd class="govuk-summary-list__actions">
-                                {% if data.changesallowed != 'false' %}
-                                <a class="govuk-link" href="hearing-panel-existing?backtocheckanswers=true&">
-                                    Change
-                                </a>
-                                {% endif %}
-                            </dd>
-                        </div>
-
-                        <!-- PREVIOUS PANEL -->
-                        <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">
-                                Judge
-                            </dt>
-                            <dd class="govuk-summary-list__value">
-                                Her Honour Judge Anderson
-                            </dd>
-                            <dd class="govuk-summary-list__actions">
-                            </dd>
-                        </div>
-
-                        <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">
-                                Tribunal Medical Member
-                            </dt>
-                            <dd class="govuk-summary-list__value">
-                                Tony King
-                            </dd>
-                            <dd class="govuk-summary-list__actions">
-                            </dd>
-                        </div>
-
-                        <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">
-                                Disability Qualified Member
-                            </dt>
-                            <dd class="govuk-summary-list__value">
-                                Ramesh Desiato
-                            </dd>
-                            <dd class="govuk-summary-list__actions">
-                            </dd>
-                        </div>
-                    {% endif %}
-                {% endif %}
-
-                {% if data.hearingPanel == 'yes' %}
-<!--                {% if data.panelsame == 'No - select a new panel' %}-->
                     <!-- PANEL REQUIREMENTS -->
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">
@@ -351,7 +351,6 @@ Case details
                         </dd>
                     </div>
 
-<!--                {% endif %}-->
                 {% endif %}
 
                 <!-- NEW JUDGE + PANEL IF REQUIRED -->

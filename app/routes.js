@@ -22,7 +22,10 @@ const router = express.Router()
 router.post('/hearings/pages/iteration3/start-journey', function (req, res) {
   // Set default venue
   var venue = 'TAYLOR HOUSE TRIBUNAL CENTRE'
+  var region = 'London'
   req.session.data['venue'] = venue
+  req.session.data['regionselection'] = region
+  req.session.data['viewandchange'] = 'false'
   res.redirect('/hearings/pages/iteration3/hearing-requirements')
 })
 
@@ -119,8 +122,14 @@ router.post('/hearings/pages/iteration3/hearing-panel-answer', function (req, re
     // Send user to Existing panel page
     res.redirect('/hearings/pages/iteration3/hearing-panel-new')
   } else {
-    // Send user to select judge page
-    res.redirect('/hearings/pages/iteration3/hearing-duration')
+    // check your answers conditional
+    if(req.session.data['backtocheckanswers'] == 'true') {
+      req.session.data['backtocheckanswers'] = 'false'
+      res.redirect('/hearings/pages/iteration3/hearing-checkyouranswers')
+    } else {
+      // Send user to select judge page
+      res.redirect('/hearings/pages/iteration3/hearing-duration')
+    }
   }
 })
 
@@ -187,8 +196,6 @@ router.post('/hearings/pages/iteration3/hearing-duration-check-wales', function 
     }
   }
 })
-
-
 
 ///////////////////*** End of hearings management routing ***//////////////////////
 
