@@ -13,7 +13,7 @@ Case details
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <span class="govuk-caption-l">Request a hearing for Abdullah Uddin</span>
+        <span class="govuk-caption-l">Request a hearing for Jane Smith vs DWP</span>
         <h1 class="govuk-heading-l">
             Do you want a specific judge?
         </h1>
@@ -26,7 +26,7 @@ Case details
 
                     <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="specificjudge-1" name="specificjudge" type="radio" value="Yes" data-aria-controls="conditional-judge">
+                            <input class="govuk-radios__input" id="specificjudge-1" name="specificjudge" type="radio" value="Yes" data-aria-controls="conditional-judge" {% if data.specificjudge == 'Yes' %}  Checked {% endif %}>
                             <label class="govuk-label govuk-radios__label" for="specificjudge-1"">
                                 Yes
                             </label>
@@ -42,7 +42,7 @@ Case details
                         </div>
 
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="specificjudge-2" name="specificjudge" type="radio" value="No" data-aria-controls="conditional-judge-type">
+                            <input class="govuk-radios__input" id="specificjudge-2" name="specificjudge" type="radio" value="No" data-aria-controls="conditional-judge-type" {% if data.specificjudge == 'No' %}  Checked {% endif %}>
                             <label class="govuk-label govuk-radios__label" for="specificjudge-2">
                                 No
                             </label>
@@ -121,59 +121,12 @@ Case details
 
 <script>
 
-
-    // function showJudges()
-    // {
-    //     var x = document.getElementById("conditionaljudge");
-    //     if (x.style.display === "none")
-    //     {
-    //         x.style.display = "block";
-    //     }
-    //
-    //     var y = document.getElementById("conditionaljudgelevels");
-    //     if (y.style.display === "block")
-    //     {
-    //         y.style.display = "none";
-    //     }
-    // }
-    //
-    // function hideJudges()
-    // {
-    //     var x = document.getElementById("conditionaljudge");
-    //     if (x.style.display === "block")
-    //     {
-    //         x.style.display = "none";
-    //     }
-    //
-    //     var y = document.getElementById("conditionaljudgelevels");
-    //     if (y.style.display === "none")
-    //     {
-    //         y.style.display = "block";
-    //     }
-    // }
-    //
-    // function addperson()
-    // {
-    //     document.getElementById("addpersonsname").style.display = "flex";
-    //     document.getElementById("addanotherperson").style.display = "inline-block";
-    //     document.getElementById("addperson").style.display = "none";
-    // }
-    //
-    // function excludeperson()
-    // {
-    //     document.getElementById("excludepersonsname").style.display = "flex";
-    //     document.getElementById("excludeanotherperson").style.display = "inline-block";
-    //     document.getElementById("excludeperson").style.display = "none";
-    // }
-    //
     function excludejudge()
     {
         document.getElementById("exludejudgefield").style.display = "flex";
         document.getElementById("exludeanotherjudge").style.display = "inline-block";
         document.getElementById("exludenewjudge").style.display = "none";
     }
-
-
 
     window.onload = (event) => {
 

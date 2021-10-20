@@ -13,7 +13,7 @@ Case details
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <span class="govuk-caption-l">Request a hearing for Abdullah Uddin</span>
+        <span class="govuk-caption-l">Request a hearing for Jane Smith vs DWP</span>
         <h1 class="govuk-heading-l">
             Select duration and date of hearing
         </h1>
@@ -50,14 +50,14 @@ Case details
                                     <label class="govuk-label govuk-date-input__label" for="durationhours">
                                         Hours
                                     </label>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="durationhours" name="durationhours" type="text" pattern="[0-9]*" inputmode="numeric" ></div>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="durationhours" name="durationhours" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['durationhours'] }}"></div>
                             </div>
                             <div class="govuk-date-input__item">
                                 <div class="govuk-form-group">
                                     <label class="govuk-label govuk-date-input__label" for="durationmins">
                                         Minutes
                                     </label>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="durationmins" name="durationmins" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="durationmins" name="durationmins" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['durationmins'] }}"></div>
                             </div>
                         </div>
 

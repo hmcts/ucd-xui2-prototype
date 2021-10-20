@@ -15,7 +15,7 @@ Case details
 
             <form class="form" action="hearing-attendance" method="post">
 
-            <span class="govuk-caption-l">Request a hearing for Abdullah Uddin</span>
+            <span class="govuk-caption-l">Request a hearing for Jane Smith vs DWP</span>
             <h1 class="govuk-heading-l">
                 What stage is this hearing at?
             </h1>
@@ -31,21 +31,27 @@ Case details
                     <!-- IAC -->
                     <div class="govuk-radios">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="stage1" name="hearingstage" type="radio" value="Case management appointment" {% if data.hearingstage == 'Case management appointment' %} checked {% endif %}>
+                            <input class="govuk-radios__input" id="stage1" name="hearingstage" type="radio" value="Initial" {% if data.hearingstage == 'Initial' %} checked {% endif %}>
                             <label class="govuk-label govuk-radios__label" for="stage1">
-                                Case management appointment
+                                Initial
                             </label>
                         </div>
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="stage2" name="hearingstage" type="radio" value="Case management review" {% if data.hearingstage == 'Case management review' %} checked {% endif %}>
+                            <input class="govuk-radios__input" id="stage2" name="hearingstage" type="radio" value="Final" {% if data.hearingstage == 'Final' %} checked {% endif %}>
                             <label class="govuk-label govuk-radios__label" for="stage2">
-                                Case management review
+                                Final
                             </label>
                         </div>
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="stage3" name="hearingstage" type="radio" value="Full hearing" {% if data.hearingstage == 'Full hearing' %} checked {% endif %}>
+                            <input class="govuk-radios__input" id="stage3" name="hearingstage" type="radio" value="Substantial" {% if data.hearingstage == 'Substantial' %} checked {% endif %}>
                             <label class="govuk-label govuk-radios__label" for="stage3">
-                                Full hearing
+                                Substantial
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="stage4" name="hearingstage" type="radio" value="Case management" {% if data.hearingstage == 'Case management' %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="stage4">
+                                Case management
                             </label>
                         </div>
                     </div>
@@ -114,28 +120,8 @@ Case details
     function goBack() {
         window.history.back();
     }
-    // document.addEventListener('DOMContentLoaded', function(event) {
-    //
-    // })
 </script>
 
-
-<!--<div style="width:400px;">-->
-<!--    <form method="post"  action="#" class="for4" style=" float: left; margin-top: 140px;">-->
-<!--        <p style="margin-bottom:0px;">Case flags</p>-->
-<!--        <select style="height:25px;" onchange="window.location.href='?'+this.value">-->
-
-<!--            <option value="caseflagshidden=false&"-->
-<!--                    {% if data.caseflagshidden != 'true'  %}selected{% endif %}-->
-<!--            >ON</option>-->
-
-<!--            <option value="caseflagshidden=true&"-->
-<!--                    {% if data.caseflagshidden == 'true'  %}selected{% endif %}-->
-<!--            >OFF</option>-->
-
-<!--        </select>-->
-<!--    </form>-->
-<!--</div>-->
 
 {% endblock %}
 

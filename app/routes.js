@@ -21,7 +21,7 @@ const router = express.Router()
 // Start happy path and set venue default
 router.post('/hearings/pages/iteration3/start-journey', function (req, res) {
   // Set default venue
-  var venue = 'TAYLOR HOUSE TRIBUNAL CENTRE'
+  var venue = 'Birmingham Civil and Family Justice Centre'
   var region = 'London'
   req.session.data['venue'] = venue
   req.session.data['regionselection'] = region
@@ -65,15 +65,15 @@ router.post('/hearings/pages/iteration3/hearing-venue', function (req, res) {
   }
 })
 
-// Routing for Venue > Judge
-router.post('/hearings/pages/iteration3/hearing-judge', function (req, res) {
+// Routing for Venue > Panel
+router.post('/hearings/pages/iteration3/hearing-panel', function (req, res) {
   // If coming from check answers page then return there after clicking continue
   if(req.session.data['backtocheckanswers'] == 'true') {
     req.session.data['backtocheckanswers'] = 'false'
     res.redirect('/hearings/pages/iteration3/hearing-checkyouranswers')
   }
   else {
-    res.redirect('/hearings/pages/iteration3/hearing-judge')
+    res.redirect('/hearings/pages/iteration3/hearing-panel')
   }
 })
 
@@ -97,7 +97,7 @@ router.post('/hearings/pages/iteration3/hearing-attendance-answer', function (re
 
   if (hybridHearing == "yes"){
     // Send user to the hybrid hearings page
-    res.redirect('/hearings/pages/iteration3/hearing-attendance-hybrid-many')
+    res.redirect('/hearings/pages/iteration3/hearing-attendance-hybrid-few')
   } else {
     // Send user to the non-hybrid hearings page
     res.redirect('/hearings/pages/iteration3/hearing-attendance-non-hybrid')
@@ -120,7 +120,7 @@ router.post('/hearings/pages/iteration3/hearing-panel-answer', function (req, re
   // Check whether the variable matches a condition
   if (hearingPanel == "yes"){
     // Send user to Existing panel page
-    res.redirect('/hearings/pages/iteration3/hearing-panel-new')
+    res.redirect('/hearings/pages/iteration3/hearing-panel-existing')
   } else {
     // check your answers conditional
     if(req.session.data['backtocheckanswers'] == 'true') {
@@ -128,30 +128,31 @@ router.post('/hearings/pages/iteration3/hearing-panel-answer', function (req, re
       res.redirect('/hearings/pages/iteration3/hearing-checkyouranswers')
     } else {
       // Send user to select judge page
-      res.redirect('/hearings/pages/iteration3/hearing-duration')
+      res.redirect('/hearings/pages/iteration3/hearing-judge')
     }
   }
 })
 
-// Route from judge page if user selected yes to new panel
+// // Route from judge page if user selected yes to new panel
 router.post('/hearings/pages/iteration3/hearing-panel-judge', function (req, res) {
 
   var hearingPanel = req.session.data['hearingPanel']
+  var panelSame = req.session.data['panelsame']
 
   // check your answers conditional
   if(req.session.data['backtocheckanswers'] == 'true') {
       req.session.data['backtocheckanswers'] = 'false'
       res.redirect('/hearings/pages/iteration3/hearing-checkyouranswers')
   } else {
-      // // Check if they chose yes to hearing panel
-      // if (hearingPanel == "yes") {
-      //   // Send user to new panel
-      //   res.redirect('/hearings/pages/iteration3/hearing-panel-new')
-      // } else {
-      //   // Send user to hearing duration
-      //   res.redirect('/hearings/pages/iteration3/hearing-duration')
-      // }
-    res.redirect('/hearings/pages/iteration3/hearing-panel')
+      // Check if they chose yes to hearing panel
+    if (panelSame == "No - select a new panel"){
+        // Send user to new panel
+        res.redirect('/hearings/pages/iteration3/hearing-panel-new')
+      } else {
+        // Send user to hearing duration
+        res.redirect('/hearings/pages/iteration3/hearing-duration')
+      }
+    //res.redirect('/hearings/pages/iteration3/hearing-panel')
   }
 })
 
@@ -160,19 +161,43 @@ router.post('/hearings/pages/iteration3/hearing-panel-existing-answer', function
 
   var panelSame = req.session.data['panelsame']
 
-  // Check if they want the same panel
+  // Check if the same panel required
   if (panelSame == "Yes - use the same panel as most recent hearing"){
       // check your answers conditional
       if(req.session.data['backtocheckanswers'] == 'true') {
-        req.session.data['backtocheckanswers'] = 'false'
-      res.redirect('/hearings/pages/iteration3/hearing-checkyouranswers')
+          req.session.data['backtocheckanswers'] = 'false'
+          res.redirect('/hearings/pages/iteration3/hearing-checkyouranswers')
       } else {
         // Send user to hearing duration
         res.redirect('/hearings/pages/iteration3/hearing-duration')
       }
+  // else if new panel
   } else {
-    // Send user to judge (and then panel subsequently)
-    res.redirect('/hearings/pages/iteration3/hearing-judge')
+      // If coming from check your answers page
+      if(req.session.data['backtocheckanswers'] == 'true') {
+
+        // check to see if a Judge has already been populated
+        if (req.session.data['specificjudge'] == "Yes" || req.session.data['specificjudge'] == "No") {
+          res.redirect('/hearings/pages/iteration3/hearing-panel-new')
+        } else {
+          req.session.data['backtocheckanswers'] = 'false'
+          res.redirect('/hearings/pages/iteration3/hearing-judge')
+        }
+      } else {
+        res.redirect('/hearings/pages/iteration3/hearing-judge')
+      }
+  }
+})
+
+// Routing for Requirements > Venue
+router.post('/hearings/pages/iteration3/hearing-panel-new', function (req, res) {
+  // If coming from check answers page then return there after clicking continue
+  if(req.session.data['backtocheckanswers'] == 'true') {
+    req.session.data['backtocheckanswers'] = 'false'
+    res.redirect('/hearings/pages/iteration3/hearing-checkyouranswers')
+  }
+  else {
+    res.redirect('/hearings/pages/iteration3/hearing-duration')
   }
 })
 

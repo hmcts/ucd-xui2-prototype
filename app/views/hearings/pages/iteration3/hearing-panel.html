@@ -13,13 +13,10 @@ Case details
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-            <span class="govuk-caption-l">Request a hearing for Abdullah Uddin</span>
+            <span class="govuk-caption-l">Request a hearing for Jane Smith vs DWP</span>
             <h1 class="govuk-heading-l">
                 Do you require a panel for this hearing?
             </h1>
-<!--            <div id="hybrid-hint" class="govuk-hint">-->
-<!--                Hint text about hybrid-->
-<!--            </div>-->
 
             <form class="form" action="hearing-panel-answer" method="post">
 
@@ -28,13 +25,13 @@ Case details
 
                         <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="panelYes" name="hearingPanel" type="radio" value="yes">
+                                <input class="govuk-radios__input" id="panelYes" name="hearingPanel" type="radio" value="yes" {% if data.hearingPanel == 'yes' %}  Checked {% endif %}>
                                 <label class="govuk-label govuk-radios__label" for="panelYes">
                                     Yes
                                 </label>
                             </div>
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="panelNo" name="hearingPanel" type="radio" value="no">
+                                <input class="govuk-radios__input" id="panelNo" name="hearingPanel" type="radio" value="no" {% if data.hearingPanel == 'no' %}  Checked {% endif %}>
                                 <label class="govuk-label govuk-radios__label" for="panelNo">
                                     No
                                 </label>
