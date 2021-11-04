@@ -25,7 +25,7 @@ Case details
                     <label class="govuk-label govuk-!-font-weight-bold" for="addpersonsname">
                         Include specific panel members (optional)
                     </label>
-                    <input class="govuk-input govuk-!-width-one-third" name="addpersonsname" type="text" spellcheck="false">
+                    <input class="govuk-input govuk-!-width-one-third" name="addpersonsname" type="text" spellcheck="false" value="{{ data.addpersonsname }}">
 <!--                    <div  style="display:none; "  id="addpersonsname" >-->
 <!--                        <input class="govuk-input govuk-!-width-one-third" name="addpersonsname" type="text" spellcheck="false">-->
 <!--                        <p class="govuk-!-padding-2 govuk-!-margin-bottom-0;"><a href="#">Clear</a></p>-->
@@ -46,7 +46,7 @@ Case details
                     <label class="govuk-label govuk-!-font-weight-bold" for="excludepersonsname">
                         Exclude specific panel members (optional)
                     </label>
-                    <input class="govuk-input govuk-!-width-one-third" name="excludepersonsname" type="text" spellcheck="false" >
+                    <input class="govuk-input govuk-!-width-one-third" name="excludepersonsname" type="text" spellcheck="false" value="{{ data.excludepersonsname }}" >
 <!--                    <div  style="display:none; "  id="excludepersonsname" >-->
 <!--                        <input class="govuk-input govuk-!-width-one-third" name="excludepersonsname" type="text" spellcheck="false" >-->
 <!--                        <p class="govuk-!-padding-2 govuk-!-margin-bottom-0;"><a href="#">Clear</a></p>-->
@@ -75,27 +75,59 @@ Case details
                     </div>
                     <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                         <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="panel-member1" name="panel-members" value="Tribunal Medical Member" type="checkbox" checked>
+                            <input class="govuk-checkboxes__input" id="panel-member1" name="panel-members" value="Disability qualified panel member" type="checkbox">
                             <label class="govuk-label govuk-checkboxes__label" for="panel-member1">
-                                Tribunal Medical Member
+                                Disability qualified panel member
                             </label>
                         </div>
                         <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="panel-member2" name="panel-members" value="Regional Medical Member" type="checkbox" checked>
+                            <input class="govuk-checkboxes__input" id="panel-member2" name="panel-members" value="Medically qualified panel member" type="checkbox" data-aria-controls="conditional-member-1" checked>
                             <label class="govuk-label govuk-checkboxes__label" for="panel-member2">
-                                Regional Medical Member
+                                Medically qualified panel member
                             </label>
                         </div>
+                        <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-member-1">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label" for="specialism1">
+                                    Choose specialism
+                                </label>
+                                <select class="govuk-select" id="specialism1" name="medi1">
+                                    <option value="published">Cardiologist</option>
+                                    <option value="updated">Carer</option>
+                                    <option value="views">Eye Surgeon</option>
+                                    <option value="comments" selected>General Practitioner</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="panel-member3" name="panel-members" value="Tribunal Specialist Medical Member" type="checkbox" checked>
+                            <input class="govuk-checkboxes__input" id="panel-member3" name="panel-members" value="Medically qualified panel member" type="checkbox" data-aria-controls="conditional-member-2" checked>
                             <label class="govuk-label govuk-checkboxes__label" for="panel-member3">
-                                Tribunal Specialist Medical Member
+                                Medically qualified panel member
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-member-2">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label" for="specialism2">
+                                    Choose specialism
+                                </label>
+                                <select class="govuk-select" id="specialism2" name="medi2">
+                                    <option value="Cardiologist">Cardiologist</option>
+                                    <option value="Carer">Carer</option>
+                                    <option value="Eye Surgeon" selected>Eye Surgeon</option>
+                                    <option value="General Practitioner">General Practitioner</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="panel-member4" name="panel-members" value="Financially qualified panel member" type="checkbox">
+                            <label class="govuk-label govuk-checkboxes__label" for="panel-member4">
+                                Financially qualified panel member
                             </label>
                         </div>
                         <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="panel-member4" name="panel-members" value="Disability Qualified Member" type="checkbox" checked>
-                            <label class="govuk-label govuk-checkboxes__label" for="panel-member4">
-                                Disability Qualified Member
+                            <input class="govuk-checkboxes__input" id="panel-member5" name="panel-members" value="Regional Medical Member" type="checkbox" checked>
+                            <label class="govuk-label govuk-checkboxes__label" for="panel-member5">
+                                Regional Medical Member
                             </label>
                         </div>
                     </div>

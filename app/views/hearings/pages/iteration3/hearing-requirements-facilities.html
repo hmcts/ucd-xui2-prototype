@@ -20,53 +20,98 @@ Case details
                 Do you require any additional facilities?
             </h1>
 
+            <div class="govuk-inset-text">
+                Any active flags on this case may require additional facilities at the hearing.
+            </div>
+
+            {% if data['cf'] != 'none' %}
             <!-- Case flags table -->
             <div class="govuk-form-group">
-<!--                <h3 class="govuk-heading-m" style="margin-bottom: 10px;">Party level flags</h3>-->
 
+                {% if (data['cf'] == '2parties') or (data['cf'] == 'all') %}
+                <!-- PARTY LEVEL FLAGS -->
+<!--                <h3 class="govuk-heading-m" style="margin-bottom: 10px;">Party level flags</h3>-->
                 <table class="govuk-table">
                     <thead class="govuk-table__head">
                     <tr class="govuk-table__row">
                         <th scope="col" class="govuk-table__header" width="300">Jane Smith</th>
-                        <th scope="col" class="govuk-table__header" width="550">Description</th>
+                        <th scope="col" class="govuk-table__header" width="550">Comments</th>
                         <th scope="col" class="govuk-table__header" width="100">Flag status</th>
-                        <th scope="col" class="govuk-table__header" width="50">Importance</th>
-                        <th scope="col" class="govuk-table__header" width="20"></th>
                     </tr>
                     </thead>
                     <tbody class="govuk-table__body">
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">Potentially violent person</td>
-                        <td class="govuk-table__cell">Description here</td>
+                        <td class="govuk-table__cell">Case flag 1</td>
+                        <td class="govuk-table__cell">Case flag 1 description</td>
                         <td class="govuk-table__cell">
                             <strong class="govuk-tag">Active</strong>
                         </td>
-                        <td td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--orange">MEDIUM</strong></td>
-                        <td td class="govuk-table__cell" style="padding-bottom: 9px!important;padding-top: 8px!important;margin-bottom: 0px;"><span class="govuk-body govuk-!-font-size-27" style="margin-bottom: 0px!important;">+</span></td>
                     </tr>
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">Unnaceptable customer behaviour</td>
-                        <td class="govuk-table__cell">Description here</td>
+                        <td class="govuk-table__cell">Case flag 2</td>
+                        <td class="govuk-table__cell">Case flag 2 description</td>
                         <td class="govuk-table__cell">
                             <strong class="govuk-tag">Active</strong>
                         </td>
-                        <td td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--orange">MEDIUM</strong></td>
-                        <td td class="govuk-table__cell" style="padding-bottom: 9px!important;padding-top: 8px!important;margin-bottom: 0px;"><span class="govuk-body govuk-!-font-size-27" style="margin-bottom: 0px!important;">+</span></td>
                     </tr>
-<!--                    <tr class="govuk-table__row">-->
-<!--                        <td class="govuk-table__cell">Case flag</td>-->
-<!--                        <td class="govuk-table__cell">Description here</td>-->
-<!--                        <td class="govuk-table__cell">-->
-<!--                            <strong class="govuk-tag">Active</strong>-->
-<!--                        </td>-->
-<!--                        <td td class="govuk-table__cell"><strong class="govuk-tag govuk-tag&#45;&#45;orange">MEDIUM</strong></td>-->
-<!--                        <td td class="govuk-table__cell" style="padding-bottom: 9px!important;padding-top: 8px!important;margin-bottom: 0px;"><span class="govuk-body govuk-!-font-size-27" style="margin-bottom: 0px!important;">+</span></td>-->
-<!--                    </tr>-->
                     </tbody>
                 </table>
+                <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header" width="300">DWP</th>
+                        <th scope="col" class="govuk-table__header" width="550">Comments</th>
+                        <th scope="col" class="govuk-table__header" width="100">Flag status</th>
+                    </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Case flag 1</td>
+                        <td class="govuk-table__cell">Case flag 1 description</td>
+                        <td class="govuk-table__cell">
+                            <strong class="govuk-tag">Active</strong>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                {% endif %}
+
+                {% if (data['cf'] == 'case') or (data['cf'] == 'all') %}
+                <!-- CASE LEVEL FLAGS -->
+<!--                <h3 class="govuk-heading-m" style="margin-bottom: 10px;">Case level flags</h3>-->
+                <table class="govuk-table">
+                    <!--
+                    <caption class="govuk-table__caption govuk-table__caption--m">Case level flags</caption>
+                    -->
+                    <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header" width="300">Jane Smith v DWP</th>
+                        <th scope="col" class="govuk-table__header" width="550">Comments</th>
+                        <th scope="col" class="govuk-table__header" width="100">Flag status</th>
+                    </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td td class="govuk-table__cell">Potential fraud</td>
+                        <td class="govuk-table__cell">Possible faked documents provided</td>
+                        <td class="govuk-table__cell">
+                            <strong class="govuk-tag">Active</strong>
+                        </td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td td class="govuk-table__cell">Complex case</td>
+                        <td class="govuk-table__cell">Requires senior case worker</td>
+                        <td class="govuk-table__cell">
+                            <strong class="govuk-tag">Active</strong>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                {% endif %}
 
 
             </div>
+            {% endif %}
 
         </div>
 
@@ -79,9 +124,6 @@ Case details
                         <h1 class="govuk-fieldset__heading">
                             Select any additional facilities required
                         </h1>
-                        <div id="facilities-hint" class="govuk-hint">
-                            Add facilities based on flags above
-                        </div>
                     </legend>
                     <div class="govuk-form-group" id="facilitiesList">
                         <fieldset class="govuk-fieldset">
@@ -171,6 +213,18 @@ Case details
 
         </div>
     </form>
+</div>
+
+<div class="govuk-form-group" style="position:absolute;margin-top: 80px;">
+    <p class="govuk-body-s">
+        <strong>Scenarios:</strong>
+
+<!--        <a href="/hearings/pages/iteration3/hearing-requirements-facilities?cf=1party&" class="govuk-link {% if data['cf'] == '1party' %}govuk-!-font-weight-bold{% endif %}">Party level case flags (1 party)</a> /-->
+        <a href="/hearings/pages/iteration3/hearing-requirements-facilities?cf=2parties&" class="govuk-link {% if data['cf'] == '2parties' %}govuk-!-font-weight-bold{% endif %}">Party level flags (2 parties)</a> /
+        <a href="/hearings/pages/iteration3/hearing-requirements-facilities?cf=case&" class="govuk-link {% if data['cf'] == 'case' %}govuk-!-font-weight-bold{% endif %}">Case level flags</a> /
+        <a href="/hearings/pages/iteration3/hearing-requirements-facilities?cf=all&" class="govuk-link {% if data['cf'] == 'all' %}govuk-!-font-weight-bold{% endif %}">All flags</a> /
+        <a href="/hearings/pages/iteration3/hearing-requirements-facilities?cf=none&" class="govuk-link {% if data['cf'] == 'none' %}govuk-!-font-weight-bold{% endif %}">Empty state</a>
+    </p>
 </div>
 
 <script>

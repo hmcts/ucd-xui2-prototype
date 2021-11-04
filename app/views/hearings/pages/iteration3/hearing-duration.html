@@ -15,7 +15,7 @@ Case details
 
         <span class="govuk-caption-l">Request a hearing for Jane Smith vs DWP</span>
         <h1 class="govuk-heading-l">
-            Select duration and date of hearing
+            Select duration, date and priority level of hearing
         </h1>
 
         <form class="form" action="hearing-duration-check-wales" method="post">
@@ -270,21 +270,21 @@ Case details
                                 <fieldset class="govuk-fieldset">
                                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                                         <h3 class="govuk-fieldset__heading">
-                                            Is this a priority hearing?       &nbsp;  &nbsp; &nbsp; &nbsp;
+                                            What is the priority of this hearing?      &nbsp;  &nbsp; &nbsp; &nbsp;
                                         </h3>
                                     </legend>
 
-                                    <div class="govuk-radios govuk-radios--inline">
+                                    <div class="govuk-radios">
                                         <div class="govuk-radios__item">
-                                            <input class="govuk-radios__input" id="priorityHearing" name="priorityHearing" type="radio" value="Yes" {{ checked("priorityHearing", "Yes") }}>
+                                            <input class="govuk-radios__input" id="priorityHearing" name="priorityHearing" type="radio" value="Standard" {{ checked("priorityHearing", "Standard") }}>
                                             <label class="govuk-label govuk-radios__label" for="priorityHearing">
-                                                Yes
+                                                Standard
                                             </label>
                                         </div>
                                         <div class="govuk-radios__item">
-                                            <input class="govuk-radios__input" id="priorityHearing2" name="priorityHearing" type="radio" value="No" {{ checked("priorityHearing", "No") }}>
+                                            <input class="govuk-radios__input" id="priorityHearing2" name="priorityHearing" type="radio" value="Urgent" {{ checked("priorityHearing", "Urgent") }}>
                                             <label class="govuk-label govuk-radios__label" for="priorityHearing2">
-                                                No
+                                                Urgent
                                             </label>
                                         </div>
                                     </div>

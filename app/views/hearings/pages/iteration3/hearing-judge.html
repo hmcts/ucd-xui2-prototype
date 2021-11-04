@@ -11,14 +11,14 @@ Case details
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
 
         <span class="govuk-caption-l">Request a hearing for Jane Smith vs DWP</span>
         <h1 class="govuk-heading-l">
             Do you want a specific judge?
         </h1>
 
-        <form class="form" action="hearing-panel-judge" method="post">
+        <form class="form" action="hearing-panel" method="post">
 
             <div class="govuk-form-group govuk-!-margin-top-5">
 
@@ -50,66 +50,100 @@ Case details
 
                         <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-judge-type">
                             <div class="govuk-form-group">
-                                <br>
                                 <fieldset class="govuk-fieldset">
-                                    <legend class="govuk-fieldset__legend  govuk-fieldset__legend--s ">
-                                        Select a judge type (optional)
+                                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                        <h1 class="govuk-fieldset__heading">
+                                            Select all judge types that apply
+                                        </h1>
                                     </legend>
-                                    <div class="govuk-radios">
-                                        <div class="govuk-radios__item">
-                                            <input class="govuk-radios__input" id="judgecontract1" name="judgecontract" type="radio" value="All" checked  >
-                                            <label class="govuk-label govuk-radios__label" for="judgecontract1">
-                                                All
-                                            </label>
-                                        </div>
-                                        <div class="govuk-radios__item">
-                                            <input class="govuk-radios__input" id="judgecontract2" name="judgecontract" type="radio" value="Tribunal Judge - salaried"  {% if data.judgecontract == 'Tribunal Judge - salaried' %}  Checked {% endif %} >
-                                            <label class="govuk-label govuk-radios__label" for="judgecontract2">
-                                                Tribunal Judge - Salaried
-                                            </label>
-                                        </div>
-                                        <div class="govuk-radios__item">
-                                            <input class="govuk-radios__input" id="judgecontract3" name="judgecontract" type="radio" value="Tribunal Judge - fee-paid" {% if data.judgecontract == 'Tribunal Judge - fee-paid' %}  Checked {% endif %} >
-                                            <label class="govuk-label govuk-radios__label" for="judgecontract3">
-                                                Tribunal Judge - Fee-Paid
-                                            </label>
-                                        </div>
+                                    <div class="govuk-form-group" id="facilitiesList">
+                                        <fieldset class="govuk-fieldset">
+                                            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                                                <div class="govuk-checkboxes__item">
+                                                    <input class="govuk-checkboxes__input" id="judgecontract1" name="judgecontract" type="checkbox" value="Tribunal Judge">
+                                                    <label class="govuk-label govuk-checkboxes__label" for="judgecontract1" >
+                                                        Tribunal Judge
+                                                    </label>
+                                                </div>
+                                                <div class="govuk-checkboxes__item">
+                                                    <input class="govuk-checkboxes__input" id="judgecontract2" name="judgecontract" type="checkbox" value="Deputy Tribunal Judge">
+                                                    <label class="govuk-label govuk-checkboxes__label" for="judgecontract2" >
+                                                        Deputy Tribunal Judge
+                                                    </label>
+                                                </div>
+                                                <div class="govuk-checkboxes__item">
+                                                    <input class="govuk-checkboxes__input" id="judgecontract3" name="judgecontract" type="checkbox" value="Regional Tribunal Judge">
+                                                    <label class="govuk-label govuk-checkboxes__label" for="judgecontract3" >
+                                                        Regional Tribunal Judge
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </fieldset>
+                            </div>
+<!--                            <div class="govuk-form-group">-->
+<!--                                <br>-->
+<!--                                <fieldset class="govuk-fieldset">-->
+<!--                                    <legend class="govuk-fieldset__legend  govuk-fieldset__legend&#45;&#45;s ">-->
+<!--                                        Select a judge type (optional)-->
+<!--                                    </legend>-->
+<!--                                    <div class="govuk-radios">-->
+<!--                                        <div class="govuk-radios__item">-->
+<!--                                            <input class="govuk-radios__input" id="judgecontract1" name="judgecontract" type="radio" value="All" checked  >-->
+<!--                                            <label class="govuk-label govuk-radios__label" for="judgecontract1">-->
+<!--                                                All-->
+<!--                                            </label>-->
+<!--                                        </div>-->
+<!--                                        <div class="govuk-radios__item">-->
+<!--                                            <input class="govuk-radios__input" id="judgecontract2" name="judgecontract" type="radio" value="Tribunal Judge - salaried"  {% if data.judgecontract == 'Tribunal Judge - salaried' %}  Checked {% endif %} >-->
+<!--                                            <label class="govuk-label govuk-radios__label" for="judgecontract2">-->
+<!--                                                Tribunal Judge-->
+<!--                                            </label>-->
+<!--                                        </div>-->
+<!--                                        <div class="govuk-radios__item">-->
+<!--                                            <input class="govuk-radios__input" id="judgecontract3" name="judgecontract" type="radio" value="Tribunal Judge - fee-paid" {% if data.judgecontract == 'Tribunal Judge - fee-paid' %}  Checked {% endif %} >-->
+<!--                                            <label class="govuk-label govuk-radios__label" for="judgecontract3">-->
+<!--                                                Deputy Tribunal Judge-->
+<!--                                            </label>-->
+<!--                                        </div>-->
 <!--                                        <div class="govuk-radios__item">-->
 <!--                                            <input class="govuk-radios__input" id="judgecontract4" name="judgecontract" type="radio" value="Regional Tribunal Judge" {% if data.judgecontract == 'Regional Tribunal Judge' %}  Checked {% endif %} >-->
 <!--                                            <label class="govuk-label govuk-radios__label" for="judgecontract4">-->
 <!--                                                Regional Tribunal Judge-->
 <!--                                            </label>-->
 <!--                                        </div>-->
-                                    </div>
-                                </fieldset>
-                            </div>
-                            <div class="govuk-form-group" id="excluejudge">
-                                <div class="govuk-form-group govuk-!-width-one-half">
-                                    <label class="govuk-label govuk-!-font-weight-bold" for="exclude-judgename">
-                                        Exclude a judge who wasn't on a previous panel (optional)
-                                    </label>
-                                    <div id="exclude-judgename-container"></div>
-
-<!--                                    <label class="govuk-label govuk-!-font-weight-bold" for="exludejudgefield">-->
-<!--                                        Exclude a judge who wasn't on a previous panel (optional)-->
-<!--                                    </label>-->
-<!--                                    <div>-->
-<!--                                        <input id="exludejudgefield" class="govuk-input" name="exludejudgefield" type="text" style="width: 350px;" />-->
-<!--&lt;!&ndash;                                        <p class="govuk-!-padding-2 govuk-!-margin-bottom-0;"><a href="#">Clear</a></p>&ndash;&gt;-->
 <!--                                    </div>-->
-                                </div>
-<!--                                <p class="govuk-button govuk-button&#45;&#45;secondary govuk-!-margin-top-0 " data-module="govuk-button" id="exludenewjudge" onclick="excludejudge();">-->
-<!--                                    Exclude a judge-->
-<!--                                </p>-->
-                                <p class="govuk-button govuk-button--secondary govuk-!-margin-top-3 " data-module="govuk-button" id="exludeanotherjudge">
-                                    Exclude another judge
-                                </p>
-                            </div>
+<!--                                </fieldset>-->
+<!--                            </div>-->
                         </div>
                     </div>
 
                 </fieldset>
 
+            </div>
+
+            <div class="govuk-form-group" id="excluejudge">
+                <div class="govuk-form-group govuk-!-width-one-half">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="exclude-judgename">
+                        Exclude a judge (optional)
+                    </label>
+                    <div id="exclude-judgename-container"></div>
+
+                    <!--                                    <label class="govuk-label govuk-!-font-weight-bold" for="exludejudgefield">-->
+                    <!--                                        Exclude a judge who wasn't on a previous panel (optional)-->
+                    <!--                                    </label>-->
+                    <!--                                    <div>-->
+                    <!--                                        <input id="exludejudgefield" class="govuk-input" name="exludejudgefield" type="text" style="width: 350px;" />-->
+                    <!--&lt;!&ndash;                                        <p class="govuk-!-padding-2 govuk-!-margin-bottom-0;"><a href="#">Clear</a></p>&ndash;&gt;-->
+                    <!--                                    </div>-->
+                </div>
+                <!--                                <p class="govuk-button govuk-button&#45;&#45;secondary govuk-!-margin-top-0 " data-module="govuk-button" id="exludenewjudge" onclick="excludejudge();">-->
+                <!--                                    Exclude a judge-->
+                <!--                                </p>-->
+                <p class="govuk-button govuk-button--secondary govuk-!-margin-top-3 " data-module="govuk-button" id="exludeanotherjudge">
+                    Exclude another judge
+                </p>
             </div>
 
             <button class="govuk-button" data-module="govuk-button">Continue</button>

@@ -13,25 +13,14 @@ Case details
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-            <form class="form" action="hearings-tab-all-status" method="post">
+            <form class="form" action="hearing-confirmation" method="post">
 
             <h1 class="govuk-heading-l">
-                Are you sure you want to cancel this hearing request?
+                Provide a reason for changing this hearing
             </h1>
-
-            <p class="govuk-body">
-                The hearing request will not be processed and the details deleted.
-                <br /><br />
-                Jane Smith vs DWP
-            </p>
 
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        <h1 class="govuk-fieldset__heading">
-                            Why is this hearing request being cancelled?&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
-                        </h1>
-                    </legend>
                     <div id="other-panel-roles-hint" class="govuk-hint">
                         Select all that apply.
                     </div>
@@ -58,12 +47,12 @@ Case details
                 </fieldset>
             </div>
 
-            <button class="govuk-button" data-module="govuk-button">Continue</button>
+            <button class="govuk-button" data-module="govuk-button">Submit change request</button>
 
             </form>
 
             <p class="govuk-body">
-                <a href="hearings-tab-first-request-listed" class="govuk-link">Do not cancel hearing</a>
+                <a href="#" onclick="goBack();" class="govuk-link">Go back to hearing summary</a>
             </p>
 
         </div>

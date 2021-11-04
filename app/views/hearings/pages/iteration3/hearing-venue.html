@@ -45,6 +45,44 @@ Case details
         font-family: "GDS Transport", arial, sans-serif !important;
     }
 
+    .hmcts-filter__tag:after {
+        background-image: none;
+    }
+    .hmcts-filter__tag:before {
+        background-image: url(../../../public/images/icon-tag-remove-cross.svg);
+        content: "";
+        display: inline-block;
+        font-weight: bold;
+        height: 10px;
+        margin-right: 5px;
+        vertical-align: middle;
+        width: 10px;
+        font-weight: bold;
+        font-family: "GDS Transport",arial,sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1.1428571429;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .hmcts-filter__tag {
+        display: table-cell;
+        position: relative;
+        padding: 8px;
+        border: 1px
+        solid #505a5f;
+        border-radius: 5px;
+        background-color: #f3f2f1;
+    }
+
+    .hmcts-filter__tag:hover {
+        background-color: #f3f2f1;
+        color: black;
+    }
+
 </style>
 
 <div class="govuk-grid-row">
@@ -58,31 +96,11 @@ Case details
             If you have selected a remote hearing, you must still select the court or tribunal centre which will be managing the case.
         </div>
 
-        <form class="form" action="hearing-panel" method="post">
+        <form class="form" action="hearing-judge" method="post">
 
             <div class="govuk-form-group">
 
-                <p class="govuk-body"><span class="govuk-!-font-weight-bold">Venue(s) currently selected</span></p>
-                <ul class="hmcts-filter-tags">
-                    <li>
-                        <a class="hmcts-filter__tag" href="">
-                <span class="govuk-visually-hidden">
-                  Remove this filter
-                </span>
-                            Taylor House Tribunal Hearing Centre
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hmcts-filter__tag" href="#">
-                <span class="govuk-visually-hidden">
-                  Remove this filter
-                </span>
-                            Birmingham Civil and Family Justice Centre
-                        </a>
-                    </li>
-                </ul>
-
-                <div class="location-picker-custom govuk-!-margin-top-8">
+                <div class="location-picker-custom">
                     <label class="govuk-body" for="location-picker">
                         Search for a location by name
                     </label>
@@ -104,6 +122,20 @@ Case details
                         Add location
                     </a>
                 </div>
+
+<!--                <p class="govuk-body"><span class="govuk-!-font-weight-bold">Venue(s) currently selected</span></p>-->
+                <ul class="hmcts-filter-tags">
+                    <li>
+                        <a class="hmcts-filter__tag" href="#">
+                <span class="govuk-visually-hidden">
+                  Remove this filter
+                </span>
+                            Birmingham Civil and Family Justice Centre
+                        </a>
+                    </li>
+                </ul>
+
+
 
 <!--                    {{ data['venue'] | striptags(true) | escape | nl2br  }}-->
 
