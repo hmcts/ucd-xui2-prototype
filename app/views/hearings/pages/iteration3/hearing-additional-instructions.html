@@ -29,7 +29,10 @@ Case details
 <!--                        <label class="govuk-label" for="additionalInstructionsTextarea">-->
 <!--                            Additional instructions are optional-->
 <!--                        </label>-->
-                        <textarea class="govuk-textarea" id="additionalInstructionsTextarea" name="additional-instructions-text" value="" rows="10" style="width: 100%;">{{ data['additional-instructions-text'] }}</textarea>
+                        <textarea class="govuk-textarea govuk-!-margin-bottom-1" id="additionalInstructionsTextarea" name="additional-instructions-text" value="" rows="10" style="width: 100%;">{{ data['additional-instructions-text'] }}</textarea>
+                        <div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+                            You can enter up to 5000 characters
+                        </div>
                     </div>
 
 
