@@ -34,6 +34,18 @@ router.post('/hearings/pages/iteration3/start-journey', function (req, res) {
   res.redirect('/hearings/pages/iteration3/hearing-requirements')
 })
 
+// Routing for Requirements > Additional facilities
+router.post('/hearings/pages/iteration3/hearing-requirements-facilities', function (req, res) {
+  // If coming from check answers page then return there after clicking continue
+  if(req.session.data['backtocheckanswers'] == 'true') {
+    req.session.data['backtocheckanswers'] = 'false'
+    res.redirect('/hearings/pages/iteration3/hearing-checkyouranswers')
+  }
+  else {
+    res.redirect('/hearings/pages/iteration3/hearing-requirements-facilities')
+  }
+})
+
 // Routing for Requirements > Stage
 router.post('/hearings/pages/iteration3/hearing-stage', function (req, res) {
   // If coming from check answers page then return there after clicking continue
@@ -250,6 +262,20 @@ router.post('/hearings/pages/iteration3/hearing-duration-check-wales', function 
     }
   }
 })
+
+// Confirmation screen - submission conditional
+router.post('/hearings/pages/iteration3/hearing-confirmation-answer', function (req, res) {
+
+    // Check if listing or pending status are set
+    if ((req.session.data['status'] == "listed") || (req.session.data['status'] == "pending")) {
+      // Send user to Change request reason interstitial screen
+      res.redirect('/hearings/pages/iteration3/hearing-change-reason')
+    } else {
+      // Send user to check answers page
+      res.redirect('/hearings/pages/iteration3/hearing-confirmation')
+    }
+})
+
 
 ///////////////////*** End of hearings management routing ***//////////////////////
 
