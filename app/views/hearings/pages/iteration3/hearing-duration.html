@@ -15,22 +15,29 @@ Case details
 
         <span class="govuk-caption-l">Request a hearing for Jane Smith vs DWP</span>
         <h1 class="govuk-heading-l">
-            Select duration, date and priority level of hearing
+            Select length, date and priority level of hearing
         </h1>
 
         {% if data['backtocheckanswers'] == 'true' %}
-        <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-            <div class="govuk-notification-banner__header">
-                <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-                    Important
-                </h2>
-            </div>
-            <div class="govuk-notification-banner__content">
-                <p class="govuk-notification-banner__heading" style="max-width: none;">
-                    Only change the information that needs updating.
-                </p>
-            </div>
+        <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive">Warning</span>
+                Only change the information that needs updating.
+            </strong>
         </div>
+<!--        <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">-->
+<!--            <div class="govuk-notification-banner__header">-->
+<!--                <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">-->
+<!--                    Important-->
+<!--                </h2>-->
+<!--            </div>-->
+<!--            <div class="govuk-notification-banner__content">-->
+<!--                <p class="govuk-notification-banner__heading" style="max-width: none;">-->
+<!--                    Only change the information that needs updating.-->
+<!--                </p>-->
+<!--            </div>-->
+<!--        </div>-->
         {% endif %}
 
         <form class="form" action="hearing-duration-check-wales" method="post">

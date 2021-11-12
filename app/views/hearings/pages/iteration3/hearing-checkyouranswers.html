@@ -16,22 +16,22 @@ Case details
 
 
 
-            {% if (data['status'] == 'pending') or (data['status'] == 'listed') %}
+        {% if (data['status'] == 'pending') or (data['status'] == 'listed') %}
         <h1 class="govuk-heading-l">View or edit hearing</h1>
-            {% elif data['status'] == 'awaiting' %}
+        {% elif data['status'] == 'awaiting' %}
         <h1 class="govuk-heading-l">Hearing awaiting actuals</h1>
-            {% elif data['status'] == 'completed' %}
+        {% elif data['status'] == 'completed' %}
         <h1 class="govuk-heading-l">Hearing completed</h1>
-            {% else %}
+        {% else %}
         <h1 class="govuk-heading-l">Check your answers before sending your request</h1>
-            {% endif %}
+        {% endif %}
 
 
-<!--            {% if data['viewandchange'] == 'true' %}-->
-<!--                View or edit hearing-->
-<!--            {% else %}-->
-<!--                Check your answers before sending your request-->
-<!--            {% endif %}-->
+        <!--            {% if data['viewandchange'] == 'true' %}-->
+        <!--                View or edit hearing-->
+        <!--            {% else %}-->
+        <!--                Check your answers before sending your request-->
+        <!--            {% endif %}-->
 
 
         <form class="form" action="hearing-confirmation-answer" method="post">
@@ -81,37 +81,37 @@ Case details
                     <dd class="govuk-summary-list__actions">
                     </dd>
                 </div>
-                    {% if (data['status'] == 'pending') or (data['status'] == 'listed') %}
-                        <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">
-                                Date request submitted
-                            </dt>
-                            <dd class="govuk-summary-list__value">
-                                28 October 2021
-                            </dd>
-                            <dd class="govuk-summary-list__actions">
-                            </dd>
-                        </div>
-                        <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">
-                                Date response received
-                            </dt>
-                            <dd class="govuk-summary-list__value">
-                                4 November 2021
-                            </dd>
-                            <dd class="govuk-summary-list__actions">
-                            </dd>
-                        </div>
-                    {% endif %}
+                {% if (data['status'] == 'pending') or (data['status'] == 'listed') %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Date request submitted
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        28 October 2021
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Date response received
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        4 November 2021
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                    </dd>
+                </div>
+                {% endif %}
                 {% endif %}
             </dl>
 
             {% if data['status'] == 'listed' %}
             <!-- Listed summary -->
             <h2 class="govuk-heading-m">Listing information summary</h2>
-            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9" style="background-color:#f3f2f1;">
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
+                    <dt class="govuk-summary-list__key" style="padding:2px 10px;">
                         Case name
                     </dt>
                     <dd class="govuk-summary-list__value">
@@ -122,7 +122,7 @@ Case details
                 </div>
 
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
+                    <dt class="govuk-summary-list__key" style="padding:2px 10px;">
                         Type
                     </dt>
                     <dd class="govuk-summary-list__value">
@@ -132,7 +132,7 @@ Case details
                     </dd>
                 </div>
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
+                    <dt class="govuk-summary-list__key" style="padding:2px 10px;">
                         Hearing date
                     </dt>
                     <dd class="govuk-summary-list__value">
@@ -141,7 +141,7 @@ Case details
                     <dd class="govuk-summary-list__actions"></dd>
                 </div>
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
+                    <dt class="govuk-summary-list__key" style="padding:2px 10px;">
                         Time
                     </dt>
                     <dd class="govuk-summary-list__value">
@@ -150,7 +150,7 @@ Case details
                     <dd class="govuk-summary-list__actions"></dd>
                 </div>
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
+                    <dt class="govuk-summary-list__key" style="padding:2px 10px;">
                         Duration
                     </dt>
                     <dd class="govuk-summary-list__value">
@@ -159,7 +159,7 @@ Case details
                     <dd class="govuk-summary-list__actions"></dd>
                 </div>
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
+                    <dt class="govuk-summary-list__key" style="padding:2px 10px;">
                         Location
                     </dt>
                     <dd class="govuk-summary-list__value">
@@ -168,7 +168,7 @@ Case details
                     <dd class="govuk-summary-list__actions"></dd>
                 </div>
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
+                    <dt class="govuk-summary-list__key" style="padding:2px 10px;">
                         Room
                     </dt>
                     <dd class="govuk-summary-list__value">
@@ -177,7 +177,7 @@ Case details
                     <dd class="govuk-summary-list__actions"></dd>
                 </div>
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
+                    <dt class="govuk-summary-list__key" style="padding:2px 10px;">
                         Judicial and panel members
                     </dt>
                     <dd class="govuk-summary-list__value">
@@ -188,7 +188,7 @@ Case details
                     <dd class="govuk-summary-list__actions"></dd>
                 </div>
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
+                    <dt class="govuk-summary-list__key" style="padding:2px 10px;">
                         How parties will attend
                     </dt>
                     <dd class="govuk-summary-list__value">
@@ -211,7 +211,7 @@ Case details
 
             {% endif %}
 
-            <h2 class="govuk-heading-m">Hearing details</h2>
+            <h2 class="govuk-heading-m">Requirements and facilities</h2>
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <!-- HEARING REQUIREMENTS -->
@@ -220,7 +220,7 @@ Case details
                         Hearing requirements
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Updated</strong><br /><br />{% endif %}
+                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Amended</strong><br /><br />{% endif %}
                         <strong>Jane Smith</strong><br />
                         Language interpreter<br />
                         Sign language interpreter<br />
@@ -256,10 +256,10 @@ Case details
                 <!-- ADDITIONAL FACILITIES -->
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        Do you require any additional facilities?
+                        Select any additional facilities required
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Updated</strong><br /><br />{% endif %}
+                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Amended</strong><br /><br />{% endif %}
                         {{  data['facilities'] }} <br /><br />
                         {{  data['otherFacilities'] | striptags(true) | escape | nl2br  }}
                     </dd>
@@ -271,13 +271,16 @@ Case details
                         {% endif %}
                     </dd>
                 </div>
-                <!-- HEARING STAGE -->
+            </dl>
+            <h2 class="govuk-heading-m">Stage</h2>
+            <!-- HEARING STAGE -->
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         What stage is this hearing at?
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Updated</strong><br /><br />{% endif %}
+                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Amended</strong><br /><br />{% endif %}
                         {{ data.hearingstage }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
@@ -288,6 +291,9 @@ Case details
                         {% endif %}
                     </dd>
                 </div>
+            </dl>
+            <h2 class="govuk-heading-m">Attendance</h2>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <!-- HEARING ATTENDANCE -->
                 <div class="govuk-summary-list__row">
 
@@ -295,7 +301,7 @@ Case details
                         How will each party attend the hearing?
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Updated</strong><br /><br />{% endif %}
+                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Amended</strong><br /><br />{% endif %}
                         Jane Smith - {{ data.party1Channel }} <br />
                         DWP - {{ data.party2Channel }} <br />
                         Claimant representative - {{ data.party3Channel }} <br />
@@ -315,7 +321,7 @@ Case details
                         How many people will attend the hearing in person?
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Updated</strong><br /><br />{% endif %}
+                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Amended</strong><br /><br />{% endif %}
                         {{ data['attendance-number'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
@@ -326,16 +332,19 @@ Case details
                         {% endif %}
                     </dd>
                 </div>
+            </dl>
+            <h2 class="govuk-heading-m">Venue</h2>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <!-- HEARING VENUE -->
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         What are the hearing venue details?
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Updated</strong><br /><br />{% endif %}
+                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Amended</strong><br /><br />{% endif %}
                         Birmingham Civil and Family Justice Centre
-<!--                        {{  data['regionselection']  }}<br /><br />-->
-<!--                        {{ data['venue'] | striptags(true) | escape | nl2br  }}-->
+                        <!--                        {{  data['regionselection']  }}<br /><br />-->
+                        <!--                        {{ data['venue'] | striptags(true) | escape | nl2br  }}-->
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         {% if data.changesallowed != 'false' %}
@@ -349,7 +358,7 @@ Case details
 
 
             <!-- JUDGE -->
-<!--            {% if data.panelsame != 'Yes - use the same panel as most recent hearing' %}-->
+            <!--            {% if data.panelsame != 'Yes - use the same panel as most recent hearing' %}-->
 
             <h2 class="govuk-heading-m">Judge details</h2>
 
@@ -378,7 +387,7 @@ Case details
                         Name of the judge
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Updated</strong><br /><br />{% endif %}
+                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Amended</strong><br /><br />{% endif %}
                         John Snow (john.snow@justice.gov.uk)
                         <!-- {{  data.name-of-judge }}-->
                     </dd>
@@ -394,10 +403,10 @@ Case details
                 <!-- NO SPECIFIC JUDGE -->
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        Select a judge type
+                        Select all judge types that apply
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Updated</strong><br /><br />{% endif %}
+                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Amended</strong><br /><br />{% endif %}
                         {{  data.judgecontract }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
@@ -408,12 +417,13 @@ Case details
                         {% endif %}
                     </dd>
                 </div>
+                {% endif %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        Exclude a judge who wasn't on a previous panel
+                        Exclude a judge
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Updated</strong><br /><br />{% endif %}
+                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Amended</strong><br /><br />{% endif %}
                         John Smith
                     </dd>
                     <dd class="govuk-summary-list__actions">
@@ -424,10 +434,9 @@ Case details
                         {% endif %}
                     </dd>
                 </div>
-                {% endif %}
             </dl>
 
-<!--            {% endif %}-->
+            <!--            {% endif %}-->
 
 
             <!-- PANEL -->
@@ -456,58 +465,58 @@ Case details
 
                 {% if data.hearingPanel == 'yes' %}
 
-                    <!-- INCLUDE/EXCLUDE/ROLES -->
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Include specific panel members
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Updated</strong><br /><br />{% endif %}
-                            {{  data['addpersonsname'] }}
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            {% if data.changesallowed != 'false' %}
-                            <a class="govuk-link" href="hearing-panel-new?backtocheckanswers=true&">
-                                Change
-                            </a>
-                            {% endif %}
-                        </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Exclude specific panel members
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Updated</strong><br /><br />{% endif %}
-                            {{  data.excludepersonsname }}
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            {% if data.changesallowed != 'false' %}
-                            <a class="govuk-link" href="hearing-panel-new?backtocheckanswers=true&">
-                                Change
-                            </a>
-                            {% endif %}
-                        </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Select any other panel roles required
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Updated</strong><br /><br />{% endif %}
-<!--                            {{  data['panel-members']  }}-->
-                            Medically qualified panel member - General Practitioner <br />
-                            Medically qualified panel member - Eye Surgeon <br />
-                            Regional Medical Member
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            {% if data.changesallowed != 'false' %}
-                            <a class="govuk-link" href="hearing-panel-new?backtocheckanswers=true&">
-                                Change
-                            </a>
-                            {% endif %}
-                        </dd>
-                    </div>
+                <!-- INCLUDE/EXCLUDE/ROLES -->
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Include specific panel members
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Amended</strong><br /><br />{% endif %}
+                        {{  data['addpersonsname'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        {% if data.changesallowed != 'false' %}
+                        <a class="govuk-link" href="hearing-panel-new?backtocheckanswers=true&">
+                            Change
+                        </a>
+                        {% endif %}
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Exclude specific panel members
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Amended</strong><br /><br />{% endif %}
+                        {{  data.excludepersonsname }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        {% if data.changesallowed != 'false' %}
+                        <a class="govuk-link" href="hearing-panel-new?backtocheckanswers=true&">
+                            Change
+                        </a>
+                        {% endif %}
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Select any other panel roles required
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Amended</strong><br /><br />{% endif %}
+                        <!--                            {{  data['panel-members']  }}-->
+                        Medically qualified panel member - General Practitioner <br />
+                        Medically qualified panel member - Eye Surgeon <br />
+                        Regional Medical Member
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        {% if data.changesallowed != 'false' %}
+                        <a class="govuk-link" href="hearing-panel-new?backtocheckanswers=true&">
+                            Change
+                        </a>
+                        {% endif %}
+                    </dd>
+                </div>
 
                 {% endif %}
 
@@ -517,175 +526,174 @@ Case details
 
 
                 <!-- EXISTING JUDGE+PANEL -->
-<!--                {% if data.hearingPanel == 'yes' %}-->
+                <!--                {% if data.hearingPanel == 'yes' %}-->
 
-                    <!-- SAME JUDGE + PANEL (Only if this is not the first hearing) -->
-<!--                    {% if data.panelsame == 'Yes - use the same panel as most recent hearing' %}-->
+                <!-- SAME JUDGE + PANEL (Only if this is not the first hearing) -->
+                <!--                    {% if data.panelsame == 'Yes - use the same panel as most recent hearing' %}-->
 
-<!--                        <div class="govuk-summary-list__row">-->
-<!--                            <dt class="govuk-summary-list__key">-->
-<!--                                Use the most recent panel again?-->
-<!--                            </dt>-->
-<!--                            <dd class="govuk-summary-list__value">-->
-<!--                                Yes-->
-<!--                            </dd>-->
-<!--                            <dd class="govuk-summary-list__actions">-->
-<!--                                {% if data.changesallowed != 'false' %}-->
-<!--                                <a class="govuk-link" href="hearing-panel-existing?backtocheckanswers=true&">-->
-<!--                                    Change-->
-<!--                                </a>-->
-<!--                                {% endif %}-->
-<!--                            </dd>-->
-<!--                        </div>-->
+                <!--                        <div class="govuk-summary-list__row">-->
+                <!--                            <dt class="govuk-summary-list__key">-->
+                <!--                                Use the most recent panel again?-->
+                <!--                            </dt>-->
+                <!--                            <dd class="govuk-summary-list__value">-->
+                <!--                                Yes-->
+                <!--                            </dd>-->
+                <!--                            <dd class="govuk-summary-list__actions">-->
+                <!--                                {% if data.changesallowed != 'false' %}-->
+                <!--                                <a class="govuk-link" href="hearing-panel-existing?backtocheckanswers=true&">-->
+                <!--                                    Change-->
+                <!--                                </a>-->
+                <!--                                {% endif %}-->
+                <!--                            </dd>-->
+                <!--                        </div>-->
 
-                        <!-- PREVIOUS PANEL -->
-<!--                        <div class="govuk-summary-list__row">-->
-<!--                            <dt class="govuk-summary-list__key">-->
-<!--                                Judge-->
-<!--                            </dt>-->
-<!--                            <dd class="govuk-summary-list__value">-->
-<!--                                Her Honour Judge Jones-->
-<!--                            </dd>-->
-<!--                            <dd class="govuk-summary-list__actions">-->
-<!--                            </dd>-->
-<!--                        </div>-->
+                <!-- PREVIOUS PANEL -->
+                <!--                        <div class="govuk-summary-list__row">-->
+                <!--                            <dt class="govuk-summary-list__key">-->
+                <!--                                Judge-->
+                <!--                            </dt>-->
+                <!--                            <dd class="govuk-summary-list__value">-->
+                <!--                                Her Honour Judge Jones-->
+                <!--                            </dd>-->
+                <!--                            <dd class="govuk-summary-list__actions">-->
+                <!--                            </dd>-->
+                <!--                        </div>-->
 
-<!--                        <div class="govuk-summary-list__row">-->
-<!--                            <dt class="govuk-summary-list__key">-->
-<!--                                Tribunal Medical Member-->
-<!--                            </dt>-->
-<!--                            <dd class="govuk-summary-list__value">-->
-<!--                                Dr David Naran-->
-<!--                            </dd>-->
-<!--                            <dd class="govuk-summary-list__actions">-->
-<!--                            </dd>-->
-<!--                        </div>-->
+                <!--                        <div class="govuk-summary-list__row">-->
+                <!--                            <dt class="govuk-summary-list__key">-->
+                <!--                                Tribunal Medical Member-->
+                <!--                            </dt>-->
+                <!--                            <dd class="govuk-summary-list__value">-->
+                <!--                                Dr David Naran-->
+                <!--                            </dd>-->
+                <!--                            <dd class="govuk-summary-list__actions">-->
+                <!--                            </dd>-->
+                <!--                        </div>-->
 
-<!--                        <div class="govuk-summary-list__row">-->
-<!--                            <dt class="govuk-summary-list__key">-->
-<!--                                Disability Qualified Member-->
-<!--                            </dt>-->
-<!--                            <dd class="govuk-summary-list__value">-->
-<!--                                Penny Williams-->
-<!--                            </dd>-->
-<!--                            <dd class="govuk-summary-list__actions">-->
-<!--                            </dd>-->
-<!--                        </div>-->
+                <!--                        <div class="govuk-summary-list__row">-->
+                <!--                            <dt class="govuk-summary-list__key">-->
+                <!--                                Disability Qualified Member-->
+                <!--                            </dt>-->
+                <!--                            <dd class="govuk-summary-list__value">-->
+                <!--                                Penny Williams-->
+                <!--                            </dd>-->
+                <!--                            <dd class="govuk-summary-list__actions">-->
+                <!--                            </dd>-->
+                <!--                        </div>-->
 
-                    <!-- ELSE IF NEW PANEL -->
+                <!-- ELSE IF NEW PANEL -->
 
-<!--                    {% elif data.panelsame == 'No - select a new panel' %}-->
+                <!--                    {% elif data.panelsame == 'No - select a new panel' %}-->
 
-<!--                        &lt;!&ndash; INCLUDE/EXCLUDE/ROLES &ndash;&gt;-->
-<!--                        <div class="govuk-summary-list__row">-->
-<!--                            <dt class="govuk-summary-list__key">-->
-<!--                                Include specific panel members-->
-<!--                            </dt>-->
-<!--                            <dd class="govuk-summary-list__value">-->
-<!--                                {{  data.addpersonsname }}-->
-<!--                            </dd>-->
-<!--                            <dd class="govuk-summary-list__actions">-->
-<!--                                {% if data.changesallowed != 'false' %}-->
-<!--                                <a class="govuk-link" href="hearing-panel-new?backtocheckanswers=true&">-->
-<!--                                    Change-->
-<!--                                </a>-->
-<!--                                {% endif %}-->
-<!--                            </dd>-->
-<!--                        </div>-->
-<!--                        <div class="govuk-summary-list__row">-->
-<!--                            <dt class="govuk-summary-list__key">-->
-<!--                                Exclude specific panel members-->
-<!--                            </dt>-->
-<!--                            <dd class="govuk-summary-list__value">-->
-<!--                                {{  data.excludepersonsname }}-->
-<!--                            </dd>-->
-<!--                            <dd class="govuk-summary-list__actions">-->
-<!--                                {% if data.changesallowed != 'false' %}-->
-<!--                                <a class="govuk-link" href="hearing-panel-new?backtocheckanswers=true&">-->
-<!--                                    Change-->
-<!--                                </a>-->
-<!--                                {% endif %}-->
-<!--                            </dd>-->
-<!--                        </div>-->
-<!--                        <div class="govuk-summary-list__row">-->
-<!--                            <dt class="govuk-summary-list__key">-->
-<!--                                Select any other panel roles required-->
-<!--                            </dt>-->
-<!--                            <dd class="govuk-summary-list__value">-->
-<!--                                {{  data['panel-members']  }}-->
-<!--                            </dd>-->
-<!--                            <dd class="govuk-summary-list__actions">-->
-<!--                                {% if data.changesallowed != 'false' %}-->
-<!--                                <a class="govuk-link" href="hearing-panel-new?backtocheckanswers=true&">-->
-<!--                                    Change-->
-<!--                                </a>-->
-<!--                                {% endif %}-->
-<!--                            </dd>-->
-<!--                        </div>-->
+                <!--                        &lt;!&ndash; INCLUDE/EXCLUDE/ROLES &ndash;&gt;-->
+                <!--                        <div class="govuk-summary-list__row">-->
+                <!--                            <dt class="govuk-summary-list__key">-->
+                <!--                                Include specific panel members-->
+                <!--                            </dt>-->
+                <!--                            <dd class="govuk-summary-list__value">-->
+                <!--                                {{  data.addpersonsname }}-->
+                <!--                            </dd>-->
+                <!--                            <dd class="govuk-summary-list__actions">-->
+                <!--                                {% if data.changesallowed != 'false' %}-->
+                <!--                                <a class="govuk-link" href="hearing-panel-new?backtocheckanswers=true&">-->
+                <!--                                    Change-->
+                <!--                                </a>-->
+                <!--                                {% endif %}-->
+                <!--                            </dd>-->
+                <!--                        </div>-->
+                <!--                        <div class="govuk-summary-list__row">-->
+                <!--                            <dt class="govuk-summary-list__key">-->
+                <!--                                Exclude specific panel members-->
+                <!--                            </dt>-->
+                <!--                            <dd class="govuk-summary-list__value">-->
+                <!--                                {{  data.excludepersonsname }}-->
+                <!--                            </dd>-->
+                <!--                            <dd class="govuk-summary-list__actions">-->
+                <!--                                {% if data.changesallowed != 'false' %}-->
+                <!--                                <a class="govuk-link" href="hearing-panel-new?backtocheckanswers=true&">-->
+                <!--                                    Change-->
+                <!--                                </a>-->
+                <!--                                {% endif %}-->
+                <!--                            </dd>-->
+                <!--                        </div>-->
+                <!--                        <div class="govuk-summary-list__row">-->
+                <!--                            <dt class="govuk-summary-list__key">-->
+                <!--                                Select any other panel roles required-->
+                <!--                            </dt>-->
+                <!--                            <dd class="govuk-summary-list__value">-->
+                <!--                                {{  data['panel-members']  }}-->
+                <!--                            </dd>-->
+                <!--                            <dd class="govuk-summary-list__actions">-->
+                <!--                                {% if data.changesallowed != 'false' %}-->
+                <!--                                <a class="govuk-link" href="hearing-panel-new?backtocheckanswers=true&">-->
+                <!--                                    Change-->
+                <!--                                </a>-->
+                <!--                                {% endif %}-->
+                <!--                            </dd>-->
+                <!--                        </div>-->
 
-<!--                    {% endif %}-->
+                <!--                    {% endif %}-->
 
-<!--                {% endif %}-->
+                <!--                {% endif %}-->
 
             </dl>
 
-            <h2 class="govuk-heading-m">Duration and date of hearing</h2>
+            <h2 class="govuk-heading-m">Length, date and priority level of hearing</h2>
 
             <!-- DURATION AND DATE -->
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
-<!--                {% if data['status'] == 'listed' %}-->
-<!--                    <div class="govuk-summary-list__row">-->
-<!--                        <dt class="govuk-summary-list__key">-->
-<!--                            Date-->
-<!--                        </dt>-->
-<!--                        <dd class="govuk-summary-list__value">-->
-<!--                            15 November 2021-->
-<!--                        </dd>-->
-<!--                        <dd class="govuk-summary-list__actions">-->
+                <!--                {% if data['status'] == 'listed' %}-->
+                <!--                    <div class="govuk-summary-list__row">-->
+                <!--                        <dt class="govuk-summary-list__key">-->
+                <!--                            Date-->
+                <!--                        </dt>-->
+                <!--                        <dd class="govuk-summary-list__value">-->
+                <!--                            15 November 2021-->
+                <!--                        </dd>-->
+                <!--                        <dd class="govuk-summary-list__actions">-->
 
-<!--                        </dd>-->
-<!--                    </div>-->
-<!--                    <div class="govuk-summary-list__row">-->
-<!--                        <dt class="govuk-summary-list__key">-->
-<!--                            Start time-->
-<!--                        </dt>-->
-<!--                        <dd class="govuk-summary-list__value">-->
-<!--                            13:00-->
-<!--                        </dd>-->
-<!--                        <dd class="govuk-summary-list__actions">-->
+                <!--                        </dd>-->
+                <!--                    </div>-->
+                <!--                    <div class="govuk-summary-list__row">-->
+                <!--                        <dt class="govuk-summary-list__key">-->
+                <!--                            Start time-->
+                <!--                        </dt>-->
+                <!--                        <dd class="govuk-summary-list__value">-->
+                <!--                            13:00-->
+                <!--                        </dd>-->
+                <!--                        <dd class="govuk-summary-list__actions">-->
 
-<!--                        </dd>-->
-<!--                    </div>-->
-<!--                {% endif %}-->
+                <!--                        </dd>-->
+                <!--                    </div>-->
+                <!--                {% endif %}-->
 
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         Length of hearing
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Updated</strong><br /><br />{% endif %}
+                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Amended</strong><br /><br />{% endif %}
                         {% if data.durationhours|length %}
-                            {{  data.durationhours }} hour {% if data.durationmins|length %} and {{  data.durationmins }} minutes {% endif %}
+                        {{  data.durationhours }} hour(s) {% if data.durationmins|length %} and {{  data.durationmins }} minute(s) {% endif %}
                         {% else %}
-                            45 minutes
+                        45 minutes
                         {% endif %}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         {% if data.changesallowed != 'false' %}
-                            <a class="govuk-link" href="hearing-duration?backtocheckanswers=true&">
-                                Change
-                            </a>
+                        <a class="govuk-link" href="hearing-duration?backtocheckanswers=true&">
+                            Change
+                        </a>
                         {% endif %}
                     </dd>
                 </div>
 
-                {% if data['status'] != 'listed' %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         Does the hearing need to take place on a specific date?
                     <dd class="govuk-summary-list__value">
-                    {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Updated</strong><br /><br />{% endif %}
+                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Amended</strong><br /><br />{% endif %}
                         {{  data.dateradios }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
@@ -696,7 +704,6 @@ Case details
                         {% endif %}
                     </dd>
                 </div>
-                {% endif %}
 
                 {% if data['dateradios'] == 'Yes' %}
                 <div class="govuk-summary-list__row">
@@ -704,7 +711,7 @@ Case details
                         The first date of the hearing must be
 
                     <dd class="govuk-summary-list__value">
-                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Updated</strong><br /><br />{% endif %}
+                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Amended</strong><br /><br />{% endif %}
                         {{ data['firstdateday'] }} / {{ data['firstdatemonth'] }} / {{ data['firstdateyear'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
@@ -718,49 +725,49 @@ Case details
                 {% endif %}
 
                 {% if data['dateradios'] == 'Choose a date range' %}
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Earliest hearing date
-                        <dd class="govuk-summary-list__value">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Earliest hearing date
+                    <dd class="govuk-summary-list__value">
                         {{ data['earliestdateday'] }} / {{ data['earliestdatemonth'] }} / {{ data['earliestdateyear'] }}
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            {% if data.changesallowed != 'false' %}
-                                <a class="govuk-link" href="hearing-duration?backtocheckanswers=true&">
-                                    Change
-                                </a>
-                            {% endif %}
-                        </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Latest hearing date
-                        <dd class="govuk-summary-list__value">
-                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Updated</strong><br /><br />{% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        {% if data.changesallowed != 'false' %}
+                        <a class="govuk-link" href="hearing-duration?backtocheckanswers=true&">
+                            Change
+                        </a>
+                        {% endif %}
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Latest hearing date
+                    <dd class="govuk-summary-list__value">
+                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Amended</strong><br /><br />{% endif %}
                         {{ data['latestdateday'] }} / {{ data['latestdatemonth'] }} / {{ data['latestdateyear'] }}
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            {% if data.changesallowed != 'false' %}
-                                <a class="govuk-link" href="hearing-duration?backtocheckanswers=true&">
-                                    Change
-                                </a>
-                            {% endif %}
-                        </dd>
-                    </div>
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        {% if data.changesallowed != 'false' %}
+                        <a class="govuk-link" href="hearing-duration?backtocheckanswers=true&">
+                            Change
+                        </a>
+                        {% endif %}
+                    </dd>
+                </div>
                 {% endif %}
 
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         What is the priority of this hearing?
                     <dd class="govuk-summary-list__value">
-                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Updated</strong><br /><br />{% endif %}
+                        {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Amended</strong><br /><br />{% endif %}
                         {{ data.priorityHearing }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         {% if data.changesallowed != 'false' %}
-                            <a class="govuk-link" href="hearing-duration?backtocheckanswers=true&">
-                                Change
-                            </a>
+                        <a class="govuk-link" href="hearing-duration?backtocheckanswers=true&">
+                            Change
+                        </a>
                         {% endif %}
                     </dd>
                 </div>
@@ -801,9 +808,9 @@ Case details
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         {% if data.changesallowed != 'false' %}
-                            <a class="govuk-link" href="hearing-welsh?backtocheckanswers=true&">
-                                Change
-                            </a>
+                        <a class="govuk-link" href="hearing-welsh?backtocheckanswers=true&">
+                            Change
+                        </a>
                         {% endif %}
                     </dd>
                 </div>
@@ -813,61 +820,61 @@ Case details
 
             {% if data.afterhearinghappend == 'true' %}
 
-                    <h2 class="govuk-heading-m">Outcome of the hearing</h2>
+            <h2 class="govuk-heading-m">Outcome of the hearing</h2>
 
-                    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                        <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">
-                                Placeholder
-                            </dt>
-                            <dd class="govuk-summary-list__value">
-                                Placeholder
-                            </dd>
-                            <dd class="govuk-summary-list__actions">
-<!--                                {% if data.changesallowed != 'false' %}-->
-<!--                                <a class="govuk-link" href="/hearings/pages/language">-->
-<!--                                    Change-->
-<!--                                </a>-->
-<!--                                {% endif %}-->
-                            </dd>
-                        </div>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Placeholder
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Placeholder
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <!--                                {% if data.changesallowed != 'false' %}-->
+                        <!--                                <a class="govuk-link" href="/hearings/pages/language">-->
+                        <!--                                    Change-->
+                        <!--                                </a>-->
+                        <!--                                {% endif %}-->
+                    </dd>
+                </div>
 
-                    </dl>
+            </dl>
 
             {% endif %}
 
             {% if data.changesallowed != 'false' %}
-                <form
+            <form
                     name="aspnetForm"
                     method="post"
                     id="aspnetForm"
                     autocomplete="off"
-                    >
+            >
 
-                    {% if  data.drafthearing == 'false'   %}
-                        <div class="govuk-form-group  govuk-!-margin-top-5" >
-                            <button class="govuk-button" data-module="govuk-button">
-                                Submit updated request
-                            </button>
-                        </div>
+                {% if (data['status'] == 'pending') or (data['status'] == 'listed') %}
+                <div class="govuk-form-group  govuk-!-margin-top-5" >
+                    <button class="govuk-button" data-module="govuk-button">
+                        Submit amended request
+                    </button>
+                </div>
 
-                    {% else %}
-                        <div class="govuk-form-group  govuk-!-margin-top-5" >
-                            <button class="govuk-button" data-module="govuk-button">
-                                Submit request
-                            </button>
-                        </div>
-                    {% endif %}
-                </form>
+                {% else %}
+                <div class="govuk-form-group  govuk-!-margin-top-5" >
+                    <button class="govuk-button" data-module="govuk-button">
+                        Submit request
+                    </button>
+                </div>
+                {% endif %}
+            </form>
             {% endif %}
 
     </div>
 </div>
 
 <script>
-    function goBack() {
-        window.history.back();
-    }
+  function goBack() {
+    window.history.back();
+  }
 </script>
 
 <hr />
