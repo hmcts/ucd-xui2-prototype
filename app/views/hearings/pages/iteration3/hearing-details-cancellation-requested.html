@@ -14,7 +14,7 @@ Case details
     <div class="govuk-grid-column-full">
 
         <h1 class="govuk-heading-l">
-            Details of cancelled hearing
+            Cancellation requested
         </h1>
 
         <form class="form" action="hearing-confirmation" method="post">
@@ -44,12 +44,20 @@ Case details
                 </div>
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        Hearing date
+                        Status
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        15 September 2021
+                        Cancellation requested
                     </dd>
                     <dd class="govuk-summary-list__actions">
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Date of cancel request
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        4 November 2021
                     </dd>
                 </div>
                 <div class="govuk-summary-list__row">
@@ -57,14 +65,24 @@ Case details
                         Reason for cancellation
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        Witness didn't attend
+                        Reason here
                     </dd>
                 </div>
             </dl>
 
+
+            {% if data.nolistingresponse == 'false' %}
             <h2 class="govuk-heading-m">Details</h2>
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Date of last response
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        3 November 2021
+                    </dd>
+                </div>
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         Hearing venue
@@ -102,14 +120,39 @@ Case details
                 </div>
             </dl>
 
+            {% endif %}
+
     </div>
 </div>
+<br /><br />
+<hr />
+<p class="govuk-body govuk-!-margin-top-4">Scenarios:</p>
+<form method="post" action="#">
+    <fieldset class="govuk-fieldset">
+        <div class="govuk-form-group">
+            <label class="govuk-label" for="data-abc1" style="font-size: 16px;">
+                Cancellation response type
+            </label>
+            <select style="height: 30px;padding:0 5px;font-size: 14px;" class="govuk-select" id="data-abc1" name="data-abc1" onchange="window.location.href='?'+this.value">
+                <option value="nolistingresponse=true&"
+                        {% if data['nolistingresponse'] == 'true' %} selected  {% endif %}
+                >No listing response</option>
+
+                <option value="nolistingresponse=false&"
+                        {% if data['nolistingresponse'] != 'true' %} selected  {% endif %}
+                >With listing response</option>
+
+            </select>
+        </div>
+    </fieldset>
+</form>
 
 <script>
   function goBack() {
     window.history.back();
   }
 </script>
+
 
 
 {% endblock %}

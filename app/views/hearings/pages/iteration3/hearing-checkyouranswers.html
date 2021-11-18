@@ -92,6 +92,8 @@ Case details
                     <dd class="govuk-summary-list__actions">
                     </dd>
                 </div>
+                {% endif %}
+                {% if data['status'] == 'listed' %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         Date response received

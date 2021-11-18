@@ -261,9 +261,12 @@ Case details
 
             <div class="govuk-form-group" id="extraFacilities">
                 <h3 class="govuk-label-wrapper">
-                    <label class="govuk-label govuk-label--s" for="otherFacilities">Provide details of any other facilities or reasonable adjustments</label>
+                    <label class="govuk-label govuk-label--s" for="otherFacilities">Provide details of any other facilities</label>
                 </h3>
-                <textarea class="govuk-textarea" id="otherFacilities" name="otherFacilities" rows="5"></textarea>
+                <textarea class="govuk-textarea govuk-!-margin-bottom-1" id="otherFacilities" name="otherFacilities" rows="5"></textarea>
+                <div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+                    You can enter up to 2000 characters
+                </div>
             </div>
 
             <textarea id="facilitiesSessionArray" name="facilitiesSessionArray" value="" style="display: none;"></textarea>
