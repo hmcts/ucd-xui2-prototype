@@ -14,10 +14,55 @@
   <fieldset class="govuk-fieldset" style="width:40%;">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
       <h1 class="govuk-fieldset__heading">
-        Enter contact details
+        Enter contact details for notification
       </h1>
     </legend>
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      <div class="govuk-form-group">
+        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="nationality" name="nationality" type="checkbox" value="british" aria-describedby="nationality-item-hint" checked>
+            <label class="govuk-label govuk-checkboxes__label" for="nationality">
+              <strong>Send notification</strong>
+            </label>
+            <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
+              Get updates about the status of this refund request.
+            </div>
+          </div>
+        </div>
+      </div>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <div class="govuk-form-group">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        Contact preferences
+      </legend>
+      <div id="contact-hint" class="govuk-hint">
+        Choose all options that apply.
+      </div>
+      <div class="govuk-checkboxes--small" data-module="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="contact" name="contact" type="checkbox" value="email" data-aria-controls="conditional-contact" checked>
+          <label class="govuk-label govuk-checkboxes__label" for="contact">
+            Email
+          </label>
+        </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="contact-4" name="contact" type="checkbox" value="text message" data-aria-controls="conditional-contact-4" checked>
+        <label class="govuk-label govuk-checkboxes__label" for="contact-4">
+          Post
+        </label>
+      </div>
+      <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact-3">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="contact-by-text">
+            Mobile phone number
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="contact-by-text" name="contact-by-text" type="tel" autocomplete="tel">
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
     <div class="govuk-form-group">
       <label class="govuk-label" for="email">
         Email address
@@ -74,52 +119,8 @@
         <option value="comments">Spain</option>
       </select>
     </div>
-    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-    <div class="govuk-form-group">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-        Contact preferences
-      </legend>
-      <div id="contact-hint" class="govuk-hint">
-        Choose all options that apply.
-      </div>
-      <div class="govuk-checkboxes--small" data-module="govuk-checkboxes">
-        <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="contact" name="contact" type="checkbox" value="email" data-aria-controls="conditional-contact">
-          <label class="govuk-label govuk-checkboxes__label" for="contact">
-            Email
-          </label>
-        </div>
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="contact-4" name="contact" type="checkbox" value="text message" data-aria-controls="conditional-contact-4">
-        <label class="govuk-label govuk-checkboxes__label" for="contact-4">
-          Post
-        </label>
-      </div>
-      <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact-3">
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="contact-by-text">
-            Mobile phone number
-          </label>
-          <input class="govuk-input govuk-!-width-one-third" id="contact-by-text" name="contact-by-text" type="tel" autocomplete="tel">
-        </div>
 
-      </div>
-    </div>
-  </div>
-  <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-    <div class="govuk-form-group">
-      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-        <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="nationality" name="nationality" type="checkbox" value="british" aria-describedby="nationality-item-hint">
-          <label class="govuk-label govuk-checkboxes__label" for="nationality">
-            <strong>Send notification</strong>
-          </label>
-          <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
-            Get updates about the status of this refund request.
-          </div>
-        </div>
-      </div>
-    </div>
+
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
   </fieldset>
 </div>
