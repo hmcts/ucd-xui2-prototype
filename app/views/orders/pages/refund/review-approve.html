@@ -1,4 +1,4 @@
-{% extends "../../layoutccd.html" %}
+{% extends "../../layout-xui.html" %}
 
 {% block pageTitle %}
     Case details
@@ -51,6 +51,14 @@
             },
             value: {
               html: '£500.00' if data['state'] == 'remission' else '£550.00'
+            }
+          },
+          {
+            key: {
+              text: "Notification"
+            },
+            value: {
+              html: 'Email'
             }
           },
           {
@@ -117,7 +125,7 @@
             value: "approved",
             text: "Approve refund",
             attributes: {
-              onclick: "$('#why-reject').hide();" 
+              onclick: "$('#why-reject').hide();"
             }
           },
           {
@@ -127,7 +135,7 @@
               text: "There is no refund due"
             },
             attributes: {
-              onclick: "$('#why-reject').show();" 
+              onclick: "$('#why-reject').show();"
             }
           },
           {
@@ -140,7 +148,7 @@
               html: textHtml
             },
             attributes: {
-              onclick: "$('#why-reject').hide();" 
+              onclick: "$('#why-reject').hide();"
             }
           }
         ]
@@ -199,16 +207,12 @@
       }) }}
 
     </div>
+    <input type="hidden" name="type" value="supervisor" />
 
-      <input type="hidden" name="type" value="supervisor" />
-
-
-      {{ govukButton({
-        text: "Submit"
-      }) }}
-
-      </form>
-
-    </div>
-  </div>
+    {{ govukButton({
+      text: "Submit"
+    }) }}
+  </form>
+</div>
+</div>
 {% endblock %}
