@@ -146,26 +146,24 @@ Case details
             </div>
 
             <div class="govuk-form-group" id="excluejudge">
-                <div class="govuk-form-group govuk-!-width-one-half">
+
+                <div class="govuk-form-group" id="excludedJudge1" style="display: none;">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="excludeJ1">
+                        Exclude a judge (optional)
+                    </label>
+                    <input class="govuk-input govuk-!-margin-right-2" id="excludeJ1" name="excludeJ1" type="text" style="width: 70%; float: left;" >
+                    <div id="removeExcludedJudgeBtn" class="govuk-button govuk-button--secondary" style="float: left;" data-module="govuk-button">Remove</div>
+                </div>
+
+                <div class="govuk-form-group">
                     <label class="govuk-label govuk-!-font-weight-bold" for="exclude-judgename">
                         Exclude a judge (optional)
                     </label>
-                    <div id="exclude-judgename-container"></div>
-
-                    <!--                                    <label class="govuk-label govuk-!-font-weight-bold" for="exludejudgefield">-->
-                    <!--                                        Exclude a judge who wasn't on a previous panel (optional)-->
-                    <!--                                    </label>-->
-                    <!--                                    <div>-->
-                    <!--                                        <input id="exludejudgefield" class="govuk-input" name="exludejudgefield" type="text" style="width: 350px;" />-->
-                    <!--&lt;!&ndash;                                        <p class="govuk-!-padding-2 govuk-!-margin-bottom-0;"><a href="#">Clear</a></p>&ndash;&gt;-->
-                    <!--                                    </div>-->
+                    <div style="width: 70%;" id="exclude-judgename-container" class="govuk-!-margin-right-2"></div>
+                    <div class="govuk-button govuk-button--secondary govuk-!-margin-top-4" data-module="govuk-button" id="exludeanotherjudge">Exclude another judge</div>
                 </div>
-                <!--                                <p class="govuk-button govuk-button&#45;&#45;secondary govuk-!-margin-top-0 " data-module="govuk-button" id="exludenewjudge" onclick="excludejudge();">-->
-                <!--                                    Exclude a judge-->
-                <!--                                </p>-->
-                <p class="govuk-button govuk-button--secondary govuk-!-margin-top-3 " data-module="govuk-button" id="exludeanotherjudge">
-                    Exclude another judge
-                </p>
+
+
             </div>
 
             <button class="govuk-button" data-module="govuk-button">Continue</button>
@@ -193,23 +191,37 @@ Case details
         'John H Snow (jharoldsnow@justice.gov.uk)'
       ]
 
-      element = document.querySelector('#judgename-container')
+      element1 = document.querySelector('#judgename-container')
       id = 'judgename'
       accessibleAutocomplete({
-        element: element,
+        element: element1,
         id: id,
         placeholder: 'e.g. John Smith',
         source: judgeNames,
         name: 'name-of-judge'
       })
 
-      element = document.querySelector('#exclude-judgename-container')
+      element2 = document.querySelector('#exclude-judgename-container')
       id = 'exclude-judgename'
       accessibleAutocomplete({
-        element: element,
+        element: element2,
         id: id,
         placeholder: 'e.g. John Smith',
         source: judgeNames
+      })
+
+      document.getElementById("exludeanotherjudge").addEventListener("click", function() {
+        var excludeJudgeName = document.getElementById("exclude-judgename").value
+        if (excludeJudgeName && document.getElementById("excludedJudge1").style.display != "block") {
+          document.getElementById("excludeJ1").value = excludeJudgeName
+          document.getElementById("exclude-judgename").value = ""
+          document.getElementById("excludedJudge1").style.display = "block"
+        }
+      });
+
+      document.getElementById("removeExcludedJudgeBtn").addEventListener("click", function() {
+        document.getElementById("excludedJudge1").style.display = "none"
+        document.getElementById("excludeJ1").value = ""
       })
 
     }
