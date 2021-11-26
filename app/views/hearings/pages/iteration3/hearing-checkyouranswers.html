@@ -262,8 +262,7 @@ Case details
                     </dt>
                     <dd class="govuk-summary-list__value">
                         {% if data.updatedflag == 'true' %}<strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Amended</strong><br /><br />{% endif %}
-                        {{  data['facilities'] }} <br /><br />
-                        {{  data['otherFacilities'] | striptags(true) | escape | nl2br  }}
+                        {{  data['facilities'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         {% if data.changesallowed != 'false' %}
