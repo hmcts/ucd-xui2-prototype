@@ -12,22 +12,12 @@
   </span>
   <fieldset class="govuk-fieldset" style="width:40%;">
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-    <div class="govuk-form-group">
-      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-        <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="nationality" name="nationality" type="checkbox" value="british" aria-describedby="nationality-item-hint">
-          <label class="govuk-label govuk-checkboxes__label" for="nationality">
-            <strong>Send updates about this refund request</strong>
-          </label>
-        </div>
-      </div>
-    </div>
-    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    {% set captureDetails %}
     <div class="govuk-form-group">
       {% set captureAddress %}
         {{ govukInput({
           label: {
-            html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+            html: '<span class="govuk-hint">Enter a postal address for updates about this refund request.</span>Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
           },
           id: "address-line-1",
           name: "address-line-1",
@@ -108,6 +98,9 @@
       </div>
       {% set captureEmail %}
         {{ govukInput({
+          label: {
+            html: '<span class="govuk-hint">Enter an email address for updates about this refund request.</span>'
+          },
           id: "email",
           type: "email",
           namePrefix: "email",
@@ -118,7 +111,7 @@
             }
           },
           hint: {
-            text: "Enter an email address for updates about this refund request."
+            text: ""
           }
         }) }}
       {% endset -%}
@@ -176,6 +169,35 @@
   <!---FORM--->
 
 </div>
+    {% endset -%}
+
+    {{ govukCheckboxes({
+      idPrefix: "captureDetails",
+      name: "captureDetails",
+      fieldset: {
+        legend: {
+          text: "",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+
+      items: [
+      {
+        value: "Send updates about this refund request",
+        text: "Send updates about this refund request",
+        hint: {
+          text: ""
+        },
+        conditional: {
+          html: captureDetails
+        }
+      }
+    ]
+  })
+}}
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
   </fieldset>
   <div class="govuk-button-group">
     {{ govukButton({
