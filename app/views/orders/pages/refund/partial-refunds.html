@@ -28,7 +28,7 @@
           <td class="govuk-table__cell">
             <div class="govuk-checkboxes govuk-checkboxes--large" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="item-1" name="organisation" type="checkbox" value="hmrc">
+                <input class="govuk-checkboxes__input" id="item-1" name="organisation" type="checkbox" value="partial-refunds-1" onchange="document.location.href=this.value">
                 <label class="govuk-label govuk-checkboxes__label" for="item-1">
                   <span style=display:none>Select</span>
                 </label>
@@ -37,7 +37,7 @@
           </td>
           <td class="govuk-table__cell">Personal Application for grant of Probate</td>
           <td class="govuk-table__cell"  style="text-align: left;">£215.00</td>
-          <td class="govuk-table__cell"  style="text-align: left;">£225.00</td>
+          <td class="govuk-table__cell"  style="text-align: left;">£215.00</td>
           <td class="govuk-table__cell" scope="row" style="text-align: center, margin-left:0px;">
             <div class="govuk-form-group">
               <label for="event-name">
@@ -53,7 +53,7 @@
           <td class="govuk-table__cell">
             <div class="govuk-checkboxes govuk-checkboxes--large" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="item-3" name="organisation" type="checkbox" value="partial-refunds-btn-disabled" onchange="document.location.href=this.value" checked>
+                <input class="govuk-checkboxes__input" id="item-3" name="organisation" type="checkbox" value="partial-refunds-btn-disabled" onchange="document.location.href=this.value">
                 <label class="govuk-label govuk-checkboxes__label" for="item-3">
                   <span style=display:none>Select</span>
                 </label>
@@ -70,7 +70,7 @@
                   What is the name of the event?
                 </span>
               </label>
-              <input class="govuk-input" id="event-name" name="event-name" type="text" style="width: 90px; text-align:center" value="6">
+              <input class="govuk-input" id="event-name" name="event-name" type="text" style="width: 90px; text-align:center" value="0" disabled>
             </div>
           </td>
         </tr>
@@ -112,7 +112,8 @@
     }) }}
     {{ govukButton({
       href: '',
-      text: "Continue"
+      text: "Continue",
+      disabled: true
     }) }}
   </div>
   <p>
