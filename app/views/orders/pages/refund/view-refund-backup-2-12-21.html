@@ -1,35 +1,53 @@
 {% extends "../../layoutccd.html" %}
 
+
+
+
 {% block pageTitle %}
-  Case details
+Case details
 {% endblock %}
+
 
 {% block content %}
 
-<div class=""  style="display: flex; justify-content: space-between;">
-  <div style="display: flex;">
-    <p class="">4692-3164-5845-4819: Smith v Smith  &nbsp;</p>
-    <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-      Print
-    </button>
-  </div>
-  <div style="display: flex; align-items:right">
-    <p class="govuk-!-margin-top-2">Next step &nbsp;</p>
-    <select class="govuk-select" id="sort" name="sort">
-      <option value="published" selected>Select action</option>
-      <option value="published" >Submit amended application</option>
-      <option value="published" >Link respondent</option>
-      <option value="published" >Add Note</option>
-      <option value="published" >Upload document</option>
-      <option value="updated" >Stop representing a client</option>
-    </select>
-    <button class="govuk-button govuk-!-margin-left-1" data-module="govuk-button">
-      Go
-    </button>
-  </div>
+
+<div class=""  style="display: flex; justify-content: space-between; ">
+
+
+    <div style="display: flex; ">
+        <p class="">4692-3164-5845-4819: Smith v Smith  &nbsp; </p>
+
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Print
+        </button>
+    </div>
+
+
+    <div style="display: flex; align-items:right" >
+        <p class="govuk-!-margin-top-2">Next step &nbsp;</p>
+
+        <select class="govuk-select" id="sort" name="sort">
+            <option value="published" selected>Select action</option>
+            <option value="published" >Submit amended application</option>
+            <option value="published" >Link respondent</option>
+            <option value="published" >Add Note</option>
+            <option value="published" >Upload document</option>
+            <option value="updated" >Stop representing a client</option>
+        </select>
+
+
+        <button class="govuk-button govuk-!-margin-left-1" data-module="govuk-button">
+            Go
+        </button>
+
+    </div>
+
 </div>
+
+
+
 <div class="govuk-tabs" data-module="govuk-tabs">
-  <h2 class="govuk-tabs__title">
+    <h2 class="govuk-tabs__title">
         Contents
     </h2>
     <ul class="govuk-tabs__list">
@@ -123,29 +141,6 @@
 
 
     <br>
-
-<h3 class="govuk-heading-m">Updates sent</h3>
-<table class="govuk-table" style="width:100%;">
-    <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header " style="width: 35%">Date and time </th>
-            <th scope="col" class="govuk-table__header " style="width: 45%">Method</th>
-            <th scope="col" class="govuk-table__header ">Actions</th>
-        </tr>
-    </thead>
-    <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-            <td class="govuk-table__cell ">24 January 2021 09:51:09</td>
-            <td class="govuk-table__cell ">Email:<br>james.master@hhotmail.com</td>
-            <td class="govuk-table__cell "><a href="">Resend</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Edit details</a></td>
-        </tr>
-        <tr class="govuk-table__row">
-            <td class="govuk-table__cell ">14 March 2021 09:54:09</td>
-            <td class="govuk-table__cell ">Post:<br>19 Hamilton Road, Great Missenden, UK</td>
-            <td class="govuk-table__cell "><a href="">Resend</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Edit details</a></td>
-        </tr>
-    </tbody>
-</table>
 
     <h3 class="govuk-heading-m">Refund status history</h3>
 
