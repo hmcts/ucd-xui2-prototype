@@ -17,6 +17,8 @@
         titleText: "Refund " + data['finalDecision']
       }) }}
 
+      {% elseif data['refund'] == 'remission' %}
+
       {{ govukPanel({
         titleText: "Remission added",
         html: "<p class=\"govuk-body\" style=\"color: white\"><strong>Refund reference: RF-8368-2367-1858-4562</strong></p>" if data['paymentdetailsstatus'] != 'Failed'

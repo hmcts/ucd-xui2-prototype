@@ -1,0 +1,119 @@
+{% if data.casetype == "probate" %}
+    {% extends "../layoutccdprobate.html" %}
+{% else %}
+    {% extends "../layoutccd.html" %}
+{% endif %}
+
+{% block pageTitle %}
+    Case details
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class=""  style="display: flex; justify-content: space-between;">
+  <div style="display: flex;">
+    <p class="">4692-3164-5845-4819: Smith v Smith  &nbsp;</p>
+    <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Print
+    </button>
+  </div>
+
+  <div style="display: flex; align-items:right" >
+    <p class="govuk-!-margin-top-2">Next step &nbsp;</p>
+    <select class="govuk-select" id="sort" name="sort">
+      <option value="published" selected>Select action</option>
+      <option value="published" >Submit amended application</option>
+      <option value="published" >Link respondent</option>
+      <option value="published" >Add Note</option>
+      <option value="published" >Upload document</option>
+      <option value="updated" >Stop representing a client</option>
+    </select>
+    <button class="govuk-button govuk-!-margin-left-1" data-module="govuk-button">
+      Go
+    </button>
+  </div>
+</div>
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#">
+        Summary
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#">
+        Claim details
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="v1caseinccd">
+        History
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="v1caseinccd">
+        Payment History
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="v1caseinccd">
+        Service Requests
+      </a>
+    </li>
+  </ul>
+</div>
+<div style="width: 960px;  margin: auto;">
+  <h3 class="govuk-heading-m  govuk-!-margin-top-7 govuk-!-margin-bottom-0">Payments</h3>
+  <table class="govuk-table"  style="width:100%; margin-bottom: 20px;">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" scope="col" style="width:16%">Status</th>
+        <th class="govuk-table__header" scope="col" style="width:10%;text-align: right; padding-right: 50px;">Amount</th>
+        <th class="govuk-table__header" scope="col" style="width:19%;  padding-left:0px;">Date</th>
+        <th class="govuk-table__header" scope="col" style="width:32%;  padding-left:0px;  padding-right:0px;">Payment reference</th>
+        <th class="govuk-table__header" scope="col" style="width:15%"></th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Success</td>
+        <td class="govuk-table__cell" style="vertical-align:middle; text-align: right; padding-right: 50px;">£550.00</td>
+        <td class="govuk-table__cell" style="padding-left:0px;">4 March 2021</td>
+        <td class="govuk-table__cell" style="vertical-align:middle;  padding-left:0px;">RC-2021-9184-2534-5442</td>
+        <td class="govuk-table__cell " style="text-align: right;"><a href="J2-paymenthistorydetails?paymentdetailsamount=£550.00&paymentdetailsstatus=Success&">Review</a></td>
+      </tr>
+    </table>
+    <h3 class="govuk-heading-m  govuk-!-margin-top-7 govuk-!-margin-bottom-0">Refunds</h3>
+    <table class="govuk-table"  style="width:100%; margin-bottom: 20px;">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="col" style="width:10%">Status</th>
+          <th class="govuk-table__header" scope="col" style="width:10%;text-align: right; padding-right: 50px;">Amount</th>
+          <th class="govuk-table__header" scope="col" style="width:12%;  padding-left:0px;">Date</th>
+          <th class="govuk-table__header" scope="col" style="width:20%;  padding-left:0px;  padding-right:0px;">Refund reference</th>
+          <th class="govuk-table__header" scope="col" style="width:13%;  padding-left:0px;  padding-right:0px;">Reason</th>
+          <th class="govuk-table__header" scope="col" style="width:10%"></th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" style="vertical-align:middle">{% if data.result =="submitted" %}Sent for approval{% elseif data.result == 'returned' %}Returned{% else %}Approved{% endif %}</td>
+          <td class="govuk-table__cell" style="vertical-align:middle; text-align: right; padding-right: 50px;">£550.00</td>
+          <td class="govuk-table__cell" style="vertical-align:middle">4 March 2021</td>
+          <td class="govuk-table__cell" style="vertical-align:middle;  padding-left:0px;">RF-1655-4426-6541-4654</td>
+          <td class="govuk-table__cell" style="vertical-align:middle;  padding-left:0px;">{% if data['state'] == 'duplicate' %}Duplicate payment{% else %}Case withdrawn{% endif %}</td>
+          <td class="govuk-table__cell "  style="text-align: right; ">
+            <a href="J2-paymenthistorydetails?paymentdetailsamount=£550.00&paymentdetailsstatus=Success&">Review</a>
+          </td>
+        </tr>
+    </table>
+</div>
+
+
+{% endblock %}

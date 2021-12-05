@@ -1,0 +1,218 @@
+{% extends "../../layout-xui.html" %}
+{% block pageTitle %}
+  Case details
+{% endblock %}
+{% block content %}
+
+<div style="min-width: 960px; max-width: 1860px;  margin: 0 30px;">
+  <h1 class="govuk-heading-l">Issue refund</h1>
+  <h2 class="govuk-heading-m">Case reference: 4692-3164-5845-4819</h2>
+  <span id="how-contacted-conditional-hint" class="govuk-hint">
+    Payment reference: xxx-xxx-xxx-xxx
+  </span>
+  <fieldset class="govuk-fieldset" style="width:40%;">
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    {% set captureDetails %}
+    <div class="govuk-form-group">
+      {% set captureAddress %}
+        {{ govukInput({
+          label: {
+            html: '<span class="govuk-hint">Enter a postal address for updates about this refund request.</span>Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+          },
+          id: "address-line-1",
+          name: "address-line-1",
+          autocomplete: "address-line1"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+          },
+          id: "address-line-2",
+          name: "address-line-2",
+          autocomplete: "address-line2"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Town or city"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "address-town",
+          name: "address-town",
+          autocomplete: "address-level2"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "County"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "address-county",
+          name: "address-county"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Postcode"
+          },
+          classes: "govuk-input--width-10",
+          id: "address-postcode",
+          name: "address-postcode",
+          autocomplete: "postal-code"
+        }) }}
+
+        {{ govukSelect({
+          id: "country",
+          name: "country",
+          label: {
+            text: "Country"
+          },
+          items: [
+            {
+              value: "United Kingdom",
+              text: "United Kingdom",
+              selected: true
+            },
+            {
+              value: "France",
+              text: "France"
+            },
+            {
+              value: "India",
+              text: "India"
+            },
+            {
+              value: "Spain",
+              text: "Spain"
+            }
+          ]
+        }) }}
+
+      {% endset -%}
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        Contact preferences
+      </legend>
+      <div id="contact-hint" class="govuk-hint">
+        You can only choose one option.
+      </div>
+      {% set captureEmail %}
+        {{ govukInput({
+          label: {
+            html: '<span class="govuk-hint">Enter an email address for updates about this refund request.</span>'
+          },
+          id: "email",
+          type: "email",
+          namePrefix: "email",
+          fieldset: {
+            legend: {
+              text: "",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: ""
+          }
+        }) }}
+      {% endset -%}
+
+      {% set textHtml %}
+        {{ govukInput({
+          id: "contact-by-text",
+          name: "contact-by-text",
+          type: "tel",
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Mobile phone number"
+          }
+
+        }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        idPrefix: "contact",
+        name: "contact",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+
+        items: [
+        {
+          value: "email",
+          checked:"true",
+          text: "Email",
+          hint: {
+            text: ""
+          },
+          conditional: {
+            html: captureEmail
+          }
+        },
+        {
+          value: "post",
+          text: "Post",
+          hint: {
+            text: ""
+          },
+          conditional: {
+            html: captureAddress
+          }
+        }
+      ]
+    })
+  }}
+
+  <!---FORM--->
+
+</div>
+    {% endset -%}
+
+    {{ govukCheckboxes({
+      idPrefix: "captureDetails",
+      name: "captureDetails",
+      fieldset: {
+        legend: {
+          text: "",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+
+      items: [
+      {
+        value: "Send updates about this refund request",
+        text: "Send updates about this refund request",
+        hint: {
+          text: ""
+        },
+        conditional: {
+          html: captureDetails
+        }
+      }
+    ]
+  })
+}}
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+  </fieldset>
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Previous",
+      href: '',
+      classes: "govuk-button--secondary"
+    }) }}
+    {{ govukButton({
+      href: 'J2-check-and-send',
+      text: "Continue"
+    }) }}
+  </div>
+  <p>
+    <a href="">Cancel</a>
+  </p>
+</div>
+
+{% endblock %}
