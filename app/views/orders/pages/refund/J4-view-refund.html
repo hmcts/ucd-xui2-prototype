@@ -125,7 +125,8 @@
     <br>
 
 <h3 class="govuk-heading-m">Updates sent</h3>
-<table class="govuk-table" style="width:100%;">
+<p>None</p>
+<!-- <table class="govuk-table" style="width:100%;">
     <thead class="govuk-table__head">
         <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header " style="width: 35%">Date and time </th>
@@ -140,7 +141,7 @@
             <td class="govuk-table__cell "><a href="">Resend</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="J4-partial-refunds-amend-address">Edit details</a></td>
         </tr>
     </tbody>
-</table>
+</table> -->
 
     <h3 class="govuk-heading-m">Refund status history</h3>
 
@@ -177,7 +178,7 @@
 
     {% elseif data.result == 'returned' %}
         <a href="/orders/pages/refund/J4-check-and-send-a?result=returned&refund=adHoc" class="govuk-button govuk-button--secondary">
-            Resubmit refund
+            Resubmit refund...
         </a>
     {% endif %}
 
