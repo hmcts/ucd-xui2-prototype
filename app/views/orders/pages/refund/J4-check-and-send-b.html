@@ -16,7 +16,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-l">Review and resubmit refund</h1>
+      <h1 class="govuk-heading-l">Check your answers</h1>
 
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
@@ -93,6 +93,15 @@
             },
             value: {
               text: "£215.00"
+            },
+            actions: {
+              items: [
+                {
+                  href: "J5-partial-refunds-amend-address",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
             }
           },
           {

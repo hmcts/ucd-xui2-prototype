@@ -16,7 +16,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-l">Review and resubmit refund</h1>
+      <h1 class="govuk-heading-l">Check your answers</h1>
 
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
@@ -73,6 +73,14 @@
           } if data['refund'] == 'adHoc',
           {
             key: {
+              text: "Reason for refund"
+            },
+            value: {
+              text: "Case withdrawn"
+            }
+          },
+          {
+            key: {
               text: "Payment reference"
             },
             value: {
@@ -84,7 +92,15 @@
               text: "Payment amount"
             },
             value: {
-              text: "£215.00"
+              text: "£550.00"
+            }
+          },
+          {
+            key: {
+              text: "Refund amount"
+            },
+            value: {
+              text: "£550.00"
             }
           },
           {
@@ -92,7 +108,7 @@
               text: "Update sent"
             },
             value: {
-              text: "Email - johnturner@hotmail.com"
+              text: "Post - 19 Hamilton Close, Great Missenden, HP16 9DZ"
             }
           },
           {

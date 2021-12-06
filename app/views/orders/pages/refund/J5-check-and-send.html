@@ -16,7 +16,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-l">{% if data['result'] == 'returned' %}Review and resubmit refund{% else %}Check your answers{% endif %}</h1>
+      <h1 class="govuk-heading-l">Check your answers</h1>
 
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
@@ -40,12 +40,12 @@
           } if false,
           {
             key: {
-              text: "Reason for rejection"
+              text: ""
             },
             value: {
-              text: "'Case hasn't been withdrawn - looks like a duplicate payment?"
+              text: ""
             }
-          } if data['result'] == 'returned',
+          } if data['refund'] == 'adHoc',
           {
             key: {
               text: "Refund reference"
@@ -53,46 +53,22 @@
             value: {
               text: "RF-1324-6846-2454-5445"
             }
-          } if data['result'] == 'returned',
-          {
-            key: {
-              text: "Reason for refund"
-            },
-            value: {
-              text: 'Case withdrawn' if data['result'] == 'returned' and data['changed'] != 'true' else 'Duplicate payment'
-            },
-            actions: {
-              items: [
-                {
-                  href: "reason?changed=true",
-                  text: "Change",
-                  visuallyHiddenText: "date of birth"
-                }
-              ]
-            }
-          } if data['refund'] == 'adHoc',
-          {
-            key: {
-              text: "Payment reference"
-            },
-            value: {
-              text: "RC-8368-2367-1858-4562"
-            }
-          },
-          {
-            key: {
-              text: "Payment amount"
-            },
-            value: {
-              text: "£550.00"
-            }
           },
           {
             key: {
               text: "Update sent"
             },
             value: {
-              text: "The Castel, Windsor Road, Great Missenden, HP10 9OL"
+              text: "Post - The Castel, Windsor Road, Great Missenden, HP10 9OL"
+            },
+            actions: {
+              items: [
+                {
+                  href: "J5-partial-refunds-amend-address",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
             }
           },
           {
@@ -162,7 +138,12 @@
             {% endif %}
 
             {{ govukButton({
-              text: 'Add remission' if data['refund'] == 'remission' else 'Submit refund'
+              text: "Previous",
+              href: 'transaction',
+              classes: "govuk-button--secondary"
+            }) }}
+            {{ govukButton({
+              text: 'Send update'
             }) }}
         </div>
 
