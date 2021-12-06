@@ -167,7 +167,6 @@
         ]
       }) }}
 
-      <form action="{% if data['result'] == 'returned' and data['changed'] != 'true' %}resubmit{% else %}confirm{% endif %}" method="post">
 
         <div class="govuk-button-group">
 
@@ -180,6 +179,7 @@
 
 
             {{ govukButton({
+              href: 'J3-confirm',
               text:'Submit refund'
             }) }}
         </div>
@@ -188,7 +188,6 @@
            <a href="">Cancel</a>
         </p>
 
-      </form>
 
     </div>
   </div>
