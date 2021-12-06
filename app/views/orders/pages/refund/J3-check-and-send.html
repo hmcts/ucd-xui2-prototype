@@ -16,7 +16,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-l">{% if data['result'] == 'returned' %}Review and resubmit refund{% else %}Check your answers{% endif %}</h1>
+      <h1 class="govuk-heading-l">Check your answers</h1>
 
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
@@ -40,18 +40,10 @@
           } if false,
           {
             key: {
-              text: "Reason for rejection"
+              text: ""
             },
             value: {
-              text: "'Case hasn't been withdrawn - looks like a duplicate payment?"
-            }
-          } if data['result'] == 'returned',
-          {
-            key: {
-              text: "Refund reference"
-            },
-            value: {
-              text: "RF-1324-6846-2454-5445"
+              text: ""
             }
           } if data['result'] == 'returned',
           {
@@ -64,7 +56,7 @@
             actions: {
               items: [
                 {
-                  href: "reason?changed=true",
+                  href: "J2-reason",
                   text: "Change",
                   visuallyHiddenText: "date of birth"
                 }
@@ -84,7 +76,24 @@
               text: "Payment amount"
             },
             value: {
-              text: "£215.00"
+              text: "£550.00"
+            }
+          },
+          {
+            key: {
+              text: "Refund amount"
+            },
+            value: {
+              text: "£550.00"
+            },
+            actions: {
+              items: [
+                {
+                  href: "J2-partial-refunds-1",
+                  text: "Change",
+                  visuallyHiddenText: "date of birth"
+                }
+              ]
             }
           },
           {
@@ -92,7 +101,16 @@
               text: "Update sent"
             },
             value: {
-              text: "Email -  johnturner@hotmail.con"
+              text: "Email - johnturner@hotmail.con"
+            },
+            actions: {
+              items: [
+                {
+                  href: "J2-partial-refunds-capture-address",
+                  text: "Change",
+                  visuallyHiddenText: "date of birth"
+                }
+              ]
             }
           },
           {
@@ -153,16 +171,16 @@
 
         <div class="govuk-button-group">
 
-            {% if data['result'] != 'returned' %}
+
             {{ govukButton({
               text: "Previous",
               href: '',
               classes: "govuk-button--secondary"
             }) }}
-            {% endif %}
+
 
             {{ govukButton({
-              text: 'Add remission' if data['refund'] == 'remission' else 'Submit refund'
+              text:'Submit refund'
             }) }}
         </div>
 
