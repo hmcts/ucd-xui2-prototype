@@ -18,7 +18,7 @@ Hearings management
             Hearing details
         </h1>
 
-        {% if data['actuals-ready'] == "false" %}
+        {% if data['actuals-ready'] != "true" %}
             <strong class="govuk-tag govuk-tag--grey">
                 In progress
             </strong>
