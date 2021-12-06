@@ -125,25 +125,18 @@
         ]
       }) }}
 
-      <form action="{% if data['result'] == 'returned' and data['changed'] != 'true' %}resubmit{% else %}confirm{% endif %}" method="post">
-
         <div class="govuk-button-group">
 
-            {% if data['result'] != 'returned' %}
-            {{ govukButton({
-              text: "Previous",
-              href: 'transaction',
-              classes: "govuk-button--secondary"
-            }) }}
-            {% endif %}
 
             {{ govukButton({
               text: "Previous",
-              href: 'transaction',
+              href: '',
               classes: "govuk-button--secondary"
             }) }}
             {{ govukButton({
-              text: 'Send update'
+              text: "Send update",
+              href: 'J5-confirm',
+              classes: "govuk-button"
             }) }}
         </div>
 
@@ -151,7 +144,6 @@
            <a href="">Cancel</a>
         </p>
 
-      </form>
 
     </div>
   </div>
