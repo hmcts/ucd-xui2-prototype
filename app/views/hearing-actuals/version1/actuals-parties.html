@@ -1,0 +1,131 @@
+{% extends "../layout-xui.html" %}
+
+{% block pageTitle %}
+Hearings management
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Jane Smith vs DWP</span>
+        <h1 class="govuk-heading-l">
+            Parties
+        </h1>
+        <br />
+
+        <form class="form" action="actuals-categories" method="post">
+
+<!--        <h2 class="govuk-heading-m govuk-!-margin-bottom-6">Parties</h2>-->
+
+        <!-- Appellant -->
+        <h3 class="govuk-heading-s">Jane Smith</h3>
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                    <h3 class="govuk-fieldset__heading">
+                        Did this party attend the hearing?      &nbsp;  &nbsp; &nbsp; &nbsp;
+                    </h3>
+                </legend>
+                <div class="govuk-radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="party1AttendedYes" name="party1-attended" type="radio" value="Yes" {{ checked("party1-attended", "Yes") }}>
+                        <label class="govuk-label govuk-radios__label" for="party1AttendedYes">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="party1AttendedNo" name="party1-attended" type="radio" value="No" {{ checked("party1-attended", "No") }}>
+                        <label class="govuk-label govuk-radios__label" for="party1AttendedNo">
+                            No
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="party1Channel">
+                Channel
+            </label>
+            <select class="govuk-select govuk-!-width-one-quarter" id="party1Channel" name="party1-channel">
+                <option value="Please select">Please select</option>
+                <option value="In person" {% if data['party1-channel'] == "In person" %} selected {% endif %}>In person</option>
+                <option value="By phone" {% if data['party1-channel'] == "By phone" %} selected {% endif %}>By phone</option>
+                <option value="By video" {% if data['party1-channel'] == "By video" %} selected {% endif %}>By video</option>
+            </select>
+        </div>
+
+        <br />
+
+        <!-- Respondent -->
+        <h3 class="govuk-heading-s">DWP</h3>
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                    <h3 class="govuk-fieldset__heading">
+                        Did this party attend the hearing?
+                    </h3>
+                </legend>
+                <div class="govuk-radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="party2AttendedYes" name="party2-attended" type="radio" value="Yes" {{ checked("party2-attended", "Yes") }}>
+                        <label class="govuk-label govuk-radios__label" for="party2AttendedYes">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="party2AttendedNo" name="party2-attended" type="radio" value="No" {{ checked("party2-attended", "No") }}>
+                        <label class="govuk-label govuk-radios__label" for="party2AttendedNo">
+                            No
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="party2Channel">
+                Channel
+            </label>
+            <select class="govuk-select govuk-!-width-one-quarter govuk-!-margin-bottom-4" id="party2Channel" name="party2-channel">
+                <option value="Please select">Please select</option>
+                <option value="In person" {% if data['party2-channel'] == "In person" %} selected {% endif %}>In person</option>
+                <option value="By phone" {% if data['party2-channel'] == "By phone" %} selected {% endif %}>By phone</option>
+                <option value="By video" {% if data['party2-channel'] == "By video" %} selected {% endif %}>By video</option>
+            </select>
+        </div>
+
+
+        <br />
+        <br />
+
+
+<!--            <button class="govuk-button govuk-button&#45;&#45;secondary" data-module="govuk-button">-->
+<!--                Previous-->
+<!--            </button>-->
+            <button class="govuk-button primary" data-module="govuk-button">
+                Save and continue
+            </button>
+
+        </form>
+
+
+
+        </div>
+    </div>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+{% endblock %}

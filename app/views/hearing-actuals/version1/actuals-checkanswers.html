@@ -1,0 +1,83 @@
+{% extends "../layout-xui.html" %}
+
+{% block pageTitle %}
+Hearings management
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="actuals-participants">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Jane Smith vs DWP</span>
+        <h1 class="govuk-heading-l">
+            Check your answers
+        </h1>
+        <br />
+
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Date listed
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    12 November 2021
+                </dd>
+                <dd class="govuk-summary-list__actions">
+<!--                    <a class="govuk-link" href="#">-->
+<!--                        Change<span class="govuk-visually-hidden"> name</span>-->
+<!--                    </a>-->
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Start time
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    13:00
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> start time</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Finish time
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    14:00
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> finish time</span>
+                    </a>
+                </dd>
+            </div>
+
+        </dl>
+
+
+
+
+        <br />
+        <br />
+        <form class="form" action="actuals-confirmation" method="post">
+
+            <button class="govuk-button primary" data-module="govuk-button">
+                Submit
+            </button>
+
+        </form>
+
+
+
+        </div>
+    </div>
+
+{% endblock %}

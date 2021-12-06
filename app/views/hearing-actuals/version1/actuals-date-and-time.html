@@ -1,0 +1,73 @@
+{% extends "../layout-xui.html" %}
+
+{% block pageTitle %}
+Hearings management
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Jane Smith vs DWP</span>
+        <h1 class="govuk-heading-l">
+            Hearing date and time
+        </h1>
+        <br />
+
+        <form class="form" action="actuals-categories" method="post">
+
+            <!-- Date - readonly -->
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-weight-bold">
+                    Date listed
+                </label>
+                <p class="govuk-body">12 November 2021</p>
+            </div>
+
+            <!-- Start and end time -->
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-weight-bold" for="startTime">
+                    Start time
+                </label>
+<!--                <div id="startHint" class="govuk-hint">-->
+<!--                    For example, 13:00-->
+<!--                </div>-->
+                <input class="govuk-input govuk-date-input__input govuk-input--width-5" id="startTime" name="start-time" type="text" value="13:00" />
+            </div>
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-weight-bold" for="endTime">
+                    Finish time
+                </label>
+<!--                <div id="endHint" class="govuk-hint">-->
+<!--                    For example, 14:30-->
+<!--                </div>-->
+                <input class="govuk-input govuk-date-input__input govuk-input--width-5" id="endTime" name="end-time" type="text" value="14:00" />
+            </div>
+
+            <br />
+<!--            <button class="govuk-button govuk-button&#45;&#45;secondary" data-module="govuk-button">-->
+<!--                Cancel-->
+<!--            </button>-->
+            <button class="govuk-button primary" data-module="govuk-button">
+                Save and continue
+            </button>
+
+        </form>
+
+
+
+        </div>
+    </div>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+{% endblock %}

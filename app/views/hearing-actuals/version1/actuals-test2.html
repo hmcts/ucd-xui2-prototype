@@ -1,0 +1,167 @@
+{% extends "../layout-xui.html" %}
+
+{% block pageTitle %}
+Hearings management
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="actuals-participants">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Jane Smith vs DWP</span>
+        <h1 class="govuk-heading-l">
+            Hearing details
+        </h1>
+        <br />
+
+        <h1 class="govuk-heading-m">
+            Date and time
+        </h1>
+
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    <label class="govuk-label govuk-!-font-weight-bold">
+                        Date listed
+                    </label>
+                    <p class="govuk-body govuk-!-margin-bottom-1">12 November 2021</p>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="startTime">
+                        Start time
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-5 govuk-!-margin-bottom-1" id="startTime" name="start-time" type="text" value="13:00" />
+                </dt>
+                <dd class="govuk-summary-list__value">
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="endTime">
+                        Finish time
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-5 govuk-!-margin-bottom-1" id="endTime" name="end-time" type="text" value="14:00" />
+                </dt>
+                <dd class="govuk-summary-list__value">
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="hearingStage">
+                        Hearing stage
+                    </label>
+                    <select class="govuk-select govuk-input--width-10" id="hearingStage" name="hearing-stage" style="width:250px !important;">
+                        <option value="Initial">Initial</option>
+                        <option value="Final" selected>Final</option>
+                        <option value="Substantial">Substantial</option>
+                        <option value="Case management">Case management</option>
+                    </select>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            <h3 class="govuk-fieldset__heading">
+                                Was any evidence submitted on the day?      &nbsp;  &nbsp; &nbsp; &nbsp;
+                            </h3>
+                        </legend>
+                        <div class="govuk-radios govuk-radios--inline">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="evidenceSubmittedYes" name="evidence-submitted" type="radio" value="Yes" {{ checked("evidence-submitted", "Yes") }}>
+                                <label class="govuk-label govuk-radios__label" for="evidenceSubmittedYes">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="evidenceSubmittedNo" name="evidence-submitted" type="radio" value="No" {{ checked("evidence-submitted", "No") }}>
+                                <label class="govuk-label govuk-radios__label" for="evidenceSubmittedNo">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+            </div>
+        </dl>
+
+        <br />
+        <br />
+        <h1 class="govuk-heading-m">
+            Participants
+        </h1>
+
+        <h2 class="govuk-heading-s">
+            Jane Smith
+        </h2>
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Did this party attend the hearing?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="party1AttendedYes" name="party1-attended" type="radio" value="Yes" {{ checked("party1-attended", "Yes") }}>
+                            <label class="govuk-label govuk-radios__label" for="party1AttendedYes">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="party1AttendedNo" name="party1-attended" type="radio" value="No" {{ checked("party1-attended", "No") }}>
+                            <label class="govuk-label govuk-radios__label" for="party1AttendedNo">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <!--                    <a class="govuk-link" href="#">-->
+                    <!--                        Change<span class="govuk-visually-hidden"> name</span>-->
+                    <!--                    </a>-->
+                </dd>
+            </div>
+
+        </dl>
+
+
+
+        <br />
+        <br />
+        <form class="form" action="actuals-confirmation" method="post">
+
+            <button class="govuk-button primary" data-module="govuk-button">
+                Submit
+            </button>
+
+        </form>
+
+
+
+        </div>
+    </div>
+
+{% endblock %}
