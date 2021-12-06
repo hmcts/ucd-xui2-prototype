@@ -1,0 +1,501 @@
+{% extends "../layout-xui.html" %}
+
+{% block pageTitle %}
+Hearings management
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span style="margin-bottom: 10px; display: block;" class="govuk-caption-l">Jane Smith vs DWP</span>
+        <h1 class="govuk-heading-l" style="margin-right: 16px;margin-top:-10px;display:inline-block;vertical-align: top;">
+            Hearing details
+        </h1>
+
+        {% if data['actuals-ready'] == "false" %}
+            <strong class="govuk-tag govuk-tag--grey">
+                In progress
+            </strong>
+        {% else %}
+            <strong class="govuk-tag govuk-tag--green">
+                Ready to submit
+            </strong>
+        {% endif %}
+
+        <br />
+
+        <h1 class="govuk-heading-m">
+            Date and time
+        </h1>
+
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Date listed
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    12 November 2021
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Start time
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data["start-time"] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="actuals-date-and-time">
+                        Update<span class="govuk-visually-hidden"> start time</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Finish time
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data["end-time"] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="actuals-date-and-time">
+                        Update<span class="govuk-visually-hidden"> end time</span>
+                    </a>
+                </dd>
+            </div>
+        </dl>
+
+        <br />
+        <br />
+        <h1 class="govuk-heading-m">
+            Hearing result, stage and evidence
+        </h1>
+
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Hearing result
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['hearing-result'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="actuals-details">
+                        Update<span class="govuk-visually-hidden"> hearing result</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Hearing stage
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['hearing-stage'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="actuals-details">
+                        Update<span class="govuk-visually-hidden"> hearing stage</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Was any evidence submitted on the day?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['evidence-submitted'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="actuals-details">
+                        Update<span class="govuk-visually-hidden"> evidence submitted</span>
+                    </a>
+                </dd>
+            </div>
+        </dl>
+
+        <br />
+        <br />
+        <h1 class="govuk-heading-m">
+            Parties
+        </h1>
+
+        <h2 class="govuk-heading-s">
+            Jane Smith
+        </h2>
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Did this party attend the hearing?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['party1-attended'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="actuals-parties">
+                        Update<span class="govuk-visually-hidden"> attendance</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Channel
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['party1-channel'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="actuals-parties">
+                        Update<span class="govuk-visually-hidden"> channel</span>
+                    </a>
+                </dd>
+            </div>
+        </dl>
+
+        <br />
+
+        <h2 class="govuk-heading-s">
+            DWP
+        </h2>
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Did this party attend the hearing?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['party2-attended'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="actuals-parties">
+                        Update<span class="govuk-visually-hidden"> attendance</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Channel
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['party2-channel'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="actuals-parties">
+                        Update<span class="govuk-visually-hidden"> channel</span>
+                    </a>
+                </dd>
+            </div>
+        </dl>
+
+        <br />
+
+        <h1 class="govuk-heading-m">
+            Judge and panel
+        </h1>
+
+        <h2 class="govuk-heading-s">
+            Mr John Smith
+        </h2>
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Arrival time
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['judge-arrival-time'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="actuals-judgepanel">
+                        Update<span class="govuk-visually-hidden"> judge arrival time</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Departure time
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['judge-departure-time'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="actuals-judgepanel">
+                        Update<span class="govuk-visually-hidden"> judge departure time</span>
+                    </a>
+                </dd>
+            </div>
+        </dl>
+
+        <br />
+
+        <h2 class="govuk-heading-s">
+            Disability qualified panel member
+        </h2>
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Arrival time
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['panel1-arrival-time'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="actuals-judgepanel">
+                        Update<span class="govuk-visually-hidden"> name</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Departure time
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['panel1-departure-time'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="actuals-judgepanel">
+                        Update<span class="govuk-visually-hidden"> name</span>
+                    </a>
+                </dd>
+            </div>
+        </dl>
+
+        <br />
+
+        <h1 class="govuk-heading-m">
+            Other attendees
+        </h1>
+
+        <br />
+
+        <h2 class="govuk-heading-s">
+            Attendee 1: Interpreter
+        </h2>
+
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Role
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Interpreter
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="actuals-other-attendees-interpreter">
+                        Update<span class="govuk-visually-hidden"> role</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['attendee-1-name'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="actuals-other-attendees-interpreter">
+                        Update<span class="govuk-visually-hidden"> name</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Did this participant attend the hearing?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['attendee-1-attended'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="actuals-other-attendees-interpreter">
+                        Update<span class="govuk-visually-hidden"> attendance</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Channel
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['attendee-1-channel'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="actuals-other-attendees-interpreter">
+                        Update<span class="govuk-visually-hidden"> channel</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Organisation
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['attendee-1-org'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="actuals-other-attendees-interpreter">
+                        Update<span class="govuk-visually-hidden"> organisation</span>
+                    </a>
+                </dd>
+            </div>
+        </dl>
+
+        <button class="govuk-button govuk-button--secondary govuk-!-margin-right-2" data-module="govuk-button">
+            Delete this attendee
+        </button>
+
+<!--        <h2 class="govuk-heading-s">-->
+<!--            Solicitor-->
+<!--        </h2>-->
+
+<!--        <dl class="govuk-summary-list">-->
+<!--            <div class="govuk-summary-list__row">-->
+<!--                <dt class="govuk-summary-list__key">-->
+<!--                    Role-->
+<!--                </dt>-->
+<!--                <dd class="govuk-summary-list__value">-->
+<!--                    Solicitor-->
+<!--                </dd>-->
+<!--                <dd class="govuk-summary-list__actions">-->
+<!--                    <a class="govuk-link" href="actuals-other-attendees-solicitor">-->
+<!--                        Update<span class="govuk-visually-hidden"> name</span>-->
+<!--                    </a>-->
+<!--                </dd>-->
+<!--            </div>-->
+<!--            <div class="govuk-summary-list__row">-->
+<!--                <dt class="govuk-summary-list__key">-->
+<!--                    Name-->
+<!--                </dt>-->
+<!--                <dd class="govuk-summary-list__value">-->
+<!--                    Mrs S Smith-->
+<!--                </dd>-->
+<!--                <dd class="govuk-summary-list__actions">-->
+<!--                    <a class="govuk-link" href="actuals-other-attendees-interpreter">-->
+<!--                        Update<span class="govuk-visually-hidden"> name</span>-->
+<!--                    </a>-->
+<!--                </dd>-->
+<!--            </div>-->
+<!--            <div class="govuk-summary-list__row">-->
+<!--                <dt class="govuk-summary-list__key">-->
+<!--                    Did this participant attend the hearing?-->
+<!--                </dt>-->
+<!--                <dd class="govuk-summary-list__value">-->
+<!--                    Yes-->
+<!--                </dd>-->
+<!--                <dd class="govuk-summary-list__actions">-->
+<!--                    <a class="govuk-link" href="actuals-other-attendees-interpreter">-->
+<!--                        Update<span class="govuk-visually-hidden"> name</span>-->
+<!--                    </a>-->
+<!--                </dd>-->
+<!--            </div>-->
+<!--            <div class="govuk-summary-list__row">-->
+<!--                <dt class="govuk-summary-list__key">-->
+<!--                    Channel-->
+<!--                </dt>-->
+<!--                <dd class="govuk-summary-list__value">-->
+<!--                    By video-->
+<!--                </dd>-->
+<!--                <dd class="govuk-summary-list__actions">-->
+<!--                    <a class="govuk-link" href="actuals-other-attendees-interpreter">-->
+<!--                        Update<span class="govuk-visually-hidden"> name</span>-->
+<!--                    </a>-->
+<!--                </dd>-->
+<!--            </div>-->
+<!--            <div class="govuk-summary-list__row">-->
+<!--                <dt class="govuk-summary-list__key">-->
+<!--                    Organisation-->
+<!--                </dt>-->
+<!--                <dd class="govuk-summary-list__value">-->
+<!--                    XYZ Legal Ltd-->
+<!--                </dd>-->
+<!--                <dd class="govuk-summary-list__actions">-->
+<!--                    <a class="govuk-link" href="actuals-other-attendees-interpreter">-->
+<!--                        Update<span class="govuk-visually-hidden"> name</span>-->
+<!--                    </a>-->
+<!--                </dd>-->
+<!--            </div>-->
+<!--        </dl>-->
+
+        <form class="form" action="actuals-other-attendees-add" method="post" style="display: inline-block;">
+
+            <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                Add a new attendee
+            </button>
+
+        </form>
+
+<!--        <a href="actuals-other-attendees-add" class="govuk-link">Add a new attendee</a>-->
+
+        <br />
+        <br />
+        <br />
+
+        <div class="govuk-inset-text govuk-!-margin-top-1" id="savedMsg" style="display: none;">
+            Progress has been saved (messaging TBC)
+        </div>
+
+
+
+<!--        <form class="form" action="()" method="post" style="display: inline-block;">-->
+
+<!--            <button class="govuk-button govuk-button&#45;&#45;secondary" data-module="govuk-button" id="saveBtn">-->
+<!--                Save progress-->
+<!--            </button>-->
+
+<!--        </form>-->
+
+        <h2 class="govuk-heading-m">Submit your hearing details</h2>
+
+        <p class="govuk-body">When you have completed entering these details, click the submit button. The details will be saved to the case and the hearing will be marked as completed. </p>
+
+
+        <form class="form" action="actuals-confirmation" method="post" style="display: inline-block;">
+
+            <button class="govuk-button primary" data-module="govuk-button">
+                Submit hearing details
+            </button>
+
+        </form>
+
+
+
+        </div>
+    </div>
+
+<div class="govuk-form-group" style="position:absolute;margin-top: 80px;">
+    <p class="govuk-body-s">
+        <strong>Scenarios:</strong>
+
+        <!--            <a href="/hearings/pages/iteration3/index" class="govuk-link">Standard view</a> /-->
+        <a href="actuals-categories?actuals-ready=false&" class="govuk-link">In progress</a> /
+        <a href="actuals-categories?actuals-ready=true&" class="govuk-link">Ready to submit</a>
+    </p>
+</div>
+
+<script>
+
+    // var saveBtn = document.getElementById('saveBtn')
+    //
+    // saveBtn.addEventListener('click', showSaveMsg)
+    // saveBtn.addEventListener('blur', hideSaveMsg)
+    //
+    // function showSaveMsg() {
+    //   document.getElementById('savedMsg').style.display = "block"
+    // }
+    //
+    // function hideSaveMsg() {
+    //   document.getElementById('savedMsg').style.display = "none"
+    // }
+
+
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+{% endblock %}

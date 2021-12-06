@@ -1,0 +1,235 @@
+{% extends "../layout-xui.html" %}
+
+{% block pageTitle %}
+Hearings management
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="actuals-participants">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Jane Smith vs DWP</span>
+        <h1 class="govuk-heading-l">
+            Hearing details
+        </h1>
+        <br />
+
+        <h1 class="govuk-heading-m">
+            Date and time
+        </h1>
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Date listed
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    12 November 2021
+                </dd>
+                <dd class="govuk-summary-list__actions">
+<!--                    <a class="govuk-link" href="#">-->
+<!--                        Change<span class="govuk-visually-hidden"> name</span>-->
+<!--                    </a>-->
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Start time
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-5" id="startTime" name="start-time" type="text" value="13:00" />
+                </dd>
+                <dd class="govuk-summary-list__actions">
+<!--                    <a class="govuk-link" href="#">-->
+<!--                        Change<span class="govuk-visually-hidden"> start time</span>-->
+<!--                    </a>-->
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Finish time
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-5" id="endTime" name="end-time" type="text" value="14:00" />
+                </dd>
+                <dd class="govuk-summary-list__actions">
+<!--                    <a class="govuk-link" href="#">-->
+<!--                        Change<span class="govuk-visually-hidden"> finish time</span>-->
+<!--                    </a>-->
+                </dd>
+            </div>
+
+        </dl>
+
+        <br />
+        <br />
+
+        <h1 class="govuk-heading-m">
+            Hearing stage, status and evidence
+        </h1>
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Hearing stage
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <select class="govuk-select govuk-!-width-one-third" id="hearingStage" name="hearing-stage">
+                        <option value="Initial">Initial</option>
+                        <option value="Final" selected>Final</option>
+                        <option value="Substantial">Substantial</option>
+                        <option value="Case management">Case management</option>
+                    </select>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <!--                    <a class="govuk-link" href="#">-->
+                    <!--                        Change<span class="govuk-visually-hidden"> name</span>-->
+                    <!--                    </a>-->
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Hearing status
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+
+                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="hearingResult1" name="hearing-result" type="radio" data-aria-controls="conditional-result" value="Adjournments" {% if data.hearingstage == 'Adjournments' %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="hearingResult1">
+                                Adjournments
+                            </label>
+                        </div>
+                        <!-- Hearing result B -->
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-result">
+                            <div class="govuk-form-group"  style="width:400px;">
+                                <label class="govuk-label govuk-!-font-weight-bold" for="hearingResult">
+                                    Adjournment reason
+                                </label>
+                                <select class="govuk-select govuk-!-width-two-thirds" id="hearingResult" name="hearing-result">
+                                    <option value="Please select">Please select</option>
+                                    <option value="Medial evidence essential">Medial evidence essential</option>
+                                    <option value="Evidence or further response from respondent required" selected>Evidence or further response from respondent required</option>
+                                    <option value="Evidence or submission from appellant required">Evidence or submission from appellant required</option>
+                                    <option value="Interpreter required">Interpreter required</option>
+                                    <option value="Insufficient time to deal with cases">Insufficient time to deal with cases</option>
+                                    <option value="Documents supplied but not before the tribunal at the hearing">Documents supplied but not before the tribunal at the hearing</option>
+                                    <option value="Presenting officer to attend">Presenting officer to attend</option>
+                                    <option value="Respondent failed to comply with directions">Respondent failed to comply with directions</option>
+                                    <option value="Other admin errors">Other admin errors</option>
+                                    <option value="Element(s) outstanding">Element(s) outstanding</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="hearingResult2" name="hearing-result" type="radio" value="Not ready to proceed" {% if data.hearingstage == 'Not ready to proceed' %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="hearingResult2">
+                                Not ready to proceed
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="hearingResult3" name="hearing-result" type="radio" value="Case postponed at hearing" {% if data.hearingstage == 'Case postponed at hearing' %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="hearingResult3">
+                                Case postponed at hearing
+                            </label>
+                        </div>
+                    </div>
+
+
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <!--                    <a class="govuk-link" href="#">-->
+                    <!--                        Change<span class="govuk-visually-hidden"> start time</span>-->
+                    <!--                    </a>-->
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Was any evidence submitted on the day?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="evidenceSubmittedYes" name="evidence-submitted" type="radio" value="Yes" {{ checked("evidence-submitted", "Yes") }}>
+                            <label class="govuk-label govuk-radios__label" for="evidenceSubmittedYes">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="evidenceSubmittedNo" name="evidence-submitted" type="radio" value="No" {{ checked("evidence-submitted", "No") }}>
+                            <label class="govuk-label govuk-radios__label" for="evidenceSubmittedNo">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <!--                    <a class="govuk-link" href="#">-->
+                    <!--                        Change<span class="govuk-visually-hidden"> finish time</span>-->
+                    <!--                    </a>-->
+                </dd>
+            </div>
+
+        </dl>
+
+        <br />
+        <br />
+        <h1 class="govuk-heading-m">
+            Participants
+        </h1>
+
+        <h2 class="govuk-heading-s">
+            Jane Smith
+        </h2>
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Did this party attend the hearing?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="party1AttendedYes" name="party1-attended" type="radio" value="Yes" {{ checked("party1-attended", "Yes") }}>
+                            <label class="govuk-label govuk-radios__label" for="party1AttendedYes">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="party1AttendedNo" name="party1-attended" type="radio" value="No" {{ checked("party1-attended", "No") }}>
+                            <label class="govuk-label govuk-radios__label" for="party1AttendedNo">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <!--                    <a class="govuk-link" href="#">-->
+                    <!--                        Change<span class="govuk-visually-hidden"> name</span>-->
+                    <!--                    </a>-->
+                </dd>
+            </div>
+
+        </dl>
+
+
+
+        <br />
+        <br />
+        <form class="form" action="actuals-confirmation" method="post">
+
+            <button class="govuk-button primary" data-module="govuk-button">
+                Submit
+            </button>
+
+        </form>
+
+
+
+        </div>
+    </div>
+
+{% endblock %}

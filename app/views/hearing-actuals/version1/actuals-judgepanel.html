@@ -1,0 +1,100 @@
+{% extends "../layout-xui.html" %}
+
+{% block pageTitle %}
+Hearings management
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Jane Smith vs DWP</span>
+        <h1 class="govuk-heading-l">
+            Judge and panel
+        </h1>
+        <br />
+
+        <form class="form" action="actuals-categories" method="post">
+
+        <!-- Judge -->
+        <h3 class="govuk-heading-s">Mr J Jones</h3>
+
+        <!-- Arrival and departure time -->
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="judgeArrivalTime">
+                Arrival time
+            </label>
+            <!--            <div id="startHint" class="govuk-hint">-->
+            <!--                For example, 13:00-->
+            <!--            </div>-->
+            <input class="govuk-input govuk-date-input__input govuk-input--width-5" id="judgeArrivalTime" name="judge-arrival-time" type="text" value="{{ data['judge-arrival-time'] }}">
+        </div>
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="judgeDepartureTime">
+                Departure time
+            </label>
+            <!--            <div id="endHint" class="govuk-hint">-->
+            <!--                For example, 14:30-->
+            <!--            </div>-->
+            <input class="govuk-input govuk-date-input__input govuk-input--width-5" id="judgeDepartureTime" name="judge-departure-time" type="text" value="{{ data['judge-departure-time'] }}">
+        </div>
+
+        <br />
+
+        <!-- Panel members -->
+        <h3 class="govuk-heading-s">Disability qualified panel member</h3>
+
+        <!-- Arrival and departure time -->
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="panel1ArrivalTime">
+                Arrival time
+            </label>
+            <!--            <div id="startHint" class="govuk-hint">-->
+            <!--                For example, 13:00-->
+            <!--            </div>-->
+            <input class="govuk-input govuk-date-input__input govuk-input--width-5" id="panel1ArrivalTime" name="panel1-arrival-time" type="text" value="{{ data['panel1-arrival-time'] }}">
+        </div>
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="panel1DepartureTime">
+                Departure time
+            </label>
+            <!--            <div id="endHint" class="govuk-hint">-->
+            <!--                For example, 14:30-->
+            <!--            </div>-->
+            <input class="govuk-input govuk-date-input__input govuk-input--width-5" id="panel1DepartureTime" name="panel1-departure-time" type="text" value="{{ data['panel1-departure-time'] }}">
+
+            <br />
+            <br />
+        </div>
+
+
+        <br />
+        <br />
+
+
+<!--            <button class="govuk-button govuk-button&#45;&#45;secondary" data-module="govuk-button">-->
+<!--                Previous-->
+<!--            </button>-->
+            <button class="govuk-button primary" data-module="govuk-button">
+                Save and continue
+            </button>
+
+        </form>
+
+
+
+        </div>
+    </div>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+{% endblock %}

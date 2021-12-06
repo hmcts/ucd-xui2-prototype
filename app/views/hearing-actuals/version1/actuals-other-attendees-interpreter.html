@@ -1,0 +1,120 @@
+{% extends "../layout-xui.html" %}
+
+{% block pageTitle %}
+Hearings management
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Jane Smith vs DWP</span>
+        <h1 class="govuk-heading-l">
+            Other attendees
+        </h1>
+        <br />
+
+        <form class="form" action="actuals-categories" method="post">
+
+
+        <h3 class="govuk-heading-s">Interpreter</h3>
+
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="other1Role">
+                Role
+            </label>
+            <select class="govuk-select govuk-!-width-one-quarter" id="other1Role" name="attendee-1-role">
+                <option value="Please select">Please select</option>
+                <option value="Interpreter" {% if data['attendee-1-role'] == "Interpreter" %} selected {% endif %}>Interpreter</option>
+                <option value="Solicitor" {% if data['attendee-1-role'] == "Solicitor" %} selected {% endif %}>Solicitor</option>
+                <option value="Barrister" {% if data['attendee-1-role'] == "Barrister" %} selected {% endif %}>Barrister</option>
+            </select>
+        </div>
+
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--s" for="attendee1Name">
+                Attendee name
+            </label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="attendee1Name" name="attendee-1-name" type="text" value="{{ data['attendee-1-name'] }}">
+        </div>
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                    <h3 class="govuk-fieldset__heading">
+                        Did they attend the hearing?      &nbsp;  &nbsp; &nbsp; &nbsp;
+                    </h3>
+                </legend>
+                <div class="govuk-radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="other1AttendYes" name="attendee-1-attended" type="radio" value="Yes" {{ checked("attendee-1-attended", "Yes") }}>
+                        <label class="govuk-label govuk-radios__label" for="other1AttendYes">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="other1AttendNo" name="attendee-1-attended" type="radio" value="No" {{ checked("attendee-1-attended", "No") }}>
+                        <label class="govuk-label govuk-radios__label" for="other1AttendNo">
+                            No
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="other1Channel">
+                Channel
+            </label>
+            <select class="govuk-select govuk-!-width-one-quarter" id="other1Channel" name="attendee-1-channel">
+                <option value="Please select">Please select</option>
+                <option value="In person" {% if data['attendee-1-channel'] == "In person" %} selected {% endif %}>In person</option>
+                <option value="By phone" {% if data['attendee-1-channel'] == "By phone" %} selected {% endif %}>By phone</option>
+                <option value="By video" {% if data['attendee-1-channel'] == "By video" %} selected {% endif %}>By video</option>
+            </select>
+        </div>
+
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--s" for="attendee1Org">
+                Organisation
+            </label>
+            <input class="govuk-input govuk-!-width-one-quarter" id="attendee1Org" name="attendee-1-org" type="text" value="{{ data['attendee-1-org'] }}">
+        </div>
+
+<!--        <form class="form" action="actuals-other-attendees-add" method="post">-->
+<!--            <button class="govuk-button govuk-button&#45;&#45;secondary" data-module="govuk-button">-->
+<!--                Add another attendee-->
+<!--            </button>-->
+<!--        </form>-->
+
+
+        <br />
+        <br />
+
+
+<!--            <button class="govuk-button govuk-button&#45;&#45;secondary" data-module="govuk-button">-->
+<!--                Previous-->
+<!--            </button>-->
+            <button class="govuk-button primary" data-module="govuk-button">
+                Save and continue
+            </button>
+
+        </form>
+
+
+
+        </div>
+    </div>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+{% endblock %}

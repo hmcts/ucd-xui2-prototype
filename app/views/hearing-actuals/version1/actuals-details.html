@@ -1,0 +1,151 @@
+{% extends "../layout-xui.html" %}
+
+{% block pageTitle %}
+Hearings management
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Jane Smith vs DWP</span>
+        <h1 class="govuk-heading-l">
+            Hearing result, stage and evidence
+        </h1>
+        <br />
+
+        <form class="form" action="actuals-categories" method="post">
+
+
+            <!-- Hearing result A-->
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h1 class="govuk-fieldset__heading">
+                            Hearing result
+                        </h1>
+                    </legend>
+                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="hearingResult1" name="hearing-result" type="radio" data-aria-controls="conditional-result" value="Adjournments" {% if data['hearing-result'] == 'Adjournments' %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="hearingResult1">
+                                Adjournments
+                            </label>
+                        </div>
+                        <!-- Hearing result B -->
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-result">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-!-font-weight-bold" for="hearingResult">
+                                    Adjournment reason
+                                </label>
+                                <select class="govuk-select govuk-!-width-two-thirds" id="hearingResult" name="hearing-result-reason">
+                                    <option value="Please select">Please select</option>
+                                    <option value="Medial evidence essential">Medial evidence essential</option>
+                                    <option value="Evidence or further response from respondent required" selected>Evidence or further response from respondent required</option>
+                                    <option value="Evidence or submission from appellant required">Evidence or submission from appellant required</option>
+                                    <option value="Interpreter required">Interpreter required</option>
+                                    <option value="Insufficient time to deal with cases">Insufficient time to deal with cases</option>
+                                    <option value="Documents supplied but not before the tribunal at the hearing">Documents supplied but not before the tribunal at the hearing</option>
+                                    <option value="Presenting officer to attend">Presenting officer to attend</option>
+                                    <option value="Respondent failed to comply with directions">Respondent failed to comply with directions</option>
+                                    <option value="Other admin errors">Other admin errors</option>
+                                    <option value="Element(s) outstanding">Element(s) outstanding</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="hearingResult2" name="hearing-result" type="radio" value="Not ready to proceed" {% if data['hearing-result'] == 'Not ready to proceed' %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="hearingResult2">
+                                Not ready to proceed
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="hearingResult3" name="hearing-result" type="radio" value="Case postponed at hearing" {% if data['hearing-result'] == 'Case postponed at hearing' %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="hearingResult3">
+                                Case postponed at hearing
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <br />
+
+            <!-- Hearing stage -->
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-weight-bold" for="hearingStage">
+                    Hearing stage
+                </label>
+                <select class="govuk-select govuk-!-width-one-third" id="hearingStage" name="hearing-stage">
+                    <option value="Initial" {% if data['hearing-stage'] == "Initial" %} selected {% endif %}>Initial</option>
+                    <option value="Final" {% if data['hearing-stage'] == "Final" %} selected {% endif %}>Final</option>
+                    <option value="Substantial" {% if data['hearing-stage'] == "Substantial" %} selected {% endif %}>Substantial</option>
+                    <option value="Case management" {% if data['hearing-stage'] == "Case management" %} selected {% endif %}>Case management</option>
+                </select>
+            </div>
+
+            <br />
+
+<!--            &lt;!&ndash; Total attendees &ndash;&gt;-->
+<!--            <div class="govuk-form-group">-->
+<!--                <label class="govuk-label govuk-!-font-weight-bold" for="totalAttendees">-->
+<!--                    Total attendees-->
+<!--                </label>-->
+<!--                <div id="totalAttendeesHint" class="govuk-hint">-->
+<!--                    Hint here-->
+<!--                </div>-->
+<!--                <input class="govuk-input govuk-date-input__input govuk-input&#45;&#45;width-5" id="totalAttendees" name="total-attendees" type="text" value="{{ data['total-attendees'] }}">-->
+<!--            </div>-->
+
+            <!-- Evidence on the day -->
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h3 class="govuk-fieldset__heading">
+                            Was any evidence submitted on the day?      &nbsp;  &nbsp; &nbsp; &nbsp;
+                        </h3>
+                    </legend>
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="evidenceSubmittedYes" name="evidence-submitted" type="radio" value="Yes" {{ checked("evidence-submitted", "Yes") }}>
+                            <label class="govuk-label govuk-radios__label" for="evidenceSubmittedYes">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="evidenceSubmittedNo" name="evidence-submitted" type="radio" value="No" {{ checked("evidence-submitted", "No") }}>
+                            <label class="govuk-label govuk-radios__label" for="evidenceSubmittedNo">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <br />
+<!--            <button class="govuk-button govuk-button&#45;&#45;secondary" data-module="govuk-button">-->
+<!--                Cancel-->
+<!--            </button>-->
+            <button class="govuk-button primary" data-module="govuk-button">
+                Save and continue
+            </button>
+
+        </form>
+
+
+
+        </div>
+    </div>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+{% endblock %}
