@@ -17,16 +17,16 @@
         titleText: "Refund " + data['finalDecision']
       }) }}
 
-      {{ govukPanel({
+      <!-- {{ govukPanel({
         titleText: "Remission added",
         html: "<p class=\"govuk-body\" style=\"color: white\"><strong>Refund reference: RF-8368-2367-1858-4562</strong></p>" if data['paymentdetailsstatus'] != 'Failed'
-      }) }}
+      }) }} -->
 
       {% if data['paymentdetailsstatus'] != 'Failed' %}
-      <h2 class="govuk-heading-m">What happens next</h2>
+      <!-- <h2 class="govuk-heading-m">What happens next</h2>
       <p class="govuk-body">
         A refund request for £250 has been created and will be passed to a team leader to approve.
-      </p>
+      </p> -->
       {% endif %}
 
       {% else %}
@@ -38,7 +38,7 @@
 
       <h2 class="govuk-heading-m"></h2>
       <p class="govuk-body">
-        
+
       </p>
 
       {% endif %}
