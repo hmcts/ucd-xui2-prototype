@@ -40,18 +40,10 @@
           } if false,
           {
             key: {
-              text: "Reason for rejection"
+              text: ""
             },
             value: {
-              text: "'Case hasn't been withdrawn - looks like a duplicate payment?"
-            }
-          } if data['result'] == 'returned',
-          {
-            key: {
-              text: "Refund reference"
-            },
-            value: {
-              text: "RF-1324-6846-2454-5445"
+              text: ""
             }
           } if data['result'] == 'returned',
           {
@@ -64,21 +56,13 @@
             actions: {
               items: [
                 {
-                  href: "reason?changed=true",
+                  href: "J2-reason",
                   text: "Change",
                   visuallyHiddenText: "date of birth"
                 }
               ]
             }
           } if data['refund'] == 'adHoc',
-          {
-            key: {
-              text: "Reason for refund"
-            },
-            value: {
-              text: "Case withdrawn"
-            }
-          },
           {
             key: {
               text: "Payment reference"
@@ -101,6 +85,15 @@
             },
             value: {
               text: "£550.00"
+            },
+            actions: {
+              items: [
+                {
+                  href: "J2-partial-refunds-1",
+                  text: "Change",
+                  visuallyHiddenText: "date of birth"
+                }
+              ]
             }
           },
           {
@@ -109,6 +102,15 @@
             },
             value: {
               text: "Post - 19 Hamilton Close, Great Missenden, HP16 9DZ"
+            },
+            actions: {
+              items: [
+                {
+                  href: "J2-partial-refunds-capture-address",
+                  text: "Change",
+                  visuallyHiddenText: "date of birth"
+                }
+              ]
             }
           },
           {
@@ -169,13 +171,13 @@
 
         <div class="govuk-button-group">
 
-            {% if data['result'] != 'returned' %}
+
             {{ govukButton({
               text: "Previous",
               href: '',
               classes: "govuk-button--secondary"
             }) }}
-            {% endif %}
+
 
             {{ govukButton({
               text:'Submit refund'
