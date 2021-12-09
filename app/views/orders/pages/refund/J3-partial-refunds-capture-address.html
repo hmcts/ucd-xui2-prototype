@@ -8,11 +8,10 @@
   <h1 class="govuk-heading-l">Issue refund</h1>
   <h2 class="govuk-heading-m">Case reference: 4692-3164-5845-4819</h2>
   <span id="how-contacted-conditional-hint" class="govuk-hint">
-    Payment reference: RC-1858-2367-8368-1978
+    Payment reference: RC-8368-2367-1858-4562
   </span>
   <fieldset class="govuk-fieldset" style="width:40%;">
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-    {% set captureDetails %}
     <div class="govuk-form-group">
       {% set captureAddress %}
         {{ govukInput({
@@ -169,33 +168,7 @@
   <!---FORM--->
 
 </div>
-    {% endset -%}
 
-    {{ govukCheckboxes({
-      idPrefix: "captureDetails",
-      name: "captureDetails",
-      fieldset: {
-        legend: {
-          text: "",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
-        }
-      },
-
-      items: [
-      {
-        value: "Send updates about this refund request",
-        text: "Send updates about this refund request",
-        hint: {
-          text: ""
-        },
-        conditional: {
-          html: captureDetails
-        }
-      }
-    ]
-  })
-}}
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
   </fieldset>
@@ -206,7 +179,7 @@
       classes: "govuk-button--secondary"
     }) }}
     {{ govukButton({
-      href: 'J3-check-and-send',
+      href: 'J2-check-and-send',
       text: "Continue"
     }) }}
   </div>
