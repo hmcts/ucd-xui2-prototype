@@ -12,7 +12,6 @@
   </span>
   <fieldset class="govuk-fieldset" style="width:40%;">
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-    {% set captureDetails %}
     <div class="govuk-form-group">
       {% set captureAddress %}
         {{ govukInput({
@@ -169,33 +168,7 @@
   <!---FORM--->
 
 </div>
-    {% endset -%}
 
-    {{ govukCheckboxes({
-      idPrefix: "captureDetails",
-      name: "captureDetails",
-      fieldset: {
-        legend: {
-          text: "",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
-        }
-      },
-
-      items: [
-      {
-        value: "Send updates about this refund request",
-        text: "Send updates about this refund request",
-        hint: {
-          text: ""
-        },
-        conditional: {
-          html: captureDetails
-        }
-      }
-    ]
-  })
-}}
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
   </fieldset>
