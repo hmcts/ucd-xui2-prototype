@@ -17,6 +17,9 @@
           label: {
             html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
           },
+          label: {
+            html: '<span class="govuk-hint">Information about this refund will be sent to this address.</span>Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+          },
           id: "address-line-1",
           name: "address-line-1",
           value: "19",
@@ -102,6 +105,9 @@
       </div>
       {% set captureEmail %}
         {{ govukInput({
+          label: {
+            html: '<span class="govuk-hint">Information about this refund will be sent to this email address.</span>'
+          },
           id: "email",
           type: "email",
           value: "james.master@gmail.co.uk",

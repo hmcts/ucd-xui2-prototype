@@ -10,13 +10,13 @@
 
 <div style="min-width: 960px; max-width: 1860px;  margin: 0 30px;">
 
-    <h1 class="govuk-heading-l">Process refund</h1>
+    <h1 class="govuk-heading-l">Issue refund</h1>
 
     <h2 class="govuk-heading-m">#4692-3164-5845-4819</h2>
 
 
     {% if data['refund'] != 'adHoc' %}
-    
+
     <h2 class="govuk-heading-m">Which payment are you refunding?</h2>
 
         <table class="govuk-table"  style="width:960px; margin-bottom: 20px;">
@@ -35,7 +35,7 @@
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="where-do-you-live1" name="where-do-you-live" type="radio" value="550" onclick="$('#how-much-container h1').text('Do you want to refund the full £550?'); $('#fee-container').show();">
                             <label class="govuk-label govuk-radios__label" for="where-do-you-live1">
-                              RC-8368-2367-1858-4562  
+                              RC-8368-2367-1858-4562
                             </label>
                         </div>
                     </td>
@@ -120,7 +120,7 @@
                 <input class="govuk-input govuk-input--width-10" id="amount" name="amount" type="text" aria-describedby="amount-currency " pattern="[0-9]*">
             </div>
 
-        </div> 
+        </div>
         {% endset -%}
 
         <br />

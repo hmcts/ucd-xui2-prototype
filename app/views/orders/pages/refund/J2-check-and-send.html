@@ -81,6 +81,23 @@
           },
           {
             key: {
+              text: "Reason for refund"
+            },
+            value: {
+              text: "Case withdrawn"
+            },
+            actions: {
+              items: [
+                {
+                  href: "J2-reason-selected",
+                  text: "Change",
+                  visuallyHiddenText: "date of birth"
+                }
+              ]
+            }
+          },
+          {
+            key: {
               text: "Refund amount"
             },
             value: {
@@ -98,7 +115,7 @@
           },
           {
             key: {
-              text: "Update sent"
+              text: "Send via"
             },
             value: {
               html: "<strong>Post</strong> <br>19 Hamilton Close, Great Missenden, HP16 9DZ"
@@ -106,7 +123,7 @@
             actions: {
               items: [
                 {
-                  href: "J2-partial-refunds-capture-address",
+                  href: "J2-partial-refunds-capture-address-selected",
                   text: "Change",
                   visuallyHiddenText: "date of birth"
                 }
@@ -172,7 +189,7 @@
 
           {{ govukButton({
             text: "Previous",
-            href: '',
+            href: 'J2-partial-refunds-capture-address-selected',
             classes: "govuk-button--secondary"
           }) }}
 

@@ -124,7 +124,7 @@
 
     <br>
 
-<h3 class="govuk-heading-m">Updates sent</h3>
+<h3 class="govuk-heading-m">Notifications sent</h3>
 <p>None</p>
 <!-- <table class="govuk-table" style="width:100%;">
     <thead class="govuk-table__head">
@@ -162,7 +162,7 @@
                 <td class="govuk-table__cell ">Refund initiated and sent to team leader</td>
             </tr>
             <tr class="govuk-table__row">
-                <td class="govuk-table__cell">Returned</td>
+                <td class="govuk-table__cell">Update required</td>
                 <td class="govuk-table__cell">4 March 2021 09:59:48</td>
                 <td class="govuk-table__cell ">Steve Jones</td>
                 <td class="govuk-table__cell ">Typo in email address</td>
@@ -178,7 +178,7 @@
 
     {% elseif data.result == 'returned' %}
         <a href="/orders/pages/refund/J4-check-and-send-a?result=returned&refund=adHoc" class="govuk-button govuk-button--secondary">
-            Resubmit refund
+            Change refund details
         </a>
     {% endif %}
 

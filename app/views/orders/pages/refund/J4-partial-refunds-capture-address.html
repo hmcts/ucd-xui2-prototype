@@ -17,7 +17,7 @@
       {% set captureAddress %}
         {{ govukInput({
           label: {
-            html: '<span class="govuk-hint">Enter a postal address for updates about this refund request.</span>Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+            html: '<span class="govuk-hint">Information about this refund will be sent to this address.</span>Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
           },
           id: "address-line-1",
           name: "address-line-1",
@@ -99,7 +99,7 @@
       {% set captureEmail %}
         {{ govukInput({
           label: {
-            html: '<span class="govuk-hint">Enter an email address for updates about this refund request.</span>'
+            html: '<span class="govuk-hint">Information about this refund will be sent to this email address.</span>'
           },
           id: "email",
           type: "email",
