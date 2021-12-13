@@ -20,7 +20,8 @@
           },
           id: "address-line-1",
           name: "address-line-1",
-          autocomplete: "address-line1"
+          autocomplete: "address-line1",
+          value: "19"
         }) }}
 
         {{ govukInput({
@@ -29,7 +30,8 @@
           },
           id: "address-line-2",
           name: "address-line-2",
-          autocomplete: "address-line2"
+          autocomplete: "address-line2",
+          value: "Hamilton Close"
         }) }}
 
         {{ govukInput({
@@ -39,7 +41,8 @@
           classes: "govuk-!-width-two-thirds",
           id: "address-town",
           name: "address-town",
-          autocomplete: "address-level2"
+          autocomplete: "address-level2",
+          value: "Great Missenden"
         }) }}
 
         {{ govukInput({
@@ -48,7 +51,8 @@
           },
           classes: "govuk-!-width-two-thirds",
           id: "address-county",
-          name: "address-county"
+          name: "address-county",
+          value: "Bucks"
         }) }}
 
         {{ govukInput({
@@ -58,7 +62,8 @@
           classes: "govuk-input--width-10",
           id: "address-postcode",
           name: "address-postcode",
-          autocomplete: "postal-code"
+          autocomplete: "postal-code",
+          value: "HP16 9DZ"
         }) }}
 
         {{ govukSelect({
@@ -142,7 +147,6 @@
         items: [
         {
           value: "email",
-          checked:"true",
           text: "Email",
           hint: {
             text: ""
@@ -153,6 +157,7 @@
         },
         {
           value: "post",
+          checked:"true",
           text: "Post",
           hint: {
             text: ""
@@ -175,7 +180,7 @@
   <div class="govuk-button-group">
     {{ govukButton({
       text: "Previous",
-      href: 'J2-reason-selected',
+      href: 'J2-reason',
       classes: "govuk-button--secondary"
     }) }}
     {{ govukButton({

@@ -20,7 +20,6 @@
           <th class="govuk-table__header" scope="col" style="width: 250px;">Fee description</th>
           <th class="govuk-table__header" scope="col" style="width: 60px; text-align: left;">Fee amount</th>
           <th class="govuk-table__header" scope="col" style="width: 60px; text-align: left;">Total paid</th>
-          <!-- <th class="govuk-table__header" scope="col" style="width: 100px;">Quantity</th> -->
           <th class="govuk-table__header" scope="col" style="width: 100px;">Amount to refund</th>
         </tr>
       </thead>
@@ -29,7 +28,7 @@
           <td class="govuk-table__cell">
             <div class="govuk-checkboxes govuk-checkboxes--large" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="item-1" name="organisation" type="checkbox" value="J3-partial-refunds-1" onchange="document.location.href=this.value">
+                <input class="govuk-checkboxes__input" id="item-1" name="organisation" type="checkbox" value="J3-partial-refunds-2" onchange="document.location.href=this.value" checked>
                 <label class="govuk-label govuk-checkboxes__label" for="item-1">
                   <span style=display:none>Select</span>
                 </label>
@@ -47,7 +46,7 @@
               <div id="amount-currency" class="govuk-visually-hidden">in pounds</div>
               <div class="hmcts-currency-input">
                 <div class="hmcts-currency-input__symbol" aria-hidden="true">£</div>
-                <input class="govuk-input govuk-input--width-10" id="amount" name="amount" type="text" aria-describedby="amount-currency " pattern="[0-9]*" disabled>
+                <input class="govuk-input govuk-input--width-10" id="amount" name="amount" type="text" aria-describedby="amount-currency " pattern="[0-9]*" value="550.00">
               </div>
             </div>
           </td>
@@ -56,7 +55,7 @@
           <td class="govuk-table__cell">
             <div class="govuk-checkboxes govuk-checkboxes--large" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="item-1" name="organisation" type="checkbox" value="J3-partial-refunds-2" onchange="document.location.href=this.value">
+                <input class="govuk-checkboxes__input" id="item-1" name="organisation" type="checkbox" value="J3-partial-refunds-1" onchange="document.location.href=this.value" checked>
                 <label class="govuk-label govuk-checkboxes__label" for="item-1">
                   <span style=display:none>Select</span>
                 </label>
@@ -74,7 +73,7 @@
               <div id="amount-currency" class="govuk-visually-hidden">in pounds</div>
               <div class="hmcts-currency-input">
                 <div class="hmcts-currency-input__symbol" aria-hidden="true">£</div>
-                <input class="govuk-input govuk-input--width-10" id="amount" name="amount" type="text" aria-describedby="amount-currency " pattern="[0-9]*" disabled>
+                <input class="govuk-input govuk-input--width-10" id="amount" name="amount" type="text" aria-describedby="amount-currency " pattern="[0-9]*" value="6.00">
               </div>
             </div>
           </td>
@@ -89,9 +88,8 @@
       classes: "govuk-button--secondary"
     }) }}
     {{ govukButton({
-      href: '',
-      text: "Continue",
-      disabled: true
+      href: 'J3-reason',
+      text: "Continue"
     }) }}
   </div>
   <p>
