@@ -16,7 +16,44 @@
       {% set captureAddress %}
         {{ govukInput({
           label: {
-            html: '<span class="govuk-hint">Information about this refund will be sent to this address.</span>Postcode'
+            html: '<span class="govuk-hint">Information about this refund will be sent to this address.</span>Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+          },
+          id: "address-line-1",
+          name: "address-line-1",
+          autocomplete: "address-line1"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+          },
+          id: "address-line-2",
+          name: "address-line-2",
+          autocomplete: "address-line2"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Town or city"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "address-town",
+          name: "address-town",
+          autocomplete: "address-level2"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "County"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "address-county",
+          name: "address-county"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Postcode"
           },
           classes: "govuk-input--width-10",
           id: "address-postcode",
@@ -24,20 +61,20 @@
           autocomplete: "postal-code"
         }) }}
 
-        <div class="govuk-button-group">
-          {{ govukButton({
-            href: '',
-            text: "Find address"
-          }) }}
-        </div>
-
-        <details class="govuk-details" data-module="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              <a href="J2-partial-refunds-capture-address-2">  Enter address manually</a>
-            </span>
-          </summary>
-        </details>
+        {{ govukSelect({
+          id: "country",
+          name: "country",
+          label: {
+            text: "Country"
+          },
+          items: [
+            {
+              value: "United Kingdom",
+              text: "United Kingdom",
+              selected: true
+            }
+          ]
+        }) }}
 
       {% endset -%}
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
@@ -93,7 +130,6 @@
         items: [
         {
           value: "email",
-          checked:"true",
           text: "Email",
           hint: {
             text: ""
@@ -104,6 +140,7 @@
         },
         {
           value: "post",
+          checked:"true",
           text: "Post",
           hint: {
             text: ""
