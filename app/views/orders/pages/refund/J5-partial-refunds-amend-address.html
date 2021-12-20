@@ -69,6 +69,12 @@
           autocomplete: "postal-code"
         }) }}
 
+        {{ govukButton({
+          text: "Find address",
+          href: '',
+          classes: "govuk-button--secondary"
+        }) }}
+
         {{ govukSelect({
           id: "country",
           name: "country",
