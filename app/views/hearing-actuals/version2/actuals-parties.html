@@ -1,0 +1,271 @@
+{% extends "../layout-xui.html" %}
+
+{% block pageTitle %}
+Hearings management
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<style>
+    #partyTable td {
+        vertical-align: middle;
+    }
+</style>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+        <span class="govuk-caption-l">Jane Smith vs DWP</span>
+        <h1 class="govuk-heading-l">
+            Participants
+        </h1>
+        <br />
+        <table class="govuk-table" id="partyTable">
+<!--                <caption class="govuk-table__caption govuk-table__caption&#45;&#45;m">Month you apply</caption>-->
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header app-custom-class">Name</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Role</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Channel</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Sub-channel</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Organisation</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Attendee <br />representing</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Jane Smith</td>
+                    <td class="govuk-table__cell">Appellent</td>
+                    <td class="govuk-table__cell">
+                        <select class="govuk-select" id="party1Channel" name="party1-channel" aria-label="How did this participant attend the hearing?">
+                            <option value="Please select">Please select</option>
+                            <option value="In person">In person</option>
+                            <option value="By phone">By phone</option>
+                            <option value="By video" selected>By video</option>
+                            <option value="Did not attend">Did not attend</option>
+                        </select>
+                    </td>
+                    <td class="govuk-table__cell">
+                        <select class="govuk-select" id="subChannel" name="sub-channel" aria-label="What sub-channel was used?">
+                            <option value="Please select">Please select</option>
+                            <option value="Teams">Teams</option>
+                            <option value="Another">Another</option>
+                        </select>
+                    </td>
+                    <td class="govuk-table__cell"></td>
+                    <td class="govuk-table__cell"></td>
+                    <td class="govuk-table__cell"></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">DWP</td>
+                    <td class="govuk-table__cell">Claimant</td>
+                    <td class="govuk-table__cell">
+                        <select class="govuk-select" id="party2Channel" name="party2-channel" aria-label="How did this participant attend the hearing?">
+                            <option value="Please select">Please select</option>
+                            <option value="In person">In person</option>
+                            <option value="By phone">By phone</option>
+                            <option value="By video" selected>By video</option>
+                            <option value="Did not attend">Did not attend</option>
+                        </select>
+                    </td>
+                    <td class="govuk-table__cell">
+                        <select class="govuk-select" id="subChannel" name="sub-channel" aria-label="What sub-channel was used?">
+                            <option value="Please select">Please select</option>
+                            <option value="Teams">Teams</option>
+                            <option value="Another">Another</option>
+                        </select>
+                    </td>
+                    <td class="govuk-table__cell"></td>
+                    <td class="govuk-table__cell"></td>
+                    <td class="govuk-table__cell"></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">
+                        <input class="govuk-input" id="attendee1Name" name="attendee-1-name" type="text" value="John Smith">
+                    </th>
+                    <td class="govuk-table__cell">
+                        <select class="govuk-select" id="other1Role" name="attendee-1-role">
+                            <option value="Please select">Please select</option>
+                            <option value="Interpreter" selected>Interpreter</option>
+                            <option value="Solicitor">Solicitor</option>
+                            <option value="Barrister">Barrister</option>
+                        </select>
+                    </td>
+                    <td class="govuk-table__cell">
+                        <select class="govuk-select" id="" name="" aria-label="How did this participant attend the hearing?">
+                            <option value="Please select">Please select</option>
+                            <option value="In person">In person</option>
+                            <option value="By phone">By phone</option>
+                            <option value="By video" selected>By video</option>
+                            <option value="Did not attend">Did not attend</option>
+                        </select>
+                    </td>
+                    <td class="govuk-table__cell">
+                        <select class="govuk-select" id="subChannel" name="sub-channel" aria-label="What sub-channel was used?">
+                            <option value="Please select">Please select</option>
+                            <option value="Teams">Teams</option>
+                            <option value="Another">Another</option>
+                        </select>
+                    </td>
+                    <td class="govuk-table__cell"><input class="govuk-input" id="attendee1Org" name="attendee-1-org" type="text" value="XYL Interpreters Ltd"></td>
+                    <td class="govuk-table__cell">
+
+                        <select class="govuk-select" id="" name="" aria-label="Who was this attenddee representing?">
+                            <option value="Please select">Please select</option>
+                            <option value="Jane Smith" selected>Jane Smith</option>
+                            <option value="DWP">DWP</option>
+                        </select>
+
+                    </td>
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link">Remove</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">
+                        <input class="govuk-input" id="attendee2Name" name="attendee-2-name" type="text" value="Claire Richards">
+                    </th>
+                    <td class="govuk-table__cell">
+                        <select class="govuk-select" id="other1Role" name="attendee-1-role">
+                            <option value="Please select">Please select</option>
+                            <option value="Interpreter">Interpreter</option>
+                            <option value="Solicitor" selected>Solicitor</option>
+                            <option value="Barrister">Barrister</option>
+                        </select>
+                    </td>
+                    <td class="govuk-table__cell">
+                        <select class="govuk-select" id="" name="" aria-label="How did this participant attend the hearing?">
+                            <option value="Please select">Please select</option>
+                            <option value="In person">In person</option>
+                            <option value="By phone">By phone</option>
+                            <option value="By video" selected>By video</option>
+                            <option value="Did not attend">Did not attend</option>
+                        </select>
+                    </td>
+                    <td class="govuk-table__cell">
+                        <select class="govuk-select" id="subChannel" name="sub-channel" aria-label="What sub-channel was used?">
+                            <option value="Please select">Please select</option>
+                            <option value="Teams">Teams</option>
+                            <option value="Another">Another</option>
+                        </select>
+                    </td>
+                    <td class="govuk-table__cell"><input class="govuk-input" id="attendee2Org" name="attendee-2-org" type="text" value="XYZ Legal & Co"></td>
+                    <td class="govuk-table__cell">
+                        <select class="govuk-select" id="" name="" aria-label="Who was this attenddee representing?">
+                            <option value="Please select">Please select</option>
+                            <option value="Jane Smith" selected>Jane Smith</option>
+                            <option value="DWP">DWP</option>
+                        </select>
+                    </td>
+                    <td class="govuk-table__cell"><a href=#" class="govuk-link">Remove</a></td>
+                </tr>
+                <tr id="newParticipantRow" class="govuk-table__row" style="display: none;">
+                    <th scope="row" class="govuk-table__header">
+                        <input class="govuk-input" id="attendee3Name" name="attendee-3-name" type="text" value="">
+                    </th>
+                    <td class="govuk-table__cell">
+                        <select class="govuk-select" id="attendee3role" name="attendee-3-role" aria-label="Participant role">
+                            <option value="Please select">Please select</option>
+                            <option value="Interpreter">Interpreter</option>
+                            <option value="Solicitor">Solicitor</option>
+                            <option value="Barrister">Barrister</option>
+                        </select>
+                    </td>
+                    <td class="govuk-table__cell">
+                        <select class="govuk-select" id="attendee3Channel" name="attendee-3-channel" aria-label="How did this participant attend the hearing?">
+                            <option value="Please select" selected>Please select</option>
+                            <option value="In person">In person</option>
+                            <option value="By phone">By phone</option>
+                            <option value="By video">By video</option>
+                            <option value="Did not attend">Did not attend</option>
+                        </select>
+                    </td>
+                    <td class="govuk-table__cell">
+                        <select class="govuk-select" id="subChannel" name="sub-channel" aria-label="What sub-channel was used?">
+                            <option value="Please select">Please select</option>
+                            <option value="Teams">Teams</option>
+                            <option value="Another">Another</option>
+                        </select>
+                    </td>
+                    <td class="govuk-table__cell"><input class="govuk-input" id="attendee3Org" name="attendee-3-org" type="text" value=""></td>
+                    <td class="govuk-table__cell">
+                        <select class="govuk-select" id="attendee3Representing" name="attendee-3-representing" aria-label="Who was this attenddee representing?">
+                            <option value="Please select" selected>Please select</option>
+                            <option value="Jane Smith">Jane Smith</option>
+                            <option value="DWP">DWP</option>
+                        </select>
+                    </td>
+                    <td class="govuk-table__cell"><a href="" class="govuk-link">Remove</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button id="addPersonBtn" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Add a participant
+        </button>
+
+        <br /><br />
+
+<!--        <div class="govuk-form-group">-->
+<!--            <fieldset class="govuk-fieldset">-->
+<!--                <legend class="govuk-fieldset__legend govuk-fieldset__legend&#45;&#45;s">-->
+<!--                    <h1 class="govuk-fieldset__heading">-->
+<!--                        Which video sub-channel was used on the day?-->
+<!--                    </h1>-->
+<!--                </legend>-->
+<!--                <div class="govuk-radios">-->
+<!--                    <div class="govuk-radios__item">-->
+<!--                        <input class="govuk-radios__input" id="subChannel1" name="sub-channel" type="radio" value="Zoom (tbc)" {% if data['sub-channel'] == 'Zoom (tbc)' %} checked {% endif %}>-->
+<!--                        <label class="govuk-label govuk-radios__label" for="subChannel1">-->
+<!--                            Zoom (tbc)-->
+<!--                        </label>-->
+<!--                    </div>-->
+<!--                    <div class="govuk-radios__item">-->
+<!--                        <input class="govuk-radios__input" id="subChannel2" name="sub-channel" type="radio" value="Teams (tbc)" {% if data['sub-channel'] == 'Teams (tbc)' %} checked {% endif %}>-->
+<!--                        <label class="govuk-label govuk-radios__label" for="subChannel2">-->
+<!--                            Teams (tbc)-->
+<!--                        </label>-->
+<!--                    </div>-->
+<!--                    <div class="govuk-radios__item">-->
+<!--                        <input class="govuk-radios__input" id="subChannel3" name="sub-channel" type="radio" value="Another (tbc)" {% if data['sub-channel'] == 'Another (tbc)' %} checked {% endif %}>-->
+<!--                        <label class="govuk-label govuk-radios__label" for="subChannel3">-->
+<!--                            Another (tbc)-->
+<!--                        </label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </fieldset>-->
+<!--        </div>-->
+
+        <br /><br />
+
+        <form class="form" action="actuals-categories" method="post">
+            <button class="govuk-button primary" data-module="govuk-button">
+                Save and continue
+            </button>
+        </form>
+
+
+
+        </div>
+    </div>
+
+<script>
+
+  var addPersonBtn = document.getElementById('addPersonBtn')
+  var newPersonRow = document.getElementById('newParticipantRow')
+
+  addPersonBtn.onclick = function(){
+    newPersonRow.style.display = "table-row"
+  }
+
+  //$('#newParticipantRow')
+
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+{% endblock %}
