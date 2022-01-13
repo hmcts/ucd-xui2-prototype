@@ -13,6 +13,12 @@ Hearings management
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+        <div class="govuk-inset-text govuk-!-margin-top-0">
+            To amend details of the hearing request, <a href="https://ucd-xui2-prototype.herokuapp.com/hearings/pages/iteration3/hearing-checkyouranswers?changesallowed=true&viewandchange=true&status=listed&" class="govuk-link">make a hearing change request</a>.
+        </div>
+
+        <br />
+
         <span style="margin-bottom: 10px; display: block;" class="govuk-caption-l">Jane Smith vs DWP</span>
         <h1 class="govuk-heading-l" style="margin-right: 16px;margin-top:-10px;display:inline-block;vertical-align: top;">
             Hearing details
@@ -69,7 +75,7 @@ Hearings management
 <!--                </dd>-->
             </div>
 
-            {% if data['hearing-result'] != 'Adjourned' %}
+            {% if data['hearing-result'] == 'Decision' %}
             <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                 <dt class="govuk-summary-list__key">
                     Hearing result
@@ -77,11 +83,14 @@ Hearings management
                 <dd class="govuk-summary-list__value">
                     {{ data['hearing-result'] }}
                 </dd>
-<!--                <dd class="govuk-summary-list__actions">-->
-<!--                    <a class="govuk-link" href="actuals-details">-->
-<!--                        Update<span class="govuk-visually-hidden"> hearing result</span>-->
-<!--                    </a>-->
-<!--                </dd>-->
+            </div>
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                <dt class="govuk-summary-list__key">
+                    Decision type
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['decision-type'] }}
+                </dd>
             </div>
             {% elif data['hearing-result'] == 'Adjourned' %}
             <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
@@ -89,13 +98,8 @@ Hearings management
                     Hearing result
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    Adjourned
+                    {{ data['hearing-result'] }}
                 </dd>
-<!--                <dd class="govuk-summary-list__actions">-->
-<!--                    <a class="govuk-link" href="actuals-details">-->
-<!--                        Update<span class="govuk-visually-hidden"> hearing adjourned</span>-->
-<!--                    </a>-->
-<!--                </dd>-->
             </div>
             <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                 <dt class="govuk-summary-list__key">
@@ -104,11 +108,6 @@ Hearings management
                 <dd class="govuk-summary-list__value">
                     {{ data['adjournment-reason'] }}
                 </dd>
-<!--                <dd class="govuk-summary-list__actions">-->
-<!--                    <a class="govuk-link" href="actuals-details">-->
-<!--                        Update<span class="govuk-visually-hidden"> adjournment reason</span>-->
-<!--                    </a>-->
-<!--                </dd>-->
             </div>
             <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                 <dt class="govuk-summary-list__key">
@@ -117,11 +116,32 @@ Hearings management
                 <dd class="govuk-summary-list__value">
                     {{ data['adjournment-day'] }} / {{ data['adjournment-month'] }} / {{ data['adjournment-year'] }}
                 </dd>
-<!--                <dd class="govuk-summary-list__actions">-->
-<!--                    <a class="govuk-link" href="actuals-details">-->
-<!--                        Update<span class="govuk-visually-hidden"> adjournment date</span>-->
-<!--                    </a>-->
-<!--                </dd>-->
+            </div>
+            {% elif data['hearing-result'] == 'Postponed' %}
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                <dt class="govuk-summary-list__key">
+                    Hearing result
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['hearing-result'] }}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                <dt class="govuk-summary-list__key">
+                    Reason for postponement
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['postponed-reason'] }}
+                </dd>
+            </div>
+            {% else %}
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                <dt class="govuk-summary-list__key">
+                    Hearing result
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+                </dd>
             </div>
             {% endif %}
         </dl>
@@ -140,7 +160,11 @@ Hearings management
                     Start time
                 </dt>
                 <dd class="govuk-summary-list__value">
+                    {% if data['start-time'] %}
+                    13:00
+                    {% else %}
                     {{ data["start-time"] }}
+                    {% endif %}
                 </dd>
 <!--                <dd class="govuk-summary-list__actions">-->
 <!--                    <a class="govuk-link" href="actuals-date-and-time">-->
@@ -165,83 +189,83 @@ Hearings management
 
         <br />
 
-        <h1 class="govuk-heading-m" style="display: inline-block;">
-            Reasonable adjustments
-        </h1>
+<!--        <h1 class="govuk-heading-m" style="display: inline-block;">-->
+<!--            Reasonable adjustments-->
+<!--        </h1>-->
 
-        <span class="govuk-body"><a class="govuk-link govuk-!-margin-left-2" style="float:right;" href="actuals-reasonable-adjustments">Update</a></span>
+<!--        <span class="govuk-body"><a class="govuk-link govuk-!-margin-left-2" style="float:right;" href="actuals-reasonable-adjustments">Update</a></span>-->
 
-        <h2 class="govuk-heading-s">
-            Sign language - British Sign Language (BSL)
-        </h2>
+<!--        <h2 class="govuk-heading-s">-->
+<!--            Sign language - British Sign Language (BSL)-->
+<!--        </h2>-->
 
-        <dl class="govuk-summary-list">
-            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                <dt class="govuk-summary-list__key">
-                    Was this reasonable adjustment met?
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    {{ data['reasonable-adjustment-1'] }}
-                </dd>
-<!--                <dd class="govuk-summary-list__actions">-->
-<!--                    <a class="govuk-link" href="actuals-reasonable-adjustments">-->
-<!--                        Update<span class="govuk-visually-hidden"> reasonable adjustments</span>-->
-<!--                    </a>-->
+<!--        <dl class="govuk-summary-list">-->
+<!--            <div class="govuk-summary-list__row govuk-summary-list__row&#45;&#45;no-actions">-->
+<!--                <dt class="govuk-summary-list__key">-->
+<!--                    Was this reasonable adjustment met?-->
+<!--                </dt>-->
+<!--                <dd class="govuk-summary-list__value">-->
+<!--                    {{ data['reasonable-adjustment-1'] }}-->
 <!--                </dd>-->
-            </div>
-            {% if data['reasonable-adjustment-1'] == 'No' %}
-            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                <dt class="govuk-summary-list__key">
-                    Enter a reason why this was not provided
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    {{ data['with-hint1'] }}
-                </dd>
-<!--                <dd class="govuk-summary-list__actions">-->
-<!--                    <a class="govuk-link" href="actuals-reasonable-adjustments">-->
-<!--                        Update<span class="govuk-visually-hidden"> reasonable adjustments</span>-->
-<!--                    </a>-->
+<!--&lt;!&ndash;                <dd class="govuk-summary-list__actions">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="govuk-link" href="actuals-reasonable-adjustments">&ndash;&gt;-->
+<!--&lt;!&ndash;                        Update<span class="govuk-visually-hidden"> reasonable adjustments</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                </dd>&ndash;&gt;-->
+<!--            </div>-->
+<!--            {% if data['reasonable-adjustment-1'] == 'No' %}-->
+<!--            <div class="govuk-summary-list__row govuk-summary-list__row&#45;&#45;no-actions">-->
+<!--                <dt class="govuk-summary-list__key">-->
+<!--                    Enter a reason why this was not provided-->
+<!--                </dt>-->
+<!--                <dd class="govuk-summary-list__value">-->
+<!--                    {{ data['with-hint1'] }}-->
 <!--                </dd>-->
-            </div>
-            {% endif %}
-        </dl>
+<!--&lt;!&ndash;                <dd class="govuk-summary-list__actions">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="govuk-link" href="actuals-reasonable-adjustments">&ndash;&gt;-->
+<!--&lt;!&ndash;                        Update<span class="govuk-visually-hidden"> reasonable adjustments</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                </dd>&ndash;&gt;-->
+<!--            </div>-->
+<!--            {% endif %}-->
+<!--        </dl>-->
 
-        <h2 class="govuk-heading-s">
-            Wheelchair access
-        </h2>
+<!--        <h2 class="govuk-heading-s">-->
+<!--            Wheelchair access-->
+<!--        </h2>-->
 
-        <dl class="govuk-summary-list">
-            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                <dt class="govuk-summary-list__key">
-                    Was this reasonable adjustment met?
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    {{ data['reasonable-adjustment-2'] }}
-                </dd>
-<!--                <dd class="govuk-summary-list__actions">-->
-<!--                    <a class="govuk-link" href="actuals-reasonable-adjustments">-->
-<!--                        Update<span class="govuk-visually-hidden"> reasonable adjustments</span>-->
-<!--                    </a>-->
+<!--        <dl class="govuk-summary-list">-->
+<!--            <div class="govuk-summary-list__row govuk-summary-list__row&#45;&#45;no-actions">-->
+<!--                <dt class="govuk-summary-list__key">-->
+<!--                    Was this reasonable adjustment met?-->
+<!--                </dt>-->
+<!--                <dd class="govuk-summary-list__value">-->
+<!--                    {{ data['reasonable-adjustment-2'] }}-->
 <!--                </dd>-->
-            </div>
-            {% if data['reasonable-adjustment-2'] == 'No' %}
-            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                <dt class="govuk-summary-list__key">
-                    Enter a reason why this was not provided
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    {{ data['with-hint2'] }}
-                </dd>
-<!--                <dd class="govuk-summary-list__actions">-->
-<!--                    <a class="govuk-link" href="actuals-reasonable-adjustments">-->
-<!--                        Update<span class="govuk-visually-hidden"> reasonable adjustments</span>-->
-<!--                    </a>-->
+<!--&lt;!&ndash;                <dd class="govuk-summary-list__actions">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="govuk-link" href="actuals-reasonable-adjustments">&ndash;&gt;-->
+<!--&lt;!&ndash;                        Update<span class="govuk-visually-hidden"> reasonable adjustments</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                </dd>&ndash;&gt;-->
+<!--            </div>-->
+<!--            {% if data['reasonable-adjustment-2'] == 'No' %}-->
+<!--            <div class="govuk-summary-list__row govuk-summary-list__row&#45;&#45;no-actions">-->
+<!--                <dt class="govuk-summary-list__key">-->
+<!--                    Enter a reason why this was not provided-->
+<!--                </dt>-->
+<!--                <dd class="govuk-summary-list__value">-->
+<!--                    {{ data['with-hint2'] }}-->
 <!--                </dd>-->
-            </div>
-            {% endif %}
-        </dl>
+<!--&lt;!&ndash;                <dd class="govuk-summary-list__actions">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="govuk-link" href="actuals-reasonable-adjustments">&ndash;&gt;-->
+<!--&lt;!&ndash;                        Update<span class="govuk-visually-hidden"> reasonable adjustments</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                </dd>&ndash;&gt;-->
+<!--            </div>-->
+<!--            {% endif %}-->
+<!--        </dl>-->
 
-        <br />
+<!--        <br />-->
 
         <h1 class="govuk-heading-m" style="display: inline-block;">
             Participants
