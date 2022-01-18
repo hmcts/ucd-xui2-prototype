@@ -1,0 +1,171 @@
+{% extends "../../layout-xui.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-l">
+            Cancellation requested
+        </h1>
+
+        <form class="form" action="hearing-confirmation" method="post">
+
+            <h2 class="govuk-heading-m">Summary</h2>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Case name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Jane Smith vs DWP
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Case number
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        9468-3316-6763-1127
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Type
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Personal Independence Payment<br />
+                        - Conditions of Entitlement<br />
+                        - Good cause<br />
+                        - Rate of Assessment / Payability Issues - complex
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Status
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Cancellation requested
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Date of cancel request
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        4 November 2021
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Reason for cancellation
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Reason here
+                    </dd>
+                </div>
+            </dl>
+
+
+            {% if data.nolistingresponse == 'false' %}
+            <h2 class="govuk-heading-m">Details</h2>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Date of last response
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        3 November 2021
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Hearing venue
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        TAYLOR HOUSE TRIBUNAL CENTRE
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Judge and panel details
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        John Smith<br />
+                        Delilah Flowers<br />
+                        Penelope Rosewater
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Hearing duration
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        5 minutes
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Parties attended
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Jane Smith - in person<br />
+                        DWP - video, CVP
+                    </dd>
+                </div>
+            </dl>
+
+            {% endif %}
+
+    </div>
+</div>
+<br /><br />
+<hr />
+<p class="govuk-body govuk-!-margin-top-4">Scenarios:</p>
+<form method="post" action="#">
+    <fieldset class="govuk-fieldset">
+        <div class="govuk-form-group">
+            <label class="govuk-label" for="data-abc1" style="font-size: 16px;">
+                Cancellation response type
+            </label>
+            <select style="height: 30px;padding:0 5px;font-size: 14px;" class="govuk-select" id="data-abc1" name="data-abc1" onchange="window.location.href='?'+this.value">
+                <option value="nolistingresponse=true&"
+                        {% if data['nolistingresponse'] == 'true' %} selected  {% endif %}
+                >No listing response</option>
+
+                <option value="nolistingresponse=false&"
+                        {% if data['nolistingresponse'] != 'true' %} selected  {% endif %}
+                >With listing response</option>
+
+            </select>
+        </div>
+    </fieldset>
+</form>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+
+
+{% endblock %}

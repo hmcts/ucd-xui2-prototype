@@ -1,0 +1,129 @@
+{% extends "../../layout-xui.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .hmcts-filter__tag:link,
+    .hmcts-filter__tag:visited {
+         color: govuk-colour("black");
+     }
+
+    .hmcts-filter__tag:focus {
+         background-color: govuk-colour("white");
+     }
+
+    .hmcts-filter__tag:hover {
+         background-color: govuk-colour("black");
+         color: govuk-colour("white");
+     }
+
+    .hmcts-filter__tag:hover:after {
+        background-image: url(../../../public/images/icon-tag-remove-cross-white.svg);
+     }
+
+    .hmcts-filter__tag:after {
+        background-image: url(../../../public/images/icon-tag-remove-cross.svg);
+        content: "";
+        display: inline-block;
+        font-weight: bold;
+        height: 10px;
+        margin-left: 5px;
+        vertical-align: middle;
+        width: 10px;
+    }
+
+    .location-picker-custom {
+        font-size: 19px;
+        font-family: "GDS Transport", arial, sans-serif !important;
+    }
+
+</style>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Request a hearing for Jane Smith vs DWP</span>
+        <h1 class="govuk-heading-l">
+            Hearing venue
+        </h1>
+        <div id="location-hint" class="govuk-hint govuk-!-margin-bottom-7">
+            If this is a fully remote hearing you must still select the court or tribunal which will be managing the case.
+        </div>
+
+        <form class="form" action="hearing-judge" method="post">
+
+            <div class="govuk-form-group">
+
+                <h3 class="govuk-heading-s">What are the hearing venue details?</h3>
+
+                <div class="location-picker-custom">
+                    <label class="govuk-body" for="location-picker">
+                        Search for a location by name
+                    </label>
+                    <br />
+                    <div style="width: 50%; display: inline-block; margin-right: 4px;">
+                        <select id="location-picker" name="locationPicker" autofocus>
+                            <option value=" " {% if data.locationPicker == ' ' %} selected {% endif %}> </option>
+                            <option value="Birmingham Civil and Family Justice Centre" {% if data.locationPicker == 'Birmingham Civil and Family Justice Centre' %} selected {% endif %}>Birmingham Civil and Family Justice Centre</option>
+                            <option value="Bradford Tribunal Hearing Centre" {% if data.locationPicker == 'Bradford Tribunal Hearing Centre' %} selected {% endif %}>Bradford Tribunal Hearing Centre</option>
+                            <option value="Glasgow Tribunals Centre" {% if data.locationPicker == 'Glasgow Tribunals Centre' %} selected {% endif %}>Glasgow Tribunals Centre</option>
+                            <option value="Hatton Cross Tribunal Hearing Centre" {% if data.locationPicker == 'Hatton Cross Tribunal Hearing Centre' %} selected {% endif %}>Hatton Cross Tribunal Hearing Centre</option>
+                            <option value="Manchester Tribunal Hearing Centre" {% if data.locationPicker == 'Manchester Tribunal Hearing Centre' %} selected {% endif %}>Manchester Tribunal Hearing Centre</option>
+                            <option value="Newcastle Civil & Family Courts and Tribunals Centre" {% if data.locationPicker == 'Newcastle Civil & Family Courts and Tribunals Centre' %} selected {% endif %}>Newcastle Civil & Family Courts and Tribunals Centre</option>
+                            <option value="Newport (South Wales) Immigration and Asylum Tribunal" {% if data.locationPicker == 'Newport (South Wales) Immigration and Asylum Tribunal' %} selected {% endif %}>Newport (South Wales) Immigration and Asylum Tribunal</option>
+                            <option value="Taylor House Tribunal Hearing Centre" {% if data.locationPicker == 'Taylor House Tribunal Hearing Centre' %} selected {% endif %}>Taylor House Tribunal Hearing Centre</option>
+                        </select>
+                    </div>
+                    <a href="" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                        Add location
+                    </a>
+                </div>
+
+<!--                <p class="govuk-body"><span class="govuk-!-font-weight-bold">Venue(s) currently selected</span></p>-->
+                <ul class="hmcts-filter-tags">
+                    <li>
+                        <a class="hmcts-filter__tag" href="#">
+                            <span class="govuk-visually-hidden">
+                              Remove this venue
+                            </span>
+                            Birmingham Civil and Family Justice Centre
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="govuk-inset-text">
+                    You can check the venue has the required facilities or reasonable adjustments using<br /> <a href="https://www.gov.uk/find-court-tribunal" target="_blank">Court Finder (opens in new tab)</a>
+                </div>
+
+            </div>
+
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+
+    </div>
+</div>
+
+<script>
+  window.onload = (event) => {
+    accessibleAutocomplete.enhanceSelectElement({
+      selectElement: document.querySelector('#location-picker')
+    })
+  }
+
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+
+
+{% endblock %}

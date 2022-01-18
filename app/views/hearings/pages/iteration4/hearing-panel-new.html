@@ -1,0 +1,162 @@
+{% extends "../../layout-xui.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Request a hearing for Jane Smith vs DWP</span>
+        <h1 class="govuk-heading-l">
+            What are the panel requirements?
+        </h1>
+
+        <form class="form" action="hearing-duration" method="post">
+
+            <div class="" id="conditionaljudge">
+                <div class="govuk-form-group govuk-!-margin-bottom-0">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="addpersonsname">
+                        Include specific panel members (optional)
+                    </label>
+                    <input class="govuk-input govuk-!-width-one-third" name="addpersonsname" type="text" spellcheck="false" value="{{ data.addpersonsname }}">
+<!--                    <div  style="display:none; "  id="addpersonsname" >-->
+<!--                        <input class="govuk-input govuk-!-width-one-third" name="addpersonsname" type="text" spellcheck="false">-->
+<!--                        <p class="govuk-!-padding-2 govuk-!-margin-bottom-0;"><a href="#">Clear</a></p>-->
+<!--                    </div>-->
+                </div>
+                <p class="govuk-button govuk-button--secondary govuk-!-margin-top-3 " data-module="govuk-button" id="addperson" onclick="addperson();">
+                    Add another person
+                </p>
+<!--                <p class="govuk-button govuk-button&#45;&#45;secondary govuk-!-margin-top-0 " data-module="govuk-button" id="addanotherperson" style="display:none;">-->
+<!--                    Add another person-->
+<!--                </p>-->
+            </div>
+
+
+
+            <div class="" id="conditionaljudge">
+                <div class="govuk-form-group govuk-!-margin-bottom-0">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="excludepersonsname">
+                        Exclude specific panel members (optional)
+                    </label>
+                    <input class="govuk-input govuk-!-width-one-third" name="excludepersonsname" type="text" spellcheck="false" value="{{ data.excludepersonsname }}" >
+<!--                    <div  style="display:none; "  id="excludepersonsname" >-->
+<!--                        <input class="govuk-input govuk-!-width-one-third" name="excludepersonsname" type="text" spellcheck="false" >-->
+<!--                        <p class="govuk-!-padding-2 govuk-!-margin-bottom-0;"><a href="#">Clear</a></p>-->
+<!--                    </div>-->
+                </div>
+                <p class="govuk-button govuk-button--secondary govuk-!-margin-top-3 " data-module="govuk-button" id="excludeperson" onclick="excludeperson();">
+                    Exclude another person
+                </p>
+<!--                <p class="govuk-button govuk-button&#45;&#45;secondary govuk-!-margin-top-0 " data-module="govuk-button" id="excludeanotherperson" style="display:none;">-->
+<!--                    Exclude another person-->
+<!--                </p>-->
+            </div>
+
+
+
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h1 class="govuk-fieldset__heading">
+                            Select any other panel roles required   (optional) &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+                        </h1>
+                    </legend>
+                    <div id="other-panel-roles-hint" class="govuk-hint">
+                        Select all that apply.
+                    </div>
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="panel-member1" name="panel-members" value="Disability qualified panel member" type="checkbox">
+                            <label class="govuk-label govuk-checkboxes__label" for="panel-member1">
+                                Disability qualified panel member
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="panel-member2" name="panel-members" value="Medically qualified panel member" type="checkbox" data-aria-controls="conditional-member-1" checked>
+                            <label class="govuk-label govuk-checkboxes__label" for="panel-member2">
+                                Medically qualified panel member
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-member-1">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label" for="specialism1">
+                                    Choose specialism
+                                </label>
+                                <select class="govuk-select" id="specialism1" name="medi1">
+                                    <option value="published">Cardiologist</option>
+                                    <option value="updated">Carer</option>
+                                    <option value="views">Eye Surgeon</option>
+                                    <option value="comments" selected>General Practitioner</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="panel-member3" name="panel-members" value="Medically qualified panel member" type="checkbox" data-aria-controls="conditional-member-2" checked>
+                            <label class="govuk-label govuk-checkboxes__label" for="panel-member3">
+                                Medically qualified panel member
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-member-2">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label" for="specialism2">
+                                    Choose specialism
+                                </label>
+                                <select class="govuk-select" id="specialism2" name="medi2">
+                                    <option value="Cardiologist">Cardiologist</option>
+                                    <option value="Carer">Carer</option>
+                                    <option value="Eye Surgeon" selected>Eye Surgeon</option>
+                                    <option value="General Practitioner">General Practitioner</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="panel-member4" name="panel-members" value="Financially qualified panel member" type="checkbox">
+                            <label class="govuk-label govuk-checkboxes__label" for="panel-member4">
+                                Financially qualified panel member
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="panel-member5" name="panel-members" value="Regional Medical Member" type="checkbox" checked>
+                            <label class="govuk-label govuk-checkboxes__label" for="panel-member5">
+                                Regional Medical Member
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<script>
+
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+
+
+
+
+
+{% endblock %}

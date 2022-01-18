@@ -1,0 +1,60 @@
+{% extends "../../layout-xui.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+{% block beforeContent %}
+    <a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <span class="govuk-caption-l">Request a hearing for Jane Smith vs DWP</span>
+            <h1 class="govuk-heading-l">
+                Will this be a hybrid hearing?
+            </h1>
+
+            <form class="form" action="hearing-attendance-answer" method="post">
+
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+
+                        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="hybridYes" name="hybridHearing" type="radio" value="yes">
+                                <label class="govuk-label govuk-radios__label" for="hybridYes">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="hybridNo" name="hybridHearing" type="radio" value="no">
+                                <label class="govuk-label govuk-radios__label" for="hybridNo">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </div>
+
+                <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+            </form>
+
+        </div>
+    </div>
+
+
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+
+{% endblock %}

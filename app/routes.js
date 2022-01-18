@@ -12,6 +12,201 @@ const router = express.Router()
 ///////////////////////////////////////////////////////////////
 
 
+
+///////////////////////////////////////////////////////////////
+// All routes for: Hearings Management
+// Iteration/version: 4
+// Located in: app/views/hearings/pages/iteration4
+// Date updated: Jan 2023
+
+// Start happy path and set venue default
+router.post('/hearings/pages/iteration4/start-journey', function (req, res) {
+  // Set default venue
+  var venue = 'Birmingham Civil and Family Justice Centre'
+  var region = 'London'
+  req.session.data['venue'] = venue
+  req.session.data['regionselection'] = region
+  req.session.data['viewandchange'] = 'false'
+  req.session.data['backtocheckanswers'] = 'false'
+  req.session.data['status'] = 'new'
+  req.session.data['changesallowed'] = 'true'
+  req.session.data['changed-data'] = 'false'
+  req.session.data['cf'] = '2parties'
+  res.redirect('/hearings/pages/iteration4/hearing-requirements')
+})
+
+// Routing for Requirements > Additional facilities
+router.post('/hearings/pages/iteration4/hearing-requirements-facilities', function (req, res) {
+  // If coming from check answers page then return there after clicking continue
+  if(req.session.data['backtocheckanswers'] == 'true') {
+    req.session.data['backtocheckanswers'] = 'false'
+    res.redirect('/hearings/pages/iteration4/hearing-checkyouranswers')
+  }
+  else {
+    res.redirect('/hearings/pages/iteration4/hearing-requirements-facilities')
+  }
+})
+
+// Routing for Requirements > Stage
+router.post('/hearings/pages/iteration4/hearing-stage', function (req, res) {
+  // If coming from check answers page then return there after clicking continue
+  if(req.session.data['backtocheckanswers'] == 'true') {
+    req.session.data['backtocheckanswers'] = 'false'
+    res.redirect('/hearings/pages/iteration4/hearing-checkyouranswers')
+  }
+  else {
+    res.redirect('/hearings/pages/iteration4/hearing-stage')
+  }
+})
+
+// Routing for Stage > Attendance
+router.post('/hearings/pages/iteration4/hearing-attendance-hybrid-many', function (req, res) {
+  // If coming from check answers page then return there after clicking continue
+  if(req.session.data['backtocheckanswers'] == 'true') {
+    req.session.data['backtocheckanswers'] = 'false'
+    res.redirect('/hearings/pages/iteration4/hearing-checkyouranswers')
+  }
+  else {
+    res.redirect('/hearings/pages/iteration4/hearing-attendance-hybrid-many')
+  }
+})
+
+// Routing for Requirements > Venue
+router.post('/hearings/pages/iteration4/hearing-venue', function (req, res) {
+  // If coming from check answers page then return there after clicking continue
+  if(req.session.data['backtocheckanswers'] == 'true') {
+    req.session.data['backtocheckanswers'] = 'false'
+    res.redirect('/hearings/pages/iteration4/hearing-checkyouranswers')
+  }
+  else {
+    res.redirect('/hearings/pages/iteration4/hearing-venue')
+  }
+})
+
+//Routing for Venue > Judge
+router.post('/hearings/pages/iteration4/hearing-judge', function (req, res) {
+  // If coming from check answers page then return there after clicking continue
+  if(req.session.data['backtocheckanswers'] == 'true') {
+    req.session.data['backtocheckanswers'] = 'false'
+    res.redirect('/hearings/pages/iteration4/hearing-checkyouranswers')
+  }
+  else {
+    res.redirect('/hearings/pages/iteration4/hearing-judge')
+  }
+})
+
+// Routing for Panel > Duration
+router.post('/hearings/pages/iteration4/hearing-duration', function (req, res) {
+  // If coming from check answers page then return there after clicking continue
+  if(req.session.data['backtocheckanswers'] == 'true') {
+    req.session.data['backtocheckanswers'] = 'false'
+    res.redirect('/hearings/pages/iteration4/hearing-checkyouranswers')
+  }
+  else {
+    res.redirect('/hearings/pages/iteration4/hearing-duration')
+  }
+})
+
+// Get venues selected and redirect to hearing-venue to provide a summary of venue choice
+router.post('/hearings/pages/iteration4/hearing-venue-summary', function (req, res) {
+  // Get any venues
+  var b = req.session.data['venues-selected']
+  req.session.data['venue'] = b
+  res.redirect('/hearings/pages/iteration4/hearing-venue')
+})
+
+// Route based on if a hearing panel is required
+router.post('/hearings/pages/iteration4/hearing-panel-answer', function (req, res) {
+
+  var hearingPanel = req.session.data['hearingPanel']
+
+  // Check whether the variable matches a condition
+  if (hearingPanel == "yes"){
+    // Send user to Existing panel page
+    res.redirect('/hearings/pages/iteration4/hearing-panel-new')
+  } else {
+    // check your answers conditional
+    if(req.session.data['backtocheckanswers'] == 'true') {
+      req.session.data['backtocheckanswers'] = 'false'
+      res.redirect('/hearings/pages/iteration4/hearing-checkyouranswers')
+    } else {
+      // Send user to select judge page
+      res.redirect('/hearings/pages/iteration4/hearing-duration')
+    }
+  }
+})
+
+// Routing for Hearing panel new
+router.post('/hearings/pages/iteration4/hearing-panel-new', function (req, res) {
+  // If coming from check answers page then return there after clicking continue
+  if(req.session.data['backtocheckanswers'] == 'true') {
+    req.session.data['backtocheckanswers'] = 'false'
+    res.redirect('/hearings/pages/iteration4/hearing-checkyouranswers')
+  }
+  else {
+    res.redirect('/hearings/pages/iteration4/hearing-panel-new')
+  }
+})
+
+// Routing for Hearing panel question
+router.post('/hearings/pages/iteration4/hearing-panel', function (req, res) {
+  // If coming from check answers page then return there after clicking continue
+  if(req.session.data['backtocheckanswers'] == 'true') {
+    req.session.data['backtocheckanswers'] = 'false'
+    res.redirect('/hearings/pages/iteration4/hearing-checkyouranswers')
+  }
+  else {
+    res.redirect('/hearings/pages/iteration4/hearing-panel')
+  }
+})
+
+// Routing for Welsh hearing > Additional
+router.post('/hearings/pages/iteration4/hearing-additional-instructions', function (req, res) {
+  // If coming from check answers page then return there after clicking continue
+  if(req.session.data['backtocheckanswers'] == 'true') {
+    req.session.data['backtocheckanswers'] = 'false'
+    res.redirect('/hearings/pages/iteration4/hearing-checkyouranswers')
+  }
+  else {
+    res.redirect('/hearings/pages/iteration4/hearing-additional-instructions')
+  }
+})
+
+// Wales check. If Welsh is required, present the Welsh question after Duration
+router.post('/hearings/pages/iteration4/hearing-duration-check-wales', function (req, res) {
+
+  var regionChoice = req.session.data['regionselection']
+
+  // check your answers conditional
+  if(req.session.data['backtocheckanswers'] == 'true') {
+    req.session.data['backtocheckanswers'] = 'false'
+    res.redirect('/hearings/pages/iteration4/hearing-checkyouranswers')
+  } else {
+    // Check if Wales was selected as a venue region
+    if (regionChoice == "Wales") {
+      // Send user to Welsh question
+      res.redirect('/hearings/pages/iteration4/hearing-welsh')
+    } else {
+      // Send user to check answers page
+      res.redirect('/hearings/pages/iteration4/hearing-additional-instructions')
+    }
+  }
+})
+
+// Confirmation screen - submission conditional
+router.post('/hearings/pages/iteration4/hearing-confirmation-answer', function (req, res) {
+
+  // Check if listing or pending status are set
+  if ((req.session.data['status'] == "listed") || (req.session.data['status'] == "pending")) {
+    // Send user to Change request reason interstitial screen
+    res.redirect('/hearings/pages/iteration4/hearing-change-reason')
+  } else {
+    // Send user to check answers page
+    res.redirect('/hearings/pages/iteration4/hearing-confirmation')
+  }
+})
+
+
 ///////////////////////////////////////////////////////////////
 // All routes for: Hearings Management
 // Iteration/version: 3

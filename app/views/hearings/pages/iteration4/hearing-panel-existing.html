@@ -1,0 +1,140 @@
+{% extends "../../layout-xui.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+
+        <span class="govuk-caption-l">Request a hearing for Jane Smith vs DWP</span>
+        <h1 class="govuk-heading-l">
+            Who will be on the panel?
+        </h1>
+
+        <form class="form" action="hearing-panel-existing-answer" method="post">
+
+            <div class="govuk-form-group">
+
+                <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header">Date hearing took place</th>
+                            <th class="govuk-table__header">Panel</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">22 October 2021</td>
+                            <td class="govuk-table__cell">
+                                Judge Sarah Jones<br />
+                                Dr David Naran<br>
+                                Penny Williams
+                            </td>
+
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">14 September 2021</td>
+                            <td class="govuk-table__cell">
+                                Judge Ash Chan<br />
+                                Dr Laura Jones
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="govuk-form-group govuk-!-margin-top-5">
+                <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h3 class="govuk-fieldset__heading">
+                            Use the most recent panel again?
+                        </h3>
+                    </legend>
+                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="panel-1" name="panelsame" type="radio" value="Yes - use the same panel as most recent hearing" {% if data.panelsame == 'Yes - use the same panel as most recent hearing' %} Checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="panel-1"  onclick="showJudges();">
+                                Yes - use the same panel as most recent hearing
+                            </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="panel-2" name="panelsame" type="radio" value="No - select a new panel"  {% if data.panelsame == 'No - select a new panel' %}  Checked {% endif %} >
+                            <label class="govuk-label govuk-radios__label" for="panel-2" onclick="hideJudges(); ">
+                                No - select a new panel
+                            </label>
+                        </div>
+
+                    </div>
+
+                </fieldset>
+            </div>
+
+
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<script>
+
+    function showJudges()
+    {
+        var x = document.getElementById("conditionaljudge");
+        if (x.style.display === "none")
+        {
+            x.style.display = "block";
+        }
+
+        var y = document.getElementById("conditionaljudgelevels");
+        if (y.style.display === "block")
+        {
+            y.style.display = "none";
+        }
+    }
+
+    function hideJudges()
+    {
+        var x = document.getElementById("conditionaljudge");
+        if (x.style.display === "block")
+        {
+            x.style.display = "none";
+        }
+
+        var y = document.getElementById("conditionaljudgelevels");
+        if (y.style.display === "none")
+        {
+            y.style.display = "block";
+        }
+    }
+
+
+
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+
+
+
+
+
+{% endblock %}

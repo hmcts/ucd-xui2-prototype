@@ -1,0 +1,63 @@
+{% extends "../../layout-xui.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+{% block beforeContent %}
+    <a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <span class="govuk-caption-l">Request a hearing for Jane Smith vs DWP</span>
+            <h1 class="govuk-heading-l">
+                How will the hearing take place?
+            </h1>
+
+            <form class="form" action="hearing-venue" method="post">
+
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset govuk-!-margin-bottom-4 govuk-!-margin-top-4">
+                        <div class="govuk-radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="all-in-person" name="all-parties-channel" type="radio" value="In person">
+                                <label class="govuk-label govuk-radios__label" for="all-in-person">
+                                    In person
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="all-by-phone" name="all-parties-channel" type="radio" value="By phone">
+                                <label class="govuk-label govuk-radios__label" for="all-by-phone">
+                                    By phone
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="all-by-video" name="all-parties-channel" type="radio" value="By video">
+                                <label class="govuk-label govuk-radios__label" for="all-by-video">
+                                    By video
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+            </form>
+
+        </div>
+    </div>
+
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+
+{% endblock %}

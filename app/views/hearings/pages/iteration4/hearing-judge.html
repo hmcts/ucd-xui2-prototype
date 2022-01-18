@@ -1,0 +1,242 @@
+{% extends "../../layout-xui.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .hmcts-filter__tag:link,
+    .hmcts-filter__tag:visited {
+        color: govuk-colour("black");
+    }
+
+    .hmcts-filter__tag:focus {
+        background-color: govuk-colour("white");
+    }
+
+    .hmcts-filter__tag:hover {
+        background-color: govuk-colour("black");
+        color: govuk-colour("white");
+    }
+
+    .hmcts-filter__tag:hover:after {
+        background-image: url(../../../public/images/icon-tag-remove-cross-white.svg);
+    }
+
+    .hmcts-filter__tag:after {
+        background-image: url(../../../public/images/icon-tag-remove-cross.svg);
+        content: "";
+        display: inline-block;
+        font-weight: bold;
+        height: 10px;
+        margin-left: 5px;
+        vertical-align: middle;
+        width: 10px;
+    }
+
+    .location-picker-custom {
+        font-size: 19px;
+        font-family: "GDS Transport", arial, sans-serif !important;
+    }
+</style>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Request a hearing for Jane Smith vs DWP</span>
+        <h1 class="govuk-heading-l">
+            Judge details
+        </h1>
+
+        {% if data['backtocheckanswers'] == 'true' %}
+        <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive">Warning</span>
+                Only change the information that needs updating.
+            </strong>
+        </div>
+        {% endif %}
+
+        <form class="form" action="hearing-panel" method="post">
+
+            <div class="govuk-form-group govuk-!-margin-top-5">
+
+                <fieldset class="govuk-fieldset">
+
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h1 class="govuk-fieldset__heading">
+                            Do you want a specific judge?
+                        </h1>
+                    </legend>
+
+                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="specificjudge-1" name="specificjudge" type="radio" value="Yes" data-aria-controls="conditional-judge" {% if data.specificjudge == 'Yes' %}  Checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="specificjudge-1"">
+                                Yes
+                            </label>
+                        </div>
+
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-judge">
+                            <div class="govuk-form-group govuk-!-width-one-half">
+                                <label class="govuk-label" for="judgename-container">
+                                    Name of the judge
+                                </label>
+                                <div id="judgename-container"></div>
+                            </div>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="specificjudge-2" name="specificjudge" type="radio" value="No" data-aria-controls="conditional-judge-type" {% if data.specificjudge == 'No' %}  Checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="specificjudge-2">
+                                No
+                            </label>
+                        </div>
+
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-judge-type">
+                            <div class="govuk-form-group">
+                                <fieldset class="govuk-fieldset">
+                                    <label class="govuk-label">
+                                        Select all judge types that apply
+                                    </label>
+                                    <div class="govuk-form-group" id="facilitiesList">
+                                        <fieldset class="govuk-fieldset">
+                                            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                                                <div class="govuk-checkboxes__item">
+                                                    <input class="govuk-checkboxes__input" id="judgecontract1" name="judgecontract" type="checkbox" value="Tribunal Judge">
+                                                    <label class="govuk-label govuk-checkboxes__label" for="judgecontract1" >
+                                                        Tribunal Judge
+                                                    </label>
+                                                </div>
+                                                <div class="govuk-checkboxes__item">
+                                                    <input class="govuk-checkboxes__input" id="judgecontract2" name="judgecontract" type="checkbox" value="Deputy Tribunal Judge">
+                                                    <label class="govuk-label govuk-checkboxes__label" for="judgecontract2" >
+                                                        Deputy Tribunal Judge
+                                                    </label>
+                                                </div>
+                                                <div class="govuk-checkboxes__item">
+                                                    <input class="govuk-checkboxes__input" id="judgecontract3" name="judgecontract" type="checkbox" value="Regional Tribunal Judge">
+                                                    <label class="govuk-label govuk-checkboxes__label" for="judgecontract3" >
+                                                        Regional Tribunal Judge
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+            </div>
+
+            <div class="govuk-form-group" id="excludejudgeContainer">
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="exclude-judgename">
+                        Exclude a judge (optional)
+                    </label>
+                    <div style="width: 70%; display: inline-block;" id="exclude-judgename-container" class="govuk-!-margin-right-2"></div>
+                    <div style="display: inline-block;" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="excludeJudge" >Exclude judge</div>
+                </div>
+
+                <ul class="hmcts-filter-tags" id="filterTags" style="display: none;">
+                    <li>
+                        <a id="filterTagClose" class="hmcts-filter__tag" href="#">
+                            <span class="govuk-visually-hidden">
+                              Remove this venue
+                            </span>
+                            <span id="exJudge1"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+
+    </div>
+</div>
+
+<script>
+
+    // function excludejudge()
+    // {
+    //     document.getElementById("exludejudgefield").style.display = "flex";
+    //     document.getElementById("exludeanotherjudge").style.display = "inline-block";
+    //     document.getElementById("exludenewjudge").style.display = "none";
+    // }
+
+    window.onload = (event) => {
+
+        const judgeNames = [
+            'Jane Smith (jane.smith@justice.gov.uk)',
+            'John Smith (john.smith@justice.gov.uk)',
+            'John Snow (john.snow@justice.gov.uk)',
+            'John H Snow (jharoldsnow@justice.gov.uk)'
+        ]
+
+        element1 = document.querySelector('#judgename-container')
+            id = 'judgename'
+            accessibleAutocomplete({
+            element: element1,
+            id: id,
+            placeholder: 'e.g. John Smith',
+            source: judgeNames,
+            name: 'name-of-judge'
+        })
+
+        element2 = document.querySelector('#exclude-judgename-container')
+            id = 'exclude-judgename'
+            accessibleAutocomplete({
+            element: element2,
+            id: id,
+            placeholder: 'e.g. John Smith',
+            source: judgeNames
+        })
+
+
+        document.getElementById("excludeJudge").addEventListener("click", function() {
+          // Get excluded judges name
+          var excludeJudgeName = document.getElementById("exclude-judgename").value
+          // Get filter tag display value
+          var filterTag = document.getElementById("filterTags")
+
+          // Show tag and add name to tag
+          if (excludeJudgeName != '' && filterTag.style.display == 'none') {
+            console.log(excludeJudgeName)
+            filterTag.style.display = 'inline-block'
+            document.getElementById("exJudge1").innerHTML = excludeJudgeName
+            document.getElementById("exclude-judgename").value = ''
+          }
+        })
+
+      document.getElementById("filterTagClose").addEventListener("click", function() {
+        // Get filter tag display value
+        var filterTag = document.getElementById("filterTags")
+        filterTag.style.display = 'none'
+      })
+
+    }
+
+
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+
+
+
+
+
+{% endblock %}

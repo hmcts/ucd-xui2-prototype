@@ -1,0 +1,115 @@
+{% extends "../../layout-xui.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-l">
+            Details of cancelled hearing
+        </h1>
+
+        <form class="form" action="hearing-confirmation" method="post">
+
+            <h2 class="govuk-heading-m">Summary</h2>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Case name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Jane Smith vs DWP
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Hearing type
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Final hearing
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Hearing date
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        15 September 2021
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Reason for cancellation
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Witness didn't attend
+                    </dd>
+                </div>
+            </dl>
+
+            <h2 class="govuk-heading-m">Details</h2>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Hearing venue
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        TAYLOR HOUSE TRIBUNAL CENTRE
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Judge and panel details
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        John Smith<br />
+                        Delilah Flowers<br />
+                        Penelope Rosewater
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Hearing duration
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        5 minutes
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Parties attended
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Jane Smith - in person<br />
+                        DWP - video, CVP
+                    </dd>
+                </div>
+            </dl>
+
+    </div>
+</div>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+
+{% endblock %}

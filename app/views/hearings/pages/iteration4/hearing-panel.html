@@ -1,0 +1,338 @@
+{% extends "../../layout-xui.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+{% block beforeContent %}
+    <a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .hmcts-filter__tag:link,
+    .hmcts-filter__tag:visited {
+        color: govuk-colour("black");
+    }
+
+    .hmcts-filter__tag:focus {
+        background-color: govuk-colour("white");
+    }
+
+    .hmcts-filter__tag:hover {
+        background-color: govuk-colour("black");
+        color: govuk-colour("white");
+    }
+
+    .hmcts-filter__tag:hover:after {
+        background-image: url(../../../public/images/icon-tag-remove-cross-white.svg);
+    }
+
+    .hmcts-filter__tag:after {
+        background-image: url(../../../public/images/icon-tag-remove-cross.svg);
+        content: "";
+        display: inline-block;
+        font-weight: bold;
+        height: 10px;
+        margin-left: 5px;
+        vertical-align: middle;
+        width: 10px;
+    }
+
+    .location-picker-custom {
+        font-size: 19px;
+        font-family: "GDS Transport", arial, sans-serif !important;
+    }
+</style>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <span class="govuk-caption-l">Request a hearing for Jane Smith vs DWP</span>
+            <h1 class="govuk-heading-l">
+                Panel details
+            </h1>
+
+            {% if data['backtocheckanswers'] == 'true' %}
+            <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                    <span class="govuk-warning-text__assistive">Warning</span>
+                    Only change the information that needs updating.
+                </strong>
+            </div>
+<!--            <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">-->
+<!--                <div class="govuk-notification-banner__header">-->
+<!--                    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">-->
+<!--                        Important-->
+<!--                    </h2>-->
+<!--                </div>-->
+<!--                <div class="govuk-notification-banner__content">-->
+<!--                    <p class="govuk-notification-banner__heading" style="max-width: none;">-->
+<!--                        Only change the information that needs updating.-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </div>-->
+            {% endif %}
+
+            <form class="form" action="hearing-duration" method="post">
+
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            <h1 class="govuk-fieldset__heading">
+                                Do you require a panel for this hearing?
+                            </h1>
+                        </legend>
+
+                        <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="panelYes" name="hearingPanel" type="radio" value="yes" data-aria-controls="conditional-panel" {% if data.hearingPanel == 'yes' %}  Checked {% endif %}>
+                                <label class="govuk-label govuk-radios__label" for="panelYes">
+                                    Yes
+                                </label>
+                            </div>
+
+                            <!-- HEARING PANEL NEW -->
+                            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-panel">
+
+                                <div class="govuk-form-group" id="includePanelMember">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label for="includePanelName">
+                                            Include specific panel members (optional)
+                                        </label>
+                                        <div style="width: 70%; display: inline-block;" id="include-panel-container" class="govuk-!-margin-right-2"></div>
+                                        <div style="display: inline-block;" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="includePanelBtn" >Include panel member</div>
+                                    </div>
+
+                                    <ul class="hmcts-filter-tags" id="includeFilterTags" style="display: none;">
+                                        <li>
+                                            <a id="includeFilterTagClose" class="hmcts-filter__tag" href="#">
+                                            <span class="govuk-visually-hidden">
+                                              Remove this included panel member
+                                            </span>
+                                                <span id="includePanelMemberTag"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="govuk-form-group" id="excludePanelMember">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label" for="excludePanelName">
+                                            Exclude specific panel members (optional)
+                                        </label>
+                                        <div style="width: 70%; display: inline-block;" id="exclude-panel-container" class="govuk-!-margin-right-2"></div>
+                                        <div style="display: inline-block;" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="excludePanelBtn" >Exclude panel member</div>
+                                    </div>
+
+                                    <ul class="hmcts-filter-tags" id="excludeFilterTags" style="display: none;">
+                                        <li>
+                                            <a id="excludeFilterTagClose" class="hmcts-filter__tag" href="#">
+                                            <span class="govuk-visually-hidden">
+                                              Remove this excluded panel member
+                                            </span>
+                                                <span id="excludePanelMemberTag"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+<!--                                <div class="govuk-form-group govuk-!-margin-bottom-0">-->
+<!--                                    <label class="govuk-label govuk-!-font-weight-bold" for="excludepersonsname">-->
+<!--                                        Exclude specific panel members (optional)-->
+<!--                                    </label>-->
+<!--                                    <input class="govuk-input govuk-!-width-one-third" name="excludepersonsname" type="text" spellcheck="false" value="{{ data.excludepersonsname }}" >-->
+<!--                                </div>-->
+<!--                                <p class="govuk-button govuk-button&#45;&#45;secondary govuk-!-margin-top-3 " data-module="govuk-button" id="excludeperson" onclick="excludeperson();">-->
+<!--                                    Exclude another person-->
+<!--                                </p>-->
+
+                                <div class="govuk-form-group">
+                                <fieldset class="govuk-fieldset">
+<!--                                    <legend class="govuk-fieldset__legend govuk-fieldset__legend&#45;&#45;s">-->
+<!--                                        <h1 class="govuk-fieldset__heading">-->
+<!--                                            Select any other panel roles required (optional)-->
+<!--                                        </h1>-->
+<!--                                    </legend>-->
+                                    <label class="govuk-label">
+                                        Select any other panel roles required
+                                    </label>
+
+<!--                                    <div id="other-panel-roles-hint" class="govuk-hint">-->
+<!--                                        Select all that apply.-->
+<!--                                    </div>-->
+                                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="panel-member1" name="panel-members" value="Disability qualified panel member" type="checkbox">
+                                            <label class="govuk-label govuk-checkboxes__label" for="panel-member1">
+                                                Disability qualified panel member
+                                            </label>
+                                        </div>
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="panel-member2" name="panel-members" value="Medically qualified panel member" type="checkbox" data-aria-controls="conditional-member-1" checked>
+                                            <label class="govuk-label govuk-checkboxes__label" for="panel-member2">
+                                                Medically qualified panel member
+                                            </label>
+                                        </div>
+                                        <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-member-1">
+                                            <div class="govuk-form-group">
+                                                <label class="govuk-label" for="specialism1">
+                                                    Choose specialism
+                                                </label>
+                                                <select class="govuk-select" id="specialism1" name="medi1">
+                                                    <option value="Please select" selected>Please select</option>
+                                                    <option value="published">Cardiologist</option>
+                                                    <option value="updated">Carer</option>
+                                                    <option value="views">Eye Surgeon</option>
+                                                    <option value="comments">General Practitioner</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="panel-member3" name="panel-members" value="Medically qualified panel member" type="checkbox" data-aria-controls="conditional-member-2" checked>
+                                            <label class="govuk-label govuk-checkboxes__label" for="panel-member3">
+                                                Medically qualified panel member
+                                            </label>
+                                        </div>
+                                        <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-member-2">
+                                            <div class="govuk-form-group">
+                                                <label class="govuk-label" for="specialism2">
+                                                    Choose specialism
+                                                </label>
+                                                <select class="govuk-select" id="specialism2" name="medi2">
+                                                    <option value="Please select" selected>Please select</option>
+                                                    <option value="published">Cardiologist</option>
+                                                    <option value="updated">Carer</option>
+                                                    <option value="views">Eye Surgeon</option>
+                                                    <option value="comments">General Practitioner</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="panel-member4" name="panel-members" value="Financially qualified panel member" type="checkbox">
+                                            <label class="govuk-label govuk-checkboxes__label" for="panel-member4">
+                                                Financially qualified panel member
+                                            </label>
+                                        </div>
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="panel-member5" name="panel-members" value="Regional Medical Member" type="checkbox" checked>
+                                            <label class="govuk-label govuk-checkboxes__label" for="panel-member5">
+                                                Regional Medical Member
+                                            </label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                </div>
+                            </div>
+
+
+
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="panelNo" name="hearingPanel" type="radio" value="no" {% if data.hearingPanel == 'no' %}  Checked {% endif %}>
+                                <label class="govuk-label govuk-radios__label" for="panelNo">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </div>
+
+                <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+            </form>
+
+        </div>
+    </div>
+
+<script>
+
+  window.onload = (event) => {
+
+    const panelNames = [
+      'Anne Jones',
+      'Adam French',
+      'Beth Rhodes',
+      'Bob Smith',
+      'Christine Roberts',
+      'Claire Andrews',
+      'Julie Greenwich'
+    ]
+
+    element1 = document.querySelector('#include-panel-container')
+    id = 'includePanelName'
+    accessibleAutocomplete({
+      element: element1,
+      id: id,
+      placeholder: 'e.g. John Smith',
+      source: panelNames,
+      name: 'include-panel-member-name'
+    })
+
+    element2 = document.querySelector('#exclude-panel-container')
+    id = 'excludePanelName'
+    accessibleAutocomplete({
+      element: element2,
+      id: id,
+      placeholder: 'e.g. John Smith',
+      source: panelNames,
+      name: 'exclude-panel-member-name'
+    })
+
+    // INCLUDE PANEL MEMBERS
+    document.getElementById("includePanelBtn").addEventListener("click", function() {
+      // Get excluded judges name
+      var includePanelName = document.getElementById("includePanelName").value
+      // Get filter tag display value
+      var includeFilterTag = document.getElementById("includeFilterTags")
+
+      // Show tag and add name to tag
+      if (includePanelName != '' && includeFilterTag.style.display == 'none') {
+        console.log(includePanelName)
+        includeFilterTag.style.display = 'inline-block'
+        document.getElementById("includePanelMemberTag").innerHTML = includePanelName
+        document.getElementById("includePanelName").value = ''
+      }
+    })
+    // Remove tag
+    document.getElementById("includeFilterTagClose").addEventListener("click", function() {
+      // Get filter tag display value
+      var filterTag = document.getElementById("includeFilterTags")
+      filterTag.style.display = 'none'
+    })
+
+
+    // EXCLUDE PANEL MEMBERS
+    document.getElementById("excludePanelBtn").addEventListener("click", function() {
+      // Get excluded judges name
+      var excludePanelName = document.getElementById("excludePanelName").value
+      // Get filter tag display value
+      var excludeFilterTag = document.getElementById("excludeFilterTags")
+
+      // Show tag and add name to tag
+      if (excludePanelName != '' && excludeFilterTag.style.display == 'none') {
+        console.log(excludePanelName)
+        excludeFilterTag.style.display = 'inline-block'
+        document.getElementById("excludePanelMemberTag").innerHTML = excludePanelName
+        document.getElementById("excludePanelName").value = ''
+      }
+    })
+    // Remove tag
+    document.getElementById("excludeFilterTagClose").addEventListener("click", function() {
+      // Get filter tag display value
+      var filterTag = document.getElementById("excludeFilterTags")
+      filterTag.style.display = 'none'
+    })
+
+  }
+
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+
+{% endblock %}

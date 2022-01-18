@@ -1,0 +1,68 @@
+{% extends "../../layout-xui.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+{% block beforeContent %}
+    <a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <form class="form" action="hearing-confirmation" method="post">
+
+            <h1 class="govuk-heading-l">
+                Provide a reason for changing this hearing
+            </h1>
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <div id="other-panel-roles-hint" class="govuk-hint">
+                        Select all that apply.
+                    </div>
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="cancel-reason-1" name="cancel-reason" value="Reason 1" type="checkbox">
+                            <label class="govuk-label govuk-checkboxes__label" for="cancel-reason-1">
+                                Reason 1
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="cancel-reason-2" name="cancel-reason" value="Reason 2" type="checkbox">
+                            <label class="govuk-label govuk-checkboxes__label" for="cancel-reason-2">
+                                Reason 2
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="cancel-reason-3" name="cancel-reason" value="Reason 3" type="checkbox">
+                            <label class="govuk-label govuk-checkboxes__label" for="cancel-reason-3">
+                                Reason 3
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <button class="govuk-button" data-module="govuk-button">Submit change request</button>
+
+            </form>
+
+            <p class="govuk-body">
+                <a href="#" onclick="goBack();" class="govuk-link">Go back to hearing summary</a>
+            </p>
+
+        </div>
+    </div>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+{% endblock %}
+

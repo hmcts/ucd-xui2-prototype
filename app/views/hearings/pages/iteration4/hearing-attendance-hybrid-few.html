@@ -1,0 +1,117 @@
+{% extends "../../layout-xui.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+{% block beforeContent %}
+    <a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <span class="govuk-caption-l">Request a hearing for Jane Smith vs DWP</span>
+            <h1 class="govuk-heading-l">
+                How will each participant attend the hearing?
+            </h1>
+
+            <p class="govuk-body">Where known, contact details for remote attendees will be included in the request.</p>
+
+            <form class="form" action="hearing-venue" method="post">
+
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset govuk-!-margin-bottom-4 govuk-!-margin-top-4">
+                        <legend class="govuk-heading-m">Jane Smith</legend>
+                        <div class="govuk-radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="p1-in-person" name="p1-channel" type="radio" value="In person">
+                                <label class="govuk-label govuk-radios__label" for="p1-in-person">
+                                    In person
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="p1-by-phone" name="p1-channel" type="radio" value="By phone">
+                                <label class="govuk-label govuk-radios__label" for="p1-by-phone">
+                                    By phone
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="p1-by-video" name="p1-channel" type="radio" value="By video">
+                                <label class="govuk-label govuk-radios__label" for="p1-by-video">
+                                    By video
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="p1-not-attending" name="p1-channel" type="radio" value="Not attending">
+                                <label class="govuk-label govuk-radios__label" for="p1-not-attending">
+                                    Not attending
+                                </label>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </div>
+
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset govuk-!-margin-bottom-4 govuk-!-margin-top-4">
+                        <legend class="govuk-heading-m">DWP</legend>
+                        <div class="govuk-radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="p2-in-person" name="p2-channel" type="radio" value="In person">
+                                <label class="govuk-label govuk-radios__label" for="p2-in-person">
+                                    In person
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="p2-by-phone" name="p2-channel" type="radio" value="By phone">
+                                <label class="govuk-label govuk-radios__label" for="p2-by-phone">
+                                    By phone
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="p2-by-video" name="p2-channel" type="radio" value="By video">
+                                <label class="govuk-label govuk-radios__label" for="p2-by-video">
+                                    By video
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="p2-not-attending" name="p2-channel" type="radio" value="Not attending">
+                                <label class="govuk-label govuk-radios__label" for="p2-not-attending">
+                                    Not attending
+                                </label>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </div>
+
+
+                <button class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">Continue</button>
+
+            </form>
+
+        </div>
+    </div>
+
+    <div class="govuk-form-group" style="position:absolute;margin-top: 80px;">
+        <p class="govuk-body-s">
+            <strong>Scenarios:</strong>
+
+            <strong><a href="/hearings/pages/iteration4/hearing-attendance-hybrid-few" class="govuk-link">Hybrid - less or equiv to 2 parties</a></strong> /
+            <a href="/hearings/pages/iteration4/hearing-attendance-hybrid-many" class="govuk-link">Hybrid - more than 2 parties</a>
+        </p>
+    </div>
+
+
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+
+{% endblock %}

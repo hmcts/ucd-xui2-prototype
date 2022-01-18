@@ -1,0 +1,141 @@
+{% extends "../../layout-xui.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+{% block beforeContent %}
+    <a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <span class="govuk-caption-l">Request a hearing for Jane Smith vs DWP</span>
+            <h1 class="govuk-heading-l">
+                Participant attendance
+            </h1>
+
+            {% if data['backtocheckanswers'] == 'true' %}
+            <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                    <span class="govuk-warning-text__assistive">Warning</span>
+                    Review the information on this page, it has been updated.
+                </strong>
+            </div>
+<!--            <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">-->
+<!--                <div class="govuk-notification-banner__header">-->
+<!--                    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">-->
+<!--                        Important-->
+<!--                    </h2>-->
+<!--                </div>-->
+<!--                <div class="govuk-notification-banner__content">-->
+<!--                    <p class="govuk-notification-banner__heading" style="max-width: none;">-->
+<!--                        Review the information on this page, it has been updated.-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </div>-->
+            {% endif %}
+
+            <div class="govuk-inset-text">
+                Where known, contact details for remote attendees will be included in the request.
+            </div>
+
+            <form class="form" action="hearing-venue" method="post">
+
+                <h3 class="govuk-heading-s">How will each participant attend the hearing?</h3>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="party1Channel">
+                        Jane Smith
+                    </label>
+                    <select class="govuk-select" id="party1Channel" name="party1Channel">
+                        <option value="Please select" selected>Please select</option>
+                        <option value="In person">In person</option>
+                        <option value="By phone">By phone</option>
+                        <option value="By video">By video</option>
+                        <option value="Not attending">Not attending</option>
+                    </select>
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="party2Channel">
+                        DWP
+                    </label>
+                    <select class="govuk-select" id="party2Channel" name="party2Channel">
+                        <option value="Please select" selected>Please select</option>
+                        <option value="In person">In person</option>
+                        <option value="By phone">By phone</option>
+                        <option value="By video">By video</option>
+                        <option value="Not attending">Not attending</option>
+                    </select>
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="party3Channel">
+                        Another participant
+                    </label>
+                    <select class="govuk-select" id="party3Channel" name="party3Channel">
+                        <option value="Please select" selected>Please select</option>
+                        <option value="In person">In person</option>
+                        <option value="By phone">By phone</option>
+                        <option value="By video">By video</option>
+                        <option value="Not attending">Not attending</option>
+                    </select>
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="party4Channel">
+                        Another participant
+                    </label>
+                    <select class="govuk-select" id="party4Channel" name="party4Channel">
+                        <option value="Please select" selected>Please select</option>
+                        <option value="In person">In person</option>
+                        <option value="By phone">By phone</option>
+                        <option value="By video">By video</option>
+                        <option value="Not attending">Not attending</option>
+                    </select>
+                </div>
+
+                <br />
+
+                <div class="govuk-form-group govuk-!-margin-top-2">
+                    <p class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="attendance-number">
+                        How many people will attend the hearing in person?
+                    </label>
+                    </p>
+                    <div id="attendance-number-hint" class="govuk-hint">
+                        Estimate how many people will attend in person, excluding judicial members. This number will determine the room size.
+                    </div>
+                    <input style="width: 80px;" class="govuk-input" id="attendance-number" name="attendance-number" value="{{ data['attendance-number'] }}" type="text" aria-describedby="attendance-number-hint">
+                </div>
+
+                <button class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">Continue</button>
+
+            </form>
+
+        </div>
+    </div>
+
+<!--    <div class="govuk-form-group" style="position:absolute;margin-top: 80px;">-->
+<!--        <p class="govuk-body-s">-->
+<!--            <strong>Scenarios:</strong>-->
+
+<!--            <a href="/hearings/pages/iteration4/hearing-attendance-hybrid-few" class="govuk-link">Hybrid - less or equiv to 2 parties</a> /-->
+<!--            <strong><a href="/hearings/pages/iteration4/hearing-attendance-hybrid-many" class="govuk-link">Hybrid - more than 2 parties</a></strong>-->
+<!--        </p>-->
+<!--    </div>-->
+
+
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+
+{% endblock %}
