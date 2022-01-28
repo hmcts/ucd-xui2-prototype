@@ -13,40 +13,25 @@ Case details
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-<!--        <div id="updateError" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary" {% if data['error'] != 'show' %}style="display:none;"{% else %} style="display:block;"{% endif %}>-->
-<!--            <h2 class="govuk-error-summary__title" id="error-summary-title">-->
-<!--                There is a problem-->
-<!--            </h2>-->
-<!--            <div class="govuk-error-summary__body">-->
-<!--                <ul class="govuk-list govuk-error-summary__list">-->
-<!--                    <li class="govuk-error-message">-->
-<!--                         <span class="govuk-visually-hidden">Error:</span> The request has not been updated-->
-<!--                    </li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </div>-->
+        <div id="updateError" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+            <h2 class="govuk-error-summary__title" id="error-summary-title">
+                There is a problem
+            </h2>
+            <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                    <li class="govuk-error-message">
+                         <span class="govuk-visually-hidden">Error:</span> The request has not been updated
+                    </li>
+                </ul>
+            </div>
+        </div>
 
-        {% if (data['status'] == 'pending') or (data['status'] == 'request') or (data['status'] == 'listed') %}
         <h1 class="govuk-heading-l">View or edit hearing</h1>
-        {% elif data['status'] == 'awaiting' %}
-        <h1 class="govuk-heading-l">View details</h1>
-        {% elif data['status'] == 'completed' %}
-        <h1 class="govuk-heading-l">Hearing completed</h1>
-        {% else %}
-        <h1 class="govuk-heading-l">Check your answers before sending your request</h1>
-        {% endif %}
-
-        <!--            {% if data['viewandchange'] == 'true' %}-->
-        <!--                View or edit hearing-->
-        <!--            {% else %}-->
-        <!--                Check your answers before sending your request-->
-        <!--            {% endif %}-->
 
         <form class="form" action="hearing-confirmation-answer" method="post">
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
-                {% if data['status'] != 'listed' %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         Case name
@@ -81,30 +66,16 @@ Case details
                     <dd class="govuk-summary-list__actions">
                     </dd>
                 </div>
-                {% endif %}
-
-                {% if data['viewandchange'] == 'true' %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         Status
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {% if data['status'] == 'request' %}
                         Update requested
-                        {% elif data['status'] == 'pending' %}
-                        Waiting to be listed
-                        {% elif data['status'] == 'listed' %}
-                        Listed
-                        {% elif data['status'] == 'awaiting' %}
-                        Awaiting hearing details
-                        {% elif data['status'] == 'completed' %}
-                        Completed
-                        {% endif %}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                     </dd>
                 </div>
-                {% if (data['status'] == 'pending') or (data['status'] == 'request') or (data['status'] == 'listed') %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         Date request submitted
@@ -115,134 +86,11 @@ Case details
                     <dd class="govuk-summary-list__actions">
                     </dd>
                 </div>
-                {% endif %}
-                {% if data['status'] == 'listed' %}
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Date response received
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        4 November 2021
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                    </dd>
-                </div>
-                {% endif %}
-                {% endif %}
             </dl>
 
-            {% if data['status'] == 'listed' %}
-            <!-- Listed summary -->
-            <h2 class="govuk-heading-m">Listing information summary</h2>
-            <dl class="govuk-summary-list govuk-!-margin-bottom-9" style="background-color:#f3f2f1;">
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key" style="padding:2px 10px;">
-                        Case name
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        Jane Smith vs DWP
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                    </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key" style="padding:2px 10px;">
-                        Case number
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        9468-3316-6763-1127
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                    </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key" style="padding:2px 10px;">
-                        Hearing stage
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        Final
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                    </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key" style="padding:2px 10px;">
-                        Hearing date
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        12 December 2021
-                    </dd>
-                    <dd class="govuk-summary-list__actions"></dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key" style="padding:2px 10px;">
-                        Time
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        10:30
-                    </dd>
-                    <dd class="govuk-summary-list__actions"></dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key" style="padding:2px 10px;">
-                        Duration
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        45 mins
-                    </dd>
-                    <dd class="govuk-summary-list__actions"></dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key" style="padding:2px 10px;">
-                        Location
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        Birmingham Civil and Family Justice Centre
-                    </dd>
-                    <dd class="govuk-summary-list__actions"></dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key" style="padding:2px 10px;">
-                        Room
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        3
-                    </dd>
-                    <dd class="govuk-summary-list__actions"></dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key" style="padding:2px 10px;">
-                        Judicial members
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        Judge John<br />
-                        Penny Wilson - Medically qualified panel member / General Practitioner<br />
-                        Joe Smith - Medically qualified panel member / Eye Surgeon<br />
-                    </dd>
-                    <dd class="govuk-summary-list__actions"></dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key" style="padding:2px 10px;">
-                        How participants will attend
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        Jane Smith - Video / CVP<br />
-                        DWP - Video / CVP
-                    </dd>
-                    <dd class="govuk-summary-list__actions"></dd>
-                </div>
-            </dl>
-            {% endif %}
-
-            {% if (data['status'] == 'request') or (data['status'] == 'pending') %}
             <div class="govuk-inset-text">
-                To amend this request, select change in the relevant section on this page then resubmit the request.
+                To update this request, select change in the relevant section on this page then resubmit the request.
             </div>
-            {% elif data['status'] == 'listed' %}
-            <div class="govuk-inset-text">
-                To amend this listing, select change in the relevant section on this page then resubmit the request.
-            </div>
-            {% endif %}
 
             <h2 class="govuk-heading-m">Hearing requirements </h2>
 
@@ -263,7 +111,7 @@ Case details
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         {% if data.changesallowed != 'false' %}
-                        {% if data.showflags == 'true' and data.changesallowed == 'true' and data.updateflags == 's2' %}<strong style="vertical-align: middle;" class="govuk-tag govuk-tag--green govuk-!-margin-right-3">Amended</strong>{% endif %}
+                        
                         <a class="govuk-link" href="hearing-requirements?backtocheckanswers=true&">
                             Change
                         </a>
@@ -281,11 +129,11 @@ Case details
                         Will additional security be required?
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ data['additionalSecurity'] }}
+                        No
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         {% if data.changesallowed != 'false' %}
-                        {% if data.showflags == 'true' and data.changesallowed == 'true' and data.updateflags == 's2' %}<strong style="vertical-align: middle;" class="govuk-tag govuk-tag--green govuk-!-margin-right-3">Amended</strong>{% endif %}
+                        
                         <a class="govuk-link" href="hearing-requirements-facilities?backtocheckanswers=true&">
                             Change
                         </a>
@@ -302,7 +150,7 @@ Case details
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         {% if data.changesallowed != 'false' %}
-                        {% if data.showflags == 'true' and data.changesallowed == 'true' and data.updateflags == 's2' %}<strong style="vertical-align: middle;" class="govuk-tag govuk-tag--green govuk-!-margin-right-3">Amended</strong>{% endif %}
+                        
                         <a class="govuk-link" href="hearing-requirements-facilities?backtocheckanswers=true&">
                             Change
                         </a>
@@ -318,11 +166,11 @@ Case details
                         What stage is this hearing at?
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ data.hearingstage }}
+                        Final
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         {% if data.changesallowed != 'false' %}
-                        {% if data.showflags == 'true' and data.changesallowed == 'true' and data.updateflags == 's1' %}<strong style="vertical-align: middle;" class="govuk-tag govuk-tag--green govuk-!-margin-right-3">Amended</strong>{% endif %}
+
                         <a class="govuk-link" href="hearing-stage?backtocheckanswers=true&">
                             Change
                         </a>
@@ -339,10 +187,8 @@ Case details
                         How will each participant attend the hearing?
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        Jane Smith - {{ data.party1Channel }} <br />
-                        DWP - {{ data.party2Channel }} <br />
-                        Claimant representative - {{ data.party3Channel }} <br />
-                        Respondent representative - {{ data.party4Channel }} <br />
+                        Jane Smith - Video <br />
+                        DWP - Video <br />
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         {% if data.changesallowed != 'false' %}
@@ -358,7 +204,7 @@ Case details
                         How many people will attend the hearing in person?
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ data['attendance-number'] }}
+                       7
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         {% if data.changesallowed != 'false' %}
@@ -369,7 +215,7 @@ Case details
                     </dd>
                 </div>
             </dl>
-            <h2 class="govuk-heading-m">Hearing venue <!--{% if ((data.status != 'completed') or (data.status != 'awaiting')) and (data.updatedflag == 'true') %}<strong style="vertical-align: middle; float: right;" class="govuk-tag govuk-tag--green govuk-!-margin-left-2">Section Amended</strong>{% endif %}--></h2>
+            <h2 class="govuk-heading-m">Hearing venue </h2>
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <!-- HEARING VENUE -->
                 <div class="govuk-summary-list__row">
@@ -401,7 +247,7 @@ Case details
                         Does this hearing need to be in Welsh?
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{  data.welshHearing  }}
+                        No
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         {% if data.changesallowed != 'false' %}
@@ -428,7 +274,7 @@ Case details
                         Do you want a specific judge?
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{  data.specificjudge }}
+                        No
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         {% if data.changesallowed != 'false' %}
@@ -597,7 +443,7 @@ Case details
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         {% if data.changesallowed != 'false' %}
-                        {% if data.showflags == 'true' and data.changesallowed == 'true' and data.updateflags == 's2' %}<strong style="vertical-align: middle;" class="govuk-tag govuk-tag--green govuk-!-margin-right-3">Amended</strong>{% endif %}
+                        
                         <a class="govuk-link" href="hearing-duration?backtocheckanswers=true&">
                             Change
                         </a>
@@ -613,7 +459,7 @@ Case details
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         {% if data.changesallowed != 'false' %}
-                        {% if data.showflags == 'true' and data.changesallowed == 'true' and data.updateflags == 's2' %}<strong style="vertical-align: middle;" class="govuk-tag govuk-tag--green govuk-!-margin-right-3">Amended</strong>{% endif %}
+                        
                         <a class="govuk-link" href="hearing-duration?backtocheckanswers=true&">
                             Change
                         </a>
@@ -631,7 +477,7 @@ Case details
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         {% if data.changesallowed != 'false' %}
-                        {% if data.showflags == 'true' and data.changesallowed == 'true' and data.updateflags == 's2' %}<strong style="vertical-align: middle;" class="govuk-tag govuk-tag--green govuk-!-margin-right-3">Amended</strong>{% endif %}
+                        
                         <a class="govuk-link" href="hearing-duration?backtocheckanswers=true&">
                             Change
                         </a>
@@ -649,7 +495,7 @@ Case details
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         {% if data.changesallowed != 'false' %}
-                        {% if data.showflags == 'true' and data.changesallowed == 'true' and data.updateflags == 's2' %}<strong style="vertical-align: middle;" class="govuk-tag govuk-tag--green govuk-!-margin-right-3">Amended</strong>{% endif %}
+                        
                         <a class="govuk-link" href="hearing-duration?backtocheckanswers=true&">
                             Change
                         </a>
@@ -664,7 +510,7 @@ Case details
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         {% if data.changesallowed != 'false' %}
-                        {% if data.showflags == 'true' and data.changesallowed == 'true' and data.updateflags == 's2' %}<strong style="vertical-align: middle;" class="govuk-tag govuk-tag--green govuk-!-margin-right-3">Amended</strong>{% endif %}
+                        
                         <a class="govuk-link" href="hearing-duration?backtocheckanswers=true&">
                             Change
                         </a>
@@ -681,7 +527,7 @@ Case details
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         {% if data.changesallowed != 'false' %}
-                        {% if data.showflags == 'true' and data.changesallowed == 'true' and data.updateflags == 's2' %}<strong style="vertical-align: middle;" class="govuk-tag govuk-tag--green govuk-!-margin-right-3">Amended</strong>{% endif %}
+                        
                         <a class="govuk-link" href="hearing-duration?backtocheckanswers=true&">
                             Change
                         </a>
@@ -765,47 +611,47 @@ Case details
     </div>
 </div>
 
-<hr />
-<p class="govuk-body govuk-!-margin-top-4">Scenarios:</p>
-<form method="post" action="#" style="margin-top: 20px;">
-    <fieldset class="govuk-fieldset">
-        <div class="govuk-form-group">
-            <label class="govuk-label" for="data-c1" style="font-size: 16px;">
-                Welsh hearing (question and row only appears if a Welsh venue is selected)
-            </label>
-            <select style="height: 30px;padding:0 5px;font-size: 14px;" class="govuk-select" id="data-c1" name="data-c1" onchange="window.location.href='?'+this.value">
-                <option value="welsh-hearing=true&"
-                        {% if data['welsh-hearing'] == 'true' %} selected  {% endif %}
-                >Show</option>
+<!--<hr />-->
+<!--<p class="govuk-body govuk-!-margin-top-4">Scenarios:</p>-->
+<!--<form method="post" action="#" style="margin-top: 20px;">-->
+<!--    <fieldset class="govuk-fieldset">-->
+<!--        <div class="govuk-form-group">-->
+<!--            <label class="govuk-label" for="data-c1" style="font-size: 16px;">-->
+<!--                Welsh hearing (question and row only appears if a Welsh venue is selected)-->
+<!--            </label>-->
+<!--            <select style="height: 30px;padding:0 5px;font-size: 14px;" class="govuk-select" id="data-c1" name="data-c1" onchange="window.location.href='?'+this.value">-->
+<!--                <option value="welsh-hearing=true&"-->
+<!--                        {% if data['welsh-hearing'] == 'true' %} selected  {% endif %}-->
+<!--                >Show</option>-->
 
-                <option value="welsh-hearing=false&"
-                        {% if data['welsh-hearing'] != 'true' %} selected  {% endif %}
-                >Hide</option>
+<!--                <option value="welsh-hearing=false&"-->
+<!--                        {% if data['welsh-hearing'] != 'true' %} selected  {% endif %}-->
+<!--                >Hide</option>-->
 
-            </select>
-        </div>
-    </fieldset>
-</form>
+<!--            </select>-->
+<!--        </div>-->
+<!--    </fieldset>-->
+<!--</form>-->
 
-{% if (data['status'] == 'pending') or (data['status'] == 'request') or (data['status'] == 'listed') %}
-<form method="post" action="#">
-    <fieldset class="govuk-fieldset">
-        <div class="govuk-form-group">
-            <label class="govuk-label" for="data-c1" style="font-size: 16px;">
-                Show 'amended' flag (appears when a change is made to an existing request or listed hearing)
-            </label>
-            <select style="height: 30px;padding:0 5px;font-size: 14px;" class="govuk-select" id="data-c1" name="data-c1" onchange="window.location.href='?'+this.value">
-                <option value="showflags=true&"
-                        {% if data['showflags'] == 'true' %} selected  {% endif %}
-                >Show flag</option>
+<!--{% if (data['status'] == 'pending') or (data['status'] == 'request') or (data['status'] == 'listed') %}-->
+<!--<form method="post" action="#">-->
+<!--    <fieldset class="govuk-fieldset">-->
+<!--        <div class="govuk-form-group">-->
+<!--            <label class="govuk-label" for="data-c1" style="font-size: 16px;">-->
+<!--                Show 'updated' flag (appears when a change is made to an existing request or listed hearing)-->
+<!--            </label>-->
+<!--            <select style="height: 30px;padding:0 5px;font-size: 14px;" class="govuk-select" id="data-c1" name="data-c1" onchange="window.location.href='?'+this.value">-->
+<!--                <option value="showflags=true&"-->
+<!--                        {% if data['showflags'] == 'true' %} selected  {% endif %}-->
+<!--                >Show flag</option>-->
 
-                <option value="showflags=false&"
-                        {% if data['showflags'] != 'true' %} selected  {% endif %}
-                >Hide flag</option>
+<!--                <option value="showflags=false&"-->
+<!--                        {% if data['showflags'] != 'true' %} selected  {% endif %}-->
+<!--                >Hide flag</option>-->
 
-            </select>
-        </div>
-    </fieldset>
+<!--            </select>-->
+<!--        </div>-->
+<!--    </fieldset>-->
 <!--    <fieldset class="govuk-fieldset">-->
 <!--        <div class="govuk-form-group">-->
 <!--            <label class="govuk-label" for="data-c1" style="font-size: 16px;">-->
@@ -823,8 +669,8 @@ Case details
 <!--            </select>-->
 <!--        </div>-->
 <!--    </fieldset>-->
-</form>
-{% endif %}
+<!--</form>-->
+<!--{% endif %}-->
 
 
 
