@@ -1,0 +1,124 @@
+{% extends "../layout-xui.html" %}
+
+{% block pageTitle %}
+Hearings management
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Jane Smith vs DWP</span>
+        <h1 class="govuk-heading-l">
+            Hearing timings
+        </h1>
+        <br />
+
+        <!-- Start and end time -->
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="startTime">
+                Start time
+            </label>
+<!--                <div id="startHint" class="govuk-hint">-->
+<!--                    For example, 13:00-->
+<!--                </div>-->
+            <input class="govuk-input govuk-date-input__input govuk-input--width-5" id="startTime" name="start-time" type="text" value="13:00" />
+        </div>
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="endTime">
+                Finish time
+            </label>
+<!--                <div id="endHint" class="govuk-hint">-->
+<!--                    For example, 14:30-->
+<!--                </div>-->
+            <input class="govuk-input govuk-date-input__input govuk-input--width-5" id="endTime" name="end-time" type="text" value="15:00" />
+        </div>
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="endTime">
+                Pause time (optional)
+            </label>
+            <div id="endHint" class="govuk-hint">
+                For example, 13:30
+            </div>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-5" id="endTime" name="end-time" type="text" value="13:30" />
+        </div>
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="endTime">
+                Resume time (optional)
+            </label>
+            <div id="endHint" class="govuk-hint">
+                For example, 13:55
+            </div>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-5" id="endTime" name="end-time" type="text" value="14:00" />
+        </div>
+
+<!--        <div class="govuk-form-group govuk-!-margin-bottom-0" id="newPauseTime" style="display:none;">-->
+<!--            <label class="govuk-label govuk-!-font-weight-bold" for="endTime">-->
+<!--                Pause time-->
+<!--            </label>-->
+<!--            <div id="endHint" class="govuk-hint">-->
+<!--                For example, 13:30-->
+<!--            </div>-->
+<!--            <input class="govuk-input govuk-date-input__input govuk-input&#45;&#45;width-5" id="endTime" name="end-time" type="text" value="14:00" />-->
+<!--            <button class="govuk-button hmcts-button&#45;&#45;secondary" data-module="govuk-button" id="removePauseBtn">-->
+<!--                Remove-->
+<!--            </button>-->
+<!--        </div>-->
+<!--        <div class="govuk-form-group govuk-!-margin-bottom-0" id="newPauseTime" style="display:none;">-->
+<!--            <label class="govuk-label govuk-!-font-weight-bold" for="endTime">-->
+<!--                Resume time-->
+<!--            </label>-->
+<!--            <div id="endHint" class="govuk-hint">-->
+<!--                For example, 13:55-->
+<!--            </div>-->
+<!--            <input class="govuk-input govuk-date-input__input govuk-input&#45;&#45;width-5" id="endTime" name="end-time" type="text" value="14:00" />-->
+<!--            <button class="govuk-button hmcts-button&#45;&#45;secondary" data-module="govuk-button" id="removePauseBtn">-->
+<!--                Remove-->
+<!--            </button>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <button class="govuk-button hmcts-button&#45;&#45;secondary govuk-!-margin-bottom-6" data-module="govuk-button" id="addPauseTimeBtn">-->
+<!--                Add more pause & resume times-->
+<!--            </button>-->
+<!--        </div>-->
+
+        <br />
+
+        <form class="form" action="actuals-categories" method="post">
+            <button class="govuk-button primary" data-module="govuk-button">
+                Save and continue
+            </button>
+        </form>
+
+        </div>
+    </div>
+
+<script>
+
+    var addPauseTimeBtn = document.getElementById('addPauseTimeBtn')
+    addPauseTimeBtn.addEventListener('click', addPauseTime)
+
+    var removePauseTimeBtn = document.getElementById('removePauseBtn')
+    removePauseTimeBtn.addEventListener('click', removePauseTime)
+
+  function addPauseTime() {
+    var getNewPauseTimeVisible = document.getElementById('newPauseTime')
+    getNewPauseTimeVisible.style.display = "block"
+  }
+
+    function removePauseTime() {
+      var getNewPauseTimeVisible = document.getElementById('newPauseTime')
+      getNewPauseTimeVisible.style.display = "none"
+    }
+
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+{% endblock %}

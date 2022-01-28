@@ -1,0 +1,123 @@
+{% extends "../layout-xui.html" %}
+
+{% block pageTitle %}
+Hearings management
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Jane Smith vs DWP</span>
+        <h1 class="govuk-heading-l">
+            Reasonable adjustments
+        </h1>
+        <br />
+
+        <form class="form" action="actuals-categories" method="post">
+
+            <h3 class="govuk-heading-m">Sign language - British Sign Language (BSL)</h3>
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h3 class="govuk-fieldset__heading">
+                            Was this reasonable adjustment met?
+                        </h3>
+                    </legend>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="reasonableAdjustments1MetYes" name="reasonable-adjustment-1" type="radio" value="Yes" {{ checked("reasonable-adjustment-1", "Yes") }}>
+                            <label class="govuk-label govuk-radios__label" for="reasonableAdjustments1MetYes">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="reasonableAdjustments1MetNo" name="reasonable-adjustment-1" data-aria-controls="conditional-result1" type="radio" value="No" {{ checked("reasonable-adjustment-1", "No") }}>
+                            <label class="govuk-label govuk-radios__label" for="reasonableAdjustments1MetNo">
+                                No
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-result1">
+                            <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-label--s" for="with-hint1">
+                                        Enter a reason why this was not provided
+                                    </label>
+                                    <textarea class="govuk-textarea govuk-js-character-count" id="with-hint1" name="with-hint1" rows="5" aria-describedby="with-hint1-info with-hint1-hint">{{ data['with-hint1'] }}</textarea>
+                                </div>
+
+                                <div id="with-hint1-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+                                    You can enter up to 200 characters
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <h3 class="govuk-heading-m">Wheelchair access</h3>
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h3 class="govuk-fieldset__heading">
+                            Was this reasonable adjustment met?
+                        </h3>
+                    </legend>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="reasonableAdjustments2MetYes" name="reasonable-adjustment-2" type="radio" value="Yes" {{ checked("reasonable-adjustment-2", "Yes") }}>
+                            <label class="govuk-label govuk-radios__label" for="reasonableAdjustments2MetYes">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="reasonableAdjustments2MetNo" name="reasonable-adjustment-2" data-aria-controls="conditional-result2" type="radio" value="No" {{ checked("reasonable-adjustment-2", "No") }}>
+                            <label class="govuk-label govuk-radios__label" for="reasonableAdjustments2MetNo">
+                                No
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-result2">
+                            <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-label--s" for="with-hint2">
+                                        Enter a reason why this was not provided
+                                    </label>
+                                    <textarea class="govuk-textarea govuk-js-character-count" id="with-hint2" name="with-hint2" rows="5" aria-describedby="with-hint2-info with-hint2-hint">{{ data['with-hint2'] }}</textarea>
+                                </div>
+
+                                <div id="with-hint2-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+                                    You can enter up to 200 characters
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <br />
+
+            <button class="govuk-button primary" data-module="govuk-button">
+                Save and continue
+            </button>
+
+        </form>
+
+
+
+        </div>
+    </div>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+{% endblock %}

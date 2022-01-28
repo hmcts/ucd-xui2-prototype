@@ -1,0 +1,306 @@
+{% extends "../layout-xui.html" %}
+
+{% block pageTitle %}
+Hearings management
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Jane Smith vs DWP</span>
+        <h1 class="govuk-heading-l">
+            Hearing stage and result
+        </h1>
+        <br />
+
+        <form class="form" action="actuals-categories" method="post">
+
+            <!-- Hearing stage -->
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-weight-bold" for="hearingStage">
+                    Hearing stage
+                </label>
+                <select class="govuk-select govuk-!-width-one-third" id="hearingStage" name="hearing-stage">
+                    <option value="Initial" {% if data['hearing-stage'] == "Initial" %} selected {% endif %}>Initial</option>
+                    <option value="Final" {% if data['hearing-stage'] == "Final" %} selected {% endif %}>Final</option>
+                    <option value="Substantial" {% if data['hearing-stage'] == "Substantial" %} selected {% endif %}>Substantial</option>
+                    <option value="Case management" {% if data['hearing-stage'] == "Case management" %} selected {% endif %}>Case management</option>
+                </select>
+            </div>
+
+            <br />
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h1 class="govuk-fieldset__heading">
+                            Hearing result
+                        </h1>
+                    </legend>
+                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="hearingResult1" name="hearing-result" type="radio" data-aria-controls="conditional-result1" value="Order or decision" {% if data['hearing-result'] == 'Order or decision' %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="hearingResult1">
+                                Order or decision
+                            </label>
+                        </div>
+                        <!-- Hearing result B -->
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-result1">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-!-font-weight-bold" for="decisionType">
+                                    Hearing outcome
+                                </label>
+                                <select class="govuk-select govuk-!-width-two-thirds" id="decisionType" name="decision-type">
+                                    <option value="Please select">Please select</option>
+                                    <option value="Decision in favour of Appellant">Decision in favour of Appellant</option>
+                                    <option value="Decision Reserved">Decision Reserved</option>
+                                    <option value="Decision Revised Against Appellant">Decision Revised Against Appellant</option>
+                                    <option value="Decision Upheld">Decision Upheld</option>
+                                    <option value="Reference, Revised against Appellant">Reference, Revised against Appellant</option>
+                                    <option value="Reference, Revised in favour of Appellant">Reference, Revised in favour of Appellant</option>
+                                    <option value="Revised, Assessment increased, for shortened period">Revised, Assessment increased, for shortened period</option>
+                                    <option value="Revised, Assessment less, for longer period">Revised, Assessment less, for longer period</option>
+                                    <option value="Revised, Assessment the same, for longer period">Revised, Assessment the same, for longer period</option>
+                                    <option value="% Disablement Increased <80%, No Benefit award">% Disablement Increased <80%, No Benefit award</option>
+                                    <option value="Struck-Out at Hearing">Struck-Out at Hearing</option>
+                                    <option value="Withdrawn at Hearing">Withdrawn at Hearing</option>
+                                    <option value="Outwith/ Outside Jurisdiction">Outwith/ Outside Jurisdiction</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="hearingResult2" name="hearing-result" type="radio" data-aria-controls="conditional-result2" value="Part-heard, adjourned or postponed" {% if data['hearing-result'] == 'Part-heard, adjourned or postponed' %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="hearingResult2">
+                                Part-heard, adjourned or postponed
+                            </label>
+                        </div>
+                        <!-- Hearing result B -->
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-result2">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-!-font-weight-bold" for="adjournedReason">
+                                    Select a reason for this result
+                                </label>
+                                <select class="govuk-select govuk-!-width-two-thirds" id="adjournedReason" name="adjournment-reason">
+                                    <option value="Please select">Please select</option>
+                                    <option value="Postponed, due to Exclusions">Postponed, due to Exclusions</option>
+                                    <option value="Postponed, due to Other Reasons">Postponed, due to Other Reasons</option>
+                                    <option value="Postponed, Incomplete Tribunal">Postponed, Incomplete Tribunal</option>
+                                    <option value="Postponed, No Reason Given">Postponed, No Reason Given</option>
+                                    <option value="Postponed, Other Party unable to attend">Postponed, Other Party unable to attend</option>
+                                    <option value="Adjourned, Appellant to attend - oral requested - did not attend - reason given">Adjourned, Appellant to attend - oral requested - did not attend - reason given</option>
+                                    <option value="Adjourned, Appellant to attend - oral requested - did not attend - no reason">Adjourned, Appellant to attend - oral requested - did not attend - no reason</option>
+                                    <option value="Adjourned, Appellant to attend - paper requested or no Enquiry Form returned">Adjourned, Appellant to attend - paper requested or no Enquiry Form returned</option>
+                                    <option value="Adjourned, Further medical evidence essential">Adjourned, Further medical evidence essential</option>
+                                    <option value="Adjourned, Evidence or further Response from Respondent required">Adjourned, Evidence or further Response from Respondent required</option>
+                                    <option value="Adjourned, Evidence or submission from Appellant required">Adjourned, Evidence or submission from Appellant required</option>
+                                    <option value="Adjourned, No Interpreter">Adjourned, No Interpreter</option>
+                                    <option value="Adjourned, Insufficient time to deal with case">Adjourned, Insufficient time to deal with case</option>
+                                    <option value="Adjourned, Documents supplied but not before the Tribunal at the hearing">Adjourned, Documents supplied but not before the Tribunal at the hearing</option>
+                                    <option value="Adjourned, Presenting Officer to attend">Adjourned, Presenting Officer to attend</option>
+                                    <option value="Adjourned, Respondent failed to comply with direction">Adjourned, Respondent failed to comply with direction</option>
+                                    <option value="Adjourned, Other administrative errors (specify error)">Adjourned, Other administrative errors (specify error)</option>
+                                    <option value="Adjourned, Other reasons for adjourning">Adjourned, Other reasons for adjourning</option>
+                                    <option value="Adjourned, element(s) outstanding">Adjourned, element(s) outstanding</option>
+                                    <option value="Adjourned, All Elements Adjourned">Adjourned, All Elements Adjourned</option>
+                                    <option value="Adjourned, Listed paper case not heard due to lack of time">Adjourned, Listed paper case not heard due to lack of time</option>
+                                </select>
+                            </div>
+
+                            <div class="govuk-form-group">
+                                <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+                                    <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+                                        Adjournment date
+                                    </legend>
+                                    <div id="adjournment-date-hint" class="govuk-hint">
+                                        For example, 27 3 2021
+                                    </div>
+                                    <div class="govuk-date-input" id="passport-issued">
+                                        <div class="govuk-date-input__item">
+                                            <div class="govuk-form-group">
+                                                <label class="govuk-label govuk-date-input__label" for="adjournment-day">
+                                                    Day
+                                                </label>
+                                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="adjournment-day" name="adjournment-day" value="{{ data['adjournment-day'] }}" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+                                        </div>
+                                        <div class="govuk-date-input__item">
+                                            <div class="govuk-form-group">
+                                                <label class="govuk-label govuk-date-input__label" for="adjournment-month">
+                                                    Month
+                                                </label>
+                                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="adjournment-month" name="adjournment-month" value="{{ data['adjournment-month'] }}" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+                                        </div>
+                                        <div class="govuk-date-input__item">
+                                            <div class="govuk-form-group">
+                                                <label class="govuk-label govuk-date-input__label" for="adjournment-year">
+                                                    Year
+                                                </label>
+                                                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="adjournment-year" name="adjournment-year" value="{{ data['adjournment-year'] }}" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="hearingResult3" name="hearing-result" type="radio" data-aria-controls="conditional-result3" value="Withdrawn, cancelled or vacated" {% if data['hearing-result'] == 'Withdrawn, cancelled or vacated' %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="hearingResult3">
+                                Withdrawn, cancelled or vacated
+                            </label>
+                        </div>
+                        <!-- Hearing result B -->
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-result3">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-!-font-weight-bold" for="postponedReason">
+                                    Select a reason for this result
+                                </label>
+                                <select class="govuk-select govuk-!-width-two-thirds" id="postponedReason" name="postponed-reason">
+                                    <option value="Please select">Please select</option>
+                                    <option value="Postponed reason 1">Reason 1</option>
+                                    <option value="Postponed reason 2">Reason 2</option>
+                                    <option value="Postponed reason 3">Reason 3</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+
+
+            <!-- Hearing result - Needs confirmation from Architects -->
+<!--            <div class="govuk-form-group">-->
+<!--                <fieldset class="govuk-fieldset">-->
+<!--                    <legend class="govuk-fieldset__legend govuk-fieldset__legend&#45;&#45;s">-->
+<!--                        <h1 class="govuk-fieldset__heading">-->
+<!--                            Hearing result-->
+<!--                        </h1>-->
+<!--                    </legend>-->
+<!--                    <div class="govuk-radios govuk-radios&#45;&#45;conditional" data-module="govuk-radios">-->
+<!--                        <div class="govuk-radios__item">-->
+<!--                            <input class="govuk-radios__input" id="hearingResult1" name="hearing-result" type="radio" data-aria-controls="conditional-result1" value="Decision" {% if data['hearing-result'] == 'Decision' %} checked {% endif %}>-->
+<!--                            <label class="govuk-label govuk-radios__label" for="hearingResult1">-->
+<!--                                Decision-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; Hearing result B &ndash;&gt;-->
+<!--                        <div class="govuk-radios__conditional govuk-radios__conditional&#45;&#45;hidden" id="conditional-result1">-->
+<!--                            <div class="govuk-form-group">-->
+<!--                                <label class="govuk-label govuk-!-font-weight-bold" for="decisionType">-->
+<!--                                    Decision type-->
+<!--                                </label>-->
+<!--                                <select class="govuk-select govuk-!-width-two-thirds" id="decisionType" name="decision-type">-->
+<!--                                    <option value="Please select">Please select</option>-->
+<!--                                    <option value="Decision type 1">Decision type 1</option>-->
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="govuk-radios__item">-->
+<!--                            <input class="govuk-radios__input" id="hearingResult2" name="hearing-result" type="radio" data-aria-controls="conditional-result2" value="Adjourned" {% if data['hearing-result'] == 'Adjourned' %} checked {% endif %}>-->
+<!--                            <label class="govuk-label govuk-radios__label" for="hearingResult2">-->
+<!--                                Adjourned-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; Hearing result B &ndash;&gt;-->
+<!--                        <div class="govuk-radios__conditional govuk-radios__conditional&#45;&#45;hidden" id="conditional-result2">-->
+<!--                            <div class="govuk-form-group">-->
+<!--                                <label class="govuk-label govuk-!-font-weight-bold" for="adjournedReason">-->
+<!--                                    Adjournment reason-->
+<!--                                </label>-->
+<!--                                <select class="govuk-select govuk-!-width-two-thirds" id="adjournedReason" name="adjournment-reason">-->
+<!--                                    <option value="Please select">Please select</option>-->
+<!--                                    <option value="Medial evidence essential">Medial evidence essential</option>-->
+<!--                                    <option value="Evidence or further response from respondent required">Evidence or further response from respondent required</option>-->
+<!--                                    <option value="Evidence or submission from appellant required">Evidence or submission from appellant required</option>-->
+<!--                                    <option value="Interpreter required">Interpreter required</option>-->
+<!--                                    <option value="Insufficient time to deal with cases">Insufficient time to deal with cases</option>-->
+<!--                                    <option value="Documents supplied but not before the tribunal at the hearing">Documents supplied but not before the tribunal at the hearing</option>-->
+<!--                                    <option value="Presenting officer to attend">Presenting officer to attend</option>-->
+<!--                                    <option value="Respondent failed to comply with directions">Respondent failed to comply with directions</option>-->
+<!--                                    <option value="Other admin errors">Other admin errors</option>-->
+<!--                                    <option value="Element(s) outstanding">Element(s) outstanding</option>-->
+<!--                                </select>-->
+<!--                            </div>-->
+
+<!--                            <div class="govuk-form-group">-->
+<!--                                <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">-->
+<!--                                    <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">-->
+<!--                                        Adjournment date-->
+<!--                                    </legend>-->
+<!--                                    <div id="adjournment-date-hint" class="govuk-hint">-->
+<!--                                        For example, 27 3 2021-->
+<!--                                    </div>-->
+<!--                                    <div class="govuk-date-input" id="passport-issued">-->
+<!--                                        <div class="govuk-date-input__item">-->
+<!--                                            <div class="govuk-form-group">-->
+<!--                                                <label class="govuk-label govuk-date-input__label" for="adjournment-day">-->
+<!--                                                    Day-->
+<!--                                                </label>-->
+<!--                                                <input class="govuk-input govuk-date-input__input govuk-input&#45;&#45;width-2" id="adjournment-day" name="adjournment-day" value="{{ data['adjournment-day'] }}" type="text" pattern="[0-9]*" inputmode="numeric"></div>-->
+<!--                                        </div>-->
+<!--                                        <div class="govuk-date-input__item">-->
+<!--                                            <div class="govuk-form-group">-->
+<!--                                                <label class="govuk-label govuk-date-input__label" for="adjournment-month">-->
+<!--                                                    Month-->
+<!--                                                </label>-->
+<!--                                                <input class="govuk-input govuk-date-input__input govuk-input&#45;&#45;width-2" id="adjournment-month" name="adjournment-month" value="{{ data['adjournment-month'] }}" type="text" pattern="[0-9]*" inputmode="numeric"></div>-->
+<!--                                        </div>-->
+<!--                                        <div class="govuk-date-input__item">-->
+<!--                                            <div class="govuk-form-group">-->
+<!--                                                <label class="govuk-label govuk-date-input__label" for="adjournment-year">-->
+<!--                                                    Year-->
+<!--                                                </label>-->
+<!--                                                <input class="govuk-input govuk-date-input__input govuk-input&#45;&#45;width-4" id="adjournment-year" name="adjournment-year" value="{{ data['adjournment-year'] }}" type="text" pattern="[0-9]*" inputmode="numeric"></div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </fieldset>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="govuk-radios__item">-->
+<!--                            <input class="govuk-radios__input" id="hearingResult3" name="hearing-result" type="radio" data-aria-controls="conditional-result3" value="Postponed" {% if data['hearing-result'] == 'Postponed' %} checked {% endif %}>-->
+<!--                            <label class="govuk-label govuk-radios__label" for="hearingResult3">-->
+<!--                                Postponed on the day-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; Hearing result B &ndash;&gt;-->
+<!--                        <div class="govuk-radios__conditional govuk-radios__conditional&#45;&#45;hidden" id="conditional-result3">-->
+<!--                            <div class="govuk-form-group">-->
+<!--                                <label class="govuk-label govuk-!-font-weight-bold" for="postponedReason">-->
+<!--                                    Postponed reason-->
+<!--                                </label>-->
+<!--                                <select class="govuk-select govuk-!-width-two-thirds" id="postponedReason" name="postponed-reason">-->
+<!--                                    <option value="Please select">Please select</option>-->
+<!--                                    <option value="Postponed reason 1">Postponed reason 1</option>-->
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                    </div>-->
+<!--                </fieldset>-->
+<!--            </div>-->
+
+            <br />
+            <br />
+
+            <button class="govuk-button primary" data-module="govuk-button">
+                Save and continue
+            </button>
+
+        </form>
+
+
+
+        </div>
+    </div>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+{% endblock %}

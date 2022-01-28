@@ -1,0 +1,416 @@
+{% extends "../layout-xui.html" %}
+
+{% block pageTitle %}
+Case details
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="goBack();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-l">
+            <span class="govuk-caption-l">Jane Smith vs DWP</span>
+            Hearing details
+        </h1>
+
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Listing information summary
+                </span>
+            </summary>
+            <div class="govuk-details__text">
+                <dl class="govuk-summary-list" style="background-color:#f3f2f1;">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key" style="padding:2px 10px;">
+                            Status
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Completed
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key" style="padding:2px 10px;">
+                            Case name
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Jane Smith vs DWP
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key" style="padding:2px 10px;">
+                            Case number
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            9468-3316-6763-1127
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key" style="padding:2px 10px;">
+                            Hearing stage
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Final
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key" style="padding:2px 10px;">
+                            Hearing date
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            12 December 2021
+                        </dd>
+                        <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key" style="padding:2px 10px;">
+                            Time
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            10:30
+                        </dd>
+                        <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key" style="padding:2px 10px;">
+                            Duration
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            45 mins
+                        </dd>
+                        <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key" style="padding:2px 10px;">
+                            Location
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Birmingham Civil and Family Justice Centre
+                        </dd>
+                        <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key" style="padding:2px 10px;">
+                            Room
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            3
+                        </dd>
+                        <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key" style="padding:2px 10px;">
+                            Judicial members
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Judge John<br />
+                            Penny Wilson - Medically qualified panel member / General Practitioner<br />
+                            Joe Smith - Medically qualified panel member / Eye Surgeon<br />
+                        </dd>
+                        <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key" style="padding:2px 10px;">
+                            Participant attendance
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Jane Smith - Video / CVP<br />
+                            DWP - Video / CVP
+                        </dd>
+                        <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+                </dl>
+            </div>
+        </details>
+
+        <div id="hearingDetails">
+
+            <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Hearing date
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        15 December 2021
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                    </dd>
+                </div>
+            </dl>
+            <br />
+
+            <h1 class="govuk-heading-m" style="display: inline-block;">
+                Hearing stage and result
+
+            </h1>
+
+            <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Hearing stage
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Final
+                    </dd>
+                </div>
+
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Hearing result
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Order or decision
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Decision type
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Decision Upheld
+                    </dd>
+                </div>
+            </dl>
+
+            <br />
+
+            <h1 class="govuk-heading-m" style="display: inline-block;">
+                Hearing timings
+            </h1>
+
+            <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Start time
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        13:00
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Finish time
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        15:00
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Pause time
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        13:30
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Resume time
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        14:00
+                    </dd>
+                </div>
+            </dl>
+
+            <br />
+
+            <h1 class="govuk-heading-m" style="display: inline-block;">
+                Participants
+            </h1>
+
+            <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Jane Smith
+                        <br /><br />
+                        Channel
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        <br /><br />
+                        Video
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Sub-channel
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        CVP
+                    </dd>
+                </div>
+                <br />
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        DWP <br /><br />
+                        Channel
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        <br /><br />
+                        Video
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Sub-channel
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        CVP
+                    </dd>
+                </div>
+            </dl>
+
+            <br />
+            <h2 class="govuk-heading-s">
+                Attendee 1
+            </h2>
+
+            <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Role
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Interpreter
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        First name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        John
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Last name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Smith
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Channel
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Video
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Sub-channel
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        CVP
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Organisation
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        XYL Interpreters Ltd
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Attendee representing
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Jane Smith
+                    </dd>
+                </div>
+            </dl>
+
+            <br />
+            <h2 class="govuk-heading-s">
+                Attendee 2
+            </h2>
+
+            <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Role
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Solicitor
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        First name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Claire
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Last name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Richards
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Channel
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Video
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Sub-channel
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        CVP
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Organisation
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        XYZ Legal & Co
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+                    <dt class="govuk-summary-list__key">
+                        Attendee representing
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        DWP
+                    </dd>
+                </div>
+            </dl>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+{% endblock %}
