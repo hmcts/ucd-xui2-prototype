@@ -1,0 +1,71 @@
+{% extends "../../layout-ways-to-pay.html" %}
+
+{% block pageTitle %}
+    Case details
+{% endblock %}
+
+{% block content %}
+<div>
+  <a href="payment-history" class="govuk-back-link">Back</a>
+  <h2 class="govuk-heading-l">Service request</h2>
+  <dl class="govuk-summary-list" style="width: 50%;">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key" style="width: 100%;">
+        Status
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Not paid
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key" style="width: 100%;">
+        Party
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Laura Narran
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key" style="width: 100%;">
+        Service request reference
+      </dt>
+      <dd class="govuk-summary-list__value">
+        XX-XXXX-XXXX-XXXX-XXXX
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key" style="width: 100%;">
+        Date created
+      </dt>
+      <dd class="govuk-summary-list__value">
+        27 February 2021
+      </dd>
+    </div>
+  </dl>
+
+  <table class="govuk-table"  style="width:960px; margin-bottom: 20px;">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" scope="col" style="width:400px;">Fee</th>
+        <th class="govuk-table__header" scope="col" style="width:100px; text-align: center;">Quantity</th>
+        <th class="govuk-table__header" scope="col" style="width:150px; text-align: right;"></th>
+        <th class="govuk-table__header" scope="col" style="width:100px; text-align: right;">Total</th>
+        <th class="govuk-table__header" scope="col" style="width:150px; text-align: right;"></th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Copy of a document (for each copy)</td>
+        <td class="govuk-table__cell"style="text-align: center">4 x £1.50</td>
+        <td class="govuk-table__cell"style="text-align: right"></td>
+        <td class="govuk-table__cell" style="text-align: right">£6.00</td>
+        <td class="govuk-table__cell" style="text-align: right;">
+          <a href="refund/hwf?refund=remission" class="govuk-button govuk-button--secondary">
+            Pay online
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "../../layout-ways-to-pay.html" %}
+
+{% block pageTitle %}
+    Case details
+{% endblock %}
+
+{% block content %}
+<div>
+  <h3 class="govuk-heading-m">Payment requests</h3>
+  <table class="govuk-table"  style="width:100%; margin-bottom: 20px;">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" scope="col" style="width:10%">Status</th>
+        <th class="govuk-table__header" scope="col" style="width:10%;">Amount</th>
+        <th class="govuk-table__header" scope="col" style="width:10%;">Party</th>
+        <th class="govuk-table__header" scope="col" style="width:15%;">Due date</th>
+        <th class="govuk-table__header" scope="col" style="width:20%;">Payment reference</th>
+        <th class="govuk-table__header" scope="col" style="width:10%"></th>
+        <th class="govuk-table__header" scope="col" style="width:15%"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Not paid</td>
+        <td class="govuk-table__cell">£6.00</td>
+        <td class="govuk-table__cell">Laura Narran</td>
+        <td class="govuk-table__cell">4th March 2022</td>
+        <td class="govuk-table__cell">XX-XXXX-XXXX-XXXX-XXXX</td>
+        <td class="govuk-table__cell">
+          <a href="payment-history-detail">
+            Review
+          </a>
+        </td>
+        <td class="govuk-table__cell">
+          <a target=”_blank” href="" class="govuk-!-margin-bottom-2 unprocessed-button-group govuk-button govuk-button--secondary  govuk-!-margin-0">
+            Pay online
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 class="govuk-heading-m">Payments history</h3>
+  <table class="govuk-table"  style="width:100%; margin-bottom: 20px;">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="col" style="width:10%">Status</th>
+          <th class="govuk-table__header" scope="col" style="width:10%;">Amount</th>
+          <th class="govuk-table__header" scope="col" style="width:10%;">Party</th>
+          <th class="govuk-table__header" scope="col" style="width:15%;">Date</th>
+          <th class="govuk-table__header" scope="col" style="width:20%;">Payment reference</th>
+          <th class="govuk-table__header" scope="col" style="width:10%"></th>
+          <th class="govuk-table__header" scope="col" style="width:15%"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Success</td>
+        <td class="govuk-table__cell">£550.00</td>
+        <td class="govuk-table__cell">Laura Narran</td>
+        <td class="govuk-table__cell">2nd Jan 2022</td>
+        <td class="govuk-table__cell">XX-XXXX-XXXX-XXXX-XXXX</td>
+        <td class="govuk-table__cell">
+          <a href="">
+            Review
+          </a>
+        </td>
+        <td class="govuk-table__cell">
+        </td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Failed</td>
+        <td class="govuk-table__cell">£550.00</td>
+        <td class="govuk-table__cell">Laura Narran</td>
+        <td class="govuk-table__cell">13nd Dec 2021</td>
+        <td class="govuk-table__cell">XX-XXXX-XXXX-XXXX-XXXX</td>
+        <td class="govuk-table__cell">
+          <a href="">
+            Review
+          </a>
+        </td>
+        <td class="govuk-table__cell"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}
