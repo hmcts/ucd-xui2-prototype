@@ -1,4 +1,4 @@
-{% extends "../../layout-ways-to-pay.html" %}
+{% extends "../../layout-xui.html" %}
 
 {% block pageTitle %}
     Case details
@@ -6,19 +6,23 @@
 
 {% block content %}
 <div>
-  <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
-    <h2 class="govuk-error-summary__title" id="error-summary-title">
-      There is a problem
-    </h2>
-    <div class="govuk-error-summary__body">
-      <ul class="govuk-list govuk-error-summary__list">
-        <li>
-          Error message one
-        </li>
-        <li>
-          Error message two
-        </li>
-      </ul>
+  <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Important
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <p class="govuk-notification-banner__heading">
+        Are you sure you want to leave?
+      </p>
+      <p>
+        Your application is incomplete, but it has been saved.
+      </p>
+      <p class="govuk-notification-banner__heading">
+        <a class="govuk-notification-banner__link" href="#">Yes</a>&nbsp;&nbsp;&nbsp;
+        <a class="govuk-notification-banner__link" href="#">No</a>
+      </p>
     </div>
   </div>
   <div class="govuk-form-group">
