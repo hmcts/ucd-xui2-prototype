@@ -74,9 +74,11 @@
           <tr class="govuk-table__row">
             <td>
               <div class="govuk-button-group">
-                <button class="govuk-button" data-module="govuk-button">
-                  Check and submit your application
-                </button>
+                {{ govukButton({
+                  text: "Check and submit your application",
+                  href: 'payment-check-before-you-pay-2',
+                  classes: "govuk-button"
+                }) }}
               </div>
             </td>
           </tr>
