@@ -1,0 +1,91 @@
+{% extends "../../layout-ways-to-pay.html" %}
+
+{% block pageTitle %}
+    Case details
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <h1 class="govuk-heading-l">Complete your claim</h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">1. Consider other options</caption>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"><a href="#">Resolving this dispute</a></th>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag">
+                COMPLETED
+              </strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">2. Prepare your claim</caption>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"><a href="#">Completing your claim</a></th>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag">
+                COMPLETED
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"><a href="#">Your details</a></th>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag">
+                COMPLETED
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"><a href="#">Their details</a></th>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag">
+                COMPLETED
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"><a href="#">Claim amount</a></th>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag">
+                COMPLETED
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"><a href="#">Claim details</a></th>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag">
+                COMPLETED
+              </strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">3. Submit</caption>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td>
+              <div class="govuk-button-group">
+                {{ govukButton({
+                  text: "Check and submit your application",
+                  href: 'payment-check-before-you-pay-2',
+                  classes: "govuk-button"
+                }) }}
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
