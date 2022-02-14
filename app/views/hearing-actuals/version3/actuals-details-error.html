@@ -10,6 +10,19 @@ Hearings management
 
 {% block content %}
 
+<div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+    <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+            <li>
+                <a href="#reason-result">Select a reason for the hearing result</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
@@ -19,34 +32,35 @@ Hearings management
         </h1>
         <br />
 
-        <form class="form" action="actuals-categories" method="post">
-
             <!-- Hearing stage -->
             <div class="govuk-form-group">
                 <label class="govuk-label govuk-!-font-weight-bold" for="hearingStage">
                     Hearing stage
                 </label>
                 <select class="govuk-select govuk-!-width-one-third" id="hearingStage" name="hearing-stage">
-                    <option value="Initial" {% if data['hearing-stage'] == "Initial" %} selected {% endif %}>Initial</option>
+                    <option value="Initial">Initial</option>
                     <option value="Final" selected>Final</option>
 <!--                    <option value="Final" {% if data['hearing-stage'] == "Final" %} selected {% endif %}>Final</option>-->
-                    <option value="Substantial" {% if data['hearing-stage'] == "Substantial" %} selected {% endif %}>Substantial</option>
-                    <option value="Case management" {% if data['hearing-stage'] == "Case management" %} selected {% endif %}>Case management</option>
+                    <option value="Substantial">Substantial</option>
+                    <option value="Case management">Case management</option>
                 </select>
             </div>
 
             <br />
 
-            <div class="govuk-form-group">
+            <div class="govuk-form-group govuk-form-group--error">
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                         <h1 class="govuk-fieldset__heading">
                             Hearing result
                         </h1>
                     </legend>
+                    <p id="reason-result" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Select a reason for the hearing result
+                    </p>
                     <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="hearingResult1" name="hearing-result" type="radio" data-aria-controls="conditional-result1" value="Heard, order or decision" {% if data['hearing-result'] == 'Heard, order or decision' %} checked {% endif %}>
+                            <input class="govuk-radios__input" id="hearingResult1" name="hearing-result" type="radio" data-aria-controls="conditional-result1" value="Heard, order or decision">
                             <label class="govuk-label govuk-radios__label" for="hearingResult1">
                                 Heard, order or decision
                             </label>
@@ -76,7 +90,7 @@ Hearings management
 <!--                            </div>-->
 <!--                        </div>-->
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="hearingResult2" name="hearing-result" type="radio" data-aria-controls="conditional-result2" value="Part-heard, adjourned or postponed" {% if data['hearing-result'] == 'Part-heard, adjourned or postponed' %} checked {% endif %}>
+                            <input class="govuk-radios__input" id="hearingResult2" name="hearing-result" type="radio" data-aria-controls="conditional-result2" value="Part-heard, adjourned or postponed">
                             <label class="govuk-label govuk-radios__label" for="hearingResult2">
                                 Part-heard, adjourned or postponed
                             </label>
@@ -88,7 +102,7 @@ Hearings management
                                     Select a reason for this result
                                 </label>
                                 <select class="govuk-select govuk-!-width-two-thirds" id="adjournedReason" name="adjournment-reason">
-                                    <option value="Please select">Please select</option>
+                                    <option value="Please select" selected>Please select</option>
                                     <option value="Postponed, due to Exclusions">Postponed, due to Exclusions</option>
                                     <option value="Postponed, due to Other Reasons">Postponed, due to Other Reasons</option>
                                     <option value="Postponed, Incomplete Tribunal">Postponed, Incomplete Tribunal</option>
@@ -148,7 +162,7 @@ Hearings management
 <!--                            </div>-->
                         </div>
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="hearingResult3" name="hearing-result" type="radio" data-aria-controls="conditional-result3" value="Withdrawn, cancelled or vacated" {% if data['hearing-result'] == 'Withdrawn, cancelled or vacated' %} checked {% endif %}>
+                            <input class="govuk-radios__input" id="hearingResult3" name="hearing-result" type="radio" data-aria-controls="conditional-result3" value="Withdrawn, cancelled or vacated" checked>
                             <label class="govuk-label govuk-radios__label" for="hearingResult3">
                                 Withdrawn, cancelled or vacated
                             </label>
@@ -161,9 +175,9 @@ Hearings management
                                 </label>
                                 <select class="govuk-select govuk-!-width-two-thirds" id="postponedReason" name="postponed-reason">
                                     <option value="Please select">Please select</option>
-                                    <option value="Reason 1">Reason 1</option>
-                                    <option value="Reason 2">Reason 2</option>
-                                    <option value="Reason 3">Reason 3</option>
+                                    <option value="Postponed reason 1">Reason 1</option>
+                                    <option value="Postponed reason 2">Reason 2</option>
+                                    <option value="Postponed reason 3">Reason 3</option>
                                 </select>
                             </div>
                         </div>
@@ -290,9 +304,6 @@ Hearings management
             <button class="govuk-button primary" data-module="govuk-button">
                 Save and continue
             </button>
-
-        </form>
-
 
 
         </div>
