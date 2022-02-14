@@ -9,11 +9,26 @@ Hearings management
 {% endblock %}
 
 {% block content %}
-
+<div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+    <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+            <li>
+                <a href="#startError">Start time must be before end time</a>
+            </li>
+            <li>
+                <a href="#pauseError">Pause time must be between the hearing start and end times</a>
+            </li>
+            <li>
+                <a href="#resumeError">Enter a resume time</a>
+            </li>
+        </ul>
+    </div>
+</div>
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-        <form class="form" action="actuals-categories" method="post">
 
         <span class="govuk-caption-l">Jane Smith vs DWP</span>
         <h1 class="govuk-heading-l">
@@ -22,14 +37,17 @@ Hearings management
         <br />
 
         <!-- Start and end time -->
-        <div class="govuk-form-group">
+        <div class="govuk-form-group govuk-form-group--error">
             <label class="govuk-label govuk-!-font-weight-bold" for="startTime">
                 Start time
             </label>
 <!--                <div id="startHint" class="govuk-hint">-->
 <!--                    For example, 13:00-->
 <!--                </div>-->
-            <input class="govuk-input govuk-date-input__input govuk-input--width-5" id="startTime" name="start-time" type="text" value="13:00" />
+            <p id="startError" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> Start time must be before end time
+            </p>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-5 govuk-input--error" id="startTime" name="start-time" type="text" value="16:00" />
         </div>
         <div class="govuk-form-group">
             <label class="govuk-label govuk-!-font-weight-bold" for="endTime">
@@ -53,7 +71,7 @@ Hearings management
 <!--                    </div>-->
                     <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="pauseResumeYes" name="pause-resume" type="radio" value="yes">
+                            <input class="govuk-radios__input" id="pauseResumeYes" name="pause-resume" type="radio" value="yes" checked>
                             <label class="govuk-label govuk-radios__label" for="pauseResumeYes">
                                 Yes
                             </label>
@@ -68,7 +86,7 @@ Hearings management
 
                 </fieldset>
             </div>
-            <div id="pauseResumeContainer" style="display: none;">
+            <div id="pauseResumeContainer" class="govuk-form-group--error">
                 <div class="govuk-form-group">
                     <label class="govuk-label govuk-!-font-weight-bold" for="endTime">
                         Pause time
@@ -76,7 +94,10 @@ Hearings management
                     <div id="endHint" class="govuk-hint">
                         For example, 13:35
                     </div>
-                    <input class="govuk-input govuk-date-input__input govuk-input--width-5" id="pause-time" name="pause-time" type="text" />
+                    <p id="pauseError" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Pause time must be between the hearing start and end times
+                    </p>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-5 govuk-input--error" id="pause-time" name="pause-time" type="text" value="11:20" />
                 </div>
                 <div class="govuk-form-group">
                     <label class="govuk-label govuk-!-font-weight-bold" for="endTime">
@@ -85,7 +106,10 @@ Hearings management
                     <div id="endHint" class="govuk-hint">
                         For example, 13:55
                     </div>
-                    <input class="govuk-input govuk-date-input__input govuk-input--width-5" id="resume-time" name="resume-time" type="text" />
+                    <p id="resumeError" class="govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Enter a resume time
+                    </p>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-5 govuk-input--error" id="resume-time" name="resume-time" type="text" />
                 </div>
             </div>
 
@@ -125,7 +149,6 @@ Hearings management
             <button class="govuk-button primary" data-module="govuk-button">
                 Save and continue
             </button>
-        </form>
 
         </div>
     </div>

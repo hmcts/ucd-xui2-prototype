@@ -13,11 +13,11 @@ Hearings management
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <div class="govuk-inset-text govuk-!-margin-top-0">
-            To amend details of the hearing request, <a href="https://ucd-xui2-prototype.herokuapp.com/hearings/pages/iteration4/hearing-checkyouranswers?changesallowed=true&viewandchange=true&status=listed&" class="govuk-link">make a hearing change request</a>.
-        </div>
+<!--        <div class="govuk-inset-text govuk-!-margin-top-0">-->
+<!--            To amend details of the hearing request, <a href="https://ucd-xui2-prototype.herokuapp.com/hearings/pages/iteration4/hearing-checkyouranswers?changesallowed=true&viewandchange=true&status=listed&" class="govuk-link">make a hearing change request</a>.-->
+<!--        </div>-->
 
-        <br />
+<!--        <br />-->
 
         <span style="margin-bottom: 10px; display: block;" class="govuk-caption-l">Jane Smith vs DWP</span>
         <h1 class="govuk-heading-l" style="margin-right: 16px;margin-top:-10px;display:inline-block;vertical-align: top;">
@@ -60,7 +60,7 @@ Hearings management
         </h1>
 
         <span class="govuk-body"><a class="govuk-link govuk-!-margin-left-3" style="float:right;" href="actuals-details">Update</a></span>
-        <strong style="vertical-align: middle; float: right;" class="govuk-tag govuk-tag--green">Saved</strong>
+<!--        <strong style="vertical-align: middle; float: right;" class="govuk-tag govuk-tag&#45;&#45;green">Saved</strong>-->
 
         <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
@@ -68,7 +68,12 @@ Hearings management
                     Hearing stage
                 </dt>
                 <dd class="govuk-summary-list__value">
+                    {% if data['hearing-stage'] === "" %}
+                    Final
+                    {% else %}
                     {{ data['hearing-stage'] }}
+                    {% endif %}
+
                 </dd>
 <!--                <dd class="govuk-summary-list__actions">-->
 <!--                    <a class="govuk-link" href="actuals-details">-->
@@ -86,14 +91,14 @@ Hearings management
                     {{ data['hearing-result'] }}
                 </dd>
             </div>
-            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                <dt class="govuk-summary-list__key">
-                    Hearing outcome
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    {{ data['decision-type'] }}
-                </dd>
-            </div>
+<!--            <div class="govuk-summary-list__row govuk-summary-list__row&#45;&#45;no-actions">-->
+<!--                <dt class="govuk-summary-list__key">-->
+<!--                    Hearing outcome-->
+<!--                </dt>-->
+<!--                <dd class="govuk-summary-list__value">-->
+<!--                    {{ data['decision-type'] }}-->
+<!--                </dd>-->
+<!--            </div>-->
             {% elif data['hearing-result'] == 'Part-heard, adjourned or postponed' %}
             <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                 <dt class="govuk-summary-list__key">
@@ -111,14 +116,14 @@ Hearings management
                     {{ data['adjournment-reason'] }}
                 </dd>
             </div>
-            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                <dt class="govuk-summary-list__key">
-                    Adjournment date
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    {{ data['adjournment-day'] }} / {{ data['adjournment-month'] }} / {{ data['adjournment-year'] }}
-                </dd>
-            </div>
+<!--            <div class="govuk-summary-list__row govuk-summary-list__row&#45;&#45;no-actions">-->
+<!--                <dt class="govuk-summary-list__key">-->
+<!--                    Adjournment date-->
+<!--                </dt>-->
+<!--                <dd class="govuk-summary-list__value">-->
+<!--                    {{ data['adjournment-day'] }} / {{ data['adjournment-month'] }} / {{ data['adjournment-year'] }}-->
+<!--                </dd>-->
+<!--            </div>-->
             {% elif data['hearing-result'] == 'Withdrawn, cancelled or vacated' %}
             <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                 <dt class="govuk-summary-list__key">
@@ -155,7 +160,7 @@ Hearings management
         </h1>
 
         <span class="govuk-body"><a class="govuk-link govuk-!-margin-left-3" style="float:right;" href="actuals-date-and-time">Update</a></span>
-        <strong style="vertical-align: middle; float: right;" class="govuk-tag govuk-tag--green">Saved</strong>
+<!--        <strong style="vertical-align: middle; float: right;" class="govuk-tag govuk-tag&#45;&#45;green">Saved</strong>-->
 
         <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
@@ -195,7 +200,7 @@ Hearings management
                     Pause time
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    13:30
+                    {{ data['pause-time'] }}
                 </dd>
             </div>
             <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
@@ -203,7 +208,7 @@ Hearings management
                     Resume time
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    14:00
+                    {{ data['resume-time'] }}
                 </dd>
             </div>
         </dl>
@@ -215,47 +220,47 @@ Hearings management
         </h1>
 
         <span class="govuk-body"><a class="govuk-link govuk-!-margin-left-3" style="float:right;" href="actuals-parties">Update</a></span>
-        <strong style="vertical-align: middle; float: right;" class="govuk-tag govuk-tag--green">Saved</strong>
+<!--        <strong style="vertical-align: middle; float: right;" class="govuk-tag govuk-tag&#45;&#45;green">Saved</strong>-->
 
         <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                 <dt class="govuk-summary-list__key">
                     Jane Smith
                     <br /><br />
-                    Channel
+                    Attendance type
                 </dt>
                 <dd class="govuk-summary-list__value">
                     <br /><br />
-                    Video
+                    Video - Teams
                 </dd>
             </div>
-            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                <dt class="govuk-summary-list__key">
-                    Sub-channel
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    CVP
-                </dd>
-            </div>
+<!--            <div class="govuk-summary-list__row govuk-summary-list__row&#45;&#45;no-actions">-->
+<!--                <dt class="govuk-summary-list__key">-->
+<!--                    Sub-channel-->
+<!--                </dt>-->
+<!--                <dd class="govuk-summary-list__value">-->
+<!--                    CVP-->
+<!--                </dd>-->
+<!--            </div>-->
             <br />
             <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                 <dt class="govuk-summary-list__key">
                     DWP <br /><br />
-                    Channel
+                    Attendance type
                 </dt>
                 <dd class="govuk-summary-list__value">
                     <br /><br />
-                    Video
+                    Video - Teams
                 </dd>
             </div>
-            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                <dt class="govuk-summary-list__key">
-                    Sub-channel
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    CVP
-                </dd>
-            </div>
+<!--            <div class="govuk-summary-list__row govuk-summary-list__row&#45;&#45;no-actions">-->
+<!--                <dt class="govuk-summary-list__key">-->
+<!--                    Sub-channel-->
+<!--                </dt>-->
+<!--                <dd class="govuk-summary-list__value">-->
+<!--                    CVP-->
+<!--                </dd>-->
+<!--            </div>-->
         </dl>
 
         <br />
@@ -305,10 +310,10 @@ Hearings management
             </div>
             <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                 <dt class="govuk-summary-list__key">
-                    Channel
+                    Attendance type
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    Video
+                    Video - Teams
                 </dd>
 <!--                <dd class="govuk-summary-list__actions">-->
 <!--                    <a class="govuk-link" href="actuals-parties">-->
@@ -316,19 +321,19 @@ Hearings management
 <!--                    </a>-->
 <!--                </dd>-->
             </div>
-            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                <dt class="govuk-summary-list__key">
-                    Sub-channel
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    MS Teams
-                </dd>
-<!--                <dd class="govuk-summary-list__actions">-->
-<!--                    <a class="govuk-link" href="actuals-parties">-->
-<!--                        Update<span class="govuk-visually-hidden"> Sub-channel</span>-->
-<!--                    </a>-->
+<!--            <div class="govuk-summary-list__row govuk-summary-list__row&#45;&#45;no-actions">-->
+<!--                <dt class="govuk-summary-list__key">-->
+<!--                    Sub-channel-->
+<!--                </dt>-->
+<!--                <dd class="govuk-summary-list__value">-->
+<!--                    MS Teams-->
 <!--                </dd>-->
-            </div>
+<!--&lt;!&ndash;                <dd class="govuk-summary-list__actions">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="govuk-link" href="actuals-parties">&ndash;&gt;-->
+<!--&lt;!&ndash;                        Update<span class="govuk-visually-hidden"> Sub-channel</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                </dd>&ndash;&gt;-->
+<!--            </div>-->
             <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                 <dt class="govuk-summary-list__key">
                     Organisation
@@ -404,10 +409,10 @@ Hearings management
             </div>
             <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                 <dt class="govuk-summary-list__key">
-                    Channel
+                    Attendance type
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    Video
+                    Video - Teams
                 </dd>
 <!--                <dd class="govuk-summary-list__actions">-->
 <!--                    <a class="govuk-link" href="actuals-parties">-->
@@ -415,19 +420,19 @@ Hearings management
 <!--                    </a>-->
 <!--                </dd>-->
             </div>
-            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-                <dt class="govuk-summary-list__key">
-                    Sub-channel
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    MS Teams
-                </dd>
-<!--                <dd class="govuk-summary-list__actions">-->
-<!--                    <a class="govuk-link" href="actuals-parties">-->
-<!--                        Update<span class="govuk-visually-hidden"> Sub-channel</span>-->
-<!--                    </a>-->
+<!--            <div class="govuk-summary-list__row govuk-summary-list__row&#45;&#45;no-actions">-->
+<!--                <dt class="govuk-summary-list__key">-->
+<!--                    Sub-channel-->
+<!--                </dt>-->
+<!--                <dd class="govuk-summary-list__value">-->
+<!--                    MS Teams-->
 <!--                </dd>-->
-            </div>
+<!--&lt;!&ndash;                <dd class="govuk-summary-list__actions">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="govuk-link" href="actuals-parties">&ndash;&gt;-->
+<!--&lt;!&ndash;                        Update<span class="govuk-visually-hidden"> Sub-channel</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                </dd>&ndash;&gt;-->
+<!--            </div>-->
             <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                 <dt class="govuk-summary-list__key">
                     Organisation
@@ -470,17 +475,12 @@ Hearings management
 
         <br />
         <br />
-        <br />
-
-        <div class="govuk-inset-text govuk-!-margin-top-1" id="savedMsg" style="display: none;">
-            Progress has been saved (messaging TBC)
-        </div>
-
 
         <h2 class="govuk-heading-m">Submit your hearing details</h2>
 
-        <p class="govuk-body">Once you have entered the hearing details, select Submit hearing details. The case will be saved and the hearing will be marked as complete.</p>
-
+        <p class="govuk-body">Once you have entered the hearing details, select Submit hearing details.</p>
+        <p class="govuk-body">Once submitted, you cannot change your answers again. The case will be saved and the hearing will be marked as complete.</p>
+        <br />
 
         <form class="form" action="actuals-confirmation" method="post" style="display: inline-block;">
 
@@ -489,8 +489,6 @@ Hearings management
             </button>
 
         </form>
-
-
 
         </div>
     </div>
