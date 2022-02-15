@@ -16,10 +16,10 @@ Hearings management
     <div class="govuk-error-summary__body">
         <ul class="govuk-list govuk-error-summary__list">
             <li>
-                <a href="#startError">Start time must be before end time</a>
+                <a href="#startError">Start time must be before finish time</a>
             </li>
             <li>
-                <a href="#pauseError">Pause time must be between the hearing start and end times</a>
+                <a href="#pauseError">Pause time must be between the hearing start and finish times</a>
             </li>
             <li>
                 <a href="#resumeError">Enter a resume time</a>
@@ -45,7 +45,7 @@ Hearings management
 <!--                    For example, 13:00-->
 <!--                </div>-->
             <p id="startError" class="govuk-error-message">
-                <span class="govuk-visually-hidden">Error:</span> Start time must be before end time
+                <span class="govuk-visually-hidden">Error:</span> Start time must be before finish time
             </p>
             <input class="govuk-input govuk-date-input__input govuk-input--width-5 govuk-input--error" id="startTime" name="start-time" type="text" value="16:00" />
         </div>
@@ -95,7 +95,7 @@ Hearings management
                         For example, 13:35
                     </div>
                     <p id="pauseError" class="govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> Pause time must be between the hearing start and end times
+                        <span class="govuk-visually-hidden">Error:</span> Pause time must be between the hearing start and finish times
                     </p>
                     <input class="govuk-input govuk-date-input__input govuk-input--width-5 govuk-input--error" id="pause-time" name="pause-time" type="text" value="11:20" />
                 </div>
@@ -172,22 +172,6 @@ Hearings management
       pauseResumeContainer.style.display = 'none'
     }
   }
-
-  //   var addPauseTimeBtn = document.getElementById('addPauseTimeBtn')
-  //   addPauseTimeBtn.addEventListener('click', addPauseTime)
-  //
-  //   var removePauseTimeBtn = document.getElementById('removePauseBtn')
-  //   removePauseTimeBtn.addEventListener('click', removePauseTime)
-  //
-  // function addPauseTime() {
-  //   var getNewPauseTimeVisible = document.getElementById('newPauseTime')
-  //   getNewPauseTimeVisible.style.display = "block"
-  // }
-  //
-  //   function removePauseTime() {
-  //     var getNewPauseTimeVisible = document.getElementById('newPauseTime')
-  //     getNewPauseTimeVisible.style.display = "none"
-  //   }
 
   function goBack() {
     window.history.back();
