@@ -31,12 +31,16 @@
     </fieldset>
   </div>
   <div class="govuk-button-group">
-    <button class="govuk-button" data-module="govuk-button">
-      Continue
-    </button>
-    <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-      Cancel
-    </button>
+    {{ govukButton({
+      text: "Continue",
+      href: '',
+      classes: "govuk-button"
+    }) }}
+    {{ govukButton({
+      text: "Cancel",
+      href: 'payment-pay-online-exit-message-2',
+      classes: "govuk-button--secondary"
+    }) }}
   </div>
 </div>
 {% endblock %}

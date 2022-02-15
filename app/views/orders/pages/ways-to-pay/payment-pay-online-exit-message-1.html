@@ -1,4 +1,4 @@
-{% extends "../../layout-ways-to-pay.html" %}
+{% extends "../../layout-xui.html" %}
 
 {% block pageTitle %}
     How do you want to pay
@@ -6,7 +6,25 @@
 
 {% block content %}
 <div>
-  <a href="payment-history-detail" class="govuk-back-link">Back</a>
+  <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Important
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <p class="govuk-notification-banner__heading">
+        Are you sure you want to leave?
+      </p>
+      <p>
+        Your payment has not been completed.
+      </p>
+      <p class="govuk-notification-banner__heading">
+        <a class="govuk-notification-banner__link" href="payment-history-detail">Yes</a>&nbsp;&nbsp;&nbsp;
+        <a class="govuk-notification-banner__link" href="payment-pay-online">No</a>
+      </p>
+    </div>
+  </div>
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -31,16 +49,12 @@
     </fieldset>
   </div>
   <div class="govuk-button-group">
-    {{ govukButton({
-      text: "Continue",
-      href: '',
-      classes: "govuk-button"
-    }) }}
-    {{ govukButton({
-      text: "Cancel",
-      href: 'payment-pay-online-exit-message-1',
-      classes: "govuk-button--secondary"
-    }) }}
+    <button class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+    <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Cancel
+    </button>
   </div>
 </div>
 {% endblock %}
