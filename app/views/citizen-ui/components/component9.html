@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./components.css">
+    <title>component9</title>
+    <style media="screen">
+    /* ========================= COMMON ===============================  */
+
+    body {
+        font-family: "GDS Transport",arial,sans-serif;
+    }
+
+    .govuk-button {
+        font-size: 16px;
+        line-height: 1.1875;
+        padding: 8px 20px 6px;
+        border: 2px solid transparent;
+        border-radius: 0;
+        color: #fff;
+        background-color: #00703c;
+        -webkit-box-shadow: 0 2px 0 #b1b4b6;
+        box-shadow: 0 2px 0 #b1b4b6;
+        cursor: pointer;
+        margin: 5px 25px 13px 0;
+    }
+
+    .govuk-button--secondary {
+        background-color: #f3f2f1;
+        color: #0b0c0c;
+    }
+
+    .govuk-details__summary {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 5px;
+        padding-left: 20px;
+        color: #1d70b8;
+        cursor: pointer;
+    }
+
+    .govuk-details__summary:before {
+        content: "";
+        position: absolute;
+        top: -1px;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: transparent;
+        -webkit-clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+        clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+        border-width: 5px 0 5px 10.124px;
+        border-left-color: inherit;
+    }
+
+    .govuk-details__summary-text {
+        text-decoration: underline;
+    }
+
+    a {
+        color: 	#1d70b8;
+    }
+
+    .govuk-form-group {
+        margin-bottom: 20px;
+    }
+
+    .govuk-border__top {
+        border-top: 5px solid #1d70b8;
+    }
+
+
+    .govuk-notification {
+        border-bottom: 2px solid #b1b4b6;
+        padding: 5px 0;
+        margin-bottom: 4px;
+    }
+
+    .govuk-tag {
+        display: inline-block;
+        outline: 2px solid transparent;
+        outline-offset: -2px;
+        color: #fff;
+        background-color: #1d70b8;
+        letter-spacing: 1px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1;
+        padding: 4px 8px 4px 8px;
+    }
+
+    .govuk-back-link {
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid black;
+        width: 45px;
+        position: relative;
+        left: 5px;
+        align-items: center;
+    }
+
+    .govuk-back-link::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        clip-path: polygon(50% 0%, 0% 50%, 50% 100%);
+        border-width: 4px 0 4px 10.124px;
+        border-left-color: inherit;
+    }
+
+    .govuk-back-link__content {
+        position: relative;
+        font-style: none;
+        color: #0b0c0c;
+        text-decoration: none;
+        padding-left: 10px;
+    }
+
+    .govuk-fieldset {
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    #more-detail-hint, #more-detail {
+        line-height: 1.31579;
+    }
+
+    .govuk-banner {
+        padding-top: 15px;
+        border-bottom: 10px solid transparent;
+        background-color: #f3f2f1;
+        margin: 1.175rem 0;
+    }
+
+    .govuk-banner__message {
+        padding: 0 1.175rem;
+    }
+
+    .govuk-banner__heading {
+        margin: 0;
+    }
+
+    .govuk-banner__list {
+        padding: 0 1.175rem;
+        margin-top: 5px;
+        line-height: 1.31579;
+    }
+
+    @media (min-width: 40.0625em){
+
+        .govuk-form-group {
+            margin-bottom: 30px;
+        }
+    }
+
+    /* ========================= COMPONENT 9 ===============================  */
+
+    .govuk-form-group .govuk-fieldset {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .govuk-checkboxes__item {
+        margin: 25px 30px 0 0;
+    }
+
+    .govuk-checkboxes__input {
+        cursor: pointer;
+        position: absolute;
+        z-index: 1;
+        top: -2px;
+        left: -2px;
+        width: 44px;
+        height: 44px;
+        margin: 0;
+        opacity: 0;
+    }
+
+    .govuk-checkboxes__item .govuk-label {
+        position: relative;
+        top: -15px;
+        left: 40px;
+    }
+
+    .govuk-checkboxes__label {
+        display: inline-block;
+        margin-bottom: 0;
+        padding: 8px 15px 5px;
+        cursor: pointer;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+    }
+
+    .govuk-checkboxes__label::before {
+        content: "";
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        left: -40px;
+        width: 40px;
+        height: 40px;
+        border: 2px solid currentColor;
+        background: transparent;
+    }
+    .govuk-checkboxes__label::after {
+        content: "";
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        position: absolute;
+        top: 11px;
+        left: 9px;
+        width: 23px;
+        height: 12px;
+        -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        border: solid;
+        border-width: 0 0 5px 5px;
+        border-top-color: transparent;
+        opacity: 0;
+        background: transparent;
+    }
+
+    .govuk-checkboxes__item .govuk-body {
+        position: relative;
+        top: -20px;
+        left: 58px;
+    }
+
+    .govuk-form-group .govuk-fieldset .govuk-button {
+        margin: 5px 25px 30px 0;
+        width: 325px;
+    }
+
+    .govuk-form-group .govuk-fieldset .govuk-details__summary {
+        margin: 25px 0;
+        display: inline-block;
+        position: relative;
+        padding-left: 20px;
+        color: #1d70b8;
+        cursor: pointer;
+    }
+
+    /* MOBILE */
+    @media only screen and (max-width: 415px) {
+        .govuk-checkboxes__item {
+            margin: 25px 65px 0 0;
+        }
+    }
+
+    /* ========================= ============== ===============================  */
+    </style>
+</head>
+<body>
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <div id="waste-hint" class="govuk-hint">
+                <p class="govuk-body">The information on this page forms your claim. You can see it on the claim form after you submit.</p>
+                <p class="govuk-body">When you're satisfied that your answers are accurate, you should tick to "sign" this statement of truth on the form.</p>
+            </div>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" type="checkbox" />
+                    <label class="govuk-label govuk-checkboxes__label" >
+                        I believe that the facts stated in this claim are true.
+                    </label>
+                    <p class="govuk-body">I understand that proceedings for contempt of court may be brought against anyone who makes, or causes to be made, a false statement in a document verified by a statement of truth without an honest belief in it's truth</p>
+                </div>
+            </div>
+            <button class="govuk-button" data-module="govuk-button">
+                Submit and continue to payment (&#163;50)
+            </button>
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                    Contact us for help
+                </span>
+            </summary>
+        </fieldset>
+      </div>
+</body>
+</html>

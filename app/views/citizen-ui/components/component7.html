@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./components.css">
+    <title>Appeal Type</title>
+    <style media="screen">
+    /* ========================= COMMON ===============================  */
+
+    body {
+        font-family: "GDS Transport",arial,sans-serif;
+    }
+
+    .govuk-button {
+        font-size: 16px;
+        line-height: 1.1875;
+        padding: 8px 20px 6px;
+        border: 2px solid transparent;
+        border-radius: 0;
+        color: #fff;
+        background-color: #00703c;
+        -webkit-box-shadow: 0 2px 0 #b1b4b6;
+        box-shadow: 0 2px 0 #b1b4b6;
+        cursor: pointer;
+        margin: 5px 25px 13px 0;
+    }
+
+    .govuk-button--secondary {
+        background-color: #f3f2f1;
+        color: #0b0c0c;
+    }
+
+    .govuk-details__summary {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 5px;
+        padding-left: 20px;
+        color: #1d70b8;
+        cursor: pointer;
+    }
+
+    .govuk-details__summary:before {
+        content: "";
+        position: absolute;
+        top: -1px;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: transparent;
+        -webkit-clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+        clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+        border-width: 5px 0 5px 10.124px;
+        border-left-color: inherit;
+    }
+
+    .govuk-details__summary-text {
+        text-decoration: underline;
+    }
+
+    a {
+        color: 	#1d70b8;
+    }
+
+    .govuk-form-group {
+        margin-bottom: 20px;
+    }
+
+    .govuk-border__top {
+        border-top: 5px solid #1d70b8;
+    }
+
+
+    .govuk-notification {
+        border-bottom: 2px solid #b1b4b6;
+        padding: 5px 0;
+        margin-bottom: 4px;
+    }
+
+    .govuk-tag {
+        display: inline-block;
+        outline: 2px solid transparent;
+        outline-offset: -2px;
+        color: #fff;
+        background-color: #1d70b8;
+        letter-spacing: 1px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1;
+        padding: 4px 8px 4px 8px;
+    }
+
+    .govuk-back-link {
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid black;
+        width: 45px;
+        position: relative;
+        left: 5px;
+        align-items: center;
+    }
+
+    .govuk-back-link::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        clip-path: polygon(50% 0%, 0% 50%, 50% 100%);
+        border-width: 4px 0 4px 10.124px;
+        border-left-color: inherit;
+    }
+
+    .govuk-back-link__content {
+        position: relative;
+        font-style: none;
+        color: #0b0c0c;
+        text-decoration: none;
+        padding-left: 10px;
+    }
+
+    .govuk-fieldset {
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    #more-detail-hint, #more-detail {
+        line-height: 1.31579;
+    }
+
+    .govuk-banner {
+        padding-top: 15px;
+        border-bottom: 10px solid transparent;
+        background-color: #f3f2f1;
+        margin: 1.175rem 0;
+    }
+
+    .govuk-banner__message {
+        padding: 0 1.175rem;
+    }
+
+    .govuk-banner__heading {
+        margin: 0;
+    }
+
+    .govuk-banner__list {
+        padding: 0 1.175rem;
+        margin-top: 5px;
+        line-height: 1.31579;
+    }
+
+    @media (min-width: 40.0625em){
+
+        .govuk-form-group {
+            margin-bottom: 30px;
+        }
+    }
+    /* ========================= COMPONENT 7 ===============================  */
+
+    .govuk-fieldset__heading {
+        margin: 50px 0 8px 0;
+    }
+
+    .govuk-radios-appeal .govuk-radios__item {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.25;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        min-height: 40px;
+        margin-bottom: 10px;
+        padding-left: 40px;
+        clear: left;
+    }
+
+    .govuk-radios-appeal .govuk-radios__input {
+        cursor: pointer;
+        position: absolute;
+        z-index: 1;
+        top: -2px;
+        left: -2px;
+        width: 39px;
+        height: 39px;
+        margin: 0;
+    }
+
+    .govuk-radios__label {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        margin-bottom: 0;
+        padding: 8px 15px 5px;
+        cursor: pointer;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+    }
+
+    .govuk-radios-appeal .govuk-radios__item .govuk-details__summary {
+        margin-left: 15px;
+        position: relative;
+        top: -2px;
+    }
+
+    .govuk-button:disabled {
+        opacity: 0.5;
+    }
+
+    @media (min-width: 40.0625em){
+
+        .govuk-radios-appeal .govuk-radios__item {
+            font-size: 19px;
+            font-size: 1.1875rem;
+            line-height: 1.31579;
+        }
+
+        .govuk-radios-appeal .govuk-label {
+            font-size: 17px;
+            line-height: 1.31579;
+        }
+    }
+
+    /* ========================= ============== ===============================  */
+    </style>
+</head>
+<body>
+<div class="govuk-form-group govuk-border__top">
+    <div class="govuk-notification">
+        <strong class="govuk-tag">BETA</strong> This is a new service - your <a href="#">feedback</a> will help us to improve it. (opens in a new window)
+    </div>
+    <div class="govuk-back-link">
+        <a href="#" class="govuk-back-link__content">Back</a>
+    </div>
+    <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          What is your appeal type?
+        </h1>
+      </legend>
+      <div id="appeal-type-hint" class="govuk-hint">
+        <p>If you're unsure, the first page of your decision letter should inlcude the type of decision you're appealing.</p>
+        <p>If you think more than one appeal type applies to your appeal, you will have the chance to tell us about that later.</p>
+        <p>Select one option.</p>
+      </div>
+      <div class="govuk-radios-appeal" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
+          <label class="govuk-label govuk-radios__label" for="sign-in">
+           <strong>Protection</strong> (You will be persecuted or harmed in some way if you are returned to your home country)
+          </label>
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+                Reasons to select Protection
+            </span>
+          </summary>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="sign-in-2" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
+          <label class="govuk-label govuk-radios__label" for="sign-in-2">
+            <strong>Revocation of protection status</strong> (Your protection status was taken away)
+          </label>
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+                Reasons to select Revocation of Protection Status
+            </span>
+          </summary>
+        </div>
+      </div>
+      <div class="govuk-button-group">
+        <button class="govuk-button" data-module="govuk-button" disabled>
+            Save and continue
+        </button>
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Save for later
+        </button>
+        </div>
+        <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+                Contact us for help
+            </span>
+        </summary>
+    </fieldset>
+  </div>
+</body>
+</html>
