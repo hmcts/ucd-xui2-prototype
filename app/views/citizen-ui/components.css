@@ -1,0 +1,744 @@
+/* ========================= COMPONENT 1 ===============================  */
+
+.govuk-appeal-wrapper {
+    border-top: 8px solid #2a6dbf;
+    width: 65vw;
+    padding: 8px;
+    line-height: 1.25;
+}
+
+.govuk-appeal-options ,
+.govuk-appeal-contact {
+    padding-bottom: 30px;
+    border-bottom: 2px solid darkgrey;
+    position: relative;
+    left: -7px;
+}
+
+.govuk-appeal-wrapper,
+.govuk-appeal-options,
+.govuk-appeal-options_links,
+.govuk-appeal-contact-info_email,
+.govuk-appeal-contact-info_timings {
+    display: flex;
+    flex-direction: column;
+}
+
+.govuk-appeal-contact_text, .govuk-appeal-contact-info_tel {
+    margin: 19px 0;
+}
+
+.govuk-appeal-contact-info_email {
+    margin-bottom: 10px;
+}
+
+/* ========================= ============== ===============================  */
+
+/* ========================= COMPONENT 2 ===============================  */
+
+.govuk-appeal-summary {
+  display: flex;
+  flex-direction: row;
+}
+
+.govuk-appeal-summary_check-wrapper {
+    display: inline-block;
+    background-color: royalblue;
+    border-radius: 20px;
+    width: 27px;
+    height: 26px;
+    margin-right: 30px;
+}
+
+.govuk-appeal-summary_check {
+    position: relative;
+    top: 3px;
+    left: 9px;
+    display: inline-block;
+    transform: rotate(45deg);
+    height: 12px;
+    width: 5px;
+    border-bottom: 4px solid white;
+    border-right: 4px solid white;
+}
+
+.govuk-appeal-summary-details_link {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.govuk-appeal-summary-details_link a {
+    margin-top: 8px;
+}
+
+@media only screen and (max-width: 768px) {
+    .govuk-appeal-summary_check-wrapper {
+        width: 37px;
+    }
+}
+
+/* ========================= ============== ===============================  */
+
+/* ========================= COMPONENT 3 ===============================  */
+
+.govuk-appeal-steps__notification {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #f7f7f7;
+    padding: 8px 4px;
+}
+
+.govuk-appeal-steps__notification-text {
+    margin-left: 11px;
+}
+
+.govuk-appeal-steps__message {
+    margin-top: 10px;
+    padding: 6px 1px 30px 33px;
+    background-color: rgba(132, 232, 164, 0.1);
+}
+
+.govuk-appeal-steps-button {
+    background-color: #00703c;
+    border-radius: 2px;
+    color: white;
+    padding: 9px 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.rectangle-box {
+    height: 30px;
+    width: 6px;
+    background-color: #00703c;
+}
+
+/* ========================= ============== ===============================  */
+
+/* ========================= COMPONENT 4 ===============================  */
+
+.govuk-radios {
+    display: flex;
+    flex-direction: row;
+    margin: 25px 0 25px 0;
+}
+
+.govuk-radios__item {
+    margin-right: 12px;
+}
+
+.govuk-radios__input {
+    height: 44px;
+    width: 44px;
+    vertical-align: middle;
+}
+
+/* ========================= ============== ===============================  */
+
+/* ========================= COMPONENT 5 ===============================  */
+
+.govuk-textarea {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    min-height: 160px;
+    margin-bottom: 20px;
+    padding: 5px;
+    resize: vertical;
+    border: 2px solid #0b0c0c;
+    border-radius: 0;
+    -webkit-appearance: none;
+}
+
+/* ========================= ============== ===============================  */
+
+/* ========================= COMPONENT 6 ===============================  */
+
+.govuk-file-upload-wrapper {
+    display: flex;
+    flex-direction: column;
+    border-left: 4px solid #b1b4b6;
+    padding-left: 14px;
+}
+
+.govuk-file-upload-wrapper .govuk-button {
+    width: 138px;
+}
+
+.govuk-file-upload-wrapper .govuk-label,
+.govuk-files-uploaded-wrapper .govuk-label {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #0b0c0c;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.govuk-file-upload {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #0b0c0c;
+    max-width: 100%;
+    margin-left: -5px;
+    padding: 5px;
+}
+
+.govuk-files-uploaded-wrapper {
+    margin: 35px 0;
+}
+
+.govuk-files-uploaded {
+    border-top: 2px solid #b1b4b6;
+    border-bottom: 2px solid #b1b4b6;
+    padding: 20px 0px;
+    margin: 25px 0;
+}
+
+@media (min-width: 40.0625em){
+
+    .govuk-file-upload-wrapper .govuk-label {
+        font-size: 19px;
+        font-size: 1.1875rem;
+        line-height: 1.31579;
+    }
+
+    .govuk-file-upload {
+        font-size: 19px;
+        font-size: 1.1875rem;
+        line-height: 1.31579;
+    }
+
+}
+
+/* ========================= ============== ===============================  */
+
+/* ========================= COMPONENT 7 ===============================  */
+
+.govuk-fieldset__heading {
+    margin: 50px 0 8px 0;
+}
+
+.govuk-radios-appeal .govuk-radios__item {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 40px;
+    margin-bottom: 10px;
+    padding-left: 40px;
+    clear: left;
+}
+
+.govuk-radios-appeal .govuk-radios__input {
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    top: -2px;
+    left: -2px;
+    width: 39px;
+    height: 39px;
+    margin: 0;
+}
+
+.govuk-radios__label {
+    position: relative;
+    top: -2px;
+    display: inline-block;
+    margin-bottom: 0;
+    padding: 8px 15px 5px;
+    cursor: pointer;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+
+.govuk-radios-appeal .govuk-radios__item .govuk-details__summary {
+    margin-left: 15px;
+    position: relative;
+    top: -2px;
+}
+
+.govuk-button:disabled {
+    opacity: 0.5;
+}
+
+@media (min-width: 40.0625em){
+
+    .govuk-radios-appeal .govuk-radios__item {
+        font-size: 19px;
+        font-size: 1.1875rem;
+        line-height: 1.31579;
+    }
+
+    .govuk-radios-appeal .govuk-label {
+        font-size: 17px;
+        line-height: 1.31579;
+    }
+}
+
+/* ========================= ============== ===============================  */
+
+/* ========================= COMPONENT 8 ===============================  */
+
+.govuk-heading-l {
+    margin-left: 15px;
+    font-weight: 700;
+    font-size: 24px;
+    font-size: 1.5rem;
+    line-height: 1.04167;
+    display: block;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.govuk-width-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.govuk-grid-column-one-half {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    float: left;
+    margin-top: 30px;
+    padding: 15px;
+}
+
+.govuk-grid-column-one-half .govuk-heading-m {
+    font-weight: 700;
+    font-size: 18px;
+    font-size: 1.125rem;
+    line-height: 1.11111;
+    display: block;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.govuk-width-container .border {
+    border-right: 2px solid darkgrey;
+}
+
+.govuk-grid-column-one-half .govuk-label {
+    font-weight: 400;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #0b0c0c;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.govuk-grid-column-one-half .govuk-input {
+    font-weight: 400;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.25;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 75%;
+    height: 40px;
+    margin-top: 0;
+    padding: 5px;
+    border: 2px solid #0b0c0c;
+    border-radius: 0;
+    margin-bottom: 30px;
+}
+
+.govuk-grid-column-one-half .govuk-button {
+    width: 80px;
+    padding: 8px 0px 6px;
+}
+
+.govuk-grid-column-one-half a {
+    margin-bottom: 25px;
+}
+
+/* MOBILE */
+@media only screen and (max-width: 415px) {
+
+    .govuk-heading-l {
+        font-size: 36px;
+        font-size: 2.25rem;
+        line-height: 1.11111;
+    }
+
+    .govuk-width-container{
+        flex-direction: column;
+    }
+
+    .govuk-grid-column-one-half {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .govuk-width-container .border {
+        border: 0;
+        border-bottom: 2px solid darkgrey;
+    }
+
+    .govuk-grid-column-one-half .govuk-heading-m {
+        font-size: 24px;
+        font-size: 1.5rem;
+        line-height: 1.25;
+    }
+}
+
+/* ========================= ============== ===============================  */
+
+/* ========================= COMPONENT 9 ===============================  */
+
+.govuk-form-group .govuk-fieldset {
+    display: flex;
+    flex-direction: column;
+}
+
+.govuk-checkboxes__item {
+    margin: 25px 30px 0 0;
+}
+
+.govuk-checkboxes__input {
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    top: -2px;
+    left: -2px;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    opacity: 0;
+}
+
+.govuk-checkboxes__item .govuk-label {
+    position: relative;
+    top: -15px;
+    left: 40px;
+}
+
+.govuk-checkboxes__label {
+    display: inline-block;
+    margin-bottom: 0;
+    padding: 8px 15px 5px;
+    cursor: pointer;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+
+.govuk-checkboxes__label::before {
+    content: "";
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: -40px;
+    width: 40px;
+    height: 40px;
+    border: 2px solid currentColor;
+    background: transparent;
+}
+.govuk-checkboxes__label::after {
+    content: "";
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    top: 11px;
+    left: 9px;
+    width: 23px;
+    height: 12px;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    border: solid;
+    border-width: 0 0 5px 5px;
+    border-top-color: transparent;
+    opacity: 0;
+    background: transparent;
+}
+
+.govuk-checkboxes__item .govuk-body {
+    position: relative;
+    top: -20px;
+    left: 58px;
+}
+
+.govuk-form-group .govuk-fieldset .govuk-button {
+    margin: 5px 25px 30px 0;
+    width: 325px;
+}
+
+.govuk-form-group .govuk-fieldset .govuk-details__summary {
+    margin: 25px 0;
+    display: inline-block;
+    position: relative;
+    padding-left: 20px;
+    color: #1d70b8;
+    cursor: pointer;
+}
+
+/* MOBILE */
+@media only screen and (max-width: 415px) {
+    .govuk-checkboxes__item {
+        margin: 25px 65px 0 0;
+    }
+}
+
+/* ========================= ============== ===============================  */
+
+/* ========================= COMPONENT 10 ===============================  */
+
+.govuk-table {
+    font-weight: 400;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #0b0c0c;
+    width: 100%;
+    margin-bottom: 20px;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.govuk-table__caption--m {
+    font-weight: 700;
+    font-size: 18px;
+    font-size: 1.125rem;
+    line-height: 1.11111;
+    margin-bottom: 15px;
+}
+.govuk-table__caption {
+    font-weight: 700;
+    display: table-caption;
+    text-align: left;
+}
+
+.govuk-table__row {
+    border-top: 0.5px solid #b1b4b6;
+    border-bottom: 0.5px solid #b1b4b6;
+}
+
+.govuk-table__header, .govuk-table__cell {
+    padding: 10px 20px 10px 0;
+    text-align: left;
+    vertical-align: top;
+}
+
+.govuk-table__cell {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.govuk-table__header {
+    font-weight: 700;
+}
+
+.govuk-table .govuk-tag--grey {
+    color: #383f43;
+    background: #eeefef;
+}
+
+@media (min-width: 40.0625em){
+    .govuk-table {
+        margin-bottom: 30px;
+    }
+
+    .govuk-table {
+        font-size: 19px;
+        font-size: 1.1875rem;
+        line-height: 1.31579;
+    }
+
+    .govuk-table__caption--m {
+        font-size: 24px;
+        font-size: 1.5rem;
+        line-height: 1.25;
+    }
+
+    .govuk-table .govuk-tag {
+        font-size: 16px;
+        font-size: 1rem;
+        line-height: 1;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .govuk-table__cell {
+        top: 0.5px;
+    }
+}
+
+/* ========================= ============== ===============================  */
+
+/* ========================= COMMON ===============================  */
+
+body {
+    font-family: "GDS Transport",arial,sans-serif;
+}
+
+.govuk-button {
+    font-size: 16px;
+    line-height: 1.1875;
+    padding: 8px 20px 6px;
+    border: 2px solid transparent;
+    border-radius: 0;
+    color: #fff;
+    background-color: #00703c;
+    -webkit-box-shadow: 0 2px 0 #b1b4b6;
+    box-shadow: 0 2px 0 #b1b4b6;
+    cursor: pointer;
+    margin: 5px 25px 13px 0;
+}
+
+.govuk-button--secondary {
+    background-color: #f3f2f1;
+    color: #0b0c0c;
+}
+
+.govuk-details__summary {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    color: #1d70b8;
+    cursor: pointer;
+}
+
+.govuk-details__summary:before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent;
+    -webkit-clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+    border-width: 5px 0 5px 10.124px;
+    border-left-color: inherit;
+}
+
+.govuk-details__summary-text {
+    text-decoration: underline;
+}
+
+a {
+    color: 	#1d70b8;
+}
+
+.govuk-form-group {
+    margin-bottom: 20px;
+}
+
+.govuk-border__top {
+    border-top: 5px solid #1d70b8;
+}
+
+
+.govuk-notification {
+    border-bottom: 2px solid #b1b4b6;
+    padding: 5px 0;
+    margin-bottom: 4px;
+}
+
+.govuk-tag {
+    display: inline-block;
+    outline: 2px solid transparent;
+    outline-offset: -2px;
+    color: #fff;
+    background-color: #1d70b8;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1;
+    padding: 4px 8px 4px 8px;
+}
+
+.govuk-back-link {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+    width: 45px;
+    position: relative;
+    left: 5px;
+    align-items: center;
+}
+
+.govuk-back-link::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    clip-path: polygon(50% 0%, 0% 50%, 50% 100%);
+    border-width: 4px 0 4px 10.124px;
+    border-left-color: inherit;
+}
+
+.govuk-back-link__content {
+    position: relative;
+    font-style: none;
+    color: #0b0c0c;
+    text-decoration: none;
+    padding-left: 10px;
+}
+
+.govuk-fieldset {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#more-detail-hint, #more-detail {
+    line-height: 1.31579;
+}
+
+.govuk-banner {
+    padding-top: 15px;
+    border-bottom: 10px solid transparent;
+    background-color: #f3f2f1;
+    margin: 1.175rem 0;
+}
+
+.govuk-banner__message {
+    padding: 0 1.175rem;
+}
+
+.govuk-banner__heading {
+    margin: 0;
+}
+
+.govuk-banner__list {
+    padding: 0 1.175rem;
+    margin-top: 5px;
+    line-height: 1.31579;
+}
+
+@media (min-width: 40.0625em){
+
+    .govuk-form-group {
+        margin-bottom: 30px;
+    }
+}
