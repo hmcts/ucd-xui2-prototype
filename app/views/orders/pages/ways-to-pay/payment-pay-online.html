@@ -6,13 +6,14 @@
 
 {% block content %}
 <div>
-  <a href="payment-history-detail" class="govuk-back-link">Back</a>
+  <a href="payment-check-before-you-pay-2" class="govuk-back-link">Back</a>
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
         <h1 class="govuk-fieldset__heading">
           How do you want to pay?
         </h1>
+        <p class="govuk-hint" style="padding-top:10px;">Your total payment is <strong>£187.00</strong>.</p>
       </legend>
       <div class="govuk-radios" data-module="govuk-radios">
         <div class="govuk-radios__item">
@@ -20,12 +21,18 @@
           <label class="govuk-label govuk-radios__label" for="method-of-payment">
             Pay online
           </label>
+          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+            You can pay online with a credit or debit card?
+          </div>
         </div>
         <div class="govuk-radios__item">
           <input class="govuk-radios__input" id="method-of-payment-2" name="method-of-payment" type="radio" value="non-uk-bank-account">
           <label class="govuk-label govuk-radios__label" for="method-of-payment-2">
             Pay another way
           </label>
+          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+            You may be able to pay over the phone or with a cheque.
+          </div>
         </div>
       </div>
     </fieldset>
@@ -38,7 +45,7 @@
     }) }}
     {{ govukButton({
       text: "Cancel",
-      href: 'payment-pay-online-exit-message-1',
+      href: 'payment-pay-online-exit-message-2',
       classes: "govuk-button--secondary"
     }) }}
   </div>
