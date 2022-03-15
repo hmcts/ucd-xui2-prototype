@@ -51,7 +51,7 @@ My work
           <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: auto;" aria-sort="ascending"><button type="button" data-index="0">Case name</button></th>
           <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: auto;" aria-sort="none"><button type="button" data-index="1">Case category</button></th>
           <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: auto;" aria-sort="none"><button type="button" data-index="1">Location</button></th>
-          <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: 110px;" aria-sort="none"><button type="button" data-index="1">Task warnings</button></th>
+          <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: 110px;" aria-sort="none"><button type="button" data-index="1">Task alerts</button></th>
           <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: auto;" aria-sort="none"><button type="button" data-index="1">Task</button></th>
           <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: 130px;" aria-sort="none"><button type="button" data-index="1">Due date</button></th>
           <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: 130px;" aria-sort="none"><button type="button" data-index="1">Hearing date</button></th>
@@ -190,7 +190,16 @@ My work
       </tbody>
     </table>
 
-
+    <form method=""  action="#" class="for4" style=" float: left; margin-top: 60px;">
+      <p style="margin-bottom: 0px;">Select an option from the dropdown to see differnt design option</p>
+      <select size="1" name="hop" style="height:25px;" onchange="document.location.href=this.value">
+        <option selected value=""> Select an option</option>
+        <option value="wa-available-tasks-staff-option-5">Option 1</option>
+        <option value="wa-available-tasks-staff-option-6">Option 2</option>
+        <option value="wa-available-tasks-staff-option-7">Option 3</option>
+        <option value="wa-available-tasks-staff-option-8">Option 4</option>
+      </select>
+    </form>
 
 
     {% endblock %}
