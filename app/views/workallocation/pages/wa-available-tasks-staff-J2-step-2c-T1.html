@@ -28,7 +28,7 @@ My work
     <nav class="hmcts-sub-navigation">
       <ul class="hmcts-sub-navigation__list">
         <li class="hmcts-sub-navigation__item">
-          <a class="hmcts-sub-navigation__link" href="">
+          <a class="hmcts-sub-navigation__link" href="wa-my-tasks-staff-J2-step-1">
             My tasks
           </a>
         </li>
@@ -49,7 +49,7 @@ My work
         </li>
       </ul>
     </nav>
-    <p class="govuk-body">Displaying <strong>5</strong> of <strong>5</strong> tasks</p>
+    <p class="govuk-body">Displaying <strong>4</strong> of <strong>4</strong> tasks</p>
     <table class="govuk-table ">
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
@@ -58,35 +58,29 @@ My work
           <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: auto;" aria-sort="none"><button type="button" data-index="1">Location</button></th>
           <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: auto;" aria-sort="none"></th>
           <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: auto;" aria-sort="none"><button type="button" data-index="1">Task</button></th>
+          <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: 130px;" aria-sort="none"><button type="button" data-index="1">Due date</button></th>
+          <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: 130px;" aria-sort="none"><button type="button" data-index="1">Hearing date</button></th>
+          <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: auto;" aria-sort="none"><button type="button" data-index="1">Priority</button></th>
           <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-14" style="width: 100px;" aria-sort="none"></th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell govuk-body govuk-!-font-size-19" style="border-bottom: 1px solid #fff">Lacey-May Sanders</td>
-          <td class="govuk-table__cell govuk-body govuk-!-font-size-19" style="border-bottom: 1px solid #fff">Protection</td>
-          <td class="govuk-table__cell govuk-body govuk-!-font-size-19" style="border-bottom: 1px solid #fff">Taylor House</td>
-          <td class="govuk-table__cell govuk-body govuk-!-font-size-19" style="border-bottom: 1px solid #fff"></td>
-          <td class="govuk-table__cell govuk-body govuk-!-font-size-19" style="border-bottom: 1px solid #fff">Manage administration requests</td>
-          <td class="govuk-table__cell" style="border-bottom: 1px solid #fff">&nbsp;&nbsp;&nbsp;<a href="wa-available-tasks-staff-J1-step-2-T1" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
-        </tr>
-        <tr class="govuk-table__row" style="border-bottom: 1px solid #b1b4b6;">
-          <td colspan="9" class="right" style="text-align: right; margin-right:40px; padding-bottom:10px;">
-            <a href="wa-available-tasks-staff-J1-step-2b-T1" class="right" style="text-align: right; margin-right:40px;">
-              Assign to me
-            </a>
-            <a href="wa-available-tasks-staff-J2-step-3-T1" class="right_tl">
-              Assign to me and go to task
-            </a>
-          </td>
-        </tr>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell govuk-body govuk-!-font-size-19">Olivia-Rose Olsen</td>
           <td class="govuk-table__cell govuk-body govuk-!-font-size-19">Protection</td>
           <td class="govuk-table__cell govuk-body govuk-!-font-size-19">Taylor House</td>
           <td class="govuk-table__cell govuk-body govuk-!-font-size-19"></td>
           <td class="govuk-table__cell govuk-body govuk-!-font-size-19">Process bulk scan</td>
-          <td class="govuk-table__cell">&nbsp;&nbsp;&nbsp;<a href="wa-available-tasks-staff-J1-step-2-T2" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
+          <td class="govuk-table__cell">
+            23 July 2022
+          </td>
+          <td class="govuk-table__cell">
+            29 July 2022
+          </td>
+          <td class="govuk-table__cell govuk-body govuk-!-font-size-19">
+            <span class="hmcts-badge hmcts-badge--red">Urgent</span>
+          </td>
+          <td class="govuk-table__cell">&nbsp;&nbsp;&nbsp;<a href="wa-available-tasks-staff-J2-step-2-T2" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
         </tr>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell govuk-body govuk-!-font-size-19">John Pickering</td>
@@ -101,7 +95,19 @@ My work
             </svg>
           </td>
           <td class="govuk-table__cell govuk-body govuk-!-font-size-19">Link evidence to a case</td>
-          <td class="govuk-table__cell">&nbsp;&nbsp;&nbsp;<a href="wa-available-tasks-staff-J1-step-2-T3" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
+          <td class="govuk-table__cell">
+            24 July 2022
+          </td>
+          <td class="govuk-table__cell">
+            25 Aug 2022
+          </td>
+          <td class="govuk-table__cell">
+            {{govukTag({
+            text: "high",
+            classes: "govuk-tag--red"
+          })}}
+          </td>
+          <td class="govuk-table__cell">&nbsp;&nbsp;&nbsp;<a href="wa-available-tasks-staff-J2-step-2-T3" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
         </tr>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell govuk-body govuk-!-font-size-19">Neha Venkatanarasimharaj</td>
@@ -109,7 +115,17 @@ My work
           <td class="govuk-table__cell govuk-body govuk-!-font-size-19">Taylor House</td>
           <td class="govuk-table__cell govuk-body govuk-!-font-size-19"></td>
           <td class="govuk-table__cell govuk-body govuk-!-font-size-19">Create a new application</td>
-          <td class="govuk-table__cell">&nbsp;&nbsp;&nbsp;<a href="wa-available-tasks-staff-J1-step-2-T4" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
+          <td class="govuk-table__cell">24 July 2022</td>
+          <td class="govuk-table__cell">
+            29 Aug 2022
+          </td>
+          <td class="govuk-table__cell">
+            {{govukTag({
+            text: "medium",
+            classes: "govuk-tag--yellow"
+            })}}
+          </td>
+          <td class="govuk-table__cell">&nbsp;&nbsp;&nbsp;<a href="wa-available-tasks-staff-J2-step-2-T4" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
         </tr>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell govuk-body govuk-!-font-size-19">Hudson Remi</td>
@@ -124,7 +140,17 @@ My work
             </svg>
           </td>
           <td class="govuk-table__cell govuk-body govuk-!-font-size-19">Check automation errors</td>
-          <td class="govuk-table__cell">&nbsp;&nbsp;&nbsp;<a href="wa-available-tasks-staff-J1-step-2-T5" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
+          <td class="govuk-table__cell">25 July 2022</td>
+          <td class="govuk-table__cell">
+            29 Aug 2022
+          </td>
+          <td class="govuk-table__cell govuk-body govuk-!-font-size-19">
+            {{govukTag({
+            text: "low",
+            classes: "govuk-tag--grey"
+            })}}
+          </td>
+          <td class="govuk-table__cell">&nbsp;&nbsp;&nbsp;<a href="wa-available-tasks-staff-J2-step-2-T5" class="right_m">Manage</a><span class="govuk-accordion-wa__icon"></span></td>
         </tr>
       </tbody>
     </table>
