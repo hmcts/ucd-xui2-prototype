@@ -28,7 +28,7 @@ My work
           </a>
         </li>
         <li class="hmcts-sub-navigation__item">
-          <a class="hmcts-sub-navigation__link" href="wa-mycases-staff">
+          <a class="hmcts-sub-navigation__link" href="">
             Cases
           </a>
         </li>
@@ -68,12 +68,13 @@ My work
                 <input class="govuk-input" id="address-town" name="address-town" type="text">
               </div>
               </div>
+
             </div>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
             <form action="#" method="post" onsubmit="usePage(this, 'bob');">
               <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
-                <label class="govuk-heading-m" for="sort">
+                <label class="govuk-heading-m" for="person">
                   Person
                 </label>
                 <div class="govuk-radios">
@@ -113,10 +114,10 @@ My work
                 </div>
               </div>
               <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-              <label class="govuk-heading-m" for="sort">
+              <label class="govuk-heading-m" for="type-of-work">
                 Types of work
               </label>
-              <select class="govuk-select" id="sort" name="sort" style="width:100%">
+              <select class="govuk-select" id="type-of-work" name="type-of-work" style="width:100%">
                 <option value="published">Select types of work</option>
                 <option value="updated">Application</option>
                 <option value="views">Error Management</option>
@@ -124,10 +125,10 @@ My work
               </select>
               <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
               <div class="govuk-form-group">
-              <label class="govuk-heading-m" for="sort">
+              <label class="govuk-heading-m" for="role-type">
                 Role type
               </label>
-              <select class="govuk-select" id="sort" name="sort" style="width:100%">
+              <select class="govuk-select" id="role-type" name="role-type" style="width:100%">
                 <option value="updated" selected>All</option>
                 <option value="updated">CTSC</option>
                 <option value="updated">Judicial tasks</option>
@@ -138,10 +139,10 @@ My work
               </div>
               {% if  data.usertype !== 'judiciary'   %}
               <div class="govuk-form-group">
-              <label class="govuk-heading-m" for="sort">
-                Priority
+              <label class="govuk-heading-m" for="priority">
+                priority
               </label>
-              <select class="govuk-select" id="sort" name="sort" style="width:100%">
+              <select class="govuk-select" id="priority" name="priority" style="width:100%">
                 <option value="updated" selected>All</option>
                 <option value="views">Urgent (red)</option>
                 <option value="views">High (red)</option>
@@ -173,7 +174,7 @@ My work
               <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: auto;" aria-sort="ascending"><button type="button" data-index="0">Case name</button></th>
               <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: auto;" aria-sort="none"><button type="button" data-index="1">Case category</button></th>
               <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: auto;" aria-sort="none"><button type="button" data-index="1">Location</button></th>
-              <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: auto;" aria-sort="none"><button type="button" data-index="1">&nbsp;</button></th>
+              <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: auto;" aria-sort="none"></th>
               <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: auto;" aria-sort="none"><button type="button" data-index="1">Task</button></th>
               <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: auto;" aria-sort="none"><button type="button" data-index="1">Due date</button></th>
               <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-19" style="width: auto;" aria-sort="none"><button type="button" data-index="1">Hearing date</button></th>
